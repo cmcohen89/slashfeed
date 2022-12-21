@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { AiOutlinePlusCircle } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logout } from '../../store/session';
@@ -11,6 +10,12 @@ import './Navigation.css';
 const Navigation = () => {
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch();
+
+    const allPosts = useSelector(state => Object.values(state.allPosts))
+    const numArr = [];
+    for (let post of allPosts) numArr.push(post.id)
+    const randNum = numArr[Math.floor(Math.random() * numArr.length)];
+
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showSignupModal, setShowSignupModal] = useState(false);
     const [showCreateModal, setShowCreateModal] = useState(false);
@@ -44,11 +49,7 @@ const Navigation = () => {
                     <NavLink to='/'><img className='nav-logo' src='https://i.imgur.com/s9sq5Yk.png' alt='website logo' /></NavLink>
                 </span>
                 <ul className='nav-links'>
-                    <li>Link 1</li>
-                    <li>Link 2</li>
-                    <li>Link 3</li>
-                    <li>Link 4</li>
-                    <li>Link 5</li>
+                    <li className='slogan'>Get your news from your friends</li>
                     {!user ?
                         <li className='nav-login-link' onClick={() => setShowLoginModal(true)}>Log In</li>
                         :
@@ -61,20 +62,16 @@ const Navigation = () => {
                     }
                 </ul>
                 <ul className='nav-logos'>
-                    <li><i className="fa-solid fa-circle-dot"></i></li>
-                    <li><i className="fa-solid fa-circle-dot"></i></li>
-                    <li><i className="fa-solid fa-circle-dot"></i></li>
-                    <li><i className="fa-solid fa-circle-dot"></i></li>
-                    <li><i className="fa-solid fa-circle-dot"></i></li>
-                    <li><i className="fa-solid fa-circle-dot"></i></li>
-                    <li className='plus-icon' onClick={() => user ? setShowCreateModal(true) : setShowLoginModal(true)}><AiOutlinePlusCircle /></li>
+                    <a className='no-underline' href='https://github.com/cmcohen89/slashfeed' target='_blank'><li className='nav-logo-link'><i class="fa-brands fa-github"></i></li></a>
+                    <a className='no-underline' href='https://www.linkedin.com/in/christopher-cohen-94ab06236/' target='_blank'><li className='nav-logo-link'><i class="fa-brands fa-linkedin"></i></li></a>
+                    <a className='no-underline' href='https://open.spotify.com/artist/5geY86ww9VzZY3KocqkS8Q' target='_blank'><li className='nav-logo-link'><i class="fa-brands fa-spotify"></i></li></a>
+                    <a className='no-underline' href='https://www.instagram.com/pianomancan/' target='_blank'><li className='nav-logo-link'><i class="fa-brands fa-instagram"></i></li></a>
+                    <a className='no-underline' href='https://www.facebook.com/christopher.cohen.9/' target='_blank'><li className='nav-logo-link'><i class="fa-brands fa-facebook"></i></li></a>
+                    <NavLink className='no-underline' to={`/posts/${randNum}`}><li className='nav-logo-link' ><i class="fa-solid fa-question"></i></li></NavLink>
                 </ul>
-                <span className='nav-newsletter'><i className="fa-solid fa-envelope envelope"></i>Newsletter</span>
-                {/* {showLoginModal && <Modal onClose={() => setShowLoginModal(false)}><LoginForm setShowLoginModal={setShowLoginModal} /></Modal>} */}
-                {/* {showSignupModal && <Modal onClose={() => setShowSignupModal(false)}><SignUpForm setShowSignupModal={setShowSignupModal} /></Modal>} */}
-                {/* {showCreateModal && <Modal onClose={() => setShowCreateModal(false)}><CreatePostForm setShowCreateModal={setShowCreateModal} /></Modal>} */}
+                <span className='nav-update' onClick={() => user ? setShowCreateModal(true) : setShowLoginModal(true)}>Create Post</span>
             </div>
-        </div>
+        </div >
     )
 }
 
