@@ -25,9 +25,7 @@
 
 .nav-logo {
     height: 160px;
-    position: relative;
-    top: -60px;
-    left: 15px;
+    margin-bottom: 122px;
 }
 
 .nav-links {
@@ -40,6 +38,7 @@
     width: 700px;
     list-style: none;
     text-transform: uppercase;
+    margin-left: -40px;
 }
 
 .nav-login-link {
