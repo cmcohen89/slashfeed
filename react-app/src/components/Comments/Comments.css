@@ -1,0 +1,29 @@
+.single-post-comments {
+    border: 1px solid #D7D7D6;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.comments-title {
+    margin-bottom: 10px;
+}
+
+.comment-user {
+    list-style: none;
+    color: #3A4148;
+}
+
+.comment-timestamp {
+    color: #3A4148;
+    font-weight: 100;
+}
+
+.comment-body {
+    margin-bottom: 20px;
+}
+
+.update-comment-form {
+    margin-bottom: 20px;
+}

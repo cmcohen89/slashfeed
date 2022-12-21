@@ -1,19 +1,46 @@
 from app.models import db, Post, User
 
 def seed_likes():
-    post1 = Post.query.get(1)
     demo = User.query.get(1)
-
-    post2 = Post.query.get(2)
     jamie = User.query.get(2)
-
-    post3 = Post.query.get(1)
     jordan = User.query.get(3)
+    steve = User.query.get(4)
+    maria = User.query.get(5)
+    shaina = User.query.get(6)
+    brennen = User.query.get(7)
+    andrew = User.query.get(8)
+    sara = User.query.get(9)
+
+    post1 = Post.query.get(1)
+    post2 = Post.query.get(2)
+    post3 = Post.query.get(3)
+    post4 = Post.query.get(4)
+    post5 = Post.query.get(5)
+    post6 = Post.query.get(6)
+    post7 = Post.query.get(7)
+    post8 = Post.query.get(8)
+    post9 = Post.query.get(9)
 
     demo.user_likes.append(post2)
     demo.user_likes.append(post3)
-    jamie.user_likes.append(post3)
-    jordan.user_likes.append(post1)
+    demo.user_likes.append(post4)
+    demo.user_likes.append(post5)
+    jamie.user_likes.append(post4)
+    jamie.user_likes.append(post6)
+    jamie.user_likes.append(post7)
+    jamie.user_likes.append(post8)
+    jordan.user_likes.append(post9)
+    jordan.user_likes.append(post5)
+    jordan.user_likes.append(post4)
+    jordan.user_likes.append(post6)
+    steve.user_likes.append(post4)
+    steve.user_likes.append(post7)
+    steve.user_likes.append(post8)
+    steve.user_likes.append(post6)
+    maria.user_likes.append(post3)
+    maria.user_likes.append(post4)
+    maria.user_likes.append(post5)
+    maria.user_likes.append(post6)
 
     db.session.commit()
 

@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { postSinglePost, putSinglePost } from '../../store/one_post';
+import { putSinglePost } from '../../store/one_post';
 import './CreatePostForm.css';
 
 const UpdatePostForm = ({ post }) => {
-    const history = useHistory();
     const dispatch = useDispatch();
     const [title, setTitle] = useState(post.title);
     const [body, setBody] = useState(post.body);
@@ -17,8 +15,8 @@ const UpdatePostForm = ({ post }) => {
     }
 
     return (
-        <div>
-            <h1>Update Post</h1>
+        <div className='update-post-form'>
+            <h2>Update Post</h2>
             <form onSubmit={handleSubmit}>
                 {errors.length > 0 && (
                     <ul className='product-form-header-errors'>
@@ -27,25 +25,31 @@ const UpdatePostForm = ({ post }) => {
                         ))}
                     </ul>
                 )}
-                <label htmlFor='title-input'>Title</label>
-                <input
-                    required
-                    name='title-input'
-                    onChange={e => setTitle(e.target.value)}
-                    value={title}
-                    placeholder="Post title"
-                    type='text'
-                />
+                <div>
+                    <label htmlFor='title-input'>Title</label>
+                    <input
+                        required
+                        className='update-title'
+                        name='title-input'
+                        onChange={e => setTitle(e.target.value)}
+                        value={title}
+                        placeholder="Post title"
+                        type='text'
+                    />
+                </div>
                 <label htmlFor='body-input'>Body</label>
-                <input
+                <textarea
                     required
+                    className='update-body'
                     name='body-input'
                     onChange={e => setBody(e.target.value)}
                     value={body}
                     placeholder="Post body"
                     type='text'
                 />
-                <button type='submit'>SUBMIT</button>
+                <div>
+                    <button type='submit'>Submit Update</button>
+                </div>
             </form>
         </div>
     )

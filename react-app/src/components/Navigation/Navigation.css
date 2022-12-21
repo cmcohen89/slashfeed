@@ -1,0 +1,93 @@
+.navigation-wrapper {
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 62px;
+    z-index: 100;
+    box-shadow: 0 0 9px 0 rgb(117 124 131 / 36%)
+}
+
+.navigation-container {
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.profile-lines {
+    font-size: 20px;
+    color: #808A8C;
+}
+
+.nav-logo {
+    height: 160px;
+    position: absolute;
+    top: -112px;
+    left: 45px;
+}
+
+.nav-links {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 700px;
+    list-style: none;
+    text-transform: uppercase;
+    margin-left: 150px;
+}
+
+.nav-login-link {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.nav-login-link:hover {
+    color: #21BFE1;
+}
+
+.nav-logos {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    width: 300px;
+    color: #808A8C;
+}
+
+.nav-newsletter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    height: 34px;
+    width: 150px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    background-color: #21BFE1;
+    color: white;
+    padding: 10px;
+}
+
+.envelope {
+    margin-right: 5px;
+}
+
+.plus-icon {
+    padding-top: 3px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.plus-icon:hover {
+    color: #21BFE1;
+}

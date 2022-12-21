@@ -20,20 +20,24 @@ const SinglePost = () => {
     if (!singlePost) return null;
 
     return (
-        <div>
-            <h1>Check out this single post, bitch!</h1>
-            <h2>{singlePost.postOwner.firstName}'s Post</h2>
-            <h3>{singlePost.title}</h3>
-            <p>{singlePost.body}</p>
-            <img src={singlePost.postImages[singlePost.previewImgId].url} alt="" />
-            <h4>{singlePost.likes} likes!</h4>
-            <UpdatePostForm post={singlePost} />
-            <button onClick={async () => {
-                await dispatch(deletePost(singlePost.id))
-                history.push('/')
-            }}>Delete Post</button>
+        <div className="single-post-page">
+            <h3 className="single-post-title">{singlePost.title}</h3>
+            <img className="single-post-img" src={singlePost.postImages[singlePost.previewImgId].url} alt="" />
+            <div className="single-post-subheader">
+                <span>
+                    <span className="single-post-user">{singlePost.postOwner.username}&nbsp;&nbsp; / &nbsp;&nbsp;</span>
+                    <span className="single-post-date">{singlePost.createdAt}</span>
+                </span>
+                <span>{singlePost.likes}&nbsp;&nbsp;<i className="fa-solid fa-thumbs-up"></i></span>
+            </div>
+            <p className="single-post-body">{singlePost.body}</p>
+            <Comments postId={singlePost.id} />
             <div>
-                <Comments postId={singlePost.id} />
+                <UpdatePostForm post={singlePost} />
+                <button onClick={async () => {
+                    await dispatch(deletePost(singlePost.id))
+                    history.push('/')
+                }}>Delete Post</button>
             </div>
         </div>
     )

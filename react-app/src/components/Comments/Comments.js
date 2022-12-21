@@ -14,14 +14,14 @@ const Comments = ({ postId }) => {
     }, [dispatch, postId])
 
     return (
-        <div>
-            <h4>Check out these comments, bitch!</h4>
+        <div className='single-post-comments'>
+            <h4 className='comments-title'>Comments</h4>
             <ul>
                 {comments.map(comment => (
-                    <div>
-                        <span>{comment.createdAt}</span>
-                        <li>{comment.commentOwner.firstName}: {comment.body} <UpdateCommentForm comment={comment} /></li>
-                        <button onClick={() => { dispatch(deleteComment(comment.id)) }}>Delete Comment</button>
+                    <div className='one-comment'>
+                        <h4 className='comment-user'>{comment.commentOwner.username}<span className='comment-timestamp'>&nbsp;&nbsp;/&nbsp;&nbsp;{comment.createdAt}</span></h4>
+                        <p className='comment-body'>{comment.body}&nbsp;&nbsp;<button onClick={() => { dispatch(deleteComment(comment.id)) }}>Delete Comment</button></p>
+                        <UpdateCommentForm comment={comment} />
                     </div>
                 ))}
             </ul>

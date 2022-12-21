@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { postSinglePost } from '../../store/one_post';
 import './CreatePostForm.css';
 
-const CreatePostForm = () => {
+const CreatePostForm = ({ setShowCreateModal }) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
@@ -17,6 +17,7 @@ const CreatePostForm = () => {
 
         const newPost = await dispatch(postSinglePost({ title, body, preview_img_url }));
         if (newPost) history.push(`/posts/${newPost.id}`);
+        setShowCreateModal(false);
     }
 
     return (
