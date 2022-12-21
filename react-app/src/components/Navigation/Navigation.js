@@ -21,7 +21,7 @@ const Navigation = () => {
             <div className="navigation-container">
                 <span className='profile-lines'><i className="fa-solid fa-bars bars"></i></span>
                 <span>
-                    <NavLink to='/'><img className='nav-logo' src='/images/logo2.png' alt='website logo' /></NavLink>
+                    <NavLink to='/'><img className='nav-logo' src='https://i.imgur.com/s9sq5Yk.png' alt='website logo' /></NavLink>
                 </span>
                 <ul className='nav-links'>
                     <li>Link 1</li>
