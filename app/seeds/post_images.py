@@ -46,6 +46,16 @@ def seed_post_images():
         post_id=9,
     )
 
+    post_img10 = PostImage(
+        url='https://media-cdn.tripadvisor.com/media/photo-m/1280/26/13/12/2a/caption.jpg',
+        post_id=10,
+    )
+
+    post_img11 = PostImage(
+        url='https://www.gotolouisville.com/imager/assets_simpleviewinc_com/simpleview/image/upload/c_fit,w_800,h_600/crm/louisville/D-B-353674715056a34_35367572-5056-a348-3a8d4432d95bab5d_f69c17b56b270deda0220b2ba6b4d051.jpg',
+        post_id=11,
+    )
+
     db.session.add(post_img1)
     db.session.add(post_img2)
     db.session.add(post_img3)
@@ -55,6 +65,8 @@ def seed_post_images():
     db.session.add(post_img7)
     db.session.add(post_img8)
     db.session.add(post_img9)
+    db.session.add(post_img10)
+    db.session.add(post_img11)
     db.session.commit()
 
 def undo_post_images():
