@@ -43,7 +43,7 @@
 }
 
 .login-button {
-    margin-top: 90px;
+    margin-top: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,6 +65,31 @@
 
 .login-button:hover {
     box-shadow: 0 0 15px #21bee171;
+}
+
+.login-button2 {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    height: 34px;
+    width: 250px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    background-color: #7f5ae5;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    transition: box-shadow .2s ease-out;
+}
+
+.login-button2:hover {
+    box-shadow: 0 0 15px #7f5ae5;
 }
 
 .login-errors {

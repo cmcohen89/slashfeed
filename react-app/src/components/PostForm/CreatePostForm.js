@@ -42,29 +42,31 @@ const CreatePostForm = ({ setShowCreateModal }) => {
                         <div key={ind}>{error}</div>
                     ))}
                 </div>
-                <div className='login-div'>
-                    <label className='login-label' htmlFor='title-input'>Title</label>
-                    <input
-                        className='create-input'
-                        required
-                        name='title-input'
-                        onChange={e => setTitle(e.target.value)}
-                        value={title}
-                        placeholder="Post title"
-                        type='text'
-                    />
-                </div>
-                <div className='login-div'>
-                    <label className='login-label' htmlFor='url-input'>Image URL</label>
-                    <input
-                        className='create-input'
-                        required
-                        name='url-input'
-                        onChange={e => setPreviewImgUrl(e.target.value)}
-                        value={preview_img_url}
-                        placeholder="Post image"
-                        type='text'
-                    />
+                <div className='horizontal-create'>
+                    <div className='login-div'>
+                        <label className='login-label' htmlFor='title-input'>Title</label>
+                        <input
+                            className='create-input'
+                            required
+                            name='title-input'
+                            onChange={e => setTitle(e.target.value)}
+                            value={title}
+                            placeholder="Post title"
+                            type='text'
+                        />
+                    </div>
+                    <div className='login-div'>
+                        <label className='login-label' htmlFor='url-input'>Image URL</label>
+                        <input
+                            className='create-input'
+                            required
+                            name='url-input'
+                            onChange={e => setPreviewImgUrl(e.target.value)}
+                            value={preview_img_url}
+                            placeholder="Post image"
+                            type='text'
+                        />
+                    </div>
                 </div>
                 <div className='login-div'>
                     <label className='login-label' htmlFor='body-input'>Body</label>

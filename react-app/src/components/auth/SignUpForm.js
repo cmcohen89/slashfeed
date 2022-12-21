@@ -59,9 +59,9 @@ const SignUpForm = ({ setShowSignupModal }) => {
         setRepeatPassword(e.target.value);
     };
 
-    if (user) {
-        return <Redirect to='/' />;
-    }
+    // if (user) {
+    //     return <Redirect to='/' />;
+    // }
 
     return (
         <form className='login-form' onSubmit={onSignUp}>
@@ -72,76 +72,80 @@ const SignUpForm = ({ setShowSignupModal }) => {
                 ))} */}
                 {errors[0]}
             </div>
-            <div className='signup-div'>
-                <label className='signup-label'>First Name</label>
-                <input
-                    className='login-input'
-                    type='text'
-                    name='firstname'
-                    onChange={updateFirstName}
-                    value={first_name}
-                ></input>
+            <div className='horizontal-signup'>
+                <div className='signup-div'>
+                    <label className='signup-label'>First Name</label>
+                    <input
+                        className='login-input'
+                        type='text'
+                        name='firstname'
+                        onChange={updateFirstName}
+                        value={first_name}
+                    ></input>
+                </div>
+                <div className='signup-div'>
+                    <label className='signup-label'>Last Name</label>
+                    <input
+                        className='login-input'
+                        type='text'
+                        name='lastname'
+                        onChange={updateLastName}
+                        value={last_name}
+                    ></input>
+                </div>
+                <div className='signup-div'>
+                    <label className='signup-label'>User Name</label>
+                    <input
+                        className='login-input'
+                        type='text'
+                        name='username'
+                        onChange={updateUsername}
+                        value={username}
+                    ></input>
+                </div>
+                <div className='signup-div'>
+                    <label className='signup-label'>Email</label>
+                    <input
+                        className='login-input'
+                        type='text'
+                        name='email'
+                        onChange={updateEmail}
+                        value={email}
+                    ></input>
+                </div>
             </div>
-            <div className='signup-div'>
-                <label className='signup-label'>Last Name</label>
-                <input
-                    className='login-input'
-                    type='text'
-                    name='lastname'
-                    onChange={updateLastName}
-                    value={last_name}
-                ></input>
-            </div>
-            <div className='signup-div'>
-                <label className='signup-label'>User Name</label>
-                <input
-                    className='login-input'
-                    type='text'
-                    name='username'
-                    onChange={updateUsername}
-                    value={username}
-                ></input>
-            </div>
-            <div className='signup-div'>
-                <label className='signup-label'>Email</label>
-                <input
-                    className='login-input'
-                    type='text'
-                    name='email'
-                    onChange={updateEmail}
-                    value={email}
-                ></input>
-            </div>
-            <div className='signup-div'>
-                <label className='signup-label'>Profile Image URL</label>
-                <input
-                    className='login-input'
-                    type='text'
-                    name='profileImgUrl'
-                    onChange={updateProfileImgUrl}
-                    value={profile_img_url}
-                ></input>
-            </div>
-            <div className='signup-div'>
-                <label className='signup-label'>Password</label>
-                <input
-                    className='login-input'
-                    type='password'
-                    name='password'
-                    onChange={updatePassword}
-                    value={password}
-                ></input>
-            </div>
-            <div className='signup-div'>
-                <label className='signup-label'>Repeat Password</label>
-                <input
-                    className='login-input'
-                    type='password'
-                    name='repeat_password'
-                    onChange={updateRepeatPassword}
-                    value={repeatPassword}
-                    required={true}
-                ></input>
+            <div className='horizontal-signup'>
+                <div className='signup-div'>
+                    <label className='signup-label'>Profile Image URL</label>
+                    <input
+                        className='login-input'
+                        type='text'
+                        name='profileImgUrl'
+                        onChange={updateProfileImgUrl}
+                        value={profile_img_url}
+                    ></input>
+                </div>
+                <div className='signup-div'>
+                    <label className='signup-label'>Password</label>
+                    <input
+                        className='login-input'
+                        type='password'
+                        name='password'
+                        onChange={updatePassword}
+                        value={password}
+                    ></input>
+                </div>
+                <div className='signup-div'>
+                    <label className='signup-label'>Repeat Password</label>
+                    <input
+                        className='login-input'
+                        type='password'
+                        name='repeat_password'
+                        onChange={updateRepeatPassword}
+                        value={repeatPassword}
+                        required={true}
+                    ></input>
+                </div>
             </div>
             <button className='signup-button' type='submit'>Sign Up</button>
         </form>

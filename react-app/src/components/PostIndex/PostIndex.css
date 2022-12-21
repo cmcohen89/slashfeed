@@ -154,6 +154,7 @@
     font-family: "Rubik", sans-serif;
     height: 267px;
     padding: 0 22px;
+    word-break: break-word;
 }
 
 .relationship {
