@@ -42,6 +42,13 @@ export const postSinglePost = payload => async dispatch => {
         const post = await response.json();
         dispatch(loadSinglePost(post));
         return post;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     }
 };
 

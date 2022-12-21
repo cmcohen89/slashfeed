@@ -185,6 +185,23 @@
 .one-post-body {
     color: #3A4148;
     font-size: 16px;
+    overflow-y: auto;
+    max-height: 60px;
+}
+
+.one-post-body::-webkit-scrollbar {
+    width: 20px;
+}
+
+.one-post-body::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.one-post-body::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
 }
 
 .one-post-likes {

@@ -6,7 +6,6 @@ import './CommentForm.css';
 const CommentForm = ({ postId }) => {
     const dispatch = useDispatch();
     const [body, setBody] = useState('');
-    const [errors, setErrors] = useState([]);
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -15,17 +14,10 @@ const CommentForm = ({ postId }) => {
     }
 
     return (
-        <div>
-            <h2>Leave a comment</h2>
-            <form onSubmit={handleSubmit}>
-                {errors.length > 0 && (
-                    <ul className='product-form-header-errors'>
-                        {errors.map((error, idx) => (
-                            <li key={idx}>{error}</li>
-                        ))}
-                    </ul>
-                )}
-                <input
+        <div className='comment-form-div'>
+            <form className='comment-form' onSubmit={handleSubmit}>
+                <textarea
+                    className='comment-form-textarea'
                     required
                     name='body-input'
                     onChange={e => setBody(e.target.value)}
@@ -33,7 +25,9 @@ const CommentForm = ({ postId }) => {
                     placeholder="Write your comment here!"
                     type='text'
                 />
-                <button type='submit'>Submit</button>
+                <div className='comment-form-button-wrapper'>
+                    <button className='comment-form-button' type='submit'>Leave comment</button>
+                </div>
             </form>
         </div>
     )
