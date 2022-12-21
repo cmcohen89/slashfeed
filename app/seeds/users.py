@@ -20,7 +20,7 @@ def seed_users():
     jordan = User(
         first_name='Jordan',
         last_name='Litman',
-        username='jdawg1184',
+        username='jdawg1185',
         password='password',
         email='jordan@aa.io',
         profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
