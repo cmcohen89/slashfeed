@@ -7,6 +7,7 @@ import './Comments.css';
 
 const Comments = ({ postId }) => {
     const dispatch = useDispatch();
+    const user = useSelector(state => state.session.user)
     const comments = useSelector(state => Object.values(state.comments));
 
     useEffect(() => {
@@ -20,13 +21,13 @@ const Comments = ({ postId }) => {
                 {comments.map(comment => (
                     <div className='one-comment'>
                         <h4 className='comment-user'>{comment.commentOwner.username}<span className='comment-timestamp'>&nbsp;&nbsp;/&nbsp;&nbsp;{comment.createdAt}</span></h4>
-                        <p className='comment-body'>{comment.body}&nbsp;&nbsp;<button onClick={() => { dispatch(deleteComment(comment.id)) }}>Delete Comment</button></p>
-                        <UpdateCommentForm comment={comment} />
+                        <p className='comment-body'>{comment.body}&nbsp;&nbsp;{user ? user.id === comment.commentOwner.id && <button onClick={() => { dispatch(deleteComment(comment.id)) }}>Delete Comment</button> : ''}</p>
+                        {user ? user.id === comment.commentOwner.id && <UpdateCommentForm comment={comment} /> : ""}
                     </div>
                 ))}
             </ul>
             <div>
-                <CommentForm postId={postId} />
+                {user && <CommentForm postId={postId} />}
             </div>
         </div>
     )

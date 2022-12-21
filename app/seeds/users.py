@@ -55,14 +55,14 @@ def seed_users():
     andrew = User(
         first_name='Andrew',
         last_name='Stalzer',
-        username='dirtiestangeXO',
+        username='dirtiestangeWoW',
         password='password',
         email='andrew@aa.io',
         profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
     sara = User(
         first_name='Sara',
         last_name='Doughlop',
-        username='doughloppopatumus',
+        username='doughlopopotamus',
         password='password',
         email='sara@aa.io',
         profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')

@@ -14,10 +14,20 @@ const CreatePostForm = ({ setShowCreateModal }) => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-
-        const newPost = await dispatch(postSinglePost({ title, body, preview_img_url }));
-        if (newPost) history.push(`/posts/${newPost.id}`);
-        setShowCreateModal(false);
+        let errors = [];
+        if (title.length < 2 || title.length > 50) errors.push("Let's keep titles between 2 and 50 characters.")
+        if (body.length < 20) errors.push("Tell us more about this post!")
+        if (errors.length > 0) {
+            setErrors(errors);
+        } else {
+            const data = await dispatch(postSinglePost({ title, body, preview_img_url }));
+            if (data.errors) {
+                setErrors(data.errors)
+            } else {
+                history.push(`/posts/${data.id}`);
+                setShowCreateModal(false);
+            }
+        }
     }
 
     return (
@@ -49,7 +59,7 @@ const CreatePostForm = ({ setShowCreateModal }) => {
                     placeholder="Post body"
                     type='text'
                 />
-                <label htmlFor='url-input'>Body</label>
+                <label htmlFor='url-input'>Image URL</label>
                 <input
                     required
                     name='url-input'

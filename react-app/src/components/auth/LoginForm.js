@@ -13,10 +13,7 @@ const LoginForm = ({ setShowLoginModal }) => {
     const onLogin = async (e) => {
         e.preventDefault();
         const data = await dispatch(login(email, password));
-        if (data) {
-            setErrors(data);
-        }
-        setShowLoginModal(false);
+        data ? setErrors(data) : setShowLoginModal(false);
     };
 
     const updateEmail = (e) => {
