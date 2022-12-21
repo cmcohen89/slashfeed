@@ -15,7 +15,7 @@ const UpdateCommentForm = ({ comment }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='update-comment-form' onSubmit={handleSubmit}>
             {errors.length > 0 && (
                 <ul className='product-form-header-errors'>
                     {errors.map((error, idx) => (

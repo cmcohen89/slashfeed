@@ -10,13 +10,13 @@ const CommentForm = ({ postId }) => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-
+        setBody('');
         await dispatch(postComment(body, postId));
     }
 
     return (
         <div>
-            <h1>Leave a Comment</h1>
+            <h2>Leave a comment</h2>
             <form onSubmit={handleSubmit}>
                 {errors.length > 0 && (
                     <ul className='product-form-header-errors'>
@@ -25,13 +25,12 @@ const CommentForm = ({ postId }) => {
                         ))}
                     </ul>
                 )}
-                <label htmlFor='body-input'>Body</label>
                 <input
                     required
                     name='body-input'
                     onChange={e => setBody(e.target.value)}
                     value={body}
-                    placeholder="Post body"
+                    placeholder="Write your comment here!"
                     type='text'
                 />
                 <button type='submit'>Submit</button>
