@@ -18,6 +18,12 @@
     transition: all .2s ease-out;
 }
 
+.create-input:focus {
+    outline: none !important;
+    border: 1px solid #21BFE1;
+    box-shadow: 0 0 10px #21bee1a5;
+}
+
 .create-textarea {
     font-family: "Rubik", sans-serif;
     padding-top: 10px;
@@ -29,6 +35,12 @@
     border: 1px solid #d6d6d7;
     transition: all .2s ease-out;
     resize: none;
+}
+
+.create-textarea:focus {
+    outline: none !important;
+    border: 1px solid #21BFE1;
+    box-shadow: 0 0 10px #21bee1a5;
 }
 
 .create-button {

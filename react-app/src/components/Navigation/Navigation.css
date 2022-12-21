@@ -24,6 +24,7 @@
 }
 
 .nav-logo {
+    margin-left: 10px;
     height: 160px;
     margin-bottom: 122px;
 }
@@ -38,13 +39,14 @@
     width: 700px;
     list-style: none;
     text-transform: uppercase;
-    margin-left: -40px;
 }
 
 .nav-login-link {
     text-decoration: none;
     color: black;
     cursor: pointer;
+    transition: color .2s ease;
+    color: rgba(0, 0, 0, 0.508);
 }
 
 .nav-login-link:hover {
@@ -58,9 +60,19 @@
     list-style: none;
     width: 300px;
     color: #808A8C;
+    font-size: 22px;
 }
 
-.nav-newsletter {
+.nav-logo-link {
+    cursor: pointer;
+    transition: color .2s ease;
+}
+
+.nav-logo-link:hover {
+    color: #21BFE1;
+}
+
+.nav-update {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,18 +86,28 @@
     background-color: #21BFE1;
     color: white;
     padding: 10px;
+    cursor: pointer;
+    transition: box-shadow .2s ease;
+}
+
+.nav-update:hover {
+    box-shadow: 0 0 15px #21bee171;
 }
 
 .envelope {
     margin-right: 5px;
 }
 
-.plus-icon {
-    padding-top: 3px;
-    font-size: 20px;
-    cursor: pointer;
-}
 
 .plus-icon:hover {
     color: #21BFE1;
+}
+
+.slogan {
+    color: rgba(0, 0, 0, 0.508);
+}
+
+.no-underline {
+    text-decoration: none;
+    color: #808A8C;
 }
