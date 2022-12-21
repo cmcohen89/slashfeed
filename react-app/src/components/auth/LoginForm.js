@@ -15,7 +15,15 @@ const LoginForm = ({ setShowLoginModal }) => {
         e.preventDefault();
         const data = await dispatch(login(email, password));
         data ? setErrors(data) : setShowLoginModal(false);
+        if (!data) setErrors([]);
     };
+
+    const handleDemo = async (e) => {
+        e.preventDefault();
+        const data = await dispatch(login('demo@aa.io', 'password'));
+        data ? setErrors(data) : setShowLoginModal(false);
+        if (!data) setErrors([]);
+    }
 
     const updateEmail = (e) => {
         setEmail(e.target.value);
@@ -25,9 +33,9 @@ const LoginForm = ({ setShowLoginModal }) => {
         setPassword(e.target.value);
     };
 
-    if (user) {
-        return <Redirect to='/' />;
-    }
+    // if (user) {
+    //     return <Redirect to='/' />;
+    // }
 
     return (
         <form className='login-form' onSubmit={onLogin}>
@@ -61,6 +69,7 @@ const LoginForm = ({ setShowLoginModal }) => {
                     onChange={updatePassword}
                 />
                 <button className='login-button' type='submit'>Login</button>
+                <button className='login-button2' onClick={handleDemo}>Login as Demo User</button>
             </div>
         </form>
     );

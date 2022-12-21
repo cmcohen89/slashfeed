@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { getPosts } from '../../store/all_posts';
 import { putSinglePost } from '../../store/one_post';
 import './CreatePostForm.css';
 
-const UpdatePostForm = ({ post }) => {
+const UpdatePostForm = ({ post, setUpdatePost }) => {
     const dispatch = useDispatch();
     const [title, setTitle] = useState(post.title);
     const [body, setBody] = useState(post.body);
@@ -11,25 +12,34 @@ const UpdatePostForm = ({ post }) => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        await dispatch(putSinglePost({ title, body }, post.id));
+        let errors = [];
+        if (title.length < 2 || title.length > 50) errors.push("Let's keep titles between 2 and 50 characters.")
+        if (body.length < 20) errors.push("Tell us more about this post!")
+        if (errors.length) {
+            setErrors(errors);
+        } else {
+            const new_post = await dispatch(putSinglePost({ title, body }, post.id));
+            if (new_post) {
+                await dispatch(getPosts());
+                setUpdatePost(false);
+            }
+        }
     }
 
     return (
-        <div className='update-post-form'>
-            <h2>Update Post</h2>
+        <div className='create-form'>
+            <h2 className='login-title'>Update Post</h2>
             <form onSubmit={handleSubmit}>
-                {errors.length > 0 && (
-                    <ul className='product-form-header-errors'>
-                        {errors.map((error, idx) => (
-                            <li key={idx}>{error}</li>
-                        ))}
-                    </ul>
-                )}
-                <div>
-                    <label htmlFor='title-input'>Title</label>
+                <div className='update-errors'>
+                    {errors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                </div>
+                <div className='login-div'>
+                    <label className='login-label' htmlFor='title-input'>Title</label>
                     <input
                         required
-                        className='update-title'
+                        className='create-input'
                         name='title-input'
                         onChange={e => setTitle(e.target.value)}
                         value={title}
@@ -37,19 +47,19 @@ const UpdatePostForm = ({ post }) => {
                         type='text'
                     />
                 </div>
-                <label htmlFor='body-input'>Body</label>
-                <textarea
-                    required
-                    className='update-body'
-                    name='body-input'
-                    onChange={e => setBody(e.target.value)}
-                    value={body}
-                    placeholder="Post body"
-                    type='text'
-                />
-                <div>
-                    <button type='submit'>Submit Update</button>
+                <div className='login-div'>
+                    <label className='login-label' htmlFor='body-input'>Body</label>
+                    <textarea
+                        required
+                        className='create-textarea'
+                        name='body-input'
+                        onChange={e => setBody(e.target.value)}
+                        value={body}
+                        placeholder="Post body"
+                        type='text'
+                    />
                 </div>
+                <button className='create-button' type='submit'>Submit Update</button>
             </form>
         </div>
     )

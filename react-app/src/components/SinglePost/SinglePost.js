@@ -1,14 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
-import { deletePost } from "../../store/all_posts";
+import { useParams } from "react-router-dom";
 import { getSinglePost } from "../../store/one_post";
 import Comments from "../Comments/Comments";
-import UpdatePostForm from "../PostForm/UpdatePostForm";
 import './SinglePost.css';
 
 const SinglePost = () => {
-    const history = useHistory();
     const dispatch = useDispatch();
     const { id } = useParams();
     const singlePost = useSelector(state => state.onePost[id]);
@@ -32,13 +29,6 @@ const SinglePost = () => {
             </div>
             <p className="single-post-body">{singlePost.body}</p>
             <Comments postId={singlePost.id} />
-            <div>
-                <UpdatePostForm post={singlePost} />
-                <button onClick={async () => {
-                    await dispatch(deletePost(singlePost.id))
-                    history.push('/')
-                }}>Delete Post</button>
-            </div>
         </div>
     )
 }

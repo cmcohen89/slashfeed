@@ -1,0 +1,49 @@
+.profile-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-top: 200px;
+}
+
+.profile-grid-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    padding-bottom: 100px;
+}
+
+.one-profile-post {
+    width: 438px;
+    height: 515px;
+    border: 1px solid #d7d7d7;
+    margin: 1.25em 1.25em;
+}
+
+.profile-title {
+    font-family: "Rubik", sans-serif;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 50px;
+}
+
+.profile-buttons {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 18px;
+    color: #3A4148;
+    cursor: pointer;
+}
+
+.update-errors {
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+    height: 40px;
+}

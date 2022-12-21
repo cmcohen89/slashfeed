@@ -100,7 +100,7 @@
 }
 
 .modal.update-show {
-    bottom: 40vh;
+    bottom: 25vh;
 }
 
 .update-title {
@@ -112,4 +112,61 @@
     margin-left: 14px;
     width: 600px;
     height: 60px;
+}
+
+@media (max-height: 1100px) {
+    .modal.create-show {
+        bottom: 5vh;
+    }
+
+    .modal.login-show {
+        bottom: 20vh;
+    }
+
+    .modal.signup-show {
+        bottom: 5vh;
+    }
+
+    .modal.update-show {
+        bottom: 10vh;
+    }
+}
+
+@media (max-height: 800px) {
+    .horizontal-create {
+        display: flex;
+    }
+
+    .horizontal-signup {
+        display: flex;
+    }
+
+    .signup-div {
+        flex-direction: column;
+        margin: 10px 10px;
+    }
+
+    .signup-label {
+        text-align: center;
+    }
+
+    .create-button {
+        margin-top: 10px;
+    }
+
+    .modal.create-show {
+        bottom: 10vh;
+    }
+
+    .modal.login-show {
+        bottom: 15vh;
+    }
+
+    .modal.signup-show {
+        bottom: 15vh;
+    }
+
+    .create-form {
+        padding: 10px 40px;
+    }
 }
