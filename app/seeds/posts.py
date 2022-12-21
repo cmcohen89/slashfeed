@@ -64,6 +64,20 @@ def seed_posts():
         preview_img_id=9
     )
 
+    post10 = Post(
+        title='Had such an awesome trip to Magic Mountain last weekend!',
+        body="It's been a long time since my last trip to Six Flags, but holy crap it was a blast! I went on every single rollercoaster because the lines were pretty short. I think my favorite is still Scream, but the new Wonder Woman coaster is amazing too!",
+        user_id=1,
+        preview_img_id=10
+    )
+
+    post11 = Post(
+        title="Who's down to come to Dave and Buster's with me tonight???",
+        body="It's Wednesday, you know what that means!!! Half-price games at David and Bartholomew's tonight! Plus happy hour to boot!! Who's up for some drinks and games??",
+        user_id=1,
+        preview_img_id=11
+    )
+
 
 
     db.session.add(post1)
@@ -75,6 +89,8 @@ def seed_posts():
     db.session.add(post7)
     db.session.add(post8)
     db.session.add(post9)
+    db.session.add(post10)
+    db.session.add(post11)
     db.session.commit()
 
 def undo_posts():
