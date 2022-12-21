@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { AiOutlinePlusCircle } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { Modal } from '../../context/Modal';
 import { logout } from '../../store/session';
 import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../auth/SignUpForm';
@@ -18,6 +17,27 @@ const Navigation = () => {
 
     return (
         <div className="navigation-wrapper">
+            <div className={`modal container ${showCreateModal ? "create-show" : ""}`}>
+                <CreatePostForm setShowCreateModal={setShowCreateModal} />
+            </div>
+            <div
+                className={`overlay ${showCreateModal ? "show" : ""}`}
+                onClick={() => setShowCreateModal(!showCreateModal)}
+            />
+            <div className={`modal container ${showLoginModal ? "login-show" : ""}`}>
+                <LoginForm setShowLoginModal={setShowLoginModal} />
+            </div>
+            <div
+                className={`overlay ${showLoginModal ? "show" : ""}`}
+                onClick={() => setShowLoginModal(!setShowLoginModal)}
+            />
+            <div className={`modal container ${showSignupModal ? "signup-show" : ""}`}>
+                <SignUpForm setShowSignupModal={setShowSignupModal} />
+            </div>
+            <div
+                className={`overlay ${showSignupModal ? "show" : ""}`}
+                onClick={() => setShowSignupModal(!setShowSignupModal)}
+            />
             <div className="navigation-container">
                 <span className='profile-lines'><i className="fa-solid fa-bars bars"></i></span>
                 <span>
@@ -50,9 +70,9 @@ const Navigation = () => {
                     <li className='plus-icon' onClick={() => user ? setShowCreateModal(true) : setShowLoginModal(true)}><AiOutlinePlusCircle /></li>
                 </ul>
                 <span className='nav-newsletter'><i className="fa-solid fa-envelope envelope"></i>Newsletter</span>
-                {showLoginModal && <Modal onClose={() => setShowLoginModal(false)}><LoginForm setShowLoginModal={setShowLoginModal} /></Modal>}
-                {showSignupModal && <Modal onClose={() => setShowSignupModal(false)}><SignUpForm setShowSignupModal={setShowSignupModal} /></Modal>}
-                {showCreateModal && <Modal onClose={() => setShowCreateModal(false)}><CreatePostForm setShowCreateModal={setShowCreateModal} /></Modal>}
+                {/* {showLoginModal && <Modal onClose={() => setShowLoginModal(false)}><LoginForm setShowLoginModal={setShowLoginModal} /></Modal>} */}
+                {/* {showSignupModal && <Modal onClose={() => setShowSignupModal(false)}><SignUpForm setShowSignupModal={setShowSignupModal} /></Modal>} */}
+                {/* {showCreateModal && <Modal onClose={() => setShowCreateModal(false)}><CreatePostForm setShowCreateModal={setShowCreateModal} /></Modal>} */}
             </div>
         </div>
     )

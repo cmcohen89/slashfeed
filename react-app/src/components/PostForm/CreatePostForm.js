@@ -9,7 +9,7 @@ const CreatePostForm = ({ setShowCreateModal }) => {
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
-    const [preview_img_url, set_preview_img_url] = useState('');
+    const [preview_img_url, setPreviewImgUrl] = useState('');
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = async e => {
@@ -26,49 +26,59 @@ const CreatePostForm = ({ setShowCreateModal }) => {
             } else {
                 history.push(`/posts/${data.id}`);
                 setShowCreateModal(false);
+                setTitle('');
+                setBody('');
+                setPreviewImgUrl('');
             }
         }
     }
 
     return (
         <div>
-            <h1>Create New Post</h1>
-            <form onSubmit={handleSubmit}>
-                {errors.length > 0 && (
-                    <ul className='product-form-header-errors'>
-                        {errors.map((error, idx) => (
-                            <li key={idx}>{error}</li>
-                        ))}
-                    </ul>
-                )}
-                <label htmlFor='title-input'>Title</label>
-                <input
-                    required
-                    name='title-input'
-                    onChange={e => setTitle(e.target.value)}
-                    value={title}
-                    placeholder="Post title"
-                    type='text'
-                />
-                <label htmlFor='body-input'>Body</label>
-                <input
-                    required
-                    name='body-input'
-                    onChange={e => setBody(e.target.value)}
-                    value={body}
-                    placeholder="Post body"
-                    type='text'
-                />
-                <label htmlFor='url-input'>Image URL</label>
-                <input
-                    required
-                    name='url-input'
-                    onChange={e => set_preview_img_url(e.target.value)}
-                    value={preview_img_url}
-                    placeholder="Post image"
-                    type='text'
-                />
-                <button type='submit'>SUBMIT</button>
+            <form className='create-form' onSubmit={handleSubmit}>
+                <h1 className='login-title'>Create New Post</h1>
+                <div className='login-errors'>
+                    {errors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                </div>
+                <div className='login-div'>
+                    <label className='login-label' htmlFor='title-input'>Title</label>
+                    <input
+                        className='create-input'
+                        required
+                        name='title-input'
+                        onChange={e => setTitle(e.target.value)}
+                        value={title}
+                        placeholder="Post title"
+                        type='text'
+                    />
+                </div>
+                <div className='login-div'>
+                    <label className='login-label' htmlFor='url-input'>Image URL</label>
+                    <input
+                        className='create-input'
+                        required
+                        name='url-input'
+                        onChange={e => setPreviewImgUrl(e.target.value)}
+                        value={preview_img_url}
+                        placeholder="Post image"
+                        type='text'
+                    />
+                </div>
+                <div className='login-div'>
+                    <label className='login-label' htmlFor='body-input'>Body</label>
+                    <textarea
+                        className='create-textarea'
+                        required
+                        name='body-input'
+                        onChange={e => setBody(e.target.value)}
+                        value={body}
+                        placeholder="Post body"
+                        type='text'
+                    />
+                </div>
+                <button className='create-button' type='submit'>Create Post</button>
             </form>
         </div>
     )

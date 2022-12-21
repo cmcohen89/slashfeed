@@ -1,3 +1,108 @@
+.create-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 100px 20px 100px;
+    font-family: 'Rubik', sans-serif;
+    border: 3px solid #21BFE1;
+    border-radius: 10px;
+}
+
+.create-input {
+    font-family: "Rubik", sans-serif;
+    text-align: center;
+    height: 40px;
+    width: 400px;
+    border-radius: 10px;
+    border: 1px solid #d6d6d7;
+    transition: all .2s ease-out;
+}
+
+.create-textarea {
+    font-family: "Rubik", sans-serif;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+    height: 200px;
+    width: 400px;
+    border-radius: 10px;
+    border: 1px solid #d6d6d7;
+    transition: all .2s ease-out;
+    resize: none;
+}
+
+.create-button {
+    margin-top: 60px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    height: 50px;
+    width: 400px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    background-color: #21BFE1;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    transition: box-shadow .2s ease-out;
+}
+
+.create-button:hover {
+    box-shadow: 0 0 15px #21bee171;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.55);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 5;
+    transition: all .15s ease-out .15s;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -150vh;
+    background-color: #fff;
+    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
+    transition: bottom .3s ease-out;
+    z-index: 10;
+    border-radius: 10px;
+}
+
+.modal.create-show {
+    bottom: 20vh;
+}
+
+.modal.login-show {
+    bottom: 32vh;
+}
+
+.modal.signup-show {
+    bottom: 24vh;
+}
+
+.modal.update-show {
+    bottom: 40vh;
+}
+
 .update-title {
     margin-left: 20px;
     width: 600px;

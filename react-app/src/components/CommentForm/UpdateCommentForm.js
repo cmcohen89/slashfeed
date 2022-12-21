@@ -3,28 +3,23 @@ import { useDispatch } from 'react-redux';
 import { putComment } from '../../store/comments';
 import './CommentForm.css';
 
-const UpdateCommentForm = ({ comment }) => {
+const UpdateCommentForm = ({ comment, setUpdateComment }) => {
     const dispatch = useDispatch();
     const [body, setBody] = useState(comment.body);
-    const [errors, setErrors] = useState([]);
 
     const handleSubmit = async e => {
         e.preventDefault();
 
         await dispatch(putComment(body, comment.id));
+        setUpdateComment(false);
     }
 
     return (
         <form className='update-comment-form' onSubmit={handleSubmit}>
-            {errors.length > 0 && (
-                <ul className='product-form-header-errors'>
-                    {errors.map((error, idx) => (
-                        <li key={idx}>{error}</li>
-                    ))}
-                </ul>
-            )}
-            <label htmlFor='body-input'>Update: </label>
-            <input
+            <h3 className='login-title'>Edit Comment</h3>
+            <label htmlFor='body-input'></label>
+            <textarea
+                className='update-comment-textarea'
                 required
                 name='body-input'
                 onChange={e => setBody(e.target.value)}
@@ -32,7 +27,10 @@ const UpdateCommentForm = ({ comment }) => {
                 placeholder="Update comment"
                 type='text'
             />
-            <button type='submit'>Submit</button>
+            <br />
+            <div className='comment-form-button-wrapper'>
+                <button className='comment-form-button' type='submit'>Edit comment</button>
+            </div>
         </form>
     )
 }

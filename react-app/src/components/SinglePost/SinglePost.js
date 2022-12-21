@@ -26,7 +26,7 @@ const SinglePost = () => {
             <div className="single-post-subheader">
                 <span>
                     <span className="single-post-user">{singlePost.postOwner.username}&nbsp;&nbsp; / &nbsp;&nbsp;</span>
-                    <span className="single-post-date">{singlePost.createdAt}</span>
+                    <span className="single-post-date">{(new Date(singlePost.createdAt)).toLocaleTimeString()},&nbsp;{(new Date(singlePost.createdAt)).toDateString()}</span>
                 </span>
                 <span>{singlePost.likes}&nbsp;&nbsp;<i className="fa-solid fa-thumbs-up"></i></span>
             </div>
