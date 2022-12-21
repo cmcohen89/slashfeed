@@ -6,6 +6,7 @@ from .auth_routes import validation_errors_to_error_messages
 
 post_routes = Blueprint('posts', __name__)
 
+
 # GET ALL POSTS:
 @post_routes.route("")
 def get_posts():

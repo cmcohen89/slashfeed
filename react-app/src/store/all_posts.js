@@ -53,7 +53,7 @@ const allPostsReducer = (state = initialState, action) => {
             return newState;
         default:
             return state;
-    }
-}
+    };
+};
 
 export default allPostsReducer;

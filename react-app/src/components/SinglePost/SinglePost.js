@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { deletePost } from "../../store/all_posts";
 import { getSinglePost } from "../../store/one_post";
+import Comments from "../Comments/Comments";
 import UpdatePostForm from "../PostForm/UpdatePostForm";
 import './SinglePost.css';
 
@@ -31,6 +32,9 @@ const SinglePost = () => {
                 await dispatch(deletePost(singlePost.id))
                 history.push('/')
             }}>Delete Post</button>
+            <div>
+                <Comments postId={singlePost.id} />
+            </div>
         </div>
     )
 }
