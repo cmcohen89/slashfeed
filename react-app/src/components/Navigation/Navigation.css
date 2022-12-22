@@ -4,7 +4,7 @@
     position: fixed;
     top: 0;
     height: 62px;
-    z-index: 100;
+    z-index: 6;
     box-shadow: 0 0 9px 0 rgb(117 124 131 / 36%)
 }
 

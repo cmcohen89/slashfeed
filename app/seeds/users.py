@@ -24,12 +24,12 @@ def seed_users():
         password='password',
         email='jordan@aa.io',
         profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
-    steve = User(
-        first_name='Steve',
-        last_name='Craftman',
-        username='stevie367',
+    nick = User(
+        first_name='Nick',
+        last_name='Cohen',
+        username='shokture1230',
         password='password',
-        email='steve@aa.io',
+        email='nick@aa.io',
         profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
     maria = User(
         first_name='Maria',
@@ -40,7 +40,7 @@ def seed_users():
         profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
     shaina = User(
         first_name='Shaina',
-        last_name='Schwab',
+        last_name='Cohen',
         username='spicychai',
         password='password',
         email='shaina@aa.io',
@@ -55,7 +55,7 @@ def seed_users():
     andrew = User(
         first_name='Andrew',
         last_name='Stalzer',
-        username='dirtiestangeWoW',
+        username='dirtiestange',
         password='password',
         email='andrew@aa.io',
         profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
@@ -66,16 +66,89 @@ def seed_users():
         password='password',
         email='sara@aa.io',
         profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
+    alex = User(
+        first_name='Alex',
+        last_name='Cohen',
+        username='okfineletsgo',
+        password='password',
+        email='alex@aa.io',
+        profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
+    marty = User(
+        first_name='Marty',
+        last_name='Cohen',
+        username='martinblair52',
+        password='password',
+        email='marty@aa.io',
+        profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
+    leslie = User(
+        first_name='Leslie',
+        last_name='Levine',
+        username='lllwerkz1212',
+        password='password',
+        email='leslie@aa.io',
+        profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
+    katharine = User(
+        first_name='Katharine',
+        last_name='Cohen',
+        username='kitty1024',
+        password='password',
+        email='katharine@aa.io',
+        profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
+    matt = User(
+        first_name='Matt',
+        last_name='Kleinsmith',
+        username='mattymattK29',
+        password='password',
+        email='matt@aa.io',
+        profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
+    gray = User(
+        first_name='Gray',
+        last_name='Nance',
+        username='grayfathergrayson584',
+        password='password',
+        email='gray@aa.io',
+        profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
+    mike = User(
+        first_name='Mike',
+        last_name='Miller',
+        username='MichaelLichael39',
+        password='password',
+        email='mike@aa.io',
+        profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
+    jacob = User(
+        first_name='Jacob',
+        last_name='Lauxman',
+        username='jabocandroll25',
+        password='password',
+        email='jacob@aa.io',
+        profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
+    tyler = User(
+        first_name='Tyler',
+        last_name='Short',
+        username='tyguy98',
+        password='password',
+        email='tyler@aa.io',
+        profile_img_url='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
+
 
     db.session.add(demo)
     db.session.add(jamie)
     db.session.add(jordan)
-    db.session.add(steve)
+    db.session.add(nick)
     db.session.add(maria)
     db.session.add(shaina)
     db.session.add(brennen)
     db.session.add(andrew)
     db.session.add(sara)
+    db.session.add(alex)
+    db.session.add(katharine)
+    db.session.add(marty)
+    db.session.add(leslie)
+    db.session.add(matt)
+    db.session.add(gray)
+    db.session.add(mike)
+    db.session.add(jacob)
+    db.session.add(tyler)
 
     db.session.commit()
 
