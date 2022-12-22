@@ -78,7 +78,7 @@
     position: fixed;
     visibility: hidden;
     opacity: 0;
-    z-index: 5;
+    z-index: 6;
     transition: all .15s ease-out .15s;
 }
 

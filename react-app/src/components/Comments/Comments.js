@@ -7,7 +7,6 @@ import OneComment from './OneComment';
 
 const Comments = ({ postId }) => {
     const dispatch = useDispatch();
-    const user = useSelector(state => state.session.user)
     const comments = useSelector(state => Object.values(state.comments));
 
     useEffect(() => {
@@ -26,7 +25,7 @@ const Comments = ({ postId }) => {
                     ))}
                 </ul>
             </div>
-            {user && <CommentForm postId={postId} />}
+            <CommentForm postId={postId} />
         </div>
     )
 }

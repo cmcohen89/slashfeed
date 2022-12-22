@@ -50,7 +50,7 @@
     bottom: 30px;
     margin: 0 40px;
     font-size: 20px;
-    z-index: 10;
+    z-index: 5;
 }
 
 .featured-user {
@@ -75,7 +75,7 @@
     color: white;
     bottom: 10px;
     margin: 0 20px;
-    z-index: 10;
+    z-index: 5;
 }
 
 .side-featured-user {
@@ -224,7 +224,7 @@
     top: 30px;
     right: 30px;
     cursor: pointer;
-    z-index: 10;
+    z-index: 5;
     font-weight: bold;
     color: white;
     text-shadow: 3px 3px 3px black;
@@ -238,7 +238,7 @@
     top: 15px;
     right: 15px;
     cursor: pointer;
-    z-index: 10;
+    z-index: 5;
     font-weight: bold;
     color: white;
     text-shadow: 3px 3px 3px black;

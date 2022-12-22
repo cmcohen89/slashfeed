@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
 import { signUp } from '../../store/session';
 import './SignupForm.css'
 
@@ -13,7 +12,6 @@ const SignUpForm = ({ setShowSignupModal }) => {
     const [profile_img_url, setProfileImgUrl] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
-    const user = useSelector(state => state.session.user);
     const dispatch = useDispatch();
 
     const onSignUp = async (e) => {
@@ -22,7 +20,7 @@ const SignUpForm = ({ setShowSignupModal }) => {
         if (/\d/.test(first_name) || /\d/.test(last_name)) errors.push("Your name has numbers in it? Doubt it.");
         if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) errors.push("The thing about email addresses is they need to be valid.");
         if (username.length < 5) errors.push("Let's make that username a bit longer. 5 characters should do.");
-        if (password !== repeatPassword) errors.push("Remember how the passwords are supposed to match? Let's type slower this time.");
+        if (password !== repeatPassword) errors.push("Remember that part about how the passwords are supposed to match?");
         if (errors.length > 0) {
             setErrors(errors);
         } else {

@@ -2,7 +2,7 @@ from app.models import db, PostImage
 
 def seed_post_images():
     post_img1 = PostImage(
-        url='https://img1.wsimg.com/isteam/ip/77ebecd8-038b-443f-8e46-44272529e832/IMG_0692.jpeg',
+        url='https://media-cldnry.s-nbcnews.com/image/upload/newscms/2016_51/1183959/food-nacia-walsh-christmas-cookies-recipes-tease-today-161222-01.jpg',
         post_id=1,
     )
 
@@ -12,7 +12,7 @@ def seed_post_images():
     )
 
     post_img3 = PostImage(
-        url='https://media-cldnry.s-nbcnews.com/image/upload/newscms/2016_51/1183959/food-nacia-walsh-christmas-cookies-recipes-tease-today-161222-01.jpg',
+        url='https://img1.wsimg.com/isteam/ip/77ebecd8-038b-443f-8e46-44272529e832/IMG_0692.jpeg',
         post_id=3,
     )
 
@@ -55,6 +55,34 @@ def seed_post_images():
         url='https://www.gotolouisville.com/imager/assets_simpleviewinc_com/simpleview/image/upload/c_fit,w_800,h_600/crm/louisville/D-B-353674715056a34_35367572-5056-a348-3a8d4432d95bab5d_f69c17b56b270deda0220b2ba6b4d051.jpg',
         post_id=11,
     )
+    post_img12 = PostImage(
+        url='https://i.imgur.com/BR5IYMA.png',
+        post_id=12,
+    )
+    post_img13 = PostImage(
+        url='https://i.imgur.com/hbuGNRb.jpeg',
+        post_id=13,
+    )
+    post_img14 = PostImage(
+        url='https://i.imgur.com/63Zz4aa.jpeg',
+        post_id=14,
+    )
+    post_img15 = PostImage(
+        url='https://i.imgur.com/NBEIFBz.png',
+        post_id=15,
+    )
+    post_img16 = PostImage(
+        url='https://i.redd.it/h388tab4ccf91.jpg',
+        post_id=16,
+    )
+    post_img17 = PostImage(
+        url='https://pyxis.nymag.com/v1/imgs/f6f/c29/1f42dcabe45f10b5bc462959f0dd457f05-got-sn-8-ep-5-04.rsquare.w700.jpg',
+        post_id=17,
+    )
+    post_img18 = PostImage(
+        url='https://i.redd.it/rzs9jxzunjy61.jpg',
+        post_id=18,
+    )
 
     db.session.add(post_img1)
     db.session.add(post_img2)
@@ -67,6 +95,13 @@ def seed_post_images():
     db.session.add(post_img9)
     db.session.add(post_img10)
     db.session.add(post_img11)
+    db.session.add(post_img12)
+    db.session.add(post_img13)
+    db.session.add(post_img14)
+    db.session.add(post_img15)
+    db.session.add(post_img16)
+    db.session.add(post_img17)
+    db.session.add(post_img18)
     db.session.commit()
 
 def undo_post_images():

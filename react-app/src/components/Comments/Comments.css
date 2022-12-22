@@ -150,3 +150,13 @@
 .comment-form-button:hover {
     box-shadow: 0 0 15px #21bee171;
 }
+
+.comment-form-button-disabled {
+    background-color: gray;
+    color: rgba(255, 255, 255, 0.536);
+    cursor: default;
+}
+
+.comment-form-button-disabled:hover {
+    box-shadow: none;
+}
