@@ -224,7 +224,7 @@
     top: 30px;
     right: 30px;
     cursor: pointer;
-    z-index: 100;
+    z-index: 10;
     font-weight: bold;
     color: white;
     text-shadow: 3px 3px 3px black;
@@ -238,7 +238,7 @@
     top: 15px;
     right: 15px;
     cursor: pointer;
-    z-index: 100;
+    z-index: 10;
     font-weight: bold;
     color: white;
     text-shadow: 3px 3px 3px black;
@@ -250,5 +250,9 @@
 }
 
 .featured-likes:hover {
+    color: #21BFE1;
+}
+
+.side-featured-likes:hover {
     color: #21BFE1;
 }
