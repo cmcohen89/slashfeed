@@ -38,6 +38,30 @@ export const deletePost = postId => async dispatch => {
     };
 };
 
+export const likePost = postId => async dispatch => {
+    const response = await fetch(`/api/likes/${postId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+    });
+
+    if (response.ok) {
+        const successMsg = await response.json();
+        return successMsg;
+    }
+}
+
+export const unlikePost = postId => async dispatch => {
+    const response = await fetch(`/api/likes/${postId}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
+    });
+
+    if (response.ok) {
+        const successMsg = await response.json();
+        return successMsg;
+    }
+}
+
 const initialState = {};
 
 const allPostsReducer = (state = initialState, action) => {

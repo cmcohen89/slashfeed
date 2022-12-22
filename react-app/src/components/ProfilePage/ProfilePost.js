@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { deletePost } from "../../store/all_posts";
+import { deletePost, getPosts, likePost, unlikePost } from "../../store/all_posts";
 import UpdatePostForm from "../PostForm/UpdatePostForm";
 
 const ProfilePost = ({ post }) => {
     const dispatch = useDispatch();
     const [updatePost, setUpdatePost] = useState(false);
+    const user = useSelector(state => state.session.user)
 
     return (
         <div className='one-profile-post'>
@@ -17,7 +18,13 @@ const ProfilePost = ({ post }) => {
                 <h2 className="one-post-user"><span className="relationship">FRIEND</span>&nbsp;&nbsp; / &nbsp;&nbsp;{post.postOwner.username}</h2>
                 <NavLink className='one-post-title-link' to={`/posts/${post.id}`}><h3 className="one-post-title">{post.title}</h3></NavLink>
                 <p className="one-post-body">{post.body}</p>
-                <h4 className="one-post-likes">{post.likes} <i className="fa-solid fa-thumbs-up"></i></h4>
+                <h4
+                    onClick={async () => {
+                        { user && post.usersWhoLiked[user.id] ? await dispatch(unlikePost(post.id)) : await dispatch(likePost(post.id)) };
+                        dispatch(getPosts());
+                    }}
+                    className={`one-post-likes ${user && post.usersWhoLiked[user.id] ? "one-post-liked" : ""}`}
+                >{post.likes} <i className="fa-solid fa-thumbs-up"></i></h4>
                 <div className="profile-buttons">
                     <span className='update-comment-button' onClick={() => setUpdatePost(!updatePost)}><i className="fa-solid fa-pen-to-square"></i></span>
                     <span className='delete-comment-button' onClick={() => dispatch(deletePost(post.id))}><i className="fa-solid fa-xmark"></i></span>
