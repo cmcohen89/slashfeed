@@ -45,3 +45,7 @@
     font-weight: 400;
     word-break: break-word;
 }
+
+.single-post-likes {
+    cursor: pointer;
+}

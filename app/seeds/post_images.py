@@ -47,7 +47,7 @@ def seed_post_images():
     )
 
     post_img10 = PostImage(
-        url='https://media-cdn.tripadvisor.com/media/photo-m/1280/26/13/12/2a/caption.jpg',
+        url='https://metrolinktrains.com/globalassets/explore/los-angeles/sfmm_apocalypse.jpg',
         post_id=10,
     )
 

@@ -216,3 +216,39 @@
 .one-post-likes:hover {
     color: #21BFE1;
 }
+
+.featured-likes {
+    position: absolute;
+    font-family: "Rubik", sans-serif;
+    font-size: 40px;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 100;
+    font-weight: bold;
+    color: white;
+    text-shadow: 3px 3px 3px black;
+    -webkit-text-stroke: 0.75px black;
+}
+
+.side-featured-likes {
+    position: absolute;
+    font-family: "Rubik", sans-serif;
+    font-size: 24px;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    z-index: 100;
+    font-weight: bold;
+    color: white;
+    text-shadow: 3px 3px 3px black;
+    -webkit-text-stroke: 0.75px black;
+}
+
+.one-post-liked {
+    color: #21BFE1;
+}
+
+.featured-likes:hover {
+    color: #21BFE1;
+}

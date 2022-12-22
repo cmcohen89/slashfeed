@@ -25,10 +25,12 @@ class Post(db.Model):
             "previewImgId": self.preview_img_id,
             "postOwner": self.post_owner.to_dict(),
             "postImages": {image.to_dict()["id"]: image.to_dict() for image in self.post_images},
+            "usersWhoLiked": {user.to_dict()["id"]: user.to_dict() for user in self.users_who_liked},
             "likes": len([user.to_dict() for user in self.users_who_liked]),
             "createdAt": self.created_at,
             "updatedAt": self.updated_at
         }
+
 
     def __repr__(self):
         return f"<Post {self.id}: {self.title}>"

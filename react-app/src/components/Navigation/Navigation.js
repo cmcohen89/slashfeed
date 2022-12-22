@@ -62,12 +62,12 @@ const Navigation = () => {
                     }
                 </ul>
                 <ul className='nav-logos'>
-                    <a className='no-underline' href='https://github.com/cmcohen89/slashfeed' target='_blank'><li className='nav-logo-link'><i class="fa-brands fa-github"></i></li></a>
-                    <a className='no-underline' href='https://www.linkedin.com/in/christopher-cohen-94ab06236/' target='_blank'><li className='nav-logo-link'><i class="fa-brands fa-linkedin"></i></li></a>
-                    <a className='no-underline' href='https://open.spotify.com/artist/5geY86ww9VzZY3KocqkS8Q' target='_blank'><li className='nav-logo-link'><i class="fa-brands fa-spotify"></i></li></a>
-                    <a className='no-underline' href='https://www.instagram.com/pianomancan/' target='_blank'><li className='nav-logo-link'><i class="fa-brands fa-instagram"></i></li></a>
-                    <a className='no-underline' href='https://www.facebook.com/christopher.cohen.9/' target='_blank'><li className='nav-logo-link'><i class="fa-brands fa-facebook"></i></li></a>
-                    <NavLink className='no-underline' to={`/posts/${randNum}`}><li className='nav-logo-link' ><i class="fa-solid fa-question"></i></li></NavLink>
+                    <a className='no-underline' href='https://github.com/cmcohen89/slashfeed' target='_blank'><li className='nav-logo-link'><i className="fa-brands fa-github"></i></li></a>
+                    <a className='no-underline' href='https://www.linkedin.com/in/christopher-cohen-94ab06236/' target='_blank'><li className='nav-logo-link'><i className="fa-brands fa-linkedin"></i></li></a>
+                    <a className='no-underline' href='https://open.spotify.com/artist/5geY86ww9VzZY3KocqkS8Q' target='_blank'><li className='nav-logo-link'><i className="fa-brands fa-spotify"></i></li></a>
+                    <a className='no-underline' href='https://www.instagram.com/pianomancan/' target='_blank'><li className='nav-logo-link'><i className="fa-brands fa-instagram"></i></li></a>
+                    <a className='no-underline' href='https://www.facebook.com/christopher.cohen.9/' target='_blank'><li className='nav-logo-link'><i className="fa-brands fa-facebook"></i></li></a>
+                    <NavLink className='no-underline' to={`/posts/${randNum}`}><li className='nav-logo-link' ><i className="fa-solid fa-question"></i></li></NavLink>
                 </ul>
                 <span className='nav-update' onClick={() => user ? setShowCreateModal(true) : setShowLoginModal(true)}>Create Post</span>
             </div>

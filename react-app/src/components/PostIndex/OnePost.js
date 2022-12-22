@@ -1,6 +1,11 @@
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { getPosts, likePost, unlikePost } from "../../store/all_posts";
 
 const OnePost = ({ post }) => {
+    const dispatch = useDispatch();
+    const user = useSelector(state => state.session.user)
+
     return (
         <div className='one-post'>
             <div className="one-post-img-container">
@@ -10,7 +15,15 @@ const OnePost = ({ post }) => {
                 <h2 className="one-post-user"><span className="relationship">FRIEND</span>&nbsp;&nbsp; / &nbsp;&nbsp;{post.postOwner.username}</h2>
                 <NavLink className='one-post-title-link' to={`/posts/${post.id}`}><h3 className="one-post-title">{post.title}</h3></NavLink>
                 <p className="one-post-body">{post.body}</p>
-                <h4 className="one-post-likes">{post.likes} <i className="fa-solid fa-thumbs-up"></i></h4>
+                <h4
+                    onClick={async () => {
+                        { user && post.usersWhoLiked[user.id] ? await dispatch(unlikePost(post.id)) : await dispatch(likePost(post.id)) };
+                        dispatch(getPosts());
+                    }}
+                    className={`one-post-likes ${user && post.usersWhoLiked[user.id] ? "one-post-liked" : ""}`}
+                >
+                    {post.likes}&nbsp;<i className="fa-solid fa-thumbs-up"></i>
+                </h4>
             </div>
         </div>
     )
