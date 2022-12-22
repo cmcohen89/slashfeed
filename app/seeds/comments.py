@@ -4,17 +4,17 @@ all_comments = [
     {
         "body": 'No way! So lucky!!! Never once in my life have I gotten free ice cream, this is a load of malarkey!',
         "user_id": 2,
-        "post_id": 1
+        "post_id": 3
     },
     {
         "body": "free ice cream tastes better than normal ice cream!!! it's science!!",
         "user_id": 3,
-        "post_id": 1
+        "post_id": 3
     },
     {
         "body": "bro now I have the ice cream truck song stuck in my head... 🎼",
         "user_id": 4,
-        "post_id": 1
+        "post_id": 3
     },
     {
         "body": "Glad you finally saw it! Yeah it didn't live up to the first one, but that set kind of an impossible standard haha",
@@ -34,17 +34,17 @@ all_comments = [
     {
         "body": 'omg those look so good!!! brb omw to your house LOL',
         "user_id": 8,
-        "post_id": 3
+        "post_id": 1
     },
     {
         "body": "wooowwww who knew you were such a master baker?? if I didn't know better I'd say this was a stock image...",
         "user_id": 9,
-        "post_id": 3
+        "post_id": 1
     },
     {
         "body": 'hahaha the gingerbread man looks like the one from Shrek!!! NOT MY GUMDROP BUTTONS!',
         "user_id": 10,
-        "post_id": 3
+        "post_id": 1
     },
     {
         "body": "awww kitteh!!! 😻 what's his/her name?",

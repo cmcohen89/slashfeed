@@ -34,7 +34,11 @@ const PostIndex = () => {
                 <div className='main-post'>
                     <NavLink to={`/posts/${allPosts[0].id}`}>
                         <span className="featured-user-and-title">
-                            <h5 className='featured-user'>{allPosts[0].postOwner.username}</h5>
+                            <h5 className='featured-user'>
+                                <img className='one-post-profile-pic' src={allPosts[0].postOwner.profileImgUrl} alt='' />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                {allPosts[0].postOwner.username}
+                            </h5>
                             <h1 className='featured-title'>{allPosts[0].title}</h1>
                         </span>
                         <img
@@ -60,10 +64,14 @@ const PostIndex = () => {
                         {allPosts[0].likes}&nbsp;<i className="fa-solid fa-thumbs-up"></i>
                     </span>
                 </div>
-                <div className='main-post'>
+                <div className='main-post side-post'>
                     <NavLink to={`/posts/${allPosts[1].id}`}>
                         <span className="side-featured-user-and-title">
-                            <h5 className='side-featured-user'>{allPosts[1].postOwner.username}</h5>
+                            <h5 className='side-featured-user'>
+                                <img className='one-post-profile-pic' src={allPosts[1].postOwner.profileImgUrl} alt='' />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                {allPosts[1].postOwner.username}
+                            </h5>
                             <h1 className='side-featured-title'>{allPosts[1].title}</h1>
                         </span>
                         <img
@@ -86,10 +94,14 @@ const PostIndex = () => {
                         }
                     >{allPosts[1].likes}&nbsp;<i className="fa-solid fa-thumbs-up"></i></span>
                 </div>
-                <div className='main-post bottom'>
+                <div className='main-post side-post bottom'>
                     <NavLink to={`/posts/${allPosts[2].id}`}>
                         <span className="side-featured-user-and-title">
-                            <h5 className='side-featured-user'>{allPosts[2].postOwner.username}</h5>
+                            <h5 className='side-featured-user'>
+                                <img className='one-post-profile-pic' src={allPosts[2].postOwner.profileImgUrl} alt='' />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                {allPosts[2].postOwner.username}
+                            </h5>
                             <h1 className='side-featured-title'>{allPosts[2].title}</h1>
                         </span>
                         <img

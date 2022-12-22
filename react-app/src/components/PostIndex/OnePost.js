@@ -18,8 +18,8 @@ const OnePost = ({ post, setShowLoginModal }) => {
             </div>
             <div className="one-post-content">
                 <h2 className="one-post-user">
-                    <span className="relationship">FRIEND</span>
-                    &nbsp;&nbsp; / &nbsp;&nbsp;
+                    <img className='one-post-profile-pic' src={post.postOwner.profileImgUrl} alt='' />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     {post.postOwner.username}
                 </h2>
                 <NavLink className='one-post-title-link' to={`/posts/${post.id}`}>

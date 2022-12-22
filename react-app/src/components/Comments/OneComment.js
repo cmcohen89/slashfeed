@@ -11,6 +11,8 @@ const OneComment = ({ comment }) => {
     return (
         <div className='one-comment'>
             <h4 className='comment-user'>
+                <img className='one-post-profile-pic' src={comment.commentOwner.profileImgUrl} alt='' />
+                &nbsp;&nbsp;&nbsp;
                 {comment.commentOwner.username}
                 <span className='comment-timestamp'>
                     &nbsp;&nbsp;|&nbsp;&nbsp;

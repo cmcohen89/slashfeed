@@ -9,8 +9,8 @@
 
 .comments-content {
     padding-top: 10px;
-    height: 300px;
-    overflow-y: auto;
+    height: 600px;
+    overflow-y: scroll;
     border-bottom: 2px solid #d6d6d7;
     padding-bottom: 10px;
 }
@@ -35,9 +35,14 @@
 }
 
 .comment-user {
+    display: flex;
+    align-items: center;
     list-style: none;
     color: #3A4148;
     margin-bottom: 5px;
+    margin-left: 10px;
+    margin-top: 5px;
+    padding-top: 5px;
 }
 
 .comment-timestamp {
@@ -47,6 +52,8 @@
 
 .comment-body {
     margin-bottom: 20px;
+    padding: 10px 20px;
+    word-break: break-word;
 }
 
 .delete-comment-button {
@@ -105,12 +112,17 @@
     margin-top: 40px;
 }
 
+.comment-form {
+    margin: 0 40px;
+    margin-bottom: 20px;
+}
+
 .comment-form-textarea {
     font-family: "Rubik", sans-serif;
     resize: none;
     padding-left: 10px;
     padding-top: 10px;
-    height: 80px;
+    height: 116px;
     width: 100%;
     border-radius: 10px;
     border: 1px solid #d6d6d7;
@@ -129,7 +141,7 @@
 }
 
 .comment-form-button {
-    margin-top: 5px;
+    margin-top: 15px;
     margin-right: 5px;
     font-family: 'Rubik', sans-serif;
     font-weight: 600;
@@ -159,4 +171,14 @@
 
 .comment-form-button-disabled:hover {
     box-shadow: none;
+}
+
+.one-comment {
+    background-color: #21bee109;
+    border-radius: 10px;
+    border: 1px solid #d6d6d7;
+    margin-right: 20px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
