@@ -111,3 +111,43 @@
     text-decoration: none;
     color: #808A8C;
 }
+
+@media (max-width: 1500px) {
+    .slogan {
+        display: none;
+    }
+
+    .navigation-container {
+        margin: 0 50px;
+    }
+
+    .nav-links {
+        justify-content: flex-end;
+    }
+
+    .nav-login-link {
+        margin-right: 20px;
+    }
+    .nav-logo {
+        margin-left: 30px;
+    }
+
+    .nav-logos {
+        margin-right: 50px;
+    }
+
+    .nav-logo-link {
+        padding: 0 10px;
+    }
+
+    .nav-update {
+        max-width: 150px;
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .nav-logos {
+        display: none;
+    }
+}

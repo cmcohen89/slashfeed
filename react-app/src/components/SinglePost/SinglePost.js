@@ -36,8 +36,10 @@ const SinglePost = () => {
                 alt=""
             />
             <div className="single-post-subheader">
-                <span>
+                <span className="single-post-user-and-date">
                     <span className="single-post-user">
+                        <img className='one-post-profile-pic' src={singlePost.postOwner.profileImgUrl} alt='' />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
                         {singlePost.postOwner.username}&nbsp;&nbsp; / &nbsp;&nbsp;
                     </span>
                     <span className="single-post-date">

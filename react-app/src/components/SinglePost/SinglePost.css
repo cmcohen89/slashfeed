@@ -33,6 +33,13 @@
 
 .single-post-user {
     font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.single-post-user-and-date {
+    display: flex;
+    align-items: center;
 }
 
 .single-post-date {

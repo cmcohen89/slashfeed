@@ -30,7 +30,7 @@ def seed_posts():
     )
 
     post5 = Post(
-        title='How many chucks would a woodchuck chuck if a woodchuck could chuck wood?',
+        title='How many chucks would a woodchuck chuck...',
         body='This is the greatest mystery of our time, no one knows the answer! I have a hypothesis, leave a comment and I might share it with you!',
         user_id=5,
         preview_img_id=5
