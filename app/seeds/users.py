@@ -1,4 +1,4 @@
-from app.models import db, User
+from app.models import db, User, environment
 
 
 # Adds a demo user, you can add other users here if you want
@@ -111,7 +111,7 @@ def seed_users():
     mike = User(
         first_name='Mike',
         last_name='Miller',
-        username='MichaelLichael39',
+        username='MichaelLichael69',
         password='password',
         email='mike@aa.io',
         profile_img_url='https://avatars.githubusercontent.com/u/107960217?v=4')
@@ -159,5 +159,8 @@ def seed_users():
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
 def undo_users():
-    db.session.execute("DELETE FROM users")
-    db.session.commit()
+    if environment == "production":
+            db.session.execute(f"TRUNCATE table users RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM users")
+        db.session.commit()

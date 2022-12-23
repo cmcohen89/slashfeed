@@ -1,4 +1,4 @@
-from app.models import db, PostImage
+from app.models import db, PostImage, environment
 
 def seed_post_images():
     post_img1 = PostImage(
@@ -105,5 +105,8 @@ def seed_post_images():
     db.session.commit()
 
 def undo_post_images():
-    db.session.execute("DELETE FROM post_images")
-    db.session.commit()
+    if environment == "production":
+            db.session.execute(f"TRUNCATE table post_images RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM post_images")
+        db.session.commit()

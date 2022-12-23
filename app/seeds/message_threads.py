@@ -1,4 +1,4 @@
-from app.models import db, MessageThread
+from app.models import db, MessageThread, environment
 
 def seed_message_threads():
     message_thread1 = MessageThread(
@@ -16,5 +16,8 @@ def seed_message_threads():
     db.session.commit()
 
 def undo_message_threads():
-    db.session.execute("DELETE FROM message_threads")
-    db.session.commit()
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table message_threads RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM message_threads")
+        db.session.commit()
