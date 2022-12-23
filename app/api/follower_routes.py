@@ -6,7 +6,6 @@ followers_routes = Blueprint("followers", __name__)
 
 # Get a user's follows and followers by user's ID
 @followers_routes.route("/get_follows/<int:id>")
-@login_required
 def get_follows(id):
     """
     Return the number of users the current user is following and is followed by.

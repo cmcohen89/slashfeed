@@ -17,8 +17,10 @@ const ProfilePage = () => {
     const userFollowers = useSelector(state => state.follows.followers);
     const userFollows = useSelector(state => state.follows.follows);
     const allPosts = useSelector(state => Object.values(state.allPosts));
+    const likedPosts = allPosts.filter(post => post.usersWhoLiked[user.id])
     const [viewFollows, setViewFollows] = useState(false);
     const [flag, setFlag] = useState(false);
+    const [postType, setPostType] = useState('user posts');
 
     let userPosts;
     if (user) userPosts = allPosts.filter(post => user.id === post.postOwner.id);
@@ -67,7 +69,7 @@ const ProfilePage = () => {
                             <h3 className="profile-stat">{Object.values(userFollows).length} Following</h3>
                         </span>
                     </div>
-                    {id != currUser.id && <span
+                    {currUser && (id != currUser.id && <span
                         className={`follow-button ${userFollowers[currUser.id] && 'unfollow-button'}`}
                         onClick={async () => {
                             await dispatch(postFollow(id));
@@ -75,16 +77,32 @@ const ProfilePage = () => {
                         }}
                     >
                         {!userFollowers[currUser.id] ? 'Follow' : 'Unfollow'} {user.username}
-                    </span>}
+                    </span>)}
                 </div>
+            </div>
+            <div className="profile-post-type">
+                <span className="profile-post-type-button" onClick={() => setPostType('user posts')}>{user.firstName}'s Posts</span>
+                <span className="profile-post-type-button" onClick={() => setPostType('liked posts')}>Posts {user.firstName} Liked</span>
             </div>
             <div className="profile-grid-wrapper">
                 <div className='profile-grid'>
-                    {userPosts.map(post => (
-                        <div key={post.id}>
-                            <ProfilePost post={post} />
-                        </div>
-                    ))}
+                    {postType === 'user posts' ?
+                        (userPosts.length > 0 ?
+                            userPosts.map(post => (
+                                <div key={post.id}>
+                                    <ProfilePost post={post} user={user} />
+                                </div>))
+                            :
+                            <h1 className="profile-title">No posts from this user yet...</h1>)
+                        :
+                        likedPosts.length > 0 ?
+                            likedPosts.map(post => (
+                                <div key={post.id}>
+                                    <ProfilePost post={post} user={user} setPostType={setPostType} />
+                                </div>))
+                            :
+                            <h1 className="profile-title">This user hasn't liked any posts yet!</h1>
+                    }
                 </div>
             </div>
         </div >
