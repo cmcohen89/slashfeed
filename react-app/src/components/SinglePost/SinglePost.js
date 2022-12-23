@@ -5,6 +5,7 @@ import { likePost, unlikePost } from "../../store/all_posts";
 import { getSinglePost } from "../../store/one_post";
 import LoginForm from "../auth/LoginForm";
 import Comments from "../Comments/Comments";
+import LoginModal from "../LoginModal";
 import './SinglePost.css';
 
 const SinglePost = () => {
@@ -22,13 +23,7 @@ const SinglePost = () => {
 
     return (
         <div className="single-post-page">
-            <div className={`modal container ${showLoginModal ? "login-show" : ""}`}>
-                <LoginForm setShowLoginModal={setShowLoginModal} />
-            </div>
-            <div
-                className={`overlay ${showLoginModal ? "show" : ""}`}
-                onClick={() => setShowLoginModal(!setShowLoginModal)}
-            />
+            <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal} />
             <h3 className="single-post-title">{singlePost.title}</h3>
             <img
                 className="single-post-img"

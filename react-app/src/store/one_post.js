@@ -71,6 +71,48 @@ export const putSinglePost = (payload, postId) => async dispatch => {
     }
 };
 
+export const putImg = (imgId, preview_img_url) => async dispatch => {
+    console.log(preview_img_url)
+    const response = await fetch(`/api/posts/img/${imgId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ preview_img_url })
+    });
+
+    if (response.ok) {
+        const img = await response.json();
+        return img;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
+    }
+}
+
+export const putProfilePic = (userId, preview_img_url) => async dispatch => {
+    console.log(preview_img_url)
+    const response = await fetch(`/api/users/img/${userId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ preview_img_url })
+    });
+
+    if (response.ok) {
+        const img = await response.json();
+        return img;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
+    }
+}
+
 const initialState = {};
 
 const singlePostReducer = (state = initialState, action) => {

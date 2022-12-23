@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { logout } from '../../store/session';
 import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../auth/SignUpForm';
+import LoginModal from '../LoginModal';
 import CreatePostForm from '../PostForm/CreatePostForm';
 import './Navigation.css';
 
@@ -29,13 +30,7 @@ const Navigation = () => {
                 className={`overlay ${showCreateModal ? "show" : ""}`}
                 onClick={() => setShowCreateModal(!showCreateModal)}
             />
-            <div className={`modal container ${showLoginModal ? "login-show" : ""}`}>
-                <LoginForm setShowLoginModal={setShowLoginModal} />
-            </div>
-            <div
-                className={`overlay ${showLoginModal ? "show" : ""}`}
-                onClick={() => setShowLoginModal(!setShowLoginModal)}
-            />
+            <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal} />
             <div className={`modal container ${showSignupModal ? "signup-show" : ""}`}>
                 <SignUpForm setShowSignupModal={setShowSignupModal} />
             </div>
@@ -47,7 +42,7 @@ const Navigation = () => {
                 <span>
                     <NavLink to='/'><img className='nav-logo' src='https://i.imgur.com/s9sq5Yk.png' alt='website logo' /></NavLink>
                 </span>
-                <li className='slogan'>Get your news from your friends</li>
+                <li className='slogan'>Get the news from your friends</li>
                 <ul className='nav-links'>
                     {!user ?
                         <li className='nav-login-link' onClick={() => setShowLoginModal(true)}>Log In</li>
