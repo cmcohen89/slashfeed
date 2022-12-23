@@ -27,9 +27,9 @@ function App() {
         <BrowserRouter>
             <Navigation />
             <Switch>
-                <ProtectedRoute path='/profile/:id'>
+                <Route path='/profile/:id'>
                     <ProfilePage />
-                </ProtectedRoute>
+                </Route>
                 <Route path='/' exact={true} >
                     <PostIndex />
                 </Route>

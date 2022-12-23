@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 import { deletePost, getPosts, likePost, unlikePost } from "../../store/all_posts";
 import UpdatePostForm from "../PostForm/UpdatePostForm";
 
-const ProfilePost = ({ post }) => {
+const ProfilePost = ({ post, user, setPostType }) => {
     const dispatch = useDispatch();
     const [updatePost, setUpdatePost] = useState(false);
-    const user = useSelector(state => state.session.user)
+    const currUser = useSelector(state => state.session.user)
 
     return (
         <div className='one-profile-post'>
@@ -18,9 +18,13 @@ const ProfilePost = ({ post }) => {
             </div>
             <div className="one-post-content">
                 <h2 className="one-post-user">
-                    <span className="relationship">FRIEND</span>
-                    &nbsp;&nbsp; / &nbsp;&nbsp;
-                    {post.postOwner.username}
+                    <NavLink onClick={() => setPostType('user posts')} className='profile-pic-link one-post-profile-pic' to={`/profile/${post.postOwner.id}`}>
+                        <img className='one-post-profile-pic' src={post.postOwner.profileImgUrl} alt='' />
+                    </NavLink>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <NavLink onClick={() => setPostType('user posts')} className='profile-link' to={`/profile/${post.postOwner.id}`}>
+                        {post.postOwner.username}
+                    </NavLink>
                 </h2>
                 <div className="one-post-title-and-body">
                     <NavLink className='one-post-title-link' to={`/posts/${post.id}`}>
@@ -30,14 +34,15 @@ const ProfilePost = ({ post }) => {
                 </div>
                 <h4
                     onClick={async () => {
-                        user && post.usersWhoLiked[user.id] ?
+                        currUser && post.usersWhoLiked[currUser.id] ?
                             await dispatch(unlikePost(post.id)) :
                             await dispatch(likePost(post.id))
                         dispatch(getPosts());
                     }}
-                    className={`profile-likes ${user && post.usersWhoLiked[user.id] ? "one-post-liked" : ""}`}
-                >{post.likes} <i className="fa-solid fa-thumbs-up"></i></h4>
-                <div className="profile-buttons">
+                    className={`profile-likes ${currUser && post.usersWhoLiked[currUser.id] && "one-post-liked"}`}
+                >
+                    {post.likes} <i className="fa-solid fa-thumbs-up"></i></h4>
+                {currUser && currUser.id === post.postOwner.id && <div className="profile-buttons">
                     <span
                         className='update-comment-button'
                         onClick={() => setUpdatePost(!updatePost)}
@@ -57,7 +62,7 @@ const ProfilePost = ({ post }) => {
                         className={`overlay ${updatePost ? "show" : ""}`}
                         onClick={() => setUpdatePost(!updatePost)}
                     />
-                </div>
+                </div>}
             </div>
         </div>
     )

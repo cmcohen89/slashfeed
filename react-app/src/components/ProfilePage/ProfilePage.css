@@ -3,6 +3,14 @@
     margin: 0 auto;
 }
 
+.one-profile-post {
+    transition: all .5s ease;
+}
+
+.one-profile-post:hover {
+    box-shadow: 0 0 10px #000000;
+}
+
 .profile-header {
     margin-top: 125px;
     border-top: 1px solid #d6d6d7;
@@ -124,6 +132,8 @@
     bottom: 20px;
     margin-right: 47px;
     transition: color .5s ease;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 .view-follows {
@@ -132,5 +142,22 @@
 }
 
 .view-follows:hover {
+    color: #21BFE1;
+}
+
+.profile-post-type {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.profile-post-type-button {
+    font-family: "Rubik", sans-serif;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color .5s ease;
+}
+
+.profile-post-type-button:hover {
     color: #21BFE1;
 }
