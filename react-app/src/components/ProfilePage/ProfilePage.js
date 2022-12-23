@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import { getPosts } from "../../store/all_posts";
 import { getUsers } from "../../store/all_users";
 import { getFollows, postFollow } from "../../store/follows";
-import LoginForm from "../auth/LoginForm";
+import UpdateImage from "../UpdateImage/UpdateImage";
+import UpdateProfileImage from "../UpdateImage/UpdateProfileImage";
 import ViewFollows from "../ViewFollows/ViewFollows";
 import './ProfilePage.css'
 import ProfilePost from "./ProfilePost";
@@ -21,6 +22,7 @@ const ProfilePage = () => {
     const [viewFollows, setViewFollows] = useState(false);
     const [flag, setFlag] = useState(false);
     const [postType, setPostType] = useState('user posts');
+    const [showUpdateProfilePic, setShowUpdateProfilePic] = useState(false);
 
     let userPosts;
     if (user) userPosts = allPosts.filter(post => user.id === post.postOwner.id);
@@ -43,12 +45,27 @@ const ProfilePage = () => {
                     flag={flag}
                 />
             </div>
+            <div className={`modal container ${showUpdateProfilePic ? "update-comment-show" : ""}`}>
+                <UpdateProfileImage setShowUpdateProfilePic={setShowUpdateProfilePic} userId={user.id} />
+            </div>
+            <div
+                className={`overlay ${showUpdateProfilePic ? "show" : ""}`}
+                onClick={() => setShowUpdateProfilePic(!setShowUpdateProfilePic)}
+            />
             <div
                 className={`overlay ${viewFollows ? "show" : ""}`}
                 onClick={() => setViewFollows(!viewFollows)}
             />
             <div className="profile-header">
-                <img className="profile-pic" src={user.profileImgUrl} alt='' />
+                <span className="profile-pic-wrapper">
+                    {currUser.id === user.id && <span
+                        className='update-profile-pic-button'
+                        onClick={() => setShowUpdateProfilePic(true)}
+                    >
+                        <i className="fa-solid fa-pen-to-square"></i>
+                    </span>}
+                    <img className="profile-pic" src={user.profileImgUrl} alt='' />
+                </span>
                 <div className="profile-header-info">
                     <h1 className="profile-title">{user.username}</h1>
                     <h2 className="profile-title">{user.firstName} {user.lastName}</h2>
@@ -69,20 +86,22 @@ const ProfilePage = () => {
                             <h3 className="profile-stat">{Object.values(userFollows).length} Following</h3>
                         </span>
                     </div>
-                    {currUser && (id != currUser.id && <span
-                        className={`follow-button ${userFollowers[currUser.id] && 'unfollow-button'}`}
-                        onClick={async () => {
-                            await dispatch(postFollow(id));
-                            dispatch(getFollows(id))
-                        }}
-                    >
-                        {!userFollowers[currUser.id] ? 'Follow' : 'Unfollow'} {user.username}
-                    </span>)}
+                    {currUser && id != currUser.id &&
+                        <span
+                            className={`follow-button ${userFollowers[currUser.id] && 'unfollow-button'}`}
+                            onClick={async () => {
+                                await dispatch(postFollow(id));
+                                dispatch(getFollows(id))
+                            }}
+                        >
+                            {!userFollowers[currUser.id] ? 'Follow' : 'Unfollow'} {user.username}
+                        </span>
+                    }
                 </div>
             </div>
             <div className="profile-post-type">
-                <span className="profile-post-type-button" onClick={() => setPostType('user posts')}>{user.firstName}'s Posts</span>
-                <span className="profile-post-type-button" onClick={() => setPostType('liked posts')}>Posts {user.firstName} Liked</span>
+                <span className={`profile-post-type-button ${postType === 'user posts' && 'profile-type-underline'}`} onClick={() => setPostType('user posts')}>{user.firstName}'s Posts</span>
+                <span className={`profile-post-type-button ${postType === 'liked posts' && 'profile-type-underline'}`} onClick={() => setPostType('liked posts')}>Posts {user.firstName} Liked</span>
             </div>
             <div className="profile-grid-wrapper">
                 <div className='profile-grid'>
@@ -90,7 +109,7 @@ const ProfilePage = () => {
                         (userPosts.length > 0 ?
                             userPosts.map(post => (
                                 <div key={post.id}>
-                                    <ProfilePost post={post} user={user} />
+                                    <ProfilePost post={post} user={user} setPostType={setPostType} />
                                 </div>))
                             :
                             <h1 className="profile-title">No posts from this user yet...</h1>)
@@ -98,7 +117,7 @@ const ProfilePage = () => {
                         likedPosts.length > 0 ?
                             likedPosts.map(post => (
                                 <div key={post.id}>
-                                    <ProfilePost post={post} user={user} setPostType={setPostType} />
+                                    <ProfilePost post={post} setPostType={setPostType} />
                                 </div>))
                             :
                             <h1 className="profile-title">This user hasn't liked any posts yet!</h1>

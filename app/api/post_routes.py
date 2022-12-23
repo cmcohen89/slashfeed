@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import db, Post, PostImage
-from app.forms.post_form import PostForm, PostUpdateForm
+from app.forms.post_form import PostForm, PostUpdateForm, PostImgUpdateForm
 from .auth_routes import validation_errors_to_error_messages
 
 post_routes = Blueprint('posts', __name__)
@@ -87,6 +87,27 @@ def update_post(id):
 
         db.session.commit()
         return post.to_dict()
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 403
+
+
+# UPDATE A POST IMAGE:
+@post_routes.route('/img/<int:id>', methods=['PUT'])
+@login_required
+def update_img(id):
+    """
+    Query for a single post image by id and update the image if authorized.
+    """
+    post_img = PostImage.query.get(id)
+    form = PostImgUpdateForm()
+
+    form["csrf_token"].data = request.cookies["csrf_token"]
+    if form.validate_on_submit():
+        data = form.data
+
+        setattr(post_img, "url", data["preview_img_url"])
+        db.session.commit()
+
+        return post_img.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}, 403
 
 

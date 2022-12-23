@@ -13,7 +13,7 @@ const UpdatePostForm = ({ post, setUpdatePost }) => {
     const handleSubmit = async e => {
         e.preventDefault();
         let errors = [];
-        if (title.length < 2 || title.length > 50) errors.push("Let's keep titles between 2 and 50 characters.")
+        if (title.length < 2 || title.length > 100) errors.push("Let's keep titles between 2 and 100 characters.")
         if (body.length < 20) errors.push("Tell us more about this post!")
         if (errors.length) {
             setErrors(errors);

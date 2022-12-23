@@ -18,3 +18,13 @@ class PostUpdateForm(FlaskForm):
     title = StringField("Title", validators=[DataRequired()])
     body = StringField("Body", validators=[DataRequired()])
     submit = SubmitField("Submit")
+
+
+class PostImgUpdateForm(FlaskForm):
+    preview_img_url = StringField("Preview Image URL",
+        validators=[
+            DataRequired(),
+            Length(min=0, max=1500, message="The image URL must be less than 1500 characters."),
+            URL(message="Please enter a valid URL for your image.")
+        ])
+    submit = SubmitField("Submit")

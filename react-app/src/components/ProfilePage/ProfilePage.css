@@ -21,11 +21,33 @@
     padding: 40px 300px;
 }
 
+.profile-pic-wrapper {
+    position: relative;
+}
+
 .profile-pic {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.update-profile-pic-button {
+    position: absolute;
+    top: 77px;
+    right: 77px;
+    font-size: 42px;
+    color: transparent;
+    cursor: pointer;
+    transition: color .5s ease;
+}
+
+.profile-pic-wrapper:hover .update-profile-pic-button {
+    color:rgba(255, 255, 255, 0.826)
+}
+
+.profile-pic-wrapper:hover .update-profile-pic-button:hover {
+    color: #21BFE1;
 }
 
 .profile-header-info {
@@ -79,8 +101,7 @@
 
 .follow-button {
     margin-top: 30px;
-    /* position: relative; */
-    /* top: 30px; */
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -134,6 +155,11 @@
     transition: color .5s ease;
     cursor: pointer;
     font-size: 20px;
+    transition: color .5s ease;
+}
+
+.profile-likes:hover {
+    color: #21BFE1;
 }
 
 .view-follows {
@@ -155,9 +181,29 @@
     font-family: "Rubik", sans-serif;
     font-size: 24px;
     cursor: pointer;
-    transition: color .5s ease;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: all .5s ease;
 }
 
 .profile-post-type-button:hover {
+    color: #21BFE1;
+}
+
+.profile-type-underline {
+    border-bottom: 2px solid rgba(51, 51, 51, 0.341);
+}
+
+.update-image-button {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    font-size: 26px;
+    color: rgba(255, 255, 255, 0.826);
+    cursor: pointer;
+    transition: color .5s ease;
+}
+
+.update-image-button:hover {
     color: #21BFE1;
 }

@@ -163,6 +163,7 @@
 
 .one-post-img-container {
     height: 246px;
+    position: relative;
 }
 
 .one-post-img {
@@ -223,6 +224,7 @@
 .one-post-body {
     color: #3A4148;
     font-size: 16px;
+    white-space: pre-wrap;
 }
 
 .one-post-title-and-body::-webkit-scrollbar {

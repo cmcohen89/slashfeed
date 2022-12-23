@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { getPosts, likePost, unlikePost } from "../../store/all_posts";
 import { getUsers } from "../../store/all_users";
 import LoginForm from "../auth/LoginForm";
+import LoginModal from "../LoginModal";
 import OnePost from "./OnePost";
 import './PostIndex.css';
 
@@ -25,13 +26,7 @@ const PostIndex = () => {
 
     return (
         <div className="all-posts">
-            <div className={`modal container ${showLoginModal ? "login-show" : ""}`}>
-                <LoginForm setShowLoginModal={setShowLoginModal} />
-            </div>
-            <div
-                className={`overlay ${showLoginModal ? "show" : ""}`}
-                onClick={() => setShowLoginModal(!setShowLoginModal)}
-            />
+            <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal} />
             <div className='featured-posts'>
                 <div className='main-post'>
                     <NavLink to={`/posts/${allPosts[0].id}`}>
@@ -54,12 +49,15 @@ const PostIndex = () => {
                     </NavLink>
                     <span onClick={async () => {
                         user ?
-                            (allPosts[0].usersWhoLiked[user.id] ?
-                                await dispatch(unlikePost(allPosts[0].id)) :
-                                await dispatch(likePost(allPosts[0].id)))
+                            (
+                                allPosts[0].usersWhoLiked[user.id] ?
+                                    await dispatch(unlikePost(allPosts[0].id))
+                                    && dispatch(getPosts())
+                                    :
+                                    await dispatch(likePost(allPosts[0].id))
+                                    && dispatch(getPosts())
+                            )
                             : setShowLoginModal(true)
-
-                        dispatch(getPosts());
                     }}
                         className=
                         {
@@ -91,11 +89,15 @@ const PostIndex = () => {
                     </NavLink>
                     <span onClick={async () => {
                         user ?
-                            (allPosts[1].usersWhoLiked[user.id] ?
-                                await dispatch(unlikePost(allPosts[1].id)) :
-                                await dispatch(likePost(allPosts[1].id)))
+                            (
+                                allPosts[1].usersWhoLiked[user.id] ?
+                                    await dispatch(unlikePost(allPosts[1].id))
+                                    && dispatch(getPosts())
+                                    :
+                                    await dispatch(likePost(allPosts[1].id))
+                                    && dispatch(getPosts())
+                            )
                             : setShowLoginModal(true)
-                        dispatch(getPosts());
                     }}
                         className=
                         {
@@ -124,11 +126,16 @@ const PostIndex = () => {
                         />
                     </NavLink>
                     <span onClick={async () => {
-                        user ? (allPosts[2].usersWhoLiked[user.id] ?
-                            await dispatch(unlikePost(allPosts[2].id)) :
-                            await dispatch(likePost(allPosts[2].id)))
+                        user ?
+                            (
+                                allPosts[2].usersWhoLiked[user.id] ?
+                                    await dispatch(unlikePost(allPosts[2].id))
+                                    && dispatch(getPosts())
+                                    :
+                                    await dispatch(likePost(allPosts[2].id))
+                                    && dispatch(getPosts())
+                            )
                             : setShowLoginModal(true)
-                        dispatch(getPosts());
                     }}
                         className=
                         {
