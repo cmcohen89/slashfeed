@@ -70,6 +70,11 @@
     text-transform: capitalize;
     text-shadow: 3px 3px 3px black;
     -webkit-text-stroke: 1px black;
+    transition: color .5s ease;
+}
+
+.featured-title:hover {
+    color: #21BFE1;
 }
 
 .side-featured-user-and-title {
@@ -99,6 +104,11 @@
     text-transform: capitalize;
     text-shadow: 3px 3px 3px black;
     -webkit-text-stroke: 0.75px black;
+    transition: color .5s ease;
+}
+
+.side-featured-title:hover {
+    color: #21BFE1;
 }
 
 .one-post-img {
@@ -144,6 +154,11 @@
     width: 438px;
     height: 515px;
     border: 1px solid #d7d7d7;
+    transition: all 0.5s ease-out;
+}
+
+.one-post:hover {
+    box-shadow: 0 0 10px #000000;
 }
 
 .one-post-img-container {
@@ -184,11 +199,17 @@
     object-fit: cover;
 }
 
+.one-post-title-and-body {
+    overflow-y: auto;
+    max-height: 150px;
+}
+
 .one-post-title {
     padding-top: 15px;
     padding-bottom: 12px;
     font-size: 24px;
     color: #3A4148;
+    transition: color .5s ease
 }
 
 .one-post-title-link {
@@ -202,31 +223,49 @@
 .one-post-body {
     color: #3A4148;
     font-size: 16px;
-    overflow-y: auto;
-    max-height: 60px;
 }
 
-.one-post-body::-webkit-scrollbar {
+.one-post-title-and-body::-webkit-scrollbar {
     width: 20px;
 }
 
-.one-post-body::-webkit-scrollbar-track {
+.one-post-title-and-body::-webkit-scrollbar-track {
     background-color: transparent;
 }
 
-.one-post-body::-webkit-scrollbar-thumb {
+.one-post-title-and-body::-webkit-scrollbar-thumb {
     background-color: #d6dee1;
     border-radius: 20px;
     border: 6px solid transparent;
     background-clip: content-box;
 }
 
-.one-post-likes {
+.read-more {
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    color: #3A4148;
+    transition: color .5s ease;
+}
+
+.read-more:hover {
+    color: #21BFE1;
+}
+
+.one-post-footer {
     position: absolute;
     bottom: 22px;
     font-size: 18px;
     color: #3A4148;
     cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.one-post-likes {
+    margin-right: 47px;
+    transition: color .5s ease;
 }
 
 .one-post-likes:hover {
@@ -245,6 +284,7 @@
     color: white;
     text-shadow: 3px 3px 3px black;
     -webkit-text-stroke: 0.75px black;
+    transition: color .5s ease;
 }
 
 .side-featured-likes {
@@ -259,6 +299,7 @@
     color: white;
     text-shadow: 3px 3px 3px black;
     -webkit-text-stroke: 0.75px black;
+    transition: color .5s ease;
 }
 
 .one-post-liked {
@@ -270,6 +311,23 @@
 }
 
 .side-featured-likes:hover {
+    color: #21BFE1;
+}
+
+.profile-link {
+    text-decoration: none;
+    color: #808A8C;
+    transition: all .5s ease;
+}
+
+.featured-profile-link {
+    text-decoration: none;
+    color: white;
+    transition: color .5s ease;
+}
+
+.profile-link:hover,
+.featured-profile-link:hover {
     color: #21BFE1;
 }
 

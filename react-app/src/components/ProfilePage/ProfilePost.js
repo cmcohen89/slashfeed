@@ -22,10 +22,12 @@ const ProfilePost = ({ post }) => {
                     &nbsp;&nbsp; / &nbsp;&nbsp;
                     {post.postOwner.username}
                 </h2>
-                <NavLink className='one-post-title-link' to={`/posts/${post.id}`}>
-                    <h3 className="one-post-title">{post.title}</h3>
-                </NavLink>
-                <p className="one-post-body">{post.body}</p>
+                <div className="one-post-title-and-body">
+                    <NavLink className='one-post-title-link' to={`/posts/${post.id}`}>
+                        <h3 className="one-post-title">{post.title}</h3>
+                    </NavLink>
+                    <p className="one-post-body">{post.body}</p>
+                </div>
                 <h4
                     onClick={async () => {
                         user && post.usersWhoLiked[user.id] ?
@@ -33,7 +35,7 @@ const ProfilePost = ({ post }) => {
                             await dispatch(likePost(post.id))
                         dispatch(getPosts());
                     }}
-                    className={`one-post-likes ${user && post.usersWhoLiked[user.id] ? "one-post-liked" : ""}`}
+                    className={`profile-likes ${user && post.usersWhoLiked[user.id] ? "one-post-liked" : ""}`}
                 >{post.likes} <i className="fa-solid fa-thumbs-up"></i></h4>
                 <div className="profile-buttons">
                     <span
@@ -48,7 +50,7 @@ const ProfilePost = ({ post }) => {
                     >
                         <i className="fa-solid fa-xmark"></i>
                     </span>
-                    <div className={`modal container ${updatePost ? "update-show" : ""}`}>
+                    <div className={`modal container ${updatePost ? "update-post-show" : ""}`}>
                         <UpdatePostForm post={post} setUpdatePost={setUpdatePost} />
                     </div>
                     <div

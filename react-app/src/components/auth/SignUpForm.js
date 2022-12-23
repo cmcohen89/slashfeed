@@ -25,7 +25,18 @@ const SignUpForm = ({ setShowSignupModal }) => {
             setErrors(errors);
         } else {
             const data = await dispatch(signUp(first_name, last_name, username, email, profile_img_url, password));
-            data ? setErrors(data) : setShowSignupModal(false)
+            if (data) {
+                setErrors(data);
+            } else {
+                setShowSignupModal(false);
+                setFirstName('');
+                setLastName('');
+                setUsername('');
+                setEmail('');
+                setProfileImgUrl('');
+                setPassword('');
+                setRepeatPassword('');
+            }
         }
     };
 
@@ -74,6 +85,8 @@ const SignUpForm = ({ setShowSignupModal }) => {
                 <div className='signup-div'>
                     <label className='signup-label'>First Name</label>
                     <input
+                        placeholder='Nicknames are fine, too'
+                        required
                         className='login-input'
                         type='text'
                         name='firstname'
@@ -84,6 +97,8 @@ const SignUpForm = ({ setShowSignupModal }) => {
                 <div className='signup-div'>
                     <label className='signup-label'>Last Name</label>
                     <input
+                        placeholder="Let's make it official"
+                        required
                         className='login-input'
                         type='text'
                         name='lastname'
@@ -94,6 +109,8 @@ const SignUpForm = ({ setShowSignupModal }) => {
                 <div className='signup-div'>
                     <label className='signup-label'>User Name</label>
                     <input
+                        placeholder='This is how other users will see you'
+                        required
                         className='login-input'
                         type='text'
                         name='username'
@@ -104,6 +121,8 @@ const SignUpForm = ({ setShowSignupModal }) => {
                 <div className='signup-div'>
                     <label className='signup-label'>Email</label>
                     <input
+                        placeholder='We promise not to send you junk mail'
+                        required
                         className='login-input'
                         type='text'
                         name='email'
@@ -116,6 +135,8 @@ const SignUpForm = ({ setShowSignupModal }) => {
                 <div className='signup-div'>
                     <label className='signup-label'>Profile Image URL</label>
                     <input
+                        placeholder='Say cheese'
+                        required
                         className='login-input'
                         type='text'
                         name='profileImgUrl'
@@ -126,6 +147,8 @@ const SignUpForm = ({ setShowSignupModal }) => {
                 <div className='signup-div'>
                     <label className='signup-label'>Password</label>
                     <input
+                        placeholder='Keep it secret, keep it safe'
+                        required
                         className='login-input'
                         type='password'
                         name='password'
@@ -136,12 +159,13 @@ const SignUpForm = ({ setShowSignupModal }) => {
                 <div className='signup-div'>
                     <label className='signup-label'>Repeat Password</label>
                     <input
+                        placeholder='Is it secret? Is it safe?'
+                        required
                         className='login-input'
                         type='password'
                         name='repeat_password'
                         onChange={updateRepeatPassword}
                         value={repeatPassword}
-                        required={true}
                     ></input>
                 </div>
             </div>

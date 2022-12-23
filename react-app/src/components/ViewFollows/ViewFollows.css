@@ -1,0 +1,66 @@
+.follows-modal {
+    padding: 10px 20px;
+    width: 380px;
+    font-family: "Rubik", sans-serif;
+    border: 2px solid #21BFE1;
+    border-radius: 10px;
+    background-color: #f5f7f9;
+}
+
+.follows-title {
+    text-align: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #d6d6d7;
+    font-size: 22px;
+}
+
+.follows-content {
+    overflow: auto;
+    height: 380px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.follows-content::-webkit-scrollbar {
+    width: 20px;
+}
+
+.follows-content::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.follows-content::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+.follows-user {
+    font-size: 18px;
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.follows-profile-pic-link {
+    display: flex;
+    align-items: center;
+}
+
+.follows-profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.follows-profile-link {
+    text-decoration: none;
+    color: rgba(51, 51, 51, 0.83);
+    transition: all .5s ease;
+}
+
+.follows-profile-link:hover {
+    color: #21BFE1;
+}

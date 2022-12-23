@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getPosts, likePost, unlikePost } from "../../store/all_posts";
+import { getUsers } from "../../store/all_users";
 import LoginForm from "../auth/LoginForm";
 import OnePost from "./OnePost";
 import './PostIndex.css';
@@ -13,7 +14,8 @@ const PostIndex = () => {
     const [showLoginModal, setShowLoginModal] = useState(false);
 
     useEffect(() => {
-        dispatch(getPosts())
+        dispatch(getPosts());
+        dispatch(getUsers());
     }, [dispatch])
 
 
@@ -35,9 +37,13 @@ const PostIndex = () => {
                     <NavLink to={`/posts/${allPosts[0].id}`}>
                         <span className="featured-user-and-title">
                             <h5 className='featured-user'>
-                                <img className='one-post-profile-pic' src={allPosts[0].postOwner.profileImgUrl} alt='' />
+                                <NavLink className='featured-profile-link' to={`/profile/${allPosts[0].postOwner.id}`}>
+                                    <img className='one-post-profile-pic' src={allPosts[0].postOwner.profileImgUrl} alt='' />
+                                </NavLink>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                {allPosts[0].postOwner.username}
+                                <NavLink className='featured-profile-link' to={`/profile/${allPosts[0].postOwner.id}`}>
+                                    {allPosts[0].postOwner.username}
+                                </NavLink>
                             </h5>
                             <h1 className='featured-title'>{allPosts[0].title}</h1>
                         </span>
@@ -68,9 +74,13 @@ const PostIndex = () => {
                     <NavLink to={`/posts/${allPosts[1].id}`}>
                         <span className="side-featured-user-and-title">
                             <h5 className='side-featured-user'>
-                                <img className='one-post-profile-pic' src={allPosts[1].postOwner.profileImgUrl} alt='' />
+                                <NavLink className='featured-profile-link' to={`/profile/${allPosts[1].postOwner.id}`}>
+                                    <img className='one-post-profile-pic' src={allPosts[1].postOwner.profileImgUrl} alt='' />
+                                </NavLink>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                {allPosts[1].postOwner.username}
+                                <NavLink className='featured-profile-link' to={`/profile/${allPosts[1].postOwner.id}`}>
+                                    {allPosts[1].postOwner.username}
+                                </NavLink>
                             </h5>
                             <h1 className='side-featured-title'>{allPosts[1].title}</h1>
                         </span>
@@ -98,9 +108,13 @@ const PostIndex = () => {
                     <NavLink to={`/posts/${allPosts[2].id}`}>
                         <span className="side-featured-user-and-title">
                             <h5 className='side-featured-user'>
-                                <img className='one-post-profile-pic' src={allPosts[2].postOwner.profileImgUrl} alt='' />
+                                <NavLink className='featured-profile-link' to={`/profile/${allPosts[2].postOwner.id}`}>
+                                    <img className='one-post-profile-pic' src={allPosts[2].postOwner.profileImgUrl} alt='' />
+                                </NavLink>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                {allPosts[2].postOwner.username}
+                                <NavLink className='featured-profile-link' to={`/profile/${allPosts[2].postOwner.id}`}>
+                                    {allPosts[2].postOwner.username}
+                                </NavLink>
                             </h5>
                             <h1 className='side-featured-title'>{allPosts[2].title}</h1>
                         </span>

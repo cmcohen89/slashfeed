@@ -9,6 +9,7 @@
 .single-post-title {
     margin-top: 107px;
     margin-bottom: 24px;
+    word-break: break-word;
     font-size: 42px;
     text-transform: capitalize;
     letter-spacing: -1px;
