@@ -14,3 +14,11 @@ followers = db.Table(
     db.Column('follower_id', db.Integer, db.ForeignKey('users.id')),
     db.Column('followed_id', db.Integer, db.ForeignKey('users.id'))
 )
+
+
+user_message_threads = db.Table(
+    "user_message_threads",
+    db.Model.metadata,
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
+    db.Column('message_thread_id', db.Integer, db.ForeignKey('message_threads.id'), primary_key=True)
+)

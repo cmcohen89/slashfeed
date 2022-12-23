@@ -20,7 +20,6 @@ class User(db.Model, UserMixin):
     user_posts = db.relationship('Post', back_populates='post_owner', cascade='all, delete')
     user_comments = db.relationship('Comment', back_populates='comment_owner', cascade='all, delete')
     user_messages = db.relationship('Message', back_populates='message_owner', cascade='all, delete')
-    # user_message_threads = db.relationship('MessageThread', back_populates='message_thread_users', cascade='all, delete')
     user_likes = db.relationship('Post', back_populates='users_who_liked', secondary=likes, lazy='joined')
     followed = db.relationship('User', secondary=followers, primaryjoin=(followers.c.follower_id == id), secondaryjoin=(followers.c.followed_id == id), backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
 
