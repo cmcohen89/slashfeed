@@ -15,7 +15,7 @@
     width: 400px;
     border-radius: 10px;
     border: 1px solid #d6d6d7;
-    transition: all .2s ease-out;
+    transition: all .5s ease-out;
 }
 
 .create-input:focus {
@@ -33,7 +33,7 @@
     width: 400px;
     border-radius: 10px;
     border: 1px solid #d6d6d7;
-    transition: all .2s ease-out;
+    transition: all .5s ease-out;
     resize: none;
 }
 
@@ -62,57 +62,11 @@
     border: none;
     cursor: pointer;
     box-shadow: none;
-    transition: box-shadow .2s ease-out;
+    transition: box-shadow .5s ease-out;
 }
 
 .create-button:hover {
     box-shadow: 0 0 15px #21bee171;
-}
-
-.overlay {
-    background-color: rgba(0, 0, 0, 0.55);
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: fixed;
-    visibility: hidden;
-    opacity: 0;
-    z-index: 6;
-    transition: all .15s ease-out .15s;
-}
-
-.overlay.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -150vh;
-    background-color: #fff;
-    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
-    transition: bottom .3s ease-out;
-    z-index: 10;
-    border-radius: 10px;
-}
-
-.modal.create-show {
-    bottom: 20vh;
-}
-
-.modal.login-show {
-    bottom: 32vh;
-}
-
-.modal.signup-show {
-    bottom: 24vh;
-}
-
-.modal.update-show {
-    bottom: 40vh;
 }
 
 .update-title {

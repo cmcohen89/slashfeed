@@ -6,17 +6,30 @@ import './CommentForm.css';
 const CommentForm = ({ postId }) => {
     const dispatch = useDispatch();
     const [body, setBody] = useState('');
+    const [errors, setErrors] = useState([]);
     const user = useSelector(state => state.session.user);
 
     const handleSubmit = async e => {
         e.preventDefault();
-        setBody('');
-        await dispatch(postComment(body, postId));
+        let errors = [];
+        if (body.length > 4999) errors.push("Easy tiger, let's keep it under 5000 characters!")
+        if (errors.length > 0) {
+            setErrors(errors);
+        } else {
+            await dispatch(postComment(body, postId));
+            setErrors([]);
+            setBody('');
+        }
     }
 
     return (
         <div className='comment-form-div'>
             <form className='comment-form' onSubmit={handleSubmit}>
+                <div className='comment-errors'>
+                    {errors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                </div>
                 <textarea
                     className='comment-form-textarea'
                     required

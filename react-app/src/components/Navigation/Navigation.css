@@ -35,8 +35,8 @@
     font-size: 18px;
     letter-spacing: -0.5px;
     display: flex;
-    justify-content: space-evenly;
-    width: 700px;
+    justify-content: right;
+    width: 300px;
     list-style: none;
     text-transform: uppercase;
 }
@@ -45,11 +45,24 @@
     text-decoration: none;
     color: black;
     cursor: pointer;
-    transition: color .2s ease;
+    transition: color .5s ease;
+    color: rgba(0, 0, 0, 0.508);
+    margin-right: 30px;
+}
+
+.nav-signup-link {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    transition: color .5s ease;
     color: rgba(0, 0, 0, 0.508);
 }
 
 .nav-login-link:hover {
+    color: #21BFE1;
+}
+
+.nav-signup-link:hover {
     color: #21BFE1;
 }
 
@@ -65,7 +78,7 @@
 
 .nav-logo-link {
     cursor: pointer;
-    transition: color .2s ease;
+    transition: color .5s ease;
 }
 
 .nav-logo-link:hover {
@@ -87,7 +100,7 @@
     color: white;
     padding: 10px;
     cursor: pointer;
-    transition: box-shadow .2s ease;
+    transition: box-shadow .5s ease;
 }
 
 .nav-update:hover {
@@ -105,6 +118,15 @@
 
 .slogan {
     color: rgba(0, 0, 0, 0.508);
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    display: flex;
+    justify-content: left;
+    width: 400px;
+    list-style: none;
+    text-transform: uppercase;
 }
 
 .no-underline {

@@ -10,3 +10,57 @@ body {
     background-color: #f5f7f9;
     overflow: scroll;
 }
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.55);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 6;
+    transition: all .15s ease-out .15s;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -150vh;
+    background-color: #fff;
+    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
+    transition: bottom .3s ease-out;
+    z-index: 10;
+    border-radius: 10px;
+}
+
+.modal.create-show {
+    bottom: 20vh;
+}
+
+.modal.login-show {
+    bottom: 32vh;
+}
+
+.modal.signup-show {
+    bottom: 24vh;
+}
+
+.modal.update-post-show {
+    bottom: 25vh;
+}
+
+.modal.update-comment-show {
+    bottom: 40vh;
+}
+
+.modal.follows-show {
+    bottom: 35vh;
+}

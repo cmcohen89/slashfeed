@@ -29,7 +29,7 @@
     border: none;
     cursor: pointer;
     box-shadow: none;
-    transition: box-shadow .2s ease-out;
+    transition: box-shadow .5s ease-out;
 }
 
 .signup-button:hover {

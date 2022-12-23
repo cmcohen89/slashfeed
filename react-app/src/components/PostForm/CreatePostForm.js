@@ -14,9 +14,11 @@ const CreatePostForm = ({ setShowCreateModal }) => {
 
     const handleSubmit = async e => {
         e.preventDefault();
+        setErrors([]);
         let errors = [];
-        if (title.length < 3 || title.length > 40) errors.push("Let's keep titles between 3 and 40 characters.")
+        if (title.length < 3 || title.length > 100) errors.push("Let's keep titles between 3 and 100 characters.")
         if (body.length < 20) errors.push("Tell us more about this post!")
+        if (body.length > 4999) errors.push("Easy tiger, let's keep it under 5000 characters!")
         if (errors.length > 0) {
             setErrors(errors);
         } else {

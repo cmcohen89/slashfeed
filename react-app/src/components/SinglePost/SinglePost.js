@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { likePost, unlikePost } from "../../store/all_posts";
 import { getSinglePost } from "../../store/one_post";
 import LoginForm from "../auth/LoginForm";
@@ -38,9 +38,14 @@ const SinglePost = () => {
             <div className="single-post-subheader">
                 <span className="single-post-user-and-date">
                     <span className="single-post-user">
-                        <img className='one-post-profile-pic' src={singlePost.postOwner.profileImgUrl} alt='' />
+                        <NavLink className='profile-link' to={`/profile/${singlePost.postOwner.id}`}>
+                            <img className='one-post-profile-pic' src={singlePost.postOwner.profileImgUrl} alt='' />
+                        </NavLink>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        {singlePost.postOwner.username}&nbsp;&nbsp; / &nbsp;&nbsp;
+                        <NavLink className='profile-link' to={`/profile/${singlePost.postOwner.id}`}>
+                            {singlePost.postOwner.username}
+                        </NavLink>
+                        &nbsp;&nbsp; / &nbsp;&nbsp;
                     </span>
                     <span className="single-post-date">
                         {(new Date(singlePost.createdAt)).toLocaleTimeString()},&nbsp;

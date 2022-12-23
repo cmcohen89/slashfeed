@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { deleteComment } from "../../store/comments";
 import UpdateCommentForm from "../CommentForm/UpdateCommentForm";
 
@@ -11,9 +12,13 @@ const OneComment = ({ comment }) => {
     return (
         <div className='one-comment'>
             <h4 className='comment-user'>
-                <img className='one-post-profile-pic' src={comment.commentOwner.profileImgUrl} alt='' />
+                <NavLink className='profile-link' to={`/profile/${comment.commentOwner.id}`}>
+                    <img className='one-post-profile-pic' src={comment.commentOwner.profileImgUrl} alt='' />
+                </NavLink>
                 &nbsp;&nbsp;&nbsp;
-                {comment.commentOwner.username}
+                <NavLink className='comment-profile-link' to={`/profile/${comment.commentOwner.id}`}>
+                    {comment.commentOwner.username}
+                </NavLink>
                 <span className='comment-timestamp'>
                     &nbsp;&nbsp;|&nbsp;&nbsp;
                     {(new Date(comment.createdAt)).toLocaleTimeString()},
@@ -32,7 +37,7 @@ const OneComment = ({ comment }) => {
                             onClick={() => dispatch(deleteComment(comment.id))}>
                             <i className="fa-solid fa-xmark"></i>
                         </span>
-                        <div className={`modal container ${updateComment ? "update-show" : ""}`}>
+                        <div className={`modal container ${updateComment ? "update-comment-show" : ""}`}>
                             <UpdateCommentForm comment={comment} setUpdateComment={setUpdateComment} />
                         </div>
                         <div

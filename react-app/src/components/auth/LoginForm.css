@@ -33,7 +33,7 @@
     width: 250px;
     border-radius: 10px;
     border: 1px solid #d6d6d7;
-    transition: all .2s ease-out;
+    transition: all .5s ease-out;
 }
 
 .login-input:focus {
@@ -60,7 +60,7 @@
     border: none;
     cursor: pointer;
     box-shadow: none;
-    transition: box-shadow .2s ease-out;
+    transition: box-shadow .5s ease-out;
 }
 
 .login-button:hover {
@@ -85,7 +85,7 @@
     border: none;
     cursor: pointer;
     box-shadow: none;
-    transition: box-shadow .2s ease-out;
+    transition: box-shadow .5s ease-out;
 }
 
 .login-button2:hover {

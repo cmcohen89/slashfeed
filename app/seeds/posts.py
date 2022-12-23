@@ -2,7 +2,7 @@ from app.models import db, Post
 
 def seed_posts():
     post1 = Post(
-        title='I love Christmas time!!! Baking during Christmas is my favorite way to spend the holiday!',
+        title='Baking during Christmas is my favorite way to spend the holiday!',
         body='I made these absolutely amazing Christmas cookies last night, we just could NOT stop eating them! I must have had at least 6 cookies...I kind of feel bad but at the same time who cares! This is what the holidays are for!',
         user_id=3,
         preview_img_id=1

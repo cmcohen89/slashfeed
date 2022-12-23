@@ -4,12 +4,16 @@ import session from './session'
 import allPostsReducer from './all_posts';
 import singlePostReducer from './one_post';
 import commentsReducer from './comments';
+import allUsersReducer from './all_users';
+import followsReducer from './follows';
 
 const rootReducer = combineReducers({
     session,
     allPosts: allPostsReducer,
     onePost: singlePostReducer,
-    comments: commentsReducer
+    comments: commentsReducer,
+    allUsers: allUsersReducer,
+    follows: followsReducer
 });
 
 

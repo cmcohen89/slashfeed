@@ -1,7 +1,43 @@
 .profile-page {
     max-width: 1400px;
     margin: 0 auto;
-    margin-top: 200px;
+}
+
+.profile-header {
+    margin-top: 125px;
+    border-top: 1px solid #d6d6d7;
+    border-bottom: 1px solid #d6d6d7;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 40px 300px;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-header-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-stats {
+    font-family: "Rubik", sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.profile-stat {
+    font-weight: 400;
+    margin: 0 22px;
+    width: 120px;
+    text-align: center;
 }
 
 .profile-grid-wrapper {
@@ -12,6 +48,7 @@
 }
 
 .profile-grid {
+    margin-top: 50px;
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: center;
@@ -27,9 +64,43 @@
 
 .profile-title {
     font-family: "Rubik", sans-serif;
+    font-weight: 500;
     text-align: center;
-    text-decoration: underline;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
+}
+
+.follow-button {
+    margin-top: 30px;
+    /* position: relative; */
+    /* top: 30px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    height: 50px;
+    width: 350px;
+    text-transform: uppercase;
+    background-color: #21BFE1;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.follow-button:hover {
+    box-shadow: 0 0 20px #21BFE1;
+}
+
+.unfollow-button {
+    background-color: white;
+    color: #333;
+    border: 1px solid #d6d6d7;
+}
+
+.unfollow-button:hover {
+    box-shadow: 0 0 10px black;
 }
 
 .profile-buttons {
@@ -46,4 +117,20 @@
     text-align: center;
     margin-bottom: 20px;
     height: 40px;
+}
+
+.profile-likes {
+    position: absolute;
+    bottom: 20px;
+    margin-right: 47px;
+    transition: color .5s ease;
+}
+
+.view-follows {
+    cursor: pointer;
+    transition: color .5s ease;
+}
+
+.view-follows:hover {
+    color: #21BFE1;
 }

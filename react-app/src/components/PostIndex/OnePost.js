@@ -18,14 +18,20 @@ const OnePost = ({ post, setShowLoginModal }) => {
             </div>
             <div className="one-post-content">
                 <h2 className="one-post-user">
-                    <img className='one-post-profile-pic' src={post.postOwner.profileImgUrl} alt='' />
+                    <NavLink className='profile-pic-link one-post-profile-pic' to={`/profile/${post.postOwner.id}`}>
+                        <img className='one-post-profile-pic' src={post.postOwner.profileImgUrl} alt='' />
+                    </NavLink>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    {post.postOwner.username}
+                    <NavLink className='profile-link' to={`/profile/${post.postOwner.id}`}>
+                        {post.postOwner.username}
+                    </NavLink>
                 </h2>
-                <NavLink className='one-post-title-link' to={`/posts/${post.id}`}>
-                    <h3 className="one-post-title">{post.title}</h3>
-                </NavLink>
-                <p className="one-post-body">{post.body}</p>
+                <div className="one-post-title-and-body">
+                    <NavLink className='one-post-title-link' to={`/posts/${post.id}`}>
+                        <h3 className="one-post-title">{post.title}</h3>
+                    </NavLink>
+                    <p className="one-post-body">{post.body}</p>
+                </div>
                 <h4
                     onClick={async () => {
                         user ?
@@ -35,9 +41,12 @@ const OnePost = ({ post, setShowLoginModal }) => {
                             : setShowLoginModal(true)
                         dispatch(getPosts());
                     }}
-                    className={`one-post-likes ${user && post.usersWhoLiked[user.id] ? "one-post-liked" : ""}`}
+                    className={`one-post-footer ${user && post.usersWhoLiked[user.id] ? "one-post-liked" : ""}`}
                 >
-                    {post.likes}&nbsp;<i className="fa-solid fa-thumbs-up"></i>
+                    <NavLink className='read-more' to={`/posts/${post.id}`}>Read More</NavLink>
+                    <span className="one-post-likes">
+                        {post.likes}&nbsp;<i className="fa-solid fa-thumbs-up"></i>
+                    </span>
                 </h4>
             </div>
         </div>

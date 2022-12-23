@@ -44,21 +44,20 @@ const Navigation = () => {
                 onClick={() => setShowSignupModal(!setShowSignupModal)}
             />
             <div className="navigation-container">
-                <span className='profile-lines'><i className="fa-solid fa-bars bars"></i></span>
                 <span>
                     <NavLink to='/'><img className='nav-logo' src='https://i.imgur.com/s9sq5Yk.png' alt='website logo' /></NavLink>
                 </span>
+                <li className='slogan'>Get your news from your friends</li>
                 <ul className='nav-links'>
-                    <li className='slogan'>Get your news from your friends</li>
                     {!user ?
                         <li className='nav-login-link' onClick={() => setShowLoginModal(true)}>Log In</li>
                         :
                         <li className='nav-login-link' onClick={async () => await dispatch(logout())}>Log Out</li>
                     }
                     {!user ?
-                        <li className='nav-login-link' onClick={() => setShowSignupModal(true)}>Sign Up</li>
+                        <li className='nav-signup-link' onClick={() => setShowSignupModal(true)}>Sign Up</li>
                         :
-                        <NavLink className='nav-login-link' to='/profile'><li>Profile</li></NavLink>
+                        <NavLink className='nav-signup-link' to={`/profile/${user.id}`}><li>My Profile</li></NavLink>
                     }
                 </ul>
                 <ul className='nav-logos'>
