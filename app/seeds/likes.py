@@ -1,4 +1,4 @@
-from app.models import db, Post, User
+from app.models import db, Post, User, environment
 
 def seed_likes():
     demo = User.query.get(1)
@@ -61,5 +61,8 @@ def seed_likes():
     db.session.commit()
 
 def undo_likes():
-    db.session.execute("DELETE FROM likes")
-    db.session.commit()
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table likes RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM likes")
+        db.session.commit()

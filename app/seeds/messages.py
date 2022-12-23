@@ -1,4 +1,4 @@
-from app.models import db, Message
+from app.models import db, Message, environment
 
 def seed_messages():
     message1 = Message(
@@ -48,5 +48,8 @@ def seed_messages():
     db.session.commit()
 
 def undo_messages():
-    db.session.execute("DELETE FROM messages")
-    db.session.commit()
+    if environment == "production":
+            db.session.execute(f"TRUNCATE table messages RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM messages")
+        db.session.commit()

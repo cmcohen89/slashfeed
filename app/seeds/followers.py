@@ -1,4 +1,4 @@
-from app.models import db, User
+from app.models import db, User, environment
 
 def seed_followers():
     demo = User.query.get(1)
@@ -42,5 +42,8 @@ def seed_followers():
     db.session.commit()
 
 def undo_followers():
-    db.session.execute("DELETE FROM followers")
-    db.session.commit()
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table followers RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM followers")
+        db.session.commit()

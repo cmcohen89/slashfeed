@@ -1,4 +1,4 @@
-from app.models import db, Comment
+from app.models import db, Comment, environment
 
 all_comments = [
     {
@@ -288,5 +288,8 @@ def seed_comments():
     db.session.commit()
 
 def undo_comments():
-    db.session.execute("DELETE FROM comments")
-    db.session.commit()
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table comments RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM comments")
+        db.session.commit()

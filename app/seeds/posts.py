@@ -1,4 +1,4 @@
-from app.models import db, Post
+from app.models import db, Post, environment
 
 def seed_posts():
     post1 = Post(
@@ -149,5 +149,8 @@ def seed_posts():
     db.session.commit()
 
 def undo_posts():
-    db.session.execute("DELETE FROM posts")
-    db.session.commit()
+    if environment == "production":
+            db.session.execute(f"TRUNCATE table posts RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM posts")
+        db.session.commit()
