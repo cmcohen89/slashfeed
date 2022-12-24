@@ -86,7 +86,7 @@ const ProfilePage = () => {
                             <h3 className="profile-stat">{Object.values(userFollows).length} Following</h3>
                         </span>
                     </div>
-                    {currUser && currUser && id !== currUser.id &&
+                    {currUser && user && user.id !== currUser.id &&
                         <span
                             className={`follow-button ${userFollowers[currUser.id] && 'unfollow-button'}`}
                             onClick={async () => {
