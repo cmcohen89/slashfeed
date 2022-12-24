@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from app.models import db, Post, PostImage, User
 from app.forms.post_form import PostForm, PostUpdateForm, PostImgUpdateForm
 from .auth_routes import validation_errors_to_error_messages
+from app.s3_helpers import (upload_file_to_s3, allowed_file, get_unique_filename)
 
 post_routes = Blueprint('posts', __name__)
 
@@ -27,7 +28,7 @@ def get_followed_posts():
     """
 
     user = User.query.get(current_user.get_id())
-    posts = user.followed_posts().order_by(Post.created_at.desc())
+    posts = user.followed_posts()
 
     return {"Posts": [post.to_dict() for post in posts]}
 
@@ -104,7 +105,33 @@ def update_post(id):
     return {"errors": validation_errors_to_error_messages(form.errors)}, 403
 
 
-# UPDATE A POST IMAGE:
+# UPLOAD AN IMAGE AND RETURN A URL
+@post_routes.route("/img", methods=["POST"])
+@login_required
+def upload_image():
+    if "image" not in request.files:
+        return {"errors": "image required"}, 400
+
+    image = request.files["image"]
+
+    if not allowed_file(image.filename):
+        return {"errors": "file type not permitted"}, 400
+
+    image.filename = get_unique_filename(image.filename)
+
+    upload = upload_file_to_s3(image)
+
+    if "url" not in upload:
+        # if the dictionary doesn't have a url key
+        # it means that there was an error when we tried to upload
+        # so we send back that error message
+        return upload, 400
+
+    url = upload["url"]
+    return {"url": url}
+
+
+# UPDATE A POST IMAGE BY ITS ID:
 @post_routes.route('/img/<int:id>', methods=['PUT'])
 @login_required
 def update_img(id):

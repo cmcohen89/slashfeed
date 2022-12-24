@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getPosts } from '../../store/all_posts';
 import { putSinglePost } from '../../store/one_post';
+import AWSImageUpload from "../AWSImageUpload/AWSImageUpload";
 import './CreatePostForm.css';
 
 const UpdatePostForm = ({ post, setUpdatePost }) => {

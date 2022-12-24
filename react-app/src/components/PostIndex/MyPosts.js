@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
-import { getPosts, likePost, unlikePost } from "../../store/all_posts";
+import { NavLink, useHistory } from "react-router-dom";
+import { getFollowedPosts, likePost, unlikePost } from "../../store/all_posts";
 import { getUsers } from "../../store/all_users";
 import LoginModal from "../LoginModal";
 import FeaturedPost from "./FeaturedPost";
@@ -9,15 +9,17 @@ import OnePost from "./OnePost";
 import './PostIndex.css';
 import SideFeaturedPost from "./SideFeaturedPost";
 
-const PostIndex = () => {
+const MyPosts = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const allPosts = useSelector(state => Object.values(state.allPosts))
     const topPosts = useSelector(state => Object.values(state.allPosts))
     const user = useSelector(state => state.session.user)
+    if (!user) history.push('/');
     const [showLoginModal, setShowLoginModal] = useState(false);
 
     useEffect(() => {
-        dispatch(getPosts());
+        dispatch(getFollowedPosts());
         dispatch(getUsers());
     }, [dispatch])
 
@@ -40,10 +42,10 @@ const PostIndex = () => {
                             (
                                 topPosts[0].usersWhoLiked[user.id] ?
                                     await dispatch(unlikePost(topPosts[0].id))
-                                    && dispatch(getPosts())
+                                    && dispatch(getFollowedPosts())
                                     :
                                     await dispatch(likePost(topPosts[0].id))
-                                    && dispatch(getPosts())
+                                    && dispatch(getFollowedPosts())
                             )
                             : setShowLoginModal(true)
                     }}
@@ -65,10 +67,10 @@ const PostIndex = () => {
                             (
                                 topPosts[1].usersWhoLiked[user.id] ?
                                     await dispatch(unlikePost(topPosts[1].id))
-                                    && dispatch(getPosts())
+                                    && dispatch(getFollowedPosts())
                                     :
                                     await dispatch(likePost(topPosts[1].id))
-                                    && dispatch(getPosts())
+                                    && dispatch(getFollowedPosts())
                             )
                             : setShowLoginModal(true)
                     }}
@@ -88,10 +90,10 @@ const PostIndex = () => {
                             (
                                 topPosts[2].usersWhoLiked[user.id] ?
                                     await dispatch(unlikePost(topPosts[2].id))
-                                    && dispatch(getPosts())
+                                    && dispatch(getFollowedPosts())
                                     :
                                     await dispatch(likePost(topPosts[2].id))
-                                    && dispatch(getPosts())
+                                    && dispatch(getFollowedPosts())
                             )
                             : setShowLoginModal(true)
                     }}
@@ -119,4 +121,4 @@ const PostIndex = () => {
     )
 }
 
-export default PostIndex;
+export default MyPosts;

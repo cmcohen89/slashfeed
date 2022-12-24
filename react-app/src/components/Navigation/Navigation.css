@@ -36,7 +36,7 @@
     letter-spacing: -0.5px;
     display: flex;
     justify-content: right;
-    width: 300px;
+    width: 500px;
     list-style: none;
     text-transform: uppercase;
 }
@@ -50,7 +50,7 @@
     margin-right: 30px;
 }
 
-.nav-signup-link {
+.nav-login-link-last {
     text-decoration: none;
     color: black;
     cursor: pointer;
@@ -58,11 +58,18 @@
     color: rgba(0, 0, 0, 0.508);
 }
 
-.nav-login-link:hover {
-    color: #21BFE1;
+.nav-signup-link {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    transition: color .5s ease;
+    color: rgba(0, 0, 0, 0.508);
+    margin-right: 30px;
 }
 
-.nav-signup-link:hover {
+.nav-login-link:hover,
+.nav-signup-link:hover,
+.nav-login-link-last:hover {
     color: #21BFE1;
 }
 

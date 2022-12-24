@@ -11,6 +11,9 @@ const CreatePostForm = ({ setShowCreateModal }) => {
     const [body, setBody] = useState('');
     const [preview_img_url, setPreviewImgUrl] = useState('');
     const [errors, setErrors] = useState([]);
+    const [image, setImage] = useState(null);
+    const [imageLoading, setImageLoading] = useState(false);
+    const [imageLoaded, setImageLoaded] = useState(false);
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -35,6 +38,38 @@ const CreatePostForm = ({ setShowCreateModal }) => {
         }
     }
 
+    const updateImage = (e) => {
+        const file = e.target.files[0];
+        setImage(file);
+    }
+
+    const handleUpload = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("image", image);
+
+        // aws uploads can be a bit slow—displaying
+        // some sort of loading message is a good idea
+        setImageLoading(true);
+
+        const res = await fetch(`/api/posts/img`, {
+            method: "POST",
+            body: formData,
+        });
+        if (res.ok) {
+            const url = await res.json();
+            setImageLoading(false);
+            setPreviewImgUrl(url.url)
+            // history.push("/images");
+        }
+        else {
+            setImageLoading(false);
+            // a real app would probably use more advanced
+            // error handling
+            console.log("error");
+        }
+    }
+
     return (
         <div>
             <form className='create-form' onSubmit={handleSubmit}>
@@ -53,7 +88,7 @@ const CreatePostForm = ({ setShowCreateModal }) => {
                             name='title-input'
                             onChange={e => setTitle(e.target.value)}
                             value={title}
-                            placeholder="Post title"
+                            placeholder="Give your post a short title"
                             type='text'
                         />
                     </div>
@@ -65,9 +100,23 @@ const CreatePostForm = ({ setShowCreateModal }) => {
                             name='url-input'
                             onChange={e => setPreviewImgUrl(e.target.value)}
                             value={preview_img_url}
-                            placeholder="Post image"
+                            placeholder="Enter the image URL or upload a pic below"
                             type='text'
                         />
+                    </div>
+                    <div className='aws-div'>
+                        <label className='aws-label'>
+                            <input
+                                className="aws-input"
+                                type="file"
+                                accept="image/*"
+                                onChange={updateImage}
+                            />
+                        </label>
+                        <span className='aws-submit2' onClick={handleUpload}>Generate URL</span>
+                    </div>
+                    <div className='aws-loading2'>
+                        {(imageLoading) && <p className='aws-loading-text'>Loading...</p>}
                     </div>
                 </div>
                 <div className='login-div'>
@@ -78,7 +127,7 @@ const CreatePostForm = ({ setShowCreateModal }) => {
                         name='body-input'
                         onChange={e => setBody(e.target.value)}
                         value={body}
-                        placeholder="Post body"
+                        placeholder="Tell everyone all about it!"
                         type='text'
                     />
                 </div>

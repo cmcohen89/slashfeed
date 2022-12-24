@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import AWSImageUpload from '../AWSImageUpload/AWSImageUpload';
 import './SignupForm.css'
 
 const SignUpForm = ({ setShowSignupModal }) => {
@@ -9,7 +11,6 @@ const SignUpForm = ({ setShowSignupModal }) => {
     const [last_name, setLastName] = useState("");
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
-    const [profile_img_url, setProfileImgUrl] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
     const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const SignUpForm = ({ setShowSignupModal }) => {
         if (errors.length > 0) {
             setErrors(errors);
         } else {
-            const data = await dispatch(signUp(first_name, last_name, username, email, profile_img_url, password));
+            const data = await dispatch(signUp(first_name, last_name, username, email, password));
             if (data) {
                 setErrors(data);
             } else {
@@ -33,7 +34,6 @@ const SignUpForm = ({ setShowSignupModal }) => {
                 setLastName('');
                 setUsername('');
                 setEmail('');
-                setProfileImgUrl('');
                 setPassword('');
                 setRepeatPassword('');
             }
@@ -54,10 +54,6 @@ const SignUpForm = ({ setShowSignupModal }) => {
 
     const updateEmail = (e) => {
         setEmail(e.target.value);
-    };
-
-    const updateProfileImgUrl = (e) => {
-        setProfileImgUrl(e.target.value);
     };
 
     const updatePassword = (e) => {
@@ -132,18 +128,6 @@ const SignUpForm = ({ setShowSignupModal }) => {
                 </div>
             </div>
             <div className='horizontal-signup'>
-                <div className='signup-div'>
-                    <label className='signup-label'>Profile Image URL</label>
-                    <input
-                        placeholder='Say cheese'
-                        required
-                        className='login-input'
-                        type='text'
-                        name='profileImgUrl'
-                        onChange={updateProfileImgUrl}
-                        value={profile_img_url}
-                    ></input>
-                </div>
                 <div className='signup-div'>
                     <label className='signup-label'>Password</label>
                     <input

@@ -1,11 +1,13 @@
 from app.models import db, Post, environment
+import datetime
 
 def seed_posts():
     post1 = Post(
         title='Baking during Christmas is my favorite way to spend the holiday!',
         body='I made these absolutely amazing Christmas cookies last night, we just could NOT stop eating them! I must have had at least 6 cookies...I kind of feel bad but at the same time who cares! This is what the holidays are for!',
         user_id=3,
-        preview_img_id=1
+        preview_img_id=1,
+        created_at=datetime.datetime(2022, 12, 20)
     )
 
     post2 = Post(
@@ -26,7 +28,8 @@ def seed_posts():
         title="It's time to post another cat pic!",
         body='I hope you guys are enjoying all the photos I have been posting! Here is another one of me with my cat.',
         user_id=4,
-        preview_img_id=4
+        preview_img_id=4,
+        created_at=datetime.datetime(2022, 12, 21)
     )
 
     post5 = Post(
@@ -74,7 +77,7 @@ def seed_posts():
     post11 = Post(
         title="Who's down to come to Dave and Buster's with me tonight???",
         body="It's Wednesday, you know what that means!!! Half-price games at David and Bartholomew's tonight! Plus happy hour to boot!! Who's up for some drinks and games??",
-        user_id=1,
+        user_id=19,
         preview_img_id=11
     )
 
