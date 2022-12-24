@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import db, Post, PostImage
+from app.models import db, Post, PostImage, User
 from app.forms.post_form import PostForm, PostUpdateForm, PostImgUpdateForm
 from .auth_routes import validation_errors_to_error_messages
 
@@ -15,6 +15,20 @@ def get_posts():
     """
 
     posts = Post.query.all()
+    return {"Posts": [post.to_dict() for post in posts]}
+
+
+# GET ALL POSTS FROM USERS THE CURRENT USER FOLLOWS:
+@post_routes.route("/followed")
+@login_required
+def get_followed_posts():
+    """
+    Query for all the posts of the current user's follows and returns them in a list of post dictionaries.
+    """
+
+    user = User.query.get(current_user.get_id())
+    posts = user.followed_posts().order_by(Post.created_at.desc())
+
     return {"Posts": [post.to_dict() for post in posts]}
 
 
