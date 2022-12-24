@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { deletePost, getPosts, likePost, unlikePost } from "../../store/all_posts";
-import LoginForm from "../auth/LoginForm";
 import LoginModal from "../LoginModal";
 import UpdatePostForm from "../PostForm/UpdatePostForm";
 import UpdateImage from "../UpdateImage/UpdateImage";
+import ConfirmDelete from "./ConfirmDelete";
 
 const ProfilePost = ({ post, setPostType }) => {
     const dispatch = useDispatch();
@@ -13,6 +13,7 @@ const ProfilePost = ({ post, setPostType }) => {
     const currUser = useSelector(state => state.session.user)
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showUpdateImage, setShowUpdateImage] = useState(false);
+    const [confirmDelete, showConfirmDelete] = useState(false);
 
     return (
         <div className='one-profile-post'>
@@ -24,8 +25,15 @@ const ProfilePost = ({ post, setPostType }) => {
                 className={`overlay ${showUpdateImage ? "show" : ""}`}
                 onClick={() => setShowUpdateImage(!setShowUpdateImage)}
             />
+            <div className={`modal container ${confirmDelete ? "update-comment-show" : ""}`}>
+                <ConfirmDelete showConfirmDelete={showConfirmDelete} postId={post.id} />
+            </div>
+            <div
+                className={`overlay ${confirmDelete ? "show" : ""}`}
+                onClick={() => showConfirmDelete(!showConfirmDelete)}
+            />
             <div className="one-post-img-container">
-                {currUser.id === post.postOwner.id && <span
+                {currUser && currUser.id === post.postOwner.id && <span
                     className='update-image-button'
                     onClick={() => setShowUpdateImage(true)}
                 >
@@ -84,7 +92,7 @@ const ProfilePost = ({ post, setPostType }) => {
                     </span>
                     <span
                         className='delete-comment-button'
-                        onClick={() => dispatch(deletePost(post.id))}
+                        onClick={() => showConfirmDelete(true)}
                     >
                         <i className="fa-solid fa-xmark"></i>
                     </span>

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import { likePost, unlikePost } from "../../store/all_posts";
 import { getSinglePost } from "../../store/one_post";
-import LoginForm from "../auth/LoginForm";
 import Comments from "../Comments/Comments";
 import LoginModal from "../LoginModal";
 import './SinglePost.css';

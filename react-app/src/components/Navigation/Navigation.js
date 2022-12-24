@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logout } from '../../store/session';
-import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../auth/SignUpForm';
 import LoginModal from '../LoginModal';
 import CreatePostForm from '../PostForm/CreatePostForm';

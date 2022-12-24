@@ -27,7 +27,7 @@
     width: 100%;
     height: 100%;
     height: 525px;
-    filter: brightness(.8);
+    filter: brightness(.75);
 }
 
 .side-featured-img {
@@ -35,7 +35,7 @@
     width: 100%;
     height: 100%;
     height: 262.5px;
-    filter: brightness(.8);
+    filter: brightness(.75);
 }
 
 .bottom {
@@ -56,9 +56,9 @@
 .featured-user {
     font-size: 20px;
     text-shadow: 3px 3px 3px black;
-    -webkit-text-stroke: 0.75px black;
+    /* -webkit-text-stroke: 0.75px black; */
     font-weight: 700;
-    letter-spacing: -1.75px;
+    letter-spacing: -0.5px;
     display: flex;
     align-items: center;
     padding-bottom: 2.5px;
@@ -66,10 +66,10 @@
 
 .featured-title {
     font-weight: 700;
-    letter-spacing: -1.75px;
+    letter-spacing: -1.25px;
     text-transform: capitalize;
     text-shadow: 3px 3px 3px black;
-    -webkit-text-stroke: 1px black;
+    /* -webkit-text-stroke: 1px black; */
     transition: color .5s ease;
 }
 
@@ -88,22 +88,22 @@
 
 .side-featured-user {
     font-weight: 700;
-    letter-spacing: -1px;
+    /* letter-spacing: -1px; */
     font-size: 20px;
     text-shadow: 2px 2px 2px black;
-    -webkit-text-stroke: 0.75px black;
+    /* -webkit-text-stroke: 0.75px black; */
     display: flex;
     align-items: center;
 }
 
 .side-featured-title {
     font-weight: 700;
-    letter-spacing: -1.75px;
+    letter-spacing: -0.5px;
     margin-top: 3px;
     font-size: 26px;
     text-transform: capitalize;
     text-shadow: 3px 3px 3px black;
-    -webkit-text-stroke: 0.75px black;
+    /* -webkit-text-stroke: 0.75px black; */
     transition: color .5s ease;
 }
 
@@ -331,6 +331,53 @@
 .profile-link:hover,
 .featured-profile-link:hover {
     color: #21BFE1;
+}
+
+.confirm-delete {
+    font-family: "Rubik", sans-serif;
+    padding: 30px 30px 40px 30px;
+    border: 2px solid #21BFE1;
+    border-radius: 10px;
+}
+
+.confirm-delete-buttons {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 22px;
+}
+
+.confirm-delete-button-yes,
+.confirm-delete-button-no {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    height: 50px;
+    width: 200px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    background-color: #e12e21;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    transition: box-shadow .5s ease-out;
+}
+
+.confirm-delete-button-no {
+    background-color: #21BFE1;
+}
+
+.confirm-delete-button-yes:hover {
+    box-shadow: 0 0 15px #e12121;
+}
+
+.confirm-delete-button-no:hover {
+    box-shadow: 0 0 15px #21bee171;
 }
 
 @media (max-width: 1500px) {
