@@ -129,6 +129,14 @@ def seed_users():
         password='password',
         email='tyler@aa.io',
         profile_img_url='https://i.imgur.com/njwHoOJ.png')
+    chris = User(
+        first_name='Christopher',
+        last_name='Cohen',
+        username='Christobear89',
+        password='password',
+        email='chris@aa.io',
+        profile_img_url='https://avatars.githubusercontent.com/u/103705214?v=4'
+    )
 
 
     db.session.add(demo)
@@ -149,6 +157,7 @@ def seed_users():
     db.session.add(mike)
     db.session.add(jacob)
     db.session.add(tyler)
+    db.session.add(chris)
 
     db.session.commit()
 

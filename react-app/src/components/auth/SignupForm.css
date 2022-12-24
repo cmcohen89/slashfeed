@@ -4,6 +4,14 @@
     margin-bottom: 20px;
 }
 
+.signup-img-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
 .signup-label {
     width: 200px;
     font-size: 20px;

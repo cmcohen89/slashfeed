@@ -2,3 +2,30 @@
     font-family: 'Rubik', sans-serif;
     margin-bottom: -20px;
 }
+
+.img-label-choice {
+    width: 200px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.579);
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+    transition: all .5s ease;
+    cursor: pointer;
+}
+
+.signup-image-choice {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.update-profile-pic-form {
+    height: 276px;
+    padding: 40px;
+    border: 1px solid #21BFE1;
+    border-radius: 10px;
+}
+
+.img-label-choice-selected {
+    color: #21BFE1;
+}

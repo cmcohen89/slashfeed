@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    profile_img_url = db.Column(db.String(1500))
+    profile_img_url = db.Column(db.String(1500), server_default='https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png')
 
 
     user_posts = db.relationship('Post', back_populates='post_owner', cascade='all, delete')

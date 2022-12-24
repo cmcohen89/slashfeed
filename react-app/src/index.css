@@ -8,7 +8,7 @@
 
 body {
     background-color: #f5f7f9;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .overlay {

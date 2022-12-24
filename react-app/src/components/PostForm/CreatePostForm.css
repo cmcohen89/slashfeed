@@ -16,6 +16,7 @@
     border-radius: 10px;
     border: 1px solid #d6d6d7;
     transition: all .5s ease-out;
+    padding: 0 10px;
 }
 
 .create-input:focus {
@@ -78,6 +79,10 @@
     margin-left: 14px;
     width: 600px;
     height: 60px;
+}
+
+.aws-upload-pic {
+    color: rgba(0, 0, 0, 0.579);
 }
 
 @media (max-height: 1100px) {

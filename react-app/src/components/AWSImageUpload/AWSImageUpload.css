@@ -1,0 +1,116 @@
+.aws-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.aws-input {
+    margin-top: 20px;
+}
+
+.aws-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    height: 40px;
+    width: 160px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    background-color: #21BFE1;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    transition: box-shadow .5s ease;
+    border: none;
+    margin-top: 40px;
+}
+
+.aws-submit:hover {
+    box-shadow: 0 0 15px #21bee171;
+}
+
+.aws-loading {
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+    padding-top: 40px;
+}
+
+/* .aws-label {
+    text-align: center;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    height: 33px;
+    width: 120px;
+} */
+
+/* .aws-label:hover {
+    background-color: #d6d6d798;
+} */
+
+/* input[type="file"] {
+    display: none;
+} */
+
+.aws-submit2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    height: 30px;
+    width: 140px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    background-color: #7f5ae5;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    transition: box-shadow .5s ease;
+    border: none;
+    margin-left: 15px;
+}
+
+.aws-submit2:hover {
+    box-shadow: 0 0 15px #7f5ae5;
+}
+
+.aws-div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: -15px;
+    margin-bottom: 30px;
+}
+.aws-input {
+    height: 40px;
+}
+
+.aws-loading2 {
+    text-align: center;
+    height: 20px;
+}
+
+.aws-loading-text {
+    padding-bottom: -20px;
+}
+
+.aws-div3 {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.update-img-form-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: -60px;
+}

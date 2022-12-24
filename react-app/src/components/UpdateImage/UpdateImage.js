@@ -8,6 +8,8 @@ const UpdateImage = ({ setShowUpdateImage, imgId }) => {
     const dispatch = useDispatch()
     const [preview_img_url, setPreviewImgUrl] = useState('');
     const [errors, setErrors] = useState([]);
+    const [image, setImage] = useState(null);
+    const [imageLoading, setImageLoading] = useState(false);
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -20,6 +22,38 @@ const UpdateImage = ({ setShowUpdateImage, imgId }) => {
             setErrors([]);
             dispatch(getPosts());
         }
+    }
+
+    const handleUpload = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("image", image);
+
+        // aws uploads can be a bit slow—displaying
+        // some sort of loading message is a good idea
+        setImageLoading(true);
+
+        const res = await fetch(`/api/posts/img`, {
+            method: "POST",
+            body: formData,
+        });
+        if (res.ok) {
+            const url = await res.json();
+            setImageLoading(false);
+            setPreviewImgUrl(url.url)
+            // history.push("/images");
+        }
+        else {
+            setImageLoading(false);
+            // a real app would probably use more advanced
+            // error handling
+            console.log("error");
+        }
+    }
+
+    const updateImage = (e) => {
+        const file = e.target.files[0];
+        setImage(file);
     }
 
     return (
@@ -39,8 +73,22 @@ const UpdateImage = ({ setShowUpdateImage, imgId }) => {
                 placeholder="Enter new image URL"
                 type='text'
             />
+            <div className='aws-div3'>
+                <label className='aws-label'>
+                    <input
+                        className="aws-input"
+                        type="file"
+                        accept="image/*"
+                        onChange={updateImage}
+                    />
+                </label>
+                <span className='aws-submit2' onClick={handleUpload}>Generate URL</span>
+            </div>
+            <div className='aws-loading2'>
+                {(imageLoading) && <p className='aws-loading-text'>Loading...</p>}
+            </div>
             <br />
-            <div className='comment-form-button-wrapper'>
+            <div className='update-img-form-button-wrapper'>
                 <button className='comment-form-button' type='submit'>Update URL</button>
             </div>
         </form>

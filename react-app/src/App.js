@@ -6,6 +6,8 @@ import { authenticate } from './store/session';
 import PostIndex from './components/PostIndex/PostIndex';
 import SinglePost from './components/SinglePost/SinglePost';
 import ProfilePage from './components/ProfilePage/ProfilePage';
+import MyPosts from './components/PostIndex/MyPosts';
+import AWSImageUpload from './components/AWSImageUpload/AWSImageUpload';
 
 function App() {
     const [loaded, setLoaded] = useState(false);
@@ -26,14 +28,17 @@ function App() {
         <BrowserRouter>
             <Navigation />
             <Switch>
-                <Route path='/profile/:id'>
-                    <ProfilePage />
-                </Route>
-                <Route path='/' exact={true} >
+                <Route path='/' exact={true}>
                     <PostIndex />
+                </Route>
+                <Route path='/my-feed'>
+                    <MyPosts />
                 </Route>
                 <Route path='/posts/:id'>
                     <SinglePost />
+                </Route>
+                <Route path='/profile/:id'>
+                    <ProfilePage />
                 </Route>
                 <Route>
                     <h1>404 Not Found</h1>

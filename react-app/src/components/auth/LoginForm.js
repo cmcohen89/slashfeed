@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginForm.css';
 
@@ -8,19 +9,26 @@ const LoginForm = ({ setShowLoginModal }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const onLogin = async (e) => {
         e.preventDefault();
         const data = await dispatch(login(email, password));
         data ? setErrors(data) : setShowLoginModal(false);
-        if (!data) setErrors([]);
+        if (!data) {
+            setErrors([]);
+            history.push('/my-feed')
+        };
     };
 
     const handleDemo = async (e) => {
         e.preventDefault();
         const data = await dispatch(login('demo@aa.io', 'password'));
         data ? setErrors(data) : setShowLoginModal(false);
-        if (!data) setErrors([]);
+        if (!data) {
+            setErrors([]);
+            history.push('/my-feed')
+        };
     }
 
     const updateEmail = (e) => {
