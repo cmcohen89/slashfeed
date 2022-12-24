@@ -17,7 +17,8 @@ const ProfilePage = () => {
     const userFollowers = useSelector(state => state.follows.followers);
     const userFollows = useSelector(state => state.follows.follows);
     const allPosts = useSelector(state => Object.values(state.allPosts));
-    const likedPosts = allPosts.filter(post => post.usersWhoLiked[user.id])
+    let likedPosts;
+    if (user) likedPosts = allPosts.filter(post => post.usersWhoLiked[user.id])
     const [viewFollows, setViewFollows] = useState(false);
     const [flag, setFlag] = useState(false);
     const [postType, setPostType] = useState('user posts');

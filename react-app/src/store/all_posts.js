@@ -25,6 +25,16 @@ export const getPosts = () => async dispatch => {
     };
 };
 
+export const getFollowedPosts = () => async dispatch => {
+    const response = await fetch('/api/posts/followed');
+
+    if (response.ok) {
+        const posts = await response.json();
+        dispatch(loadPosts(posts));
+        return posts;
+    };
+};
+
 export const deletePost = postId => async dispatch => {
     const response = await fetch(`/api/posts/${postId}`, {
         method: 'DELETE',
