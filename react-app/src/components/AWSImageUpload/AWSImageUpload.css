@@ -26,7 +26,7 @@
     cursor: pointer;
     transition: box-shadow .5s ease;
     border: none;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .aws-submit:hover {

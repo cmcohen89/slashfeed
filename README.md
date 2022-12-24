@@ -22,14 +22,14 @@ Currently implemented features include:
 - Create, read, update, and delete functionality for Posts
 - Create, read, update, and delete functionality for Comments
 - Create, read, and delete functionality for Likes
+- Create, read, and delete functionality for Followers
+- User profile displaying the user's follows, posts, and liked posts
+- AWS image uploading
 
 ## Planned Features
 
 Upcoming features include:
-- Create, read, and delete functionality for Followers
-- User profile displaying the user's posts
-- AWS
-- WebSockets
+- WebSockets-based live chat
 
 ## Technologies
 <p>
