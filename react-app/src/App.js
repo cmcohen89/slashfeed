@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Navigation from './components/Navigation/Navigation';
-import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import PostIndex from './components/PostIndex/PostIndex';
 import SinglePost from './components/SinglePost/SinglePost';

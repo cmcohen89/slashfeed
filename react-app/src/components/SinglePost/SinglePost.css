@@ -57,4 +57,9 @@
 
 .single-post-likes {
     cursor: pointer;
+    transition: color .5s ease;
+}
+
+.single-post-likes:hover {
+    color: #21BFE1;
 }

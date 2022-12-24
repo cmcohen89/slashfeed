@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { getPosts } from "../../store/all_posts";
 import { getUsers } from "../../store/all_users";
 import { getFollows, postFollow } from "../../store/follows";
-import UpdateImage from "../UpdateImage/UpdateImage";
 import UpdateProfileImage from "../UpdateImage/UpdateProfileImage";
 import ViewFollows from "../ViewFollows/ViewFollows";
 import './ProfilePage.css'
@@ -58,7 +57,7 @@ const ProfilePage = () => {
             />
             <div className="profile-header">
                 <span className="profile-pic-wrapper">
-                    {currUser.id === user.id && <span
+                    {currUser && currUser.id === user.id && <span
                         className='update-profile-pic-button'
                         onClick={() => setShowUpdateProfilePic(true)}
                     >
@@ -86,7 +85,7 @@ const ProfilePage = () => {
                             <h3 className="profile-stat">{Object.values(userFollows).length} Following</h3>
                         </span>
                     </div>
-                    {currUser && id != currUser.id &&
+                    {currUser && currUser && id !== currUser.id &&
                         <span
                             className={`follow-button ${userFollowers[currUser.id] && 'unfollow-button'}`}
                             onClick={async () => {
