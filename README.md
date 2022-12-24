@@ -48,7 +48,7 @@ Upcoming features include:
 
 ## Demo Image
 
-![Slash/Feed Front Page](https://user-images.githubusercontent.com/103705214/209220245-d8343ff5-cc36-425c-a9d6-6797acea8052.png)
+![Slash/Feed Front Page](https://user-images.githubusercontent.com/103705214/209418494-d2b7afd6-cb9d-49a8-8e6b-93dc8604c7a0.png)
 
 ## Get Started
 
