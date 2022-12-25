@@ -207,3 +207,20 @@
 .update-image-button:hover {
     color: #21BFE1;
 }
+
+@media (max-width: 1500px) {
+    .profile-grid {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (max-width: 1000px) {
+    .profile-grid {
+        grid-template-columns: auto;
+    }
+
+    .one-profile-post {
+        margin-bottom: 40px;
+        width: 500px;
+    }
+}
