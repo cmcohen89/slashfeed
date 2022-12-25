@@ -418,7 +418,12 @@
     }
 
     .one-post {
-        width: 600px;
+        width: 500px;
         margin-bottom: 30px;
     }
+
+    .one-post-user {
+        margin-bottom: 15px;
+    }
+
 }
