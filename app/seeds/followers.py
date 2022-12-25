@@ -34,7 +34,7 @@ def seed_followers():
     preston = User.query.get(31)
     trevor = User.query.get(32)
 
-    demo.followed.extend([jamie, maria, shaina, brennen, andrew, sara, tyler, mike, chris])
+    demo.followed.extend([jamie, maria, shaina, brennen, andrew, sara, tyler, mike, chris, huishi, kevin, ricardo, kat, efrain, joonil])
     jordan.followed.extend([nick, andrew, alex, jamie, demo, chris])
     jamie.followed.extend([nick, alex, maria, jordan, demo, katharine, marty, leslie, shaina, demo, brennen, chris])
     nick.followed.extend([jamie, jordan, alex, maria, shaina, andrew, marty, demo, leslie, chris])
@@ -42,7 +42,7 @@ def seed_followers():
     shaina.followed.extend([nick, alex, jamie, jordan, maria, andrew, katharine, chris])
     brennen.followed.extend([jamie, chris])
     andrew.followed.extend([jordan, nick, alex, shaina, jamie, katharine, chris])
-    sara.followed.extend([matt, gray, mike, jacob, tyler, demo, chris])
+    sara.followed.extend([matt, gray, mike, jacob, tyler, demo, chris, huishi, kevin, kat, ricardo, brian, dave, douglas, efrain, joonil, linus, michael, preston])
     alex.followed.extend([nick, jordan, maria, marty, leslie, shaina, jamie, andrew, chris])
     katharine.followed.extend([nick, alex, jamie, shaina, maria, marty, leslie, jordan, andrew, chris])
     marty.followed.extend([leslie, nick, alex, jamie, shaina, chris])
