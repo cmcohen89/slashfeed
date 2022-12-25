@@ -83,6 +83,86 @@ def seed_post_images():
         url='https://i.redd.it/rzs9jxzunjy61.jpg',
         post_id=18,
     )
+    post_img19 = PostImage(
+        url='https://imgix.bustle.com/mic/tehhmk90zokvhkm1phpqnuemlf2mnp91whoqxyxp2eukzj9gieytrwgbn6j5zsxy.jpg?w=1200&h=630&fit=crop&crop=faces&fm=jpg',
+        post_id=19,
+    )
+    post_img20 = PostImage(
+        url='https://i.ytimg.com/vi/s1hOKosHX6c/maxresdefault.jpg',
+        post_id=20,
+    )
+    post_img21 = PostImage(
+        url='https://img.delicious.com.au/H_PwQNXR/del/2021/11/matt-morans-baked-christmas-ham-with-maple-syrup-and-clove-glaze-160640-2.jpg',
+        post_id=21,
+    )
+    post_img22 = PostImage(
+        url='https://hot-town-images.s3.us-east-1.amazonaws.com/kotv/production/2020/April/7/the-easter-bunny-tooth-fairy-are-essential-workers-says-new-zealand-prime-minister.1586257203000-0.jpeg',
+        post_id=22,
+    )
+    post_img23 = PostImage(
+        url='https://imgk.timesnownews.com/story/uber_copter.jpg',
+        post_id=23,
+    )
+    post_img24 = PostImage(
+        url='https://mc-42b990dd-5dae-4647-b81e-424724-cdn-endpoint.azureedge.net/-/media/blogs/2019/person-wearing-white-silicone-strap-black-smart-watch-wallpaper-preview.jpg?rev=a283d80b1ed14e8a909b96f9684aa9fb',
+        post_id=24,
+    )
+    post_img25 = PostImage(
+        url='https://i.redd.it/z9nxx2vkg38a1.jpg',
+        post_id=25,
+    )
+    post_img26 = PostImage(
+        url='https://s1.r29static.com/bin/entry/fb3/0,0,2000,1050/x/1900888/image.png',
+        post_id=26,
+    )
+    post_img27 = PostImage(
+        url='https://cdn.sportsmanor.com/wp-content/uploads/2022/12/16052430/Henry-Cavill-James-Gunn-and-Dwayne-Johnson-750x393.jpg',
+        post_id=27,
+    )
+    post_img28 = PostImage(
+        url='https://i.redd.it/7379teaud48a1.jpg',
+        post_id=28,
+    )
+    post_img29 = PostImage(
+        url='https://i.redd.it/m28g09xll18a1.jpg',
+        post_id=29,
+    )
+    post_img30 = PostImage(
+        url='https://i.redd.it/fksq926kz67a1.jpg',
+        post_id=30,
+    )
+    post_img31 = PostImage(
+        url='https://www.bellacupcakecouture.com/wp-content/uploads/2021/07/BellaCupcakeCouture-What-Are-The-Reasons-Why-People-Love-Coffee-Health-Benefits-Of-Drinking-Coffee.jpg',
+        post_id=31,
+    )
+    post_img32 = PostImage(
+        url='https://ichef.bbci.co.uk/news/976/cpsprodpb/778A/production/_108520603_gettyimages-1164296246-1.jpg',
+        post_id=32,
+    )
+    post_img33 = PostImage(
+        url='https://legendary-digital-network-assets.s3.amazonaws.com/wp-content/uploads/2020/04/13042623/Discworld.jpg',
+        post_id=33,
+    )
+    post_img34 = PostImage(
+        url='https://images.pexels.com/photos/3575143/pexels-photo-3575143.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        post_id=34,
+    )
+    post_img35 = PostImage(
+        url='https://blog.bestbuy.ca/wp-content/uploads/2020/06/build-pc-man-tools-16x9.jpg.rendition.intel_.web_.1072.603.jpg',
+        post_id=35,
+    )
+    post_img36 = PostImage(
+        url='https://cdn1.parksmedia.wdprapps.disney.com/media/blog/wp-content/uploads/2019/03/mnvbfhuuo0941-624x351.jpg',
+        post_id=36,
+    )
+    post_img37 = PostImage(
+        url='https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/24BE9132A3AB2CCC5956BA6F024686849BCFABC1DCEC05EDEE3B15A3AD9B2F21/scale?width=1200&aspectRatio=1.78&format=jpeg',
+        post_id=37,
+    )
+    post_img38 = PostImage(
+        url='https://i.rtings.com/assets/pages/61MJpEhi/best-music-headphones-20220805-medium.jpg',
+        post_id=38,
+    )
 
     db.session.add(post_img1)
     db.session.add(post_img2)
@@ -102,6 +182,26 @@ def seed_post_images():
     db.session.add(post_img16)
     db.session.add(post_img17)
     db.session.add(post_img18)
+    db.session.add(post_img19)
+    db.session.add(post_img20)
+    db.session.add(post_img21)
+    db.session.add(post_img22)
+    db.session.add(post_img23)
+    db.session.add(post_img24)
+    db.session.add(post_img25)
+    db.session.add(post_img26)
+    db.session.add(post_img27)
+    db.session.add(post_img28)
+    db.session.add(post_img29)
+    db.session.add(post_img30)
+    db.session.add(post_img31)
+    db.session.add(post_img32)
+    db.session.add(post_img33)
+    db.session.add(post_img34)
+    db.session.add(post_img35)
+    db.session.add(post_img36)
+    db.session.add(post_img37)
+    db.session.add(post_img38)
     db.session.commit()
 
 def undo_post_images():
