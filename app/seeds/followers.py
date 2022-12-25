@@ -34,7 +34,7 @@ def seed_followers():
     preston = User.query.get(31)
     trevor = User.query.get(32)
 
-    demo.followed.extend([jamie, maria, shaina, brennen, andrew, sara, tyler, mike, chris, huishi, kevin, ricardo, kat, efrain, joonil])
+    demo.followed.extend([shaina, brennen, andrew, sara, tyler, mike, chris, huishi, kevin, ricardo, kat, efrain, joonil])
     jordan.followed.extend([nick, andrew, alex, jamie, demo, chris])
     jamie.followed.extend([nick, alex, maria, jordan, demo, katharine, marty, leslie, shaina, demo, brennen, chris])
     nick.followed.extend([jamie, jordan, alex, maria, shaina, andrew, marty, demo, leslie, chris])
