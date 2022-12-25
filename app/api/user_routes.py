@@ -45,13 +45,6 @@ def update_profile_pic(id):
 @user_routes.route("/img", methods=["POST"])
 @login_required
 def upload_image():
-    print('''
-
-
-
-
-    ''', 'hey now')
-
     if "image" not in request.files:
         return {"errors": "image required"}, 400
 
