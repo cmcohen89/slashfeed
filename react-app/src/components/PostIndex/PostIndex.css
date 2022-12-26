@@ -419,14 +419,35 @@
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1350px) {
+    .one-post {
+        width: 400px;
+        height: 750px;
+    }
+
+    .one-post-content {
+        height: 298px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .one-post-body {
+        display:block;
+    }
+
     .lower-index-grid {
         grid-template-columns: auto;
+        row-gap: 40px;
     }
 
     .one-post {
         width: 500px;
         margin-bottom: 30px;
+        height: 732px
+    }
+
+    .one-post-content {
+        height: 280px;
     }
 
     .one-post-user {
