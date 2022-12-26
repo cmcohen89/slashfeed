@@ -65,7 +65,11 @@ const ProfilePost = ({ post, setPostType }) => {
                     <NavLink className='one-post-title-link' to={`/posts/${post.id}`}>
                         <h3 className="one-post-title">{post.title}</h3>
                     </NavLink>
-                    <p className="one-post-body">{post.body}</p>
+                    <p className="one-post-body">
+                        {post.body.length > 80 ?
+                            post.body[79] === ' ' ? `${post.body.substring(0, 79)}...`
+                                : `${post.body.substring(0, 80)}...` : post.body}
+                    </p>
                 </div>
                 <h4
                     onClick={async () => {

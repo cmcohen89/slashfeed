@@ -30,6 +30,11 @@ const OnePost = ({ post, setShowLoginModal }) => {
                     <NavLink className='one-post-title-link' to={`/posts/${post.id}`}>
                         <h3 className="one-post-title">{post.title}</h3>
                     </NavLink>
+                    <p className="one-post-body">
+                        {post.body.length > 150 ?
+                            post.body[149] === ' ' ? `${post.body.substring(0, 149)}...`
+                                : `${post.body.substring(0, 150)}...` : post.body}
+                    </p>
                 </div>
                 <h4
                     onClick={async () => {

@@ -113,7 +113,7 @@
 
 .one-post {
     width: 630px;
-    height: 652px;
+    height: 692px;
     border: 1px solid #d7d7d7;
     transition: all 0.5s ease-out;
 }
@@ -139,7 +139,7 @@
     position: relative;
     background-color: white;
     font-family: "Rubik", sans-serif;
-    height: 200px;
+    height: 240px;
     padding: 0 22px;
     word-break: break-word;
 }
