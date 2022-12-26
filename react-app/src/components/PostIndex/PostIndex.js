@@ -25,7 +25,7 @@ const PostIndex = () => {
     topPosts.sort((a, b) => b.likes - a.likes)
     allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
-    if (!allPosts || !allPosts.length) return null;
+    if (!allPosts || allPosts.length < 3) return null;
 
     return (
         <div className="all-posts">

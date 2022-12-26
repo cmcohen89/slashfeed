@@ -87,7 +87,7 @@
 
 .one-profile-post {
     width: 438px;
-    height: 515px;
+    height: 692px;
     border: 1px solid #d7d7d7;
     margin: 1.25em 1.25em;
 }
@@ -208,19 +208,9 @@
     color: #21BFE1;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1024px) {
     .profile-grid {
         grid-template-columns: auto auto;
-    }
-}
-
-@media (max-width: 1000px) {
-    .profile-grid {
-        grid-template-columns: auto;
-    }
-
-    .one-profile-post {
-        margin-bottom: 40px;
-        width: 500px;
+        row-gap: 60px;
     }
 }

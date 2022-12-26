@@ -85,6 +85,12 @@
     color: rgba(0, 0, 0, 0.579);
 }
 
+.create-post-page {
+    margin: 150px auto;
+    width: 600px;
+    background-color: white;
+}
+
 @media (max-height: 1100px) {
     .modal.create-show {
         bottom: 5vh;
@@ -104,26 +110,6 @@
 }
 
 @media (max-height: 800px) {
-    .horizontal-create {
-        display: flex;
-    }
-
-    .horizontal-signup {
-        display: flex;
-    }
-
-    .signup-div {
-        flex-direction: column;
-        margin: 10px 10px;
-    }
-
-    .signup-label {
-        text-align: center;
-    }
-
-    .create-button {
-        margin-top: 10px;
-    }
 
     .modal.create-show {
         bottom: 10vh;
@@ -135,6 +121,10 @@
 
     .modal.signup-show {
         bottom: 15vh;
+    }
+
+    .modal.update-post-show {
+        bottom: 10vh;
     }
 
     .create-form {

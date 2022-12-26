@@ -11,9 +11,39 @@ const SignUpForm = ({ setShowSignupModal }) => {
     const [last_name, setLastName] = useState("");
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
+    const [profile_img_url, setProfileImgUrl] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
+    const [image, setImage] = useState(null);
+    const [imageLoading, setImageLoading] = useState(false);
     const dispatch = useDispatch();
+
+    const handleUpload = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("image", image);
+
+        // aws uploads can be a bit slow—displaying
+        // some sort of loading message is a good idea
+        setImageLoading(true);
+
+        const res = await fetch(`/api/posts/img`, {
+            method: "POST",
+            body: formData,
+        });
+        if (res.ok) {
+            const url = await res.json();
+            setImageLoading(false);
+            setProfileImgUrl(url.url)
+            // history.push("/images");
+        }
+        else {
+            setImageLoading(false);
+            // a real app would probably use more advanced
+            // error handling
+            console.log("error");
+        }
+    }
 
     const onSignUp = async (e) => {
         e.preventDefault();
@@ -25,7 +55,7 @@ const SignUpForm = ({ setShowSignupModal }) => {
         if (errors.length > 0) {
             setErrors(errors);
         } else {
-            const data = await dispatch(signUp(first_name, last_name, username, email, password));
+            const data = await dispatch(signUp(first_name, last_name, username, email, profile_img_url, password));
             if (data) {
                 setErrors(data);
             } else {
@@ -34,6 +64,7 @@ const SignUpForm = ({ setShowSignupModal }) => {
                 setLastName('');
                 setUsername('');
                 setEmail('');
+                setProfileImgUrl('');
                 setPassword('');
                 setRepeatPassword('');
             }
@@ -56,6 +87,11 @@ const SignUpForm = ({ setShowSignupModal }) => {
         setEmail(e.target.value);
     };
 
+    const updateImage = (e) => {
+        const file = e.target.files[0];
+        setImage(file);
+    }
+
     const updatePassword = (e) => {
         setPassword(e.target.value);
     };
@@ -77,81 +113,105 @@ const SignUpForm = ({ setShowSignupModal }) => {
                 ))} */}
                 {errors[0]}
             </div>
-            <div className='horizontal-signup'>
+            <div className='signup-div'>
+                <label className='signup-label'>First Name</label>
+                <input
+                    placeholder='Nicknames are fine, too'
+                    required
+                    className='login-input'
+                    type='text'
+                    name='firstname'
+                    onChange={updateFirstName}
+                    value={first_name}
+                ></input>
+            </div>
+            <div className='signup-div'>
+                <label className='signup-label'>Last Name</label>
+                <input
+                    placeholder="Let's make it official"
+                    required
+                    className='login-input'
+                    type='text'
+                    name='lastname'
+                    onChange={updateLastName}
+                    value={last_name}
+                ></input>
+            </div>
+            <div className='signup-div'>
+                <label className='signup-label'>User Name</label>
+                <input
+                    placeholder='This is how other users will see you'
+                    required
+                    className='login-input'
+                    type='text'
+                    name='username'
+                    onChange={updateUsername}
+                    value={username}
+                ></input>
+            </div>
+            <div className='signup-div'>
+                <label className='signup-label'>Email</label>
+                <input
+                    placeholder='We promise not to send you junk mail'
+                    required
+                    className='login-input'
+                    type='text'
+                    name='email'
+                    onChange={updateEmail}
+                    value={email}
+                ></input>
+            </div>
+            <div>
                 <div className='signup-div'>
-                    <label className='signup-label'>First Name</label>
+                    <label className='signup-label' htmlFor='url-input'>Image URL</label>
                     <input
-                        placeholder='Nicknames are fine, too'
-                        required
                         className='login-input'
+                        required
+                        name='url-input'
+                        onChange={e => setProfileImgUrl(e.target.value)}
+                        value={profile_img_url}
+                        placeholder="Enter image URL or upload a pic below"
                         type='text'
-                        name='firstname'
-                        onChange={updateFirstName}
-                        value={first_name}
-                    ></input>
+                    />
                 </div>
-                <div className='signup-div'>
-                    <label className='signup-label'>Last Name</label>
-                    <input
-                        placeholder="Let's make it official"
-                        required
-                        className='login-input'
-                        type='text'
-                        name='lastname'
-                        onChange={updateLastName}
-                        value={last_name}
-                    ></input>
+                <div className='aws-div4'>
+                    <label className='aws-label'>
+                        <input
+                            className="aws-input"
+                            type="file"
+                            accept="image/*"
+                            onChange={updateImage}
+                        />
+                    </label>
+                    <span className='aws-submit2' onClick={handleUpload}>Generate URL</span>
                 </div>
-                <div className='signup-div'>
-                    <label className='signup-label'>User Name</label>
-                    <input
-                        placeholder='This is how other users will see you'
-                        required
-                        className='login-input'
-                        type='text'
-                        name='username'
-                        onChange={updateUsername}
-                        value={username}
-                    ></input>
-                </div>
-                <div className='signup-div'>
-                    <label className='signup-label'>Email</label>
-                    <input
-                        placeholder='We promise not to send you junk mail'
-                        required
-                        className='login-input'
-                        type='text'
-                        name='email'
-                        onChange={updateEmail}
-                        value={email}
-                    ></input>
+                <div className='aws-loading3'>
+                    {(imageLoading) && <p className='aws-loading-text'>Loading...</p>}
                 </div>
             </div>
-            <div className='horizontal-signup'>
-                <div className='signup-div'>
-                    <label className='signup-label'>Password</label>
-                    <input
-                        placeholder='Keep it secret, keep it safe'
-                        required
-                        className='login-input'
-                        type='password'
-                        name='password'
-                        onChange={updatePassword}
-                        value={password}
-                    ></input>
-                </div>
-                <div className='signup-div'>
-                    <label className='signup-label'>Repeat Password</label>
-                    <input
-                        placeholder='Is it secret? Is it safe?'
-                        required
-                        className='login-input'
-                        type='password'
-                        name='repeat_password'
-                        onChange={updateRepeatPassword}
-                        value={repeatPassword}
-                    ></input>
-                </div>
+            <div className='signup-div'>
+                <label className='signup-label'>Password</label>
+                <input
+                    placeholder='Keep it secret, keep it safe'
+                    required
+                    className='login-input'
+                    type='password'
+                    name='password'
+                    onChange={updatePassword}
+                    value={password}
+                ></input>
+            </div>
+            <div className='signup-div'>
+                <label className='signup-label'>Repeat Password</label>
+                <input
+                    placeholder='Is it secret? Is it safe?'
+                    required
+                    className='login-input'
+                    type='password'
+                    name='repeat_password'
+                    onChange={updateRepeatPassword}
+                    value={repeatPassword}
+                ></input>
             </div>
             <button className='signup-button' type='submit'>Sign Up</button>
         </form>

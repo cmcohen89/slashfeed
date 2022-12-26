@@ -51,3 +51,25 @@
     width: 300px;
     height: 40px;
 }
+
+.aws-div4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -15px;
+    margin-bottom: 0px;
+    width: 100%;
+}
+.aws-input {
+    height: 40px;
+}
+
+.aws-loading3 {
+    text-align: center;
+    height: 20px;
+    padding-bottom: 30px;
+}
+
+.aws-loading-text {
+    padding-bottom: -20px;
+}

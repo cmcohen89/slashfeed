@@ -29,6 +29,14 @@ const MyPosts = () => {
 
     if (!allPosts || !allPosts.length) return null;
 
+    if (allPosts.length < 3) {
+        return (
+            <div className="follow-more-users">
+                <h1>Follow more users to see your feed!</h1>
+            </div>
+        )
+    }
+
     return (
         <div className="all-posts">
             <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal} />
