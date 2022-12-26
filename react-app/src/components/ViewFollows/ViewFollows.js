@@ -52,7 +52,7 @@ const ViewFollows = ({
                                 {follow.username}
                             </NavLink>
                         </div>
-                        {currUser && <span
+                        {(currUser && currUser.id !== follow.id) && <span
                             className={`view-follow-button
                             ${currUser && currUserFollows[follow.id] && 'view-unfollow-button'}`
                             }

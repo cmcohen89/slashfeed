@@ -16,6 +16,7 @@ class Post(db.Model):
     post_owner = db.relationship('User', back_populates='user_posts')
     users_who_liked = db.relationship('User', back_populates='user_likes', secondary=likes, lazy='joined')
     post_images = db.relationship('PostImage', back_populates='image_post', cascade='all, delete')
+    post_comments = db.relationship('Comment', back_populates='comment_post', cascade='all, delete')
 
     def to_dict(self):
         return {
