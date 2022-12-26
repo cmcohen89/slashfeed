@@ -66,9 +66,9 @@ const ProfilePost = ({ post, setPostType }) => {
                         <h3 className="one-post-title">{post.title}</h3>
                     </NavLink>
                     <p className="one-post-body">
-                        {post.body.length > 80 ?
-                            post.body[79] === ' ' ? `${post.body.substring(0, 79)}...`
-                                : `${post.body.substring(0, 80)}...` : post.body}
+                        {post.body.length > 40 ?
+                            post.body[39] === ' ' ? `${post.body.substring(0, 39)}...`
+                                : `${post.body.substring(0, 40)}...` : post.body}
                     </p>
                 </div>
                 <h4
