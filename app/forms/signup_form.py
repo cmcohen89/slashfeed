@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms.validators import DataRequired, Email, ValidationError, Length, URL
 from app.models import User
 
 
@@ -26,4 +26,10 @@ class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists])
     email = StringField('email', validators=[DataRequired(), user_exists])
+    profile_img_url = StringField("Preview Image URL",
+        validators=[
+            DataRequired(),
+            Length(min=0, max=1500, message="The image URL must be less than 1500 characters."),
+            URL(message="Please enter a valid URL for your image.")
+        ])
     password = StringField('password', validators=[DataRequired()])

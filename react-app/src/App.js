@@ -7,7 +7,9 @@ import PostIndex from './components/PostIndex/PostIndex';
 import SinglePost from './components/SinglePost/SinglePost';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import MyPosts from './components/PostIndex/MyPosts';
-import AWSImageUpload from './components/AWSImageUpload/AWSImageUpload';
+import SignUpForm from './components/auth/SignUpForm';
+import SignupPage from './components/auth/SignupPage';
+import CreatePostPage from './components/PostForm/CreatePostPage';
 
 function App() {
     const [loaded, setLoaded] = useState(false);
@@ -39,6 +41,12 @@ function App() {
                 </Route>
                 <Route path='/profile/:id'>
                     <ProfilePage />
+                </Route>
+                <Route path='/signup'>
+                    <SignupPage />
+                </Route>
+                <Route path='/create-post'>
+                    <CreatePostPage />
                 </Route>
                 <Route>
                     <h1>404 Not Found</h1>

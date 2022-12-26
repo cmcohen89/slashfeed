@@ -30,7 +30,6 @@ const OnePost = ({ post, setShowLoginModal }) => {
                     <NavLink className='one-post-title-link' to={`/posts/${post.id}`}>
                         <h3 className="one-post-title">{post.title}</h3>
                     </NavLink>
-                    <p className="one-post-body">{post.body}</p>
                 </div>
                 <h4
                     onClick={async () => {

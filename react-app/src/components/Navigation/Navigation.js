@@ -12,6 +12,7 @@ const Navigation = () => {
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const history = useHistory();
+    const windowHeight = window.innerHeight;
 
     const allPosts = useSelector(state => Object.values(state.allPosts))
     const numArr = [];
@@ -45,7 +46,11 @@ const Navigation = () => {
                 <li className='slogan'>Get the news from your friends</li>
                 <ul className='nav-links'>
                     {!user ?
-                        <li className='nav-signup-link' onClick={() => setShowSignupModal(true)}>Sign Up</li>
+                        <li className='nav-signup-link'
+                            onClick={() => windowHeight > 900 ? setShowSignupModal(true) : history.push('/signup')}
+                        >
+                            Sign Up
+                        </li>
                         :
                         <>
                             <li className='nav-login-link' onClick={() => {
@@ -68,7 +73,7 @@ const Navigation = () => {
                 </ul>
                 <span
                     className='nav-update'
-                    onClick={() => user ? setShowCreateModal(true) : setShowLoginModal(true)}
+                    onClick={() => user ? (windowHeight > 950 ? setShowCreateModal(true) : history.push('/create-post')) : setShowLoginModal(true)}
                 >
                     Create Post
                 </span>

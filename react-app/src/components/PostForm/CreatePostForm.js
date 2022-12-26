@@ -79,45 +79,43 @@ const CreatePostForm = ({ setShowCreateModal }) => {
                         <div key={ind}>{error}</div>
                     ))}
                 </div>
-                <div className='horizontal-create'>
-                    <div className='login-div'>
-                        <label className='login-label' htmlFor='title-input'>Title</label>
+                <div className='login-div'>
+                    <label className='login-label' htmlFor='title-input'>Title</label>
+                    <input
+                        className='create-input'
+                        required
+                        name='title-input'
+                        onChange={e => setTitle(e.target.value)}
+                        value={title}
+                        placeholder="Give your post a short title"
+                        type='text'
+                    />
+                </div>
+                <div className='login-div'>
+                    <label className='login-label' htmlFor='url-input'>Image URL</label>
+                    <input
+                        className='create-input'
+                        required
+                        name='url-input'
+                        onChange={e => setPreviewImgUrl(e.target.value)}
+                        value={preview_img_url}
+                        placeholder="Enter the image URL or upload a pic below"
+                        type='text'
+                    />
+                </div>
+                <div className='aws-div'>
+                    <label className='aws-label'>
                         <input
-                            className='create-input'
-                            required
-                            name='title-input'
-                            onChange={e => setTitle(e.target.value)}
-                            value={title}
-                            placeholder="Give your post a short title"
-                            type='text'
+                            className="aws-input"
+                            type="file"
+                            accept="image/*"
+                            onChange={updateImage}
                         />
-                    </div>
-                    <div className='login-div'>
-                        <label className='login-label' htmlFor='url-input'>Image URL</label>
-                        <input
-                            className='create-input'
-                            required
-                            name='url-input'
-                            onChange={e => setPreviewImgUrl(e.target.value)}
-                            value={preview_img_url}
-                            placeholder="Enter the image URL or upload a pic below"
-                            type='text'
-                        />
-                    </div>
-                    <div className='aws-div'>
-                        <label className='aws-label'>
-                            <input
-                                className="aws-input"
-                                type="file"
-                                accept="image/*"
-                                onChange={updateImage}
-                            />
-                        </label>
-                        <span className='aws-submit2' onClick={handleUpload}>Generate URL</span>
-                    </div>
-                    <div className='aws-loading2'>
-                        {(imageLoading) && <p className='aws-loading-text'>Loading...</p>}
-                    </div>
+                    </label>
+                    <span className='aws-submit2' onClick={handleUpload}>Generate URL</span>
+                </div>
+                <div className='aws-loading2'>
+                    {(imageLoading) && <p className='aws-loading-text'>Loading...</p>}
                 </div>
                 <div className='login-div'>
                     <label className='login-label' htmlFor='body-input'>Body</label>
