@@ -14,6 +14,7 @@ const ViewFollows = ({
     const userFollowers = useSelector(state => state.follows.followers);
     const userFollows = useSelector(state => state.follows.follows);
     const currUserFollows = useSelector(state => state.follows.userFollows);
+    const user = useSelector(state => state.session.user);
 
     useEffect(() => {
         dispatch(getUserFollows());
@@ -23,7 +24,7 @@ const ViewFollows = ({
     let follows;
     flag ? follows = userFollows : follows = userFollowers;
 
-    if (!userFollowers || !userFollows || !currUserFollows) return null;
+    if (!userFollowers || !userFollows || (user && !currUserFollows)) return null;
 
     return (
         <div className='follows-modal'>
