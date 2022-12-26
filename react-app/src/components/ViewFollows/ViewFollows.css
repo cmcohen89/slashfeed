@@ -1,6 +1,6 @@
 .follows-modal {
     padding: 10px 20px;
-    width: 380px;
+    width: 480px;
     font-family: "Rubik", sans-serif;
     border: 2px solid #21BFE1;
     border-radius: 10px;
@@ -38,9 +38,18 @@
 
 .follows-user {
     font-size: 18px;
-    padding-top: 15px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    margin-bottom: 10px;
+}
+
+.follows-user-left {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .follows-profile-pic-link {
@@ -63,4 +72,41 @@
 
 .follows-profile-link:hover {
     color: #21BFE1;
+}
+
+.follows-button {
+    padding-right: 10px;
+}
+
+.view-follow-button {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    height: 40px;
+    width: 130px;
+    text-transform: uppercase;
+    background-color: #21BFE1;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    transition: all .5s ease;
+    margin-right: 10px;
+}
+
+.view-follow-button:hover {
+    box-shadow: 0 0 20px #21BFE1;
+}
+
+.view-unfollow-button {
+    background-color: white;
+    color: #333;
+    border: 1px solid #d6d6d7;
+}
+
+.view-unfollow-button:hover {
+    box-shadow: 0 0 10px black;
 }

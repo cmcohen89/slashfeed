@@ -17,15 +17,17 @@ const ProfilePage = () => {
     const userFollowers = useSelector(state => state.follows.followers);
     const userFollows = useSelector(state => state.follows.follows);
     const allPosts = useSelector(state => Object.values(state.allPosts));
-    let likedPosts;
-    if (user) likedPosts = allPosts.filter(post => post.usersWhoLiked[user.id])
+
     const [viewFollows, setViewFollows] = useState(false);
     const [flag, setFlag] = useState(false);
     const [postType, setPostType] = useState('user posts');
     const [showUpdateProfilePic, setShowUpdateProfilePic] = useState(false);
 
-    let userPosts;
-    if (user) userPosts = allPosts.filter(post => user.id === post.postOwner.id);
+    let likedPosts, userPosts;
+    if (user) {
+        likedPosts = allPosts.filter(post => post.usersWhoLiked[user.id])
+        userPosts = allPosts.filter(post => user.id === post.postOwner.id);
+    }
 
     useEffect(() => {
         dispatch(getPosts());
@@ -39,10 +41,10 @@ const ProfilePage = () => {
         <div className="profile-page">
             <div className={`modal container ${viewFollows ? "follows-show" : ""}`}>
                 <ViewFollows
+                    id={id}
                     setViewFollows={setViewFollows}
-                    followers={Object.values(userFollowers)}
-                    following={Object.values(userFollows)}
                     flag={flag}
+                    currUser={currUser}
                 />
             </div>
             <div className={`modal container ${showUpdateProfilePic ? "update-comment-show" : ""}`}>
