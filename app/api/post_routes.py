@@ -107,7 +107,6 @@ def update_post(id):
 
 # UPLOAD AN IMAGE AND RETURN A URL
 @post_routes.route("/img", methods=["POST"])
-@login_required
 def upload_image():
     if "image" not in request.files:
         return {"errors": "image required"}, 400
