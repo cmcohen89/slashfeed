@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
-import AWSImageUpload from '../AWSImageUpload/AWSImageUpload';
 import './SignupForm.css'
 
 const SignUpForm = ({ setShowSignupModal }) => {
@@ -17,6 +16,7 @@ const SignUpForm = ({ setShowSignupModal }) => {
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const handleUpload = async (e) => {
         e.preventDefault();
@@ -67,6 +67,7 @@ const SignUpForm = ({ setShowSignupModal }) => {
                 setProfileImgUrl('');
                 setPassword('');
                 setRepeatPassword('');
+                history.push('/profile')
             }
         }
     };

@@ -104,11 +104,11 @@ def seed_likes():
     efrain.user_likes.extend([post4, post10, post15, post25, post26, post38, post27, post16, post17, post12, post13, post1])
     joonil.user_likes.extend([post4, post10, post15, post25, post26, post38, post27, post16, post17, post12, post13, post1, post9])
     linus.user_likes.extend([post7, post4, post10, post5, post15, post16, post17, post12, post13, post1, post9])
-    michael.user_likes.extend([post7, post4, post10, post5, post28, post29, post30, post31, post32, post33, post15, post16, post17, post18, post11, post1, post9])
-    preston.user_likes.extend([post7, post3, post10, post5, post28, post29, post30, post31, post32, post33, post15, post16, post17, post18, post11, post1, post9])
-    trevor.user_likes.extend([post7, post3, post10, post4, post15, post16, post17, post18, post11, post1, post9])
-    riley.user_likes.extend([post7, post3, post10, post4, post15, post16, post17, post18, post11, post1, post9])
-    hannah.user_likes.extend([post7, post3, post10, post4, post15, post16, post17, post18, post11, post1, post9])
+    michael.user_likes.extend([post7, post4, post10, post5, post28, post29, post30, post31, post32, post33, post15, post16, post18, post11, post1, post9])
+    preston.user_likes.extend([post7, post3, post10, post5, post28, post29, post30, post31, post32, post33, post15, post16, post18, post11, post1, post9])
+    trevor.user_likes.extend([post7, post3, post10, post4, post15, post16, post18, post11, post1, post9])
+    riley.user_likes.extend([post7, post3, post10, post4, post15, post16, post18, post11, post1, post9])
+    hannah.user_likes.extend([post7, post3, post10, post4, post15, post16, post18, post11, post1, post9])
 
     db.session.commit()
 

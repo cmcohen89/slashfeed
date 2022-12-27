@@ -135,7 +135,7 @@ def seed_posts():
         body="I can't believe it still haunts me years after the fact. How could they take one of the greatest shows of all time and just throw it into the trashcan? House of the Dragon was a pretty solid first season, but man I can't believe they botched GoT so bad.",
         user_id=33,
         preview_img_id=17,
-        created_at=datetime.datetime(2022, 12, 22, hour=3, minute=4, second=39)
+        created_at=datetime.datetime(2022, 12, 18, hour=3, minute=4, second=39)
     )
 
     post18 = Post(

@@ -10,6 +10,7 @@ import MyPosts from './components/PostIndex/MyPosts';
 import SignUpForm from './components/auth/SignUpForm';
 import SignupPage from './components/auth/SignupPage';
 import CreatePostPage from './components/PostForm/CreatePostPage';
+import ProfileRedirect from './components/ProfilePage/ProfileRedirect';
 
 function App() {
     const [loaded, setLoaded] = useState(false);
@@ -39,7 +40,7 @@ function App() {
                 <Route path='/posts/:id'>
                     <SinglePost />
                 </Route>
-                <Route path='/profile/:id'>
+                <Route path='/profile/:id' exact={true}>
                     <ProfilePage />
                 </Route>
                 <Route path='/signup'>
@@ -47,6 +48,9 @@ function App() {
                 </Route>
                 <Route path='/create-post'>
                     <CreatePostPage />
+                </Route>
+                <Route path='/profile' exact={true}>
+                    <ProfileRedirect />
                 </Route>
                 <Route>
                     <h1>404 Not Found</h1>

@@ -436,12 +436,12 @@
     }
 
     .lower-index-grid {
-        grid-template-columns: auto;
+        grid-template-columns: auto auto;
         row-gap: 40px;
     }
 
     .one-post {
-        width: 500px;
+        width: 420px;
         margin-bottom: 30px;
         height: 732px
     }
