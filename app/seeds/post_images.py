@@ -164,44 +164,17 @@ def seed_post_images():
         post_id=38,
     )
 
-    db.session.add(post_img1)
-    db.session.add(post_img2)
-    db.session.add(post_img3)
-    db.session.add(post_img4)
-    db.session.add(post_img5)
-    db.session.add(post_img6)
-    db.session.add(post_img7)
-    db.session.add(post_img8)
-    db.session.add(post_img9)
-    db.session.add(post_img10)
-    db.session.add(post_img11)
-    db.session.add(post_img12)
-    db.session.add(post_img13)
-    db.session.add(post_img14)
-    db.session.add(post_img15)
-    db.session.add(post_img16)
-    db.session.add(post_img17)
-    db.session.add(post_img18)
-    db.session.add(post_img19)
-    db.session.add(post_img20)
-    db.session.add(post_img21)
-    db.session.add(post_img22)
-    db.session.add(post_img23)
-    db.session.add(post_img24)
-    db.session.add(post_img25)
-    db.session.add(post_img26)
-    db.session.add(post_img27)
-    db.session.add(post_img28)
-    db.session.add(post_img29)
-    db.session.add(post_img30)
-    db.session.add(post_img31)
-    db.session.add(post_img32)
-    db.session.add(post_img33)
-    db.session.add(post_img34)
-    db.session.add(post_img35)
-    db.session.add(post_img36)
-    db.session.add(post_img37)
-    db.session.add(post_img38)
+    post_images = [
+        post_img1, post_img2, post_img3, post_img4, post_img5, post_img6,
+        post_img7, post_img8, post_img9, post_img10, post_img11, post_img12,
+        post_img13, post_img14, post_img15, post_img16, post_img17, post_img18,
+        post_img19, post_img20, post_img21, post_img22, post_img23, post_img24,
+        post_img25, post_img26, post_img27, post_img28, post_img29, post_img30,
+        post_img31, post_img32, post_img33, post_img34, post_img35, post_img36,
+        post_img37, post_img38
+    ]
+
+    [db.session.add(post_img) for post_img in post_images]
     db.session.commit()
 
 def undo_post_images():

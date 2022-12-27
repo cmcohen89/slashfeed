@@ -273,40 +273,31 @@ def seed_users():
         profile_img_url='https://ca.slack-edge.com/T03GU501J-U03H55JSSCB-bdc5abbd7a50-512'
     )
 
+    riley = User(
+        first_name='Riley',
+        last_name='Litman',
+        username='PODVII',
+        password='password',
+        email='riley@aa.io',
+        profile_img_url='https://image.tmdb.org/t/p/w235_and_h235_face/2LwIfgJKiFwz236DoLEJld0SHFx.jpg'
+    )
 
-    db.session.add(demo)
-    db.session.add(jamie)
-    db.session.add(jordan)
-    db.session.add(nick)
-    db.session.add(maria)
-    db.session.add(shaina)
-    db.session.add(brennen)
-    db.session.add(andrew)
-    db.session.add(sara)
-    db.session.add(alex)
-    db.session.add(katharine)
-    db.session.add(marty)
-    db.session.add(leslie)
-    db.session.add(matt)
-    db.session.add(gray)
-    db.session.add(mike)
-    db.session.add(jacob)
-    db.session.add(tyler)
-    db.session.add(chris)
-    db.session.add(huishi)
-    db.session.add(kevin)
-    db.session.add(kat)
-    db.session.add(ricardo)
-    db.session.add(brian)
-    db.session.add(dave)
-    db.session.add(douglas)
-    db.session.add(efrain)
-    db.session.add(joonil)
-    db.session.add(linus)
-    db.session.add(michael)
-    db.session.add(preston)
-    db.session.add(trevor)
+    hannah = User(
+        first_name='Hannah',
+        last_name='Litman',
+        username='hannahbobannah584',
+        password='password',
+        email='hannah@aa.io',
+        profile_img_url='https://static.wixstatic.com/media/dce20a_8e56287472ff4c369d7c2fd803dec5a0.jpeg/v1/crop/x_157,y_0,w_529,h_682/fill/w_528,h_648,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/hObUAhUm6isL6NRiEHyga3kock5OC5cvx6rENT2T.jpeg'
+    )
 
+    users = [
+        demo, jamie, jordan, nick, maria, shaina, brennen, andrew, sara, alex, katharine,
+        marty, leslie, matt, gray, mike, jacob, tyler, chris, huishi, kevin, kat, ricardo,
+        brian, dave, douglas, efrain, joonil, linus, michael, preston, trevor, riley, hannah
+    ]
+
+    [db.session.add(user) for user in users]
     db.session.commit()
 
 
