@@ -2,7 +2,7 @@ from .db import db
 from .post import Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from .join import likes, followers
+from .join import likes, followers, user_message_threads
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -21,6 +21,7 @@ class User(db.Model, UserMixin):
     user_comments = db.relationship('Comment', back_populates='comment_owner', cascade='all, delete')
     user_messages = db.relationship('Message', back_populates='message_owner', cascade='all, delete')
     user_likes = db.relationship('Post', back_populates='users_who_liked', secondary=likes, lazy='joined')
+    user_chats = db.relationship('MessageThread', back_populates='chat_users', secondary=user_message_threads, lazy='joined')
     followed = db.relationship('User', secondary=followers, primaryjoin=(followers.c.follower_id == id), secondaryjoin=(followers.c.followed_id == id), backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
 
 

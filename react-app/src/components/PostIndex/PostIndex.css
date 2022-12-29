@@ -284,7 +284,6 @@
     font-weight: bold;
     color: white;
     text-shadow: 3px 3px 3px black;
-    -webkit-text-stroke: 0.75px black;
     transition: color .5s ease;
 }
 
@@ -299,7 +298,7 @@
     font-weight: bold;
     color: white;
     text-shadow: 3px 3px 3px black;
-    -webkit-text-stroke: 0.75px black;
+    -webkit-text-stroke: 0.25px black;
     transition: color .5s ease;
 }
 
@@ -436,12 +435,12 @@
     }
 
     .lower-index-grid {
-        grid-template-columns: auto;
+        grid-template-columns: auto auto;
         row-gap: 40px;
     }
 
     .one-post {
-        width: 500px;
+        width: 420px;
         margin-bottom: 30px;
         height: 732px
     }
