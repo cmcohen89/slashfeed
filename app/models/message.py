@@ -1,4 +1,5 @@
 from .db import db
+from .join import user_message_threads
 
 
 class Message(db.Model):
@@ -30,6 +31,8 @@ class MessageThread(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
+
+    chat_users = db.relationship('User', back_populates='user_chats', secondary=user_message_threads, lazy='joined')
 
     def to_dict(self):
         return {

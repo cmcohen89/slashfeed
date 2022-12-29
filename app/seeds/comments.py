@@ -508,7 +508,7 @@ all_comments = [
     },
     {
         "body": "nah y'all are trippin', I made it for myself. self-love!!!",
-        "user_id": 2,
+        "user_id": 34,
         "post_id": 34
     },
     {
