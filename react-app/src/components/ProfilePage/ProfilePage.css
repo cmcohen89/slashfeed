@@ -213,4 +213,11 @@
         grid-template-columns: auto auto;
         row-gap: 60px;
     }
+
+    .one-profile-post {
+        width: 438px;
+        height: 734px;
+        border: 1px solid #d7d7d7;
+        margin: 1.25em 1.25em;
+    }
 }
