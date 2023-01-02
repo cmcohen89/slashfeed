@@ -18,7 +18,7 @@
 }
 
 .footer-left {
-    font-family: "Rubik", sans-serif;
+
     padding-left: 30px;
     color: #808A8C;
 }
@@ -36,7 +36,7 @@
 
 .nav-logo-link {
     cursor: pointer;
-    transition: all .5s ease;
+    transition: all .2s ease;
 }
 
 .github:hover {

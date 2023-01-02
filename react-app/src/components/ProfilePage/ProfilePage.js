@@ -110,17 +110,17 @@ const ProfilePage = () => {
                     {postType === 'user posts' ?
                         (userPosts.length > 0 ?
                             userPosts.map(post => (
-                                <div key={post.id}>
-                                    <ProfilePost post={post} user={user} setPostType={setPostType} />
-                                </div>))
+
+                                <ProfilePost post={post} user={user} setPostType={setPostType} />
+                            ))
                             :
                             <h1 className="profile-title">No posts from this user yet...</h1>)
                         :
                         likedPosts.length > 0 ?
                             likedPosts.map(post => (
-                                <div key={post.id}>
-                                    <ProfilePost post={post} setPostType={setPostType} />
-                                </div>))
+
+                                <ProfilePost post={post} setPostType={setPostType} />
+                            ))
                             :
                             <h1 className="profile-title">This user hasn't liked any posts yet!</h1>
                     }

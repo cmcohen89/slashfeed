@@ -13,18 +13,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Rubik', sans-serif;
+
     font-weight: 600;
     font-size: 16px;
     height: 40px;
     width: 160px;
-    letter-spacing: -0.5px;
+
     text-transform: uppercase;
     background-color: #21BFE1;
     color: white;
     padding: 10px;
     cursor: pointer;
-    transition: box-shadow .5s ease;
+    transition: box-shadow .2s ease;
     border: none;
     margin-top: 20px;
 }
@@ -35,7 +35,7 @@
 
 .aws-loading {
     text-align: center;
-    font-family: "Rubik", sans-serif;
+
     padding-top: 40px;
 }
 
@@ -61,18 +61,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Rubik', sans-serif;
+
     font-weight: 600;
     font-size: 14px;
     height: 30px;
     width: 140px;
-    letter-spacing: -0.5px;
+
     text-transform: uppercase;
     background-color: #7f5ae5;
     color: white;
     padding: 10px;
     cursor: pointer;
-    transition: box-shadow .5s ease;
+    transition: box-shadow .2s ease;
     border: none;
     margin-left: 15px;
 }

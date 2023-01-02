@@ -31,9 +31,9 @@ const OnePost = ({ post, setShowLoginModal }) => {
                         <h3 className="one-post-title">{post.title}</h3>
                     </NavLink>
                     <p className="one-post-body">
-                        {post.body.length > 150 ?
-                            post.body[149] === ' ' ? `${post.body.substring(0, 149)}...`
-                                : `${post.body.substring(0, 150)}...` : post.body}
+                        {post.body.length > 120 ?
+                            post.body[119] === ' ' ? `${post.body.substring(0, 119)}...`
+                                : `${post.body.substring(0, 120)}...` : post.body}
                     </p>
                 </div>
                 <h4
