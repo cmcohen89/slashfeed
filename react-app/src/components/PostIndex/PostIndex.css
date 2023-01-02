@@ -70,7 +70,7 @@
     text-shadow: 3px 3px 3px black;
     /* -webkit-text-stroke: 1px black; */
     transition: color .2s ease;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.5px;
 }
 
 .featured-title:hover {
