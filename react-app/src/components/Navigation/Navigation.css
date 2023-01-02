@@ -73,25 +73,6 @@
     color: #21BFE1;
 }
 
-.nav-logos {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    list-style: none;
-    width: 300px;
-    color: #808A8C;
-    font-size: 22px;
-}
-
-.nav-logo-link {
-    cursor: pointer;
-    transition: color .5s ease;
-}
-
-.nav-logo-link:hover {
-    color: #21BFE1;
-}
-
 .nav-update {
     display: flex;
     justify-content: center;
