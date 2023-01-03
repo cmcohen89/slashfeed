@@ -387,6 +387,18 @@
     justify-content: center;
     align-items: center;
     height: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.view-all {
+    margin-top: 50px;
+    color: #21BFE1;
+    transition: color .2s ease;
+}
+
+.view-all:hover {
+    color: #7F5AE5;
 }
 
 @media (max-width: 1500px) {

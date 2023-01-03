@@ -109,3 +109,8 @@
 .view-unfollow-button:hover {
     box-shadow: 0 0 10px black;
 }
+
+.no-follows {
+    margin-top: 120px;
+    text-align: center;
+}

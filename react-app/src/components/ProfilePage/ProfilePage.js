@@ -27,6 +27,7 @@ const ProfilePage = () => {
     if (user) {
         likedPosts = allPosts.filter(post => post.usersWhoLiked[user.id])
         userPosts = allPosts.filter(post => user.id === post.postOwner.id);
+        userPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     }
 
     useEffect(() => {

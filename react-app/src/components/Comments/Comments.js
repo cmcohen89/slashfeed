@@ -16,7 +16,7 @@ const Comments = ({ postId }) => {
     return (
         <div className='single-post-comments'>
             <div className='comments-content'>
-                {comments.length === 0 && <span>No comments yet! Be the first to leave a comment!</span>}
+                {comments.length === 0 && <span className='no-comments'>No comments yet! Be the first to leave a comment!</span>}
                 <ul>
                     {comments.map(comment => (
                         <div key={comment.id}>
