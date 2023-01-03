@@ -6,9 +6,9 @@ const FeaturedPost = ({ post }) => {
             <span className="featured-user-and-title">
                 <h5 className='featured-user'>
                     <NavLink className='featured-profile-link' to={`/profile/${post.postOwner.id}`}>
-                        <img className='one-post-profile-pic' src={post.postOwner.profileImgUrl} alt='' />
+                        <img className='one-post-profile-pic featured-profile-pic' src={post.postOwner.profileImgUrl} alt='' />
                     </NavLink>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
                     <NavLink className='featured-profile-link' to={`/profile/${post.postOwner.id}`}>
                         {post.postOwner.username}
                     </NavLink>

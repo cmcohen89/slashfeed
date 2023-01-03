@@ -3,14 +3,6 @@
     margin: 0 auto;
 }
 
-.one-profile-post {
-    transition: all .5s ease;
-}
-
-.one-profile-post:hover {
-    box-shadow: 0 0 10px #000000;
-}
-
 .profile-header {
     margin-top: 125px;
     border-top: 1px solid #d6d6d7;
@@ -39,7 +31,7 @@
     font-size: 42px;
     color: transparent;
     cursor: pointer;
-    transition: color .5s ease;
+    transition: color .2s ease;
 }
 
 .profile-pic-wrapper:hover .update-profile-pic-button {
@@ -57,7 +49,6 @@
 }
 
 .profile-stats {
-    font-family: "Rubik", sans-serif;
     display: flex;
     justify-content: center;
     margin-top: 30px;
@@ -87,13 +78,25 @@
 
 .one-profile-post {
     width: 438px;
-    height: 692px;
+    height: 652px;
     border: 1px solid #d7d7d7;
     margin: 1.25em 1.25em;
+    transition: all .2s ease;
+}
+
+.one-profile-post-content {
+    position: relative;
+    background-color: white;
+    height: 200px;
+    padding: 0 22px;
+    word-break: break-word;
+}
+
+.one-profile-post:hover {
+    box-shadow: 0 0 2.5px #000000;
 }
 
 .profile-title {
-    font-family: "Rubik", sans-serif;
     font-weight: 500;
     text-align: center;
     margin-bottom: 10px;
@@ -105,7 +108,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Rubik', sans-serif;
     font-weight: 600;
     font-size: 18px;
     height: 50px;
@@ -115,7 +117,7 @@
     color: white;
     padding: 10px;
     cursor: pointer;
-    transition: all .5s ease;
+    transition: all .2s ease;
 }
 
 .follow-button:hover {
@@ -150,12 +152,14 @@
 
 .profile-likes {
     position: absolute;
-    bottom: 20px;
+    top: 25px;
+    right: -25px;
     margin-right: 47px;
-    transition: color .5s ease;
+    transition: color .2s ease;
     cursor: pointer;
     font-size: 20px;
-    transition: color .5s ease;
+    transition: color .2s ease;
+    color: #3A4148;
 }
 
 .profile-likes:hover {
@@ -164,7 +168,7 @@
 
 .view-follows {
     cursor: pointer;
-    transition: color .5s ease;
+    transition: color .2s ease;
 }
 
 .view-follows:hover {
@@ -178,12 +182,12 @@
 }
 
 .profile-post-type-button {
-    font-family: "Rubik", sans-serif;
+
     font-size: 24px;
     cursor: pointer;
     padding-bottom: 5px;
     border-bottom: 2px solid transparent;
-    transition: all .5s ease;
+    transition: all .2s ease;
 }
 
 .profile-post-type-button:hover {
@@ -201,10 +205,14 @@
     font-size: 26px;
     color: rgba(255, 255, 255, 0.826);
     cursor: pointer;
-    transition: color .5s ease;
+    transition: color .2s ease;
 }
 
 .update-image-button:hover {
+    color: #21BFE1;
+}
+
+.one-post-liked {
     color: #21BFE1;
 }
 

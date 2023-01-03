@@ -43,7 +43,7 @@ const ProfilePost = ({ post, setPostType }) => {
                     <img className='one-post-img' src={post.postImages[post.previewImgId].url} alt="" />
                 </NavLink>
             </div>
-            <div className="one-post-content">
+            <div className="one-profile-post-content">
                 <h2 className="one-post-user">
                     <NavLink
                         onClick={() => setPostType('user posts')}
@@ -65,11 +65,6 @@ const ProfilePost = ({ post, setPostType }) => {
                     <NavLink className='one-post-title-link' to={`/posts/${post.id}`}>
                         <h3 className="one-post-title">{post.title}</h3>
                     </NavLink>
-                    <p className="one-post-body">
-                        {post.body.length > 40 ?
-                            post.body[39] === ' ' ? `${post.body.substring(0, 39)}...`
-                                : `${post.body.substring(0, 40)}...` : post.body}
-                    </p>
                 </div>
                 <h4
                     onClick={async () => {

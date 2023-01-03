@@ -11,6 +11,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import SignupPage from './components/auth/SignupPage';
 import CreatePostPage from './components/PostForm/CreatePostPage';
 import ProfileRedirect from './components/ProfilePage/ProfileRedirect';
+import Footer from './components/Footer/Footer';
 
 function App() {
     const [loaded, setLoaded] = useState(false);
@@ -56,6 +57,7 @@ function App() {
                     <h1>404 Not Found</h1>
                 </Route>
             </Switch>
+            <Footer />
         </BrowserRouter>
     );
 }

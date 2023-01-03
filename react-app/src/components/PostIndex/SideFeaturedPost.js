@@ -8,7 +8,7 @@ const SideFeaturedPost = ({ post }) => {
                     <NavLink className='featured-profile-link' to={`/profile/${post.postOwner.id}`}>
                         <img className='one-post-profile-pic' src={post.postOwner.profileImgUrl} alt='' />
                     </NavLink>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
                     <NavLink className='featured-profile-link' to={`/profile/${post.postOwner.id}`}>
                         {post.postOwner.username}
                     </NavLink>

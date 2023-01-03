@@ -1,5 +1,5 @@
 .update-image-title {
-    font-family: 'Rubik', sans-serif;
+
     margin-bottom: -20px;
 }
 
@@ -8,8 +8,8 @@
     font-size: 16px;
     color: rgba(0, 0, 0, 0.579);
     text-align: center;
-    font-family: "Rubik", sans-serif;
-    transition: all .5s ease;
+
+    transition: all .2s ease;
     cursor: pointer;
 }
 

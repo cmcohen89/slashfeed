@@ -43,7 +43,7 @@ const Navigation = () => {
                 <span>
                     <NavLink to='/'><img className='nav-logo' src='https://i.imgur.com/s9sq5Yk.png' alt='website logo' /></NavLink>
                 </span>
-                <li className='slogan'>Get the news from your friends</li>
+                <li className='slogan'>Get your news from your friends</li>
                 <ul className='nav-links'>
                     {!user ?
                         <li className='nav-signup-link'
@@ -63,7 +63,7 @@ const Navigation = () => {
                             }}>My Feed</li>
                         </>
                     }
-                    {user && <NavLink className='nav-signup-link' to={`/profile/${user.id}`}><li>My Profile</li></NavLink>
+                    {user && <NavLink className='nav-signup-link' to={`/profile/${user.id}`}>My Profile</NavLink>
                     }
                     {!user ?
                         <li className='nav-login-link' onClick={() => setShowLoginModal(true)}>Log In</li>
@@ -72,7 +72,7 @@ const Navigation = () => {
                     }
                 </ul>
                 <span
-                    className='nav-update'
+                    className='nav-create'
                     onClick={() => user ? (windowHeight > 950 ? setShowCreateModal(true) : history.push('/create-post')) : setShowLoginModal(true)}
                 >
                     Create Post

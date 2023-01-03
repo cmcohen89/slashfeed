@@ -21,47 +21,53 @@ const SinglePost = () => {
     if (!singlePost) return null;
 
     return (
-        <div className="single-post-page">
-            <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal} />
-            <h3 className="single-post-title">{singlePost.title}</h3>
-            <img
-                className="single-post-img"
-                src={singlePost.postImages[singlePost.previewImgId].url}
-                alt=""
-            />
-            <div className="single-post-subheader">
-                <span className="single-post-user-and-date">
-                    <span className="single-post-user">
-                        <NavLink className='profile-link' to={`/profile/${singlePost.postOwner.id}`}>
-                            <img className='one-post-profile-pic' src={singlePost.postOwner.profileImgUrl} alt='' />
-                        </NavLink>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <NavLink className='profile-link' to={`/profile/${singlePost.postOwner.id}`}>
-                            {singlePost.postOwner.username}
-                        </NavLink>
-                        &nbsp;&nbsp; / &nbsp;&nbsp;
-                    </span>
-                    <span className="single-post-date">
-                        {(new Date(singlePost.createdAt)).toLocaleTimeString()},&nbsp;
-                        {(new Date(singlePost.createdAt)).toDateString()}
-                    </span>
-                </span>
-                <span
-                    onClick={async () => {
-                        user ? (singlePost.usersWhoLiked[user.id] ?
-                            await dispatch(unlikePost(singlePost.id)) :
-                            await dispatch(likePost(singlePost.id)))
-                            : setShowLoginModal(true)
-                        dispatch(getSinglePost(id));
-                    }}
-                    className={`single-post-likes ${user && singlePost.usersWhoLiked[user.id] ? "one-post-liked" : ""}`}
-                >
-                    {singlePost.likes}&nbsp;&nbsp;
-                    <i className="fa-solid fa-thumbs-up"></i>
-                </span>
+        <div className="single-post-page-container">
+            <div className="single-post-title-container">
+                <h3 className="single-post-title">{singlePost.title}</h3>
             </div>
-            <p className="single-post-body">{singlePost.body}</p>
-            <Comments postId={singlePost.id} />
+            <div className="single-post-content-container">
+                <div className="single-post-page">
+                    <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal} />
+                    <img
+                        className="single-post-img"
+                        src={singlePost.postImages[singlePost.previewImgId].url}
+                        alt=""
+                    />
+                    <div className="single-post-subheader">
+                        <span className="single-post-user-and-date">
+                            <span className="single-post-user">
+                                <NavLink className='profile-link' to={`/profile/${singlePost.postOwner.id}`}>
+                                    <img className='one-post-profile-pic' src={singlePost.postOwner.profileImgUrl} alt='' />
+                                </NavLink>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <NavLink className='profile-link' to={`/profile/${singlePost.postOwner.id}`}>
+                                    {singlePost.postOwner.username}
+                                </NavLink>
+                                &nbsp;&nbsp; / &nbsp;&nbsp;
+                            </span>
+                            <span className="single-post-date">
+                                {(new Date(singlePost.createdAt)).toLocaleTimeString()},&nbsp;
+                                {(new Date(singlePost.createdAt)).toDateString()}
+                            </span>
+                        </span>
+                        <span
+                            onClick={async () => {
+                                user ? (singlePost.usersWhoLiked[user.id] ?
+                                    await dispatch(unlikePost(singlePost.id)) :
+                                    await dispatch(likePost(singlePost.id)))
+                                    : setShowLoginModal(true)
+                                dispatch(getSinglePost(id));
+                            }}
+                            className={`single-post-likes ${user && singlePost.usersWhoLiked[user.id] ? "one-post-liked" : ""}`}
+                        >
+                            {singlePost.likes}&nbsp;&nbsp;
+                            <i className="fa-solid fa-thumbs-up"></i>
+                        </span>
+                    </div>
+                    <p className="single-post-body">{singlePost.body}</p>
+                </div>
+                <Comments postId={singlePost.id} />
+            </div>
         </div>
     )
 }
