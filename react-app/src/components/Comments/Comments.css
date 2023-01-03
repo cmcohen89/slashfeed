@@ -2,7 +2,7 @@
     background-color: white;
     width: 600px;
     margin-left: 30px;
-    padding-right: 20px;
+    padding-right: 5px;
 }
 
 .comments-content {
@@ -10,8 +10,9 @@
     border-bottom: 1px solid #d6d6d7;
     border-top: 1px solid #d6d6d7;
     padding-bottom: 10px;
-    padding-top: 20px;
-    height: 769px;
+    padding-top: 5px;
+    padding-right: 15px;
+    height: 778px;
 }
 
 .comments-content::-webkit-scrollbar {
@@ -38,7 +39,7 @@
     align-items: center;
     list-style: none;
     color: #3A4148;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     margin-left: 10px;
     margin-top: 5px;
     padding-top: 5px;
@@ -50,8 +51,8 @@
 }
 
 .comment-body {
-    margin-bottom: 20px;
-    padding: 10px 20px;
+    margin-bottom: 8px;
+    padding: 3px 20px;
     word-break: break-word;
     font-size: 18.5px;
     line-height: 22px;

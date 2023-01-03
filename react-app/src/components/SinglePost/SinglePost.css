@@ -1,12 +1,12 @@
 .single-post-page-container {
     display: flex;
     flex-direction: column;
-    margin: 120px auto;
-    padding-bottom: 50px;
+    margin: 0px auto;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     border: 1px solid #d6d6d7;
     width: 1400px;
+    padding-bottom: 90px;
 }
 
 .single-post-content-container {
@@ -22,19 +22,21 @@
 
 .single-post-title {
     padding: 20px 40px;
+    padding-top: 60px;
     margin-top: 30px;
     margin-bottom: 24px;
     word-break: break-word;
-    font-size: 46px;
+    font-size: 40px;
     text-transform: capitalize;
     font-family: "Fjalla One", sans-serif;
     letter-spacing: 0.5px;
 }
 
 .single-post-img {
-    height: 700px;
+    height: 710px;
     object-fit: contain;
     background-color: black;
+    border: 1px solid #21BFE1;
 }
 
 .single-post-subheader {
