@@ -27,15 +27,17 @@ const MyPosts = () => {
     topPosts.sort((a, b) => b.likes - a.likes)
     allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
-    if (!allPosts || !allPosts.length) return null;
 
     if (allPosts.length < 3) {
         return (
             <div className="follow-more-users">
                 <h1>Follow more users to see your feed!</h1>
+                <NavLink to='/' className='view-all'><h1>View All Posts</h1></NavLink>
             </div>
         )
     }
+
+    if (!allPosts || !allPosts.length) return null;
 
     return (
         <div className="all-posts">

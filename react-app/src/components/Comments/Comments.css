@@ -150,7 +150,7 @@
     height: 40px;
     width: 160px;
     text-transform: uppercase;
-    background-color: #21BFE1;
+    background-color: #7f5ae5;
     color: white;
     padding: 10px;
     border: none;
@@ -160,7 +160,7 @@
 }
 
 .comment-form-button:hover {
-    box-shadow: 0 0 15px #21bee171;
+    box-shadow: 0 0 15px #7f5ae5;
 }
 
 .comment-form-button-disabled {
@@ -196,4 +196,10 @@
 
 .comment-profile-link:hover {
     color: #21BFE1
+}
+
+.no-comments {
+    font-size: 20px;
+    position: relative;
+    top: 20px;
 }

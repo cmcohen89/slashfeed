@@ -30,42 +30,47 @@ const ViewFollows = ({
         <div className='follows-modal'>
             <h1 className='follows-title'>{flag ? 'Following' : 'Followers'}</h1>
             <div className='follows-content'>
-                {Object.values(follows).map(follow => (
-                    <h2 className="follows-user">
-                        <div className="follows-user-left">
-                            <NavLink onClick={() => setViewFollows(false)}
-                                className='follows-profile-pic-link'
-                                to={`/profile/${follow.id}`}
-                            >
-                                <img
-                                    className='follows-profile-pic'
-                                    src={follow.profileImgUrl}
-                                    alt=''
-                                />
-                            </NavLink>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <NavLink
-                                onClick={() => setViewFollows(false)}
-                                className='follows-profile-link'
-                                to={`/profile/${follow.id}`}
-                            >
-                                {follow.username}
-                            </NavLink>
-                        </div>
-                        {(currUser && currUser.id !== follow.id) && <span
-                            className={`view-follow-button
+                {Object.values(follows).length ?
+                    Object.values(follows).map(follow => (
+                        <h2 className="follows-user">
+                            <div className="follows-user-left">
+                                <NavLink onClick={() => setViewFollows(false)}
+                                    className='follows-profile-pic-link'
+                                    to={`/profile/${follow.id}`}
+                                >
+                                    <img
+                                        className='follows-profile-pic'
+                                        src={follow.profileImgUrl}
+                                        alt=''
+                                    />
+                                </NavLink>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <NavLink
+                                    onClick={() => setViewFollows(false)}
+                                    className='follows-profile-link'
+                                    to={`/profile/${follow.id}`}
+                                >
+                                    {follow.username}
+                                </NavLink>
+                            </div>
+                            {(currUser && currUser.id !== follow.id) && <span
+                                className={`view-follow-button
                             ${currUser && currUserFollows[follow.id] && 'view-unfollow-button'}`
-                            }
-                            onClick={async () => {
-                                await dispatch(postFollow(follow.id));
-                                dispatch(getUserFollows());
-                                dispatch(getFollows(id));
-                            }}
-                        >
-                            {currUser && !currUserFollows[follow.id] ? 'Follow' : 'Unfollow'}
-                        </span>}
-                    </h2>
-                ))}
+                                }
+                                onClick={async () => {
+                                    await dispatch(postFollow(follow.id));
+                                    dispatch(getUserFollows());
+                                    dispatch(getFollows(id));
+                                }}
+                            >
+                                {currUser && !currUserFollows[follow.id] ? 'Follow' : 'Unfollow'}
+                            </span>}
+                        </h2>
+                    ))
+                    :
+                    <h2 className='no-follows'>
+                        {flag ? "You're not following anyone yet!" : "You don't have any followers yet!"}
+                    </h2>}
             </div>
         </div>
     )
