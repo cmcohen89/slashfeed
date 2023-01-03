@@ -89,6 +89,7 @@
     transition: box-shadow .25s ease;
     font-family: "Fjalla One", sans-serif;
     letter-spacing: 0.5px;
+    margin-right: 1px;
 }
 
 .nav-create:hover {
