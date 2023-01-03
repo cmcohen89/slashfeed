@@ -1,18 +1,17 @@
 .single-post-comments {
-    border: 1px solid #D7D7D6;
-    border-radius: 10px;
-    padding: 10px;
-    margin-top: 50px;
-    margin-bottom: 100px;
     background-color: white;
+    width: 600px;
+    margin-left: 30px;
+    padding-right: 20px;
 }
 
 .comments-content {
-    padding-top: 20px;
-    height: 600px;
     overflow-y: scroll;
-    border-bottom: 2px solid #d6d6d7;
+    border-bottom: 1px solid #d6d6d7;
+    border-top: 1px solid #d6d6d7;
     padding-bottom: 10px;
+    padding-top: 20px;
+    height: 769px;
 }
 
 .comments-content::-webkit-scrollbar {
@@ -111,7 +110,7 @@
 }
 
 .comment-form-div {
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .comment-form {
@@ -145,12 +144,10 @@
 .comment-form-button {
     margin-top: 15px;
     margin-right: 5px;
-
     font-weight: 600;
     font-size: 16px;
     height: 40px;
     width: 160px;
-
     text-transform: uppercase;
     background-color: #21BFE1;
     color: white;
@@ -179,8 +176,7 @@
     background-color: #f5f7f9;
     border-radius: 10px;
     border: 1px solid #d6d6d7;
-    margin-right: 20px;
-    margin-left: 40px;
+    margin-left: 20px;
     margin-bottom: 20px;
     margin-top: 10px;
 }

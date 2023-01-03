@@ -41,9 +41,9 @@
     transition: color .2s ease;
     color: rgba(0, 0, 0, 0.508);
     margin-right: 30px;
-    font-family: "Fjalla One", sans-serif;
     letter-spacing: 0.5px;
-    font-size: 22px;
+    font-size: 18px;
+    letter-spacing: -0.5px;
 }
 
 .nav-login-link-last {
@@ -52,9 +52,8 @@
     cursor: pointer;
     transition: color .2s ease;
     color: rgba(0, 0, 0, 0.508);
-    font-family: "Fjalla One", sans-serif;
-    letter-spacing: 0.5px;
-    font-size: 22px;
+    font-size: 18px;
+    letter-spacing: -0.5px;
 }
 
 .nav-signup-link {
@@ -64,9 +63,8 @@
     transition: color .2s ease;
     color: rgba(0, 0, 0, 0.508);
     margin-right: 30px;
-    font-family: "Fjalla One", sans-serif;
-    letter-spacing: 0.5px;
-    font-size: 22px;
+    font-size: 18px;
+    letter-spacing: -0.5px;
 }
 
 .nav-login-link:hover,
@@ -80,8 +78,8 @@
     justify-content: center;
     align-items: center;
     font-weight: 600;
-    font-size: 22px;
-    height: 38px;
+    font-size: 20px;
+    height: 34px;
     width: 150px;
     text-transform: uppercase;
     background-color: #21BFE1;
@@ -109,14 +107,13 @@
 .slogan {
     color: rgba(0, 0, 0, 0.508);
     font-weight: 600;
-    font-size: 22px;
+    font-size: 18px;
     display: flex;
     justify-content: left;
     width: 400px;
     list-style: none;
     text-transform: uppercase;
-    font-family: "Fjalla One", sans-serif;
-    letter-spacing: 0.5px;
+    letter-spacing: -0.5px;
 }
 
 .no-underline {

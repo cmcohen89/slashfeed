@@ -49,7 +49,6 @@
 }
 
 .profile-stats {
-
     display: flex;
     justify-content: center;
     margin-top: 30px;
@@ -79,7 +78,7 @@
 
 .one-profile-post {
     width: 438px;
-    height: 692px;
+    height: 652px;
     border: 1px solid #d7d7d7;
     margin: 1.25em 1.25em;
     transition: all .2s ease;
@@ -88,17 +87,16 @@
 .one-profile-post-content {
     position: relative;
     background-color: white;
-    height: 240px;
+    height: 200px;
     padding: 0 22px;
     word-break: break-word;
 }
 
 .one-profile-post:hover {
-    box-shadow: 0 0 5px #000000;
+    box-shadow: 0 0 2.5px #000000;
 }
 
 .profile-title {
-
     font-weight: 500;
     text-align: center;
     margin-bottom: 10px;
@@ -110,7 +108,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-weight: 600;
     font-size: 18px;
     height: 50px;
@@ -155,7 +152,8 @@
 
 .profile-likes {
     position: absolute;
-    bottom: 20px;
+    top: 25px;
+    right: -25px;
     margin-right: 47px;
     transition: color .2s ease;
     cursor: pointer;
@@ -211,6 +209,10 @@
 }
 
 .update-image-button:hover {
+    color: #21BFE1;
+}
+
+.one-post-liked {
     color: #21BFE1;
 }
 
