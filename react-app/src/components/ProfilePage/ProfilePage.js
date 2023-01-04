@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { getPosts } from "../../store/all_posts";
 import { getUsers } from "../../store/all_users";
+import { postThread } from "../../store/chats";
 import { getFollows, postFollow } from "../../store/follows";
 import UpdateProfileImage from "../UpdateImage/UpdateProfileImage";
 import ViewFollows from "../ViewFollows/ViewFollows";
@@ -12,6 +13,7 @@ import ProfilePost from "./ProfilePost";
 const ProfilePage = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
+    const history = useHistory();
     const currUser = useSelector(state => state.session.user);
     const user = useSelector(state => state.allUsers[id]);
     const userFollowers = useSelector(state => state.follows.followers);
@@ -90,15 +92,26 @@ const ProfilePage = () => {
                         </span>
                     </div>
                     {currUser && user && user.id !== currUser.id &&
-                        <span
-                            className={`follow-button ${userFollowers[currUser.id] && 'unfollow-button'}`}
-                            onClick={async () => {
-                                await dispatch(postFollow(id));
-                                dispatch(getFollows(id))
-                            }}
-                        >
-                            {!userFollowers[currUser.id] ? 'Follow' : 'Unfollow'} {user.username}
-                        </span>
+                        <div>
+                            <span
+                                className={`follow-button ${userFollowers[currUser.id] && 'unfollow-button'}`}
+                                onClick={async () => {
+                                    await dispatch(postFollow(id));
+                                    dispatch(getFollows(id));
+                                }}
+                            >
+                                {!userFollowers[currUser.id] ? 'Follow' : 'Unfollow'} {user.username}
+                            </span>
+                            <button
+                                className="message-button"
+                                onClick={async () => {
+                                    await dispatch(postThread(user.id));
+                                    history.push('/chat');
+                                }}
+                            >
+                                Message
+                            </button>
+                        </div>
                     }
                 </div>
             </div>
@@ -111,7 +124,6 @@ const ProfilePage = () => {
                     {postType === 'user posts' ?
                         (userPosts.length > 0 ?
                             userPosts.map(post => (
-
                                 <ProfilePost post={post} user={user} setPostType={setPostType} />
                             ))
                             :
@@ -119,7 +131,6 @@ const ProfilePage = () => {
                         :
                         likedPosts.length > 0 ?
                             likedPosts.map(post => (
-
                                 <ProfilePost post={post} setPostType={setPostType} />
                             ))
                             :

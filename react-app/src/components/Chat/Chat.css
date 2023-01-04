@@ -1,0 +1,53 @@
+.chat-page {
+    margin: 100px auto;
+    max-width: 1400px;
+    background-color: white;
+    display: flex;
+}
+
+.message-input {
+    text-align: left;
+    font-size: 16px;
+    width: 400px;
+    border-radius: 10px;
+    border: 1px solid #d6d6d7;
+    transition: all .2s ease-out;
+    padding: 5px 10px;
+    resize: none;
+    height: 40px;
+}
+
+.message-input:focus {
+    outline: none !important;
+    border: 1px solid #21BFE1;
+    box-shadow: 0 0 10px #21bee1a5;
+}
+
+.message-input::-webkit-scrollbar {
+    width: 20px;
+}
+
+.message-input::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.message-input::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+.delete-message-button {
+    position: relative;
+    top: 0.5px;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.508);
+    cursor: pointer;
+    transition: color .2s ease;
+    margin-left: 10px;
+}
+
+.delete-message-button:hover {
+    color: red;
+}

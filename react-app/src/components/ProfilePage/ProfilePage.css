@@ -222,6 +222,10 @@
         row-gap: 60px;
     }
 
+    .one-profile-post-content {
+        height: 283px;
+    }
+
     .one-profile-post {
         width: 438px;
         height: 734px;

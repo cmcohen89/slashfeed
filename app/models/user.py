@@ -84,5 +84,5 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'profileImgUrl': self.profile_img_url,
-            'postCount': len([post for post in self.user_posts])
+            'postCount': len(self.user_posts)
         }

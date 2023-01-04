@@ -12,6 +12,7 @@ class Message(db.Model):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
 
     message_owner = db.relationship('User', back_populates='user_messages')
+    message_chat = db.relationship('MessageThread', back_populates='chat_messages')
 
     def to_dict(self):
         return {
@@ -33,12 +34,15 @@ class MessageThread(db.Model):
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
 
     chat_users = db.relationship('User', back_populates='user_chats', secondary=user_message_threads, lazy='joined')
+    chat_messages = db.relationship('Message', back_populates='message_chat', cascade='all, delete')
 
     def to_dict(self):
         return {
             "id": self.id,
             "createdAt": self.created_at,
-            "updatedAt": self.updated_at
+            "updatedAt": self.updated_at,
+            "chatMessages": [msg.to_dict() for msg in self.chat_messages],
+            "chatUsers": [user.to_dict() for user in self.chat_users]
         }
 
     def __repr__(self):
