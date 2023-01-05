@@ -12,11 +12,12 @@ const CommentForm = ({ postId }) => {
     const handleSubmit = async e => {
         e.preventDefault();
         let errors = [];
+        if (body.trim() === '') errors.push("You can't submit an empty message!")
         if (body.length > 4999) errors.push("Easy tiger, let's keep it under 5000 characters!")
         if (errors.length > 0) {
             setErrors(errors);
         } else {
-            await dispatch(postComment(body, postId));
+            await dispatch(postComment(body.replace(/\n+/g, '\n').trim(), postId));
             setErrors([]);
             setBody('');
         }
@@ -41,7 +42,7 @@ const CommentForm = ({ postId }) => {
                     disabled={user ? false : true}
                 />
                 <div className='comment-form-button-wrapper'>
-                    <button className={`comment-form-button ${!user && 'comment-form-button-disabled'}`} type='submit'>Leave comment</button>
+                    <button className={`comment-form-button ${(!user || !body.length) && 'comment-form-button-disabled'}`} type='submit'>Leave comment</button>
                 </div>
             </form>
         </div>

@@ -34,9 +34,10 @@ const OneChat = ({ chat, selectedChat, setSelectedChat, calcTimeElapsed, setShow
                 <h2 className={`recipient-name ${selectedChat && selectedChat.recipient.id === chat.recipient.id && 'selected-recipient-name'}`}>{chat.recipient.firstName}</h2>
                 {chat.chatMessages.length ?
                     <p className="chat-preview">
-                        {chat.chatMessages[chat.chatMessages.length - 1].message.slice(0, 20)}
-                        {chat.chatMessages[chat.chatMessages.length - 1].message.length > 19 ? '...' : ""}
-                        {" "} · {" "} {calcTimeElapsed(new Date(chat.chatMessages[chat.chatMessages.length - 1].createdAt))}
+                        {chat.chatMessages[chat.chatMessages.length - 1].message.trim().slice(0, 20)}
+                        {chat.chatMessages[chat.chatMessages.length - 1].message.trim().length > 19 ? '...' : ""}
+                        &nbsp;·&nbsp;
+                        {calcTimeElapsed(new Date(chat.chatMessages[chat.chatMessages.length - 1].createdAt))}
                     </p>
                     :
                     <p className="chat-preview">

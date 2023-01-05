@@ -57,6 +57,7 @@
     font-size: 18.5px;
     line-height: 22px;
     font-family: "Questrial", sans-serif;
+    white-space: pre-wrap;
 }
 
 .delete-comment-button {
@@ -226,6 +227,7 @@
 }
 
 .comment-errors {
+    margin-top: 20px;
     color: rgb(255, 0, 0);
     text-align: center;
     height: 40px;
