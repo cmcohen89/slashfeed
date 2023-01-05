@@ -65,7 +65,7 @@ const UpdateImage = ({ setShowUpdateImage, imgId, user }) => {
                 ))}
             </div>
             <input
-                className='create-input'
+                className='update-img-input'
                 required
                 name='url-input'
                 onChange={e => setPreviewImgUrl(e.target.value)}
@@ -84,12 +84,12 @@ const UpdateImage = ({ setShowUpdateImage, imgId, user }) => {
                 </label>
                 <span className='aws-submit2' onClick={handleUpload}>Generate URL</span>
             </div>
-            <div className='aws-loading2'>
+            <div className='aws-loading4'>
                 {(imageLoading) && <p className='aws-loading-text'>Loading...</p>}
             </div>
             <br />
             <div className='update-img-form-button-wrapper'>
-                <button className='comment-form-button' type='submit'>Update URL</button>
+                <button className='update-img-button' type='submit'>Update URL</button>
             </div>
         </form>
     )

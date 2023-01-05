@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteMessage, getChats } from "../../store/chats";
+import { deleteMessage, deleteThread, getChats } from "../../store/chats";
 import './Chat.css'
 import ChatForm from "./ChatForm";
 import ChatMessages from "./ChatMessages";
-import { Redirect } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 
 const Chat = () => {
     const dispatch = useDispatch();
     const currUser = useSelector(state => state.session.user);
-    const chats = useSelector(state => Object.values(state.chats));
+    let chats = useSelector(state => Object.values(state.chats));
     const [selectedChat, setSelectedChat] = useState(null);
 
     const calcTimeElapsed = (dateObj) => {
@@ -33,18 +33,26 @@ const Chat = () => {
         chat.chatMessages.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
     }
 
+    if (chats.length) {
+        const emptyChats = [];
+        const activeChats = [];
+        for (let chat of chats) chat.chatMessages.length === 0 ? emptyChats.push(chat) : activeChats.push(chat);
+        activeChats.sort((a, b) => new Date(b.chatMessages[b.chatMessages.length - 1].createdAt) - new Date(a.chatMessages[a.chatMessages.length - 1].createdAt))
+        chats = activeChats.concat(emptyChats);
+    }
+
     return (
         <div className="chat-page">
             <div className="chat-left">
                 {chats.map(chat => (
                     <div className='chat-recipient' onClick={() => setSelectedChat(chat)}>
-                        <img className="recipient-pic" src={chat.recipient.profileImgUrl} />
+                        <NavLink to={`/profile/${chat.recipient.id}`}><img className="recipient-pic" src={chat.recipient.profileImgUrl} /></NavLink>
                         <div>
                             <h2 className='recipient-name'>{chat.recipient.firstName}</h2>
                             {chat.chatMessages.length ?
                                 <p className="chat-preview">
-                                    {chat.chatMessages[chat.chatMessages.length - 1].message.slice(0, 15)}
-                                    {chat.chatMessages[chat.chatMessages.length - 1].message.length > 14 ? '...' : ""}
+                                    {chat.chatMessages[chat.chatMessages.length - 1].message.slice(0, 20)}
+                                    {chat.chatMessages[chat.chatMessages.length - 1].message.length > 19 ? '...' : ""}
                                     {" "} · {" "} {calcTimeElapsed(new Date(chat.chatMessages[chat.chatMessages.length - 1].createdAt))}
                                 </p>
                                 :

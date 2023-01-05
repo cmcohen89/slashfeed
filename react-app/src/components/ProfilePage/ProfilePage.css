@@ -102,6 +102,10 @@
     margin-bottom: 10px;
 }
 
+.follow-message-buttons {
+    display: flex;
+}
+
 .follow-button {
     margin-top: 30px;
     text-align: center;
@@ -111,7 +115,7 @@
     font-weight: 600;
     font-size: 18px;
     height: 50px;
-    width: 350px;
+    width: 200px;
     text-transform: uppercase;
     background-color: #21BFE1;
     color: white;
@@ -121,6 +125,29 @@
 }
 
 .follow-button:hover {
+    box-shadow: 0 0 20px #21BFE1;
+}
+
+.message-button {
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+    height: 50px;
+    width: 200px;
+    text-transform: uppercase;
+    background-color: #21BFE1;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    transition: all .2s ease;
+    margin-left: 20px;
+}
+
+.message-button:hover {
     box-shadow: 0 0 20px #21BFE1;
 }
 

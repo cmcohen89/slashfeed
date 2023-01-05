@@ -87,7 +87,7 @@ const ProfilePage = () => {
                         </span>
                     </div>
                     {currUser && user && user.id !== currUser.id &&
-                        <div>
+                        <div className="follow-message-buttons">
                             <span
                                 className={`follow-button ${userFollowers[currUser.id] && 'unfollow-button'}`}
                                 onClick={async () => {
@@ -95,9 +95,9 @@ const ProfilePage = () => {
                                     dispatch(getFollows(id));
                                 }}
                             >
-                                {!userFollowers[currUser.id] ? 'Follow' : 'Unfollow'} {user.username}
+                                {!userFollowers[currUser.id] ? 'Follow' : 'Unfollow'}
                             </span>
-                            <button
+                            <span
                                 className="message-button"
                                 onClick={async () => {
                                     await dispatch(postThread(user.id));
@@ -105,7 +105,7 @@ const ProfilePage = () => {
                                 }}
                             >
                                 Message
-                            </button>
+                            </span>
                         </div>
                     }
                 </div>

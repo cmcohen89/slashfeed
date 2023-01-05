@@ -161,9 +161,3 @@
         min-width: 150px;
     }
 }
-
-@media (max-width: 1000px) {
-    .nav-logos {
-        display: none;
-    }
-}

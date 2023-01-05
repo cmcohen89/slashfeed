@@ -1,5 +1,5 @@
 .chat-page {
-    margin: 150px auto;
+    margin: 180px auto;
     max-width: 1000px;
     background-color: white;
     display: flex;
@@ -7,6 +7,7 @@
     height: 950px;
     border-radius: 10px;
     border: 2px solid #21BFE1;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.593);
 }
 
 .chat-left {
@@ -38,6 +39,10 @@
     cursor: pointer;
 }
 
+.chat-recipient:hover .recipient-name {
+    color: #21BFE1
+}
+
 .recipient-pic {
     width: 80px;
     height: 80px;
@@ -45,6 +50,12 @@
     object-fit: cover;
     margin-right: 20px;
     margin-left: 20px;
+    box-sizing: border-box;
+    transition: box-shadow .2s ease;
+}
+
+.recipient-pic:hover {
+    box-shadow: 0 0 10px #21bee171;
 }
 
 .recipient-name {
@@ -54,10 +65,6 @@
 
 .chat-preview {
     color: rgb(168, 168, 168);
-}
-
-.recipient-name:hover {
-    color: #21BFE1;
 }
 
 .chat-right {

@@ -43,8 +43,13 @@ def create_thread():
     Create a new message thread between the current user and a selected user
     """
 
-    currUser = User.query.get(current_user.get_id())
     targetUser = User.query.get(request.json["targetUserId"])
+    currUser = User.query.get(current_user.get_id())
+
+    for chat in [chat.to_dict() for chat in targetUser.user_chats]:
+        for user in chat["chatUsers"]:
+            if user["id"] == currUser.to_dict()["id"]:
+                return {"message": "Thread already exists"}
 
     new_thread = MessageThread()
     currUser.user_chats.append(new_thread)

@@ -71,5 +71,7 @@
 }
 
 .aws-loading-text {
-    padding-bottom: -20px;
+    position: absolute;
+    top: 450px;
+    right: 284px;
 }
