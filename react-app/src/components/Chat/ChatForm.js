@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getChats } from "../../store/chats";
 import { postMessage } from "../../store/chats";
 import { io } from 'socket.io-client';
@@ -8,6 +8,7 @@ let socket;
 const ChatForm = ({ threadId, setMessages }) => {
     const dispatch = useDispatch();
     const [body, setBody] = useState('');
+    const currUser = useSelector(state => state.session.user)
 
     useEffect(() => {
         socket = io();
@@ -16,15 +17,28 @@ const ChatForm = ({ threadId, setMessages }) => {
             setMessages(messages => [...messages, chat])
         })
 
+        socket.emit("join", {
+            user: currUser.username,
+            room: `chat ${threadId}`
+        })
+
+        // socket.on("connection", socket => {
+        //     socket.join(`chat ${threadId}`)
+        //         socket.to(`chat ${threadId}`).emit("chat", newMsg);
+        // });
+
         return (() => {
             socket.disconnect()
         })
     }, [])
 
+
+
     const handleSubmit = async e => {
         e.preventDefault();
         if (body.trim() === '') return setBody('');
         const newMsg = await dispatch(postMessage(body, threadId));
+        newMsg.room = `chat ${threadId}`
         socket.emit("chat", newMsg);
         dispatch(getChats());
         setBody('');
