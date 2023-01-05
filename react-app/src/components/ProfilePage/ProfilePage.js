@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { getPosts } from "../../store/all_posts";
 import { getUsers } from "../../store/all_users";
 import { postThread } from "../../store/chats";
 import { getFollows, postFollow } from "../../store/follows";
+import { getUserLikedPosts, getUserPosts } from "../../store/user_posts";
 import UpdateProfileImage from "../UpdateImage/UpdateProfileImage";
 import ViewFollows from "../ViewFollows/ViewFollows";
 import './ProfilePage.css'
@@ -18,27 +18,22 @@ const ProfilePage = () => {
     const user = useSelector(state => state.allUsers[id]);
     const userFollowers = useSelector(state => state.follows.followers);
     const userFollows = useSelector(state => state.follows.follows);
-    const allPosts = useSelector(state => Object.values(state.allPosts));
+    const userPosts = useSelector(state => state.userPosts.userPosts);
+    const likedPosts = useSelector(state => state.userPosts.userLikedPosts);
 
     const [viewFollows, setViewFollows] = useState(false);
     const [flag, setFlag] = useState(false);
     const [postType, setPostType] = useState('user posts');
     const [showUpdateProfilePic, setShowUpdateProfilePic] = useState(false);
 
-    let likedPosts, userPosts;
-    if (user) {
-        likedPosts = allPosts.filter(post => post.usersWhoLiked[user.id])
-        userPosts = allPosts.filter(post => user.id === post.postOwner.id);
-        userPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-    }
-
     useEffect(() => {
-        dispatch(getPosts());
         dispatch(getUsers());
         dispatch(getFollows(id));
+        dispatch(getUserPosts(id));
+        dispatch(getUserLikedPosts(id));
     }, [dispatch, id]);
 
-    if (!user || !userFollowers || !userFollows) return null;
+    if (!user || !userFollowers || !userFollows || !userPosts || !likedPosts) return null;
 
     return (
         <div className="profile-page">
@@ -116,22 +111,30 @@ const ProfilePage = () => {
                 </div>
             </div>
             <div className="profile-post-type">
-                <span className={`profile-post-type-button ${postType === 'user posts' && 'profile-type-underline'}`} onClick={() => setPostType('user posts')}>{user.firstName}'s Posts</span>
-                <span className={`profile-post-type-button ${postType === 'liked posts' && 'profile-type-underline'}`} onClick={() => setPostType('liked posts')}>Posts {user.firstName} Liked</span>
+                <span
+                    className={`profile-post-type-button ${postType === 'user posts' && 'profile-type-underline'}`}
+                    onClick={() => setPostType('user posts')}>{user.firstName}'s Posts
+                </span>
+                <span
+                    className={`profile-post-type-button ${postType === 'liked posts' && 'profile-type-underline'}`}
+                    onClick={() => setPostType('liked posts')}>Posts {user.firstName} Liked
+                </span>
             </div>
             <div className="profile-grid-wrapper">
                 <div className='profile-grid'>
                     {postType === 'user posts' ?
-                        (userPosts.length > 0 ?
-                            userPosts.map(post => (
-                                <ProfilePost post={post} user={user} setPostType={setPostType} />
+                        (Object.values(userPosts).length > 0 ?
+                            Object.values(userPosts).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map(post => (
+                                <>
+                                    <ProfilePost post={post} user={user} setPostType={setPostType} />
+                                </>
                             ))
                             :
                             <h1 className="profile-title">No posts from this user yet...</h1>)
                         :
-                        likedPosts.length > 0 ?
-                            likedPosts.map(post => (
-                                <ProfilePost post={post} setPostType={setPostType} />
+                        Object.values(likedPosts).length > 0 ?
+                            Object.values(likedPosts).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map(post => (
+                                <ProfilePost post={post} user={user} setPostType={setPostType} />
                             ))
                             :
                             <h1 className="profile-title">This user hasn't liked any posts yet!</h1>

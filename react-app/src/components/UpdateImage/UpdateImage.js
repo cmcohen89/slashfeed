@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getPosts } from "../../store/all_posts";
 import { putImg } from "../../store/one_post";
+import { getUserPosts } from "../../store/user_posts";
 import './UpdateImage.css'
 
-const UpdateImage = ({ setShowUpdateImage, imgId }) => {
+const UpdateImage = ({ setShowUpdateImage, imgId, user }) => {
     const dispatch = useDispatch()
     const [preview_img_url, setPreviewImgUrl] = useState('');
     const [errors, setErrors] = useState([]);
@@ -20,7 +20,7 @@ const UpdateImage = ({ setShowUpdateImage, imgId }) => {
             setPreviewImgUrl('');
             setShowUpdateImage(false);
             setErrors([]);
-            dispatch(getPosts());
+            dispatch(getUserPosts(user.id));
         }
     }
 

@@ -1,14 +1,117 @@
 .chat-page {
-    margin: 100px auto;
-    max-width: 1400px;
+    margin: 150px auto;
+    max-width: 1000px;
     background-color: white;
     display: flex;
+    justify-content: space-between;
+    height: 950px;
+    border-radius: 10px;
+    border: 2px solid #21BFE1;
+}
+
+.chat-left {
+    padding-right: 0px;
+    overflow: auto;
+    border-right: 1px solid #d6d6d7;
+    width: 400px;
+}
+
+.chat-left::-webkit-scrollbar {
+    width: 20px;
+}
+
+.chat-left::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.chat-left::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+.chat-recipient {
+    display: flex;
+    align-items: center;
+    margin: 20px auto;
+    cursor: pointer;
+}
+
+.recipient-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.recipient-name {
+    color: #333333d4;
+    transition: color .2s ease;
+}
+
+.chat-preview {
+    color: rgb(168, 168, 168);
+}
+
+.recipient-name:hover {
+    color: #21BFE1;
+}
+
+.chat-right {
+    position: relative;
+    width: 600px;
+}
+
+.chat-right-content {
+    margin-top: 30px;
+    height: 840px;
+    overflow: scroll;
+    border-bottom: 1px solid #d6d6d7;
+}
+
+.chat-right-content::-webkit-scrollbar {
+    width: 20px;
+}
+
+.chat-right-content::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.chat-right-content::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+.message-form {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+}
+
+.send-message-button {
+    background-color: #21BFE1;
+    border: none;
+    width: 40px;
+    border-radius: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: box-shadow .2s ease;
+}
+
+.send-message-button:hover {
+    box-shadow: 0 0 15px #21bee171;
 }
 
 .message-input {
     text-align: left;
     font-size: 16px;
-    width: 400px;
+    width: 510px;
     border-radius: 10px;
     border: 1px solid #d6d6d7;
     transition: all .2s ease-out;
@@ -23,31 +126,44 @@
     box-shadow: 0 0 10px #21bee1a5;
 }
 
-.message-input::-webkit-scrollbar {
-    width: 20px;
-}
-
-.message-input::-webkit-scrollbar-track {
-    background-color: transparent;
-}
-
-.message-input::-webkit-scrollbar-thumb {
-    background-color: #d6dee1;
-    border-radius: 20px;
-    border: 6px solid transparent;
-    background-clip: content-box;
-}
-
 .delete-message-button {
-    position: relative;
-    top: 0.5px;
     font-size: 15px;
     color: rgba(0, 0, 0, 0.508);
     cursor: pointer;
     transition: color .2s ease;
-    margin-left: 10px;
+    position: absolute;
+    right: 6px;
+    top: 5px;
 }
 
 .delete-message-button:hover {
     color: red;
+}
+
+.curr-user-msg {
+    position: relative;
+    text-align: right;
+    background-color: #21bee1a2;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    margin-left: 350px;
+    border-radius: 10px;
+    padding: 10px;
+    padding-right: 18px;
+    word-break: break-word;
+}
+
+.curr-user-msg-content {
+    text-align: left;
+}
+
+.target-user-msg {
+    text-align: left;
+    margin-right: 350px;
+    margin-left: 20px;
+    background-color: #7f5ae57b;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    word-break: break-word;
 }

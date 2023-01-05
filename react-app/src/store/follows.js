@@ -63,7 +63,6 @@ const followsReducer = (state = initialState, action) => {
             }, {});
             return newState;
         case LOAD_USER_FOLLOWS:
-            console.log(action)
             newState.userFollowers = action.follows.Followers.reduce((follows, follow) => {
                 follows[follow.id] = follow;
                 return follows;

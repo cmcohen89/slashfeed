@@ -45,7 +45,7 @@ const OnePost = ({ post, setShowLoginModal }) => {
                             : setShowLoginModal(true)
                         dispatch(getPosts());
                     }}
-                    className={`one-post-footer ${user && post.usersWhoLiked[user.id] ? "one-post-liked" : ""}`}
+                    className={`one-post-footer ${user && post.usersWhoLiked[user.id] && "one-post-liked"}`}
                 >
                     <NavLink className='read-more' to={`/posts/${post.id}`}>Read More</NavLink>
                     <span className="one-post-likes">

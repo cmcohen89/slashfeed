@@ -72,7 +72,6 @@ export const putSinglePost = (payload, postId) => async dispatch => {
 };
 
 export const putImg = (imgId, preview_img_url) => async dispatch => {
-    console.log(preview_img_url)
     const response = await fetch(`/api/posts/img/${imgId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -93,7 +92,6 @@ export const putImg = (imgId, preview_img_url) => async dispatch => {
 }
 
 export const putProfilePic = (userId, preview_img_url) => async dispatch => {
-    console.log(preview_img_url)
     const response = await fetch(`/api/users/img/${userId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },

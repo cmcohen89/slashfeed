@@ -1,18 +1,20 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getChats } from "../../store/chats";
 import { postMessage } from "../../store/chats";
+import { getOneChat } from "../../store/one_chat";
 
-const ChatForm = ({ threadId }) => {
+const ChatForm = ({ threadId, setSelectedChat }) => {
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
     const [body, setBody] = useState('');
+
 
     const handleSubmit = async e => {
         e.preventDefault();
         setErrors([]);
         let errors = [];
-        if (body.length > 1000) errors.push("Easy tiger, let's keep it under 5000 characters!")
+        if (body.length > 999) errors.push("Easy tiger, let's keep it under 1000 characters!")
         if (errors.length > 0) {
             setErrors(errors);
         } else {
@@ -21,6 +23,8 @@ const ChatForm = ({ threadId }) => {
                 setErrors(data.errors)
             } else {
                 dispatch(getChats());
+                const newChat = await dispatch(getOneChat(threadId))
+                setSelectedChat(newChat.Chat)
                 setBody('');
             }
         }
@@ -41,7 +45,7 @@ const ChatForm = ({ threadId }) => {
                 placeholder="Type your message here!"
                 type='text'
             />
-            <button type='submit'>Send message</button>
+            <button className='send-message-button' type='submit'><i className="fa-solid fa-message"></i></button>
         </form>
     )
 }

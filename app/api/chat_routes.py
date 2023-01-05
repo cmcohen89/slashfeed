@@ -22,6 +22,20 @@ def get_chat_threads():
     return {"Chats": [thread.to_dict() for thread in user_chats]}
 
 
+# GET ONE CHAT BY ID
+@chat_routes.route('/<int:id>')
+@login_required
+def get_one_chat(id):
+    """
+    Get one chat thread by its ID
+    """
+
+    chat = MessageThread.query.get(id)
+
+    return {"Chat": chat.to_dict()}
+
+
+# CREATE NEW MESSAGE THREAD BETWEEN CURR USER AND TARGET USER
 @chat_routes.route('', methods=["POST"])
 @login_required
 def create_thread():

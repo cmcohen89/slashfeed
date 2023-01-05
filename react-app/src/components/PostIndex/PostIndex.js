@@ -21,7 +21,6 @@ const PostIndex = () => {
         dispatch(getUsers());
     }, [dispatch])
 
-
     topPosts.sort((a, b) => b.likes - a.likes)
     allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 

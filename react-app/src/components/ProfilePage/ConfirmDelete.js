@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux";
 import { deletePost } from "../../store/all_posts";
+import { getUserPosts } from "../../store/user_posts";
 
-const ConfirmDelete = ({ postId, showConfirmDelete }) => {
+const ConfirmDelete = ({ postId, showConfirmDelete, user }) => {
     const dispatch = useDispatch();
 
     return (
@@ -11,8 +12,9 @@ const ConfirmDelete = ({ postId, showConfirmDelete }) => {
                 <span
                     className="confirm-delete-button-yes"
                     onClick={async () => {
-                        await dispatch(deletePost(postId))
-                        showConfirmDelete(false)
+                        await dispatch(deletePost(postId));
+                        dispatch(getUserPosts(user.id));
+                        showConfirmDelete(false);
                     }}
                 >
                     Yes, delete it!
