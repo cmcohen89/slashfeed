@@ -44,6 +44,30 @@ def get_one_post(id):
     return post.to_dict()
 
 
+# GET POSTS FROM ONE USER
+@post_routes.route("/user/<int:id>")
+def get_user_posts(id):
+    """
+    Query for all the posts created by a single user
+    """
+    posts = Post.query.filter(Post.user_id == id).all()
+
+    return {"Posts": [post.to_dict() for post in posts]}
+
+
+# GET POSTS ONE USER HAS LIKED
+@post_routes.route("/user/<int:id>/liked")
+def get_user_liked_posts(id):
+    """
+    Query for all the posts a single user has liked
+    """
+
+    user = User.query.get(id)
+    posts = user.user_likes
+
+    return {"Posts": [post.to_dict() for post in posts]}
+
+
 # CREATE A NEW POST:
 @post_routes.route("", methods=["POST"])
 @login_required

@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import './AWSImageUpload.css'
 
 const AWSImageUpload = ({ postId }) => {
-    const history = useHistory(); // so that we can redirect after the image upload is successful
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
-    const [imageLoaded, setImageLoaded] = useState(false);
 
 
     const handleSubmit = async (e) => {
@@ -25,7 +22,6 @@ const AWSImageUpload = ({ postId }) => {
         if (res.ok) {
             await res.json();
             setImageLoading(false);
-            setImageLoaded(true);
             // history.push("/images");
         }
         else {

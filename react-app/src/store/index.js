@@ -6,14 +6,20 @@ import singlePostReducer from './one_post';
 import commentsReducer from './comments';
 import allUsersReducer from './all_users';
 import followsReducer from './follows';
+import chatsReducer from './chats';
+import oneChatReducer from './one_chat';
+import userPostsReducer from './user_posts';
 
 const rootReducer = combineReducers({
     session,
     allPosts: allPostsReducer,
     onePost: singlePostReducer,
+    userPosts: userPostsReducer,
     comments: commentsReducer,
     allUsers: allUsersReducer,
-    follows: followsReducer
+    follows: followsReducer,
+    chats: chatsReducer,
+    oneChat: oneChatReducer
 });
 
 

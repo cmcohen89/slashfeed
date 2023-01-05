@@ -466,3 +466,13 @@
     }
 
 }
+
+@media (max-width: 1000px) {
+    .featured-user,
+    .featured-title,
+    .side-featured-title,
+    .one-post-title,
+    .read-more {
+        font-family: "Rubik", sans-serif;
+    }
+}

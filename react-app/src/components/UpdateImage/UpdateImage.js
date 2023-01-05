@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getPosts } from "../../store/all_posts";
 import { putImg } from "../../store/one_post";
+import { getUserPosts } from "../../store/user_posts";
 import './UpdateImage.css'
 
-const UpdateImage = ({ setShowUpdateImage, imgId }) => {
+const UpdateImage = ({ setShowUpdateImage, imgId, user }) => {
     const dispatch = useDispatch()
     const [preview_img_url, setPreviewImgUrl] = useState('');
     const [errors, setErrors] = useState([]);
@@ -20,7 +20,7 @@ const UpdateImage = ({ setShowUpdateImage, imgId }) => {
             setPreviewImgUrl('');
             setShowUpdateImage(false);
             setErrors([]);
-            dispatch(getPosts());
+            dispatch(getUserPosts(user.id));
         }
     }
 
@@ -65,7 +65,7 @@ const UpdateImage = ({ setShowUpdateImage, imgId }) => {
                 ))}
             </div>
             <input
-                className='create-input'
+                className='update-img-input'
                 required
                 name='url-input'
                 onChange={e => setPreviewImgUrl(e.target.value)}
@@ -84,12 +84,12 @@ const UpdateImage = ({ setShowUpdateImage, imgId }) => {
                 </label>
                 <span className='aws-submit2' onClick={handleUpload}>Generate URL</span>
             </div>
-            <div className='aws-loading2'>
+            <div className='aws-loading4'>
                 {(imageLoading) && <p className='aws-loading-text'>Loading...</p>}
             </div>
             <br />
             <div className='update-img-form-button-wrapper'>
-                <button className='comment-form-button' type='submit'>Update URL</button>
+                <button className='update-img-button' type='submit'>Update URL</button>
             </div>
         </form>
     )

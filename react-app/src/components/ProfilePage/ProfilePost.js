@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { deletePost, getPosts, likePost, unlikePost } from "../../store/all_posts";
+import { likePost, unlikePost } from "../../store/all_posts";
+import { getUserLikedPosts, getUserPosts } from "../../store/user_posts";
 import LoginModal from "../LoginModal";
 import UpdatePostForm from "../PostForm/UpdatePostForm";
 import UpdateImage from "../UpdateImage/UpdateImage";
 import ConfirmDelete from "./ConfirmDelete";
 
-const ProfilePost = ({ post, setPostType }) => {
+const ProfilePost = ({ post, setPostType, user }) => {
     const dispatch = useDispatch();
     const [updatePost, setUpdatePost] = useState(false);
     const currUser = useSelector(state => state.session.user)
@@ -19,14 +20,14 @@ const ProfilePost = ({ post, setPostType }) => {
         <div className='one-profile-post'>
             <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal} />
             <div className={`modal container ${showUpdateImage ? "update-comment-show" : ""}`}>
-                <UpdateImage setShowUpdateImage={setShowUpdateImage} imgId={post.previewImgId} />
+                <UpdateImage setShowUpdateImage={setShowUpdateImage} imgId={post.previewImgId} user={user} />
             </div>
             <div
                 className={`overlay ${showUpdateImage ? "show" : ""}`}
                 onClick={() => setShowUpdateImage(!setShowUpdateImage)}
             />
             <div className={`modal container ${confirmDelete ? "update-comment-show" : ""}`}>
-                <ConfirmDelete showConfirmDelete={showConfirmDelete} postId={post.id} />
+                <ConfirmDelete showConfirmDelete={showConfirmDelete} postId={post.id} user={user} />
             </div>
             <div
                 className={`overlay ${confirmDelete ? "show" : ""}`}
@@ -72,10 +73,12 @@ const ProfilePost = ({ post, setPostType }) => {
                             (
                                 post.usersWhoLiked[currUser.id] ?
                                     await dispatch(unlikePost(post.id))
-                                    && dispatch(getPosts())
+                                    && dispatch(getUserPosts(user.id))
+                                    && dispatch(getUserLikedPosts(user.id))
                                     :
                                     await dispatch(likePost(post.id))
-                                    && dispatch(getPosts())
+                                    && dispatch(getUserPosts(user.id))
+                                    && dispatch(getUserLikedPosts(user.id))
                             )
                             : setShowLoginModal(true)
                     }}
@@ -96,7 +99,7 @@ const ProfilePost = ({ post, setPostType }) => {
                         <i className="fa-solid fa-xmark"></i>
                     </span>
                     <div className={`modal container ${updatePost ? "update-post-show" : ""}`}>
-                        <UpdatePostForm post={post} setUpdatePost={setUpdatePost} />
+                        <UpdatePostForm post={post} setUpdatePost={setUpdatePost} updatePost={updatePost} user={user} />
                     </div>
                     <div
                         className={`overlay ${updatePost ? "show" : ""}`}

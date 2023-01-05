@@ -1,15 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getPosts } from '../../store/all_posts';
 import { putSinglePost } from '../../store/one_post';
-import AWSImageUpload from "../AWSImageUpload/AWSImageUpload";
+import { getUserLikedPosts, getUserPosts } from '../../store/user_posts';
 import './CreatePostForm.css';
 
-const UpdatePostForm = ({ post, setUpdatePost }) => {
+const UpdatePostForm = ({ post, updatePost, setUpdatePost, user }) => {
     const dispatch = useDispatch();
     const [title, setTitle] = useState(post.title);
     const [body, setBody] = useState(post.body);
     const [errors, setErrors] = useState([]);
+
+    useEffect(() => {
+        setTitle(post.title)
+        setBody(post.body)
+    }, [updatePost, post.title, post.body])
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -21,7 +25,8 @@ const UpdatePostForm = ({ post, setUpdatePost }) => {
         } else {
             const new_post = await dispatch(putSinglePost({ title, body }, post.id));
             if (new_post) {
-                await dispatch(getPosts());
+                await dispatch(getUserPosts(user.id));
+                await dispatch(getUserLikedPosts(user.id));
                 setUpdatePost(false);
             }
         }

@@ -19,9 +19,14 @@
 }
 
 .nav-logo {
+    position: relative;
+    top: -122px;
     margin-left: 10px;
     height: 160px;
-    margin-bottom: 122px;
+}
+
+.nav-logo-link {
+    height: 40px;
 }
 
 .nav-links {
@@ -29,7 +34,7 @@
     font-size: 18px;
     display: flex;
     justify-content: right;
-    width: 500px;
+    width: 600px;
     list-style: none;
     text-transform: uppercase;
 }
@@ -54,6 +59,7 @@
     color: rgba(0, 0, 0, 0.508);
     font-size: 18px;
     letter-spacing: -0.5px;
+    margin-right: 10px;
 }
 
 .nav-signup-link {
@@ -153,11 +159,5 @@
     .nav-update {
         max-width: 150px;
         min-width: 150px;
-    }
-}
-
-@media (max-width: 1000px) {
-    .nav-logos {
-        display: none;
     }
 }

@@ -7,6 +7,7 @@ from .message_threads import seed_message_threads, undo_message_threads
 from .messages import seed_messages, undo_messages
 from .post_images import seed_post_images, undo_post_images
 from .posts import seed_posts, undo_posts
+from .user_message_threads import seed_chats, undo_chats
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -24,6 +25,7 @@ def seed():
     seed_likes()
     seed_message_threads()
     seed_messages()
+    seed_chats()
 
     # Add other seed functions here
 
@@ -31,6 +33,7 @@ def seed():
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
+    undo_chats()
     undo_messages()
     undo_message_threads()
     undo_likes()

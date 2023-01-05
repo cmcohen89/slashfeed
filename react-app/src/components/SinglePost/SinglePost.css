@@ -83,3 +83,46 @@
 .single-post-likes:hover {
     color: #21BFE1;
 }
+
+@media (max-width: 1400px) {
+    .nav-logos {
+        margin-right: 0;
+    }
+
+    .single-post-page-container {
+        background-color: transparent;
+        max-width: 1024px;
+        border: none;
+    }
+
+    .single-post-page {
+        padding: 0;
+    }
+
+    .single-post-title {
+        text-align: center;
+    }
+
+    .single-post-content-container {
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    .single-post-comments {
+        margin: 30px auto;
+        border: 1px solid #d6d6d7;
+        border-radius: 10px;
+    }
+
+    .comments-content {
+        height: 400px;
+        padding-top: 30px;
+        border: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    .single-post-title {
+        font-family: "Rubik", sans-serif;
+    }
+}

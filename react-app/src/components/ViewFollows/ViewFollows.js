@@ -19,7 +19,7 @@ const ViewFollows = ({
     useEffect(() => {
         dispatch(getUserFollows());
         dispatch(getFollows(id));
-    }, [dispatch])
+    }, [dispatch, id])
 
     let follows;
     flag ? follows = userFollows : follows = userFollowers;
@@ -32,7 +32,7 @@ const ViewFollows = ({
             <div className='follows-content'>
                 {Object.values(follows).length ?
                     Object.values(follows).map(follow => (
-                        <h2 className="follows-user">
+                        <h2 key={follow.id} className="follows-user">
                             <div className="follows-user-left">
                                 <NavLink onClick={() => setViewFollows(false)}
                                     className='follows-profile-pic-link'
