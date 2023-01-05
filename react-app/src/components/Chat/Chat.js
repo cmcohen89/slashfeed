@@ -6,8 +6,6 @@ import ChatForm from "./ChatForm";
 import ChatMessages from "./ChatMessages";
 import { NavLink } from "react-router-dom";
 import OneChat from "./OneChat";
-import { io } from 'socket.io-client';
-let socket;
 
 const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
     const dispatch = useDispatch();
@@ -32,18 +30,6 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
         const targetChat = chats.find(chat => chat.recipient.id === +targetUserId);
         setSelectedChat(targetChat);
     }, [dispatch, deleteMessage, targetUserId, showChatModal]);
-
-    useEffect(() => {
-        socket = io();
-
-        socket.on("chat", (chat) => {
-            setMessages(messages => [...messages, chat])
-        })
-
-        return (() => {
-            socket.disconnect()
-        })
-    }, [])
 
     if (currUser) {
         for (let chat of chats) {
@@ -108,7 +94,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
                 </div>
                 <div>
                     {selectedChat ?
-                        <ChatForm threadId={selectedChat.id} setSelectedChat={setSelectedChat} socket={socket} />
+                        <ChatForm threadId={selectedChat.id} setSelectedChat={setSelectedChat} setMessages={setMessages} />
                         :
                         <form className="message-form">
                             <input

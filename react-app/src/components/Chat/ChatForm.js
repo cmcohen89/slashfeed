@@ -1,11 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getChats } from "../../store/chats";
 import { postMessage } from "../../store/chats";
+import { io } from 'socket.io-client';
+let socket;
 
-const ChatForm = ({ threadId, socket }) => {
+const ChatForm = ({ threadId, setMessages }) => {
     const dispatch = useDispatch();
     const [body, setBody] = useState('');
+
+    useEffect(() => {
+        socket = io();
+
+        socket.on("chat", (chat) => {
+            setMessages(messages => [...messages, chat])
+        })
+
+        return (() => {
+            socket.disconnect()
+        })
+    }, [])
 
     const handleSubmit = async e => {
         e.preventDefault();
