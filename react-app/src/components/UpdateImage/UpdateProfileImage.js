@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getUsers } from "../../store/all_users";
 import { putProfilePic } from "../../store/one_post";
-import AWSImageUpload from "../AWSImageUpload/AWSImageUpload";
 import AWSProfileImageUpload from "../AWSImageUpload/AWSProfileImageUpload";
 import './UpdateImage.css'
 
@@ -11,7 +10,6 @@ const UpdateProfileImage = ({ setShowUpdateProfilePic, userId }) => {
     const [preview_img_url, setPreviewImgUrl] = useState('');
     const [errors, setErrors] = useState([]);
     const [imgChoice, setImgChoice] = useState('url');
-    const [selected, setSelected] = useState(false);
 
     const handleSubmit = async e => {
         e.preventDefault();

@@ -68,10 +68,24 @@
     text-align: center;
     height: 20px;
     padding-bottom: 30px;
+    position: relative;
 }
 
 .aws-loading-text {
     position: absolute;
-    top: 450px;
-    right: 284px;
+    top: -5px;
+    right: 30px;
+}
+
+.aws-loading-create {
+    text-align: center;
+    height: 20px;
+    padding-bottom: 30px;
+    position: relative;
+}
+
+.aws-loading-text-create {
+    position: absolute;
+    top: -30px;
+    right: -192px;
 }

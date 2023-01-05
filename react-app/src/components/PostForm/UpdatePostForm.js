@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { putSinglePost } from '../../store/one_post';
-import { getUserPosts } from '../../store/user_posts';
+import { getUserLikedPosts, getUserPosts } from '../../store/user_posts';
 import './CreatePostForm.css';
 
 const UpdatePostForm = ({ post, updatePost, setUpdatePost, user }) => {
@@ -13,7 +13,7 @@ const UpdatePostForm = ({ post, updatePost, setUpdatePost, user }) => {
     useEffect(() => {
         setTitle(post.title)
         setBody(post.body)
-    }, [updatePost])
+    }, [updatePost, post.title, post.body])
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -26,6 +26,7 @@ const UpdatePostForm = ({ post, updatePost, setUpdatePost, user }) => {
             const new_post = await dispatch(putSinglePost({ title, body }, post.id));
             if (new_post) {
                 await dispatch(getUserPosts(user.id));
+                await dispatch(getUserLikedPosts(user.id));
                 setUpdatePost(false);
             }
         }

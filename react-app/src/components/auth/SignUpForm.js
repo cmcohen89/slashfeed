@@ -162,7 +162,7 @@ const SignUpForm = ({ setShowSignupModal }) => {
                     value={email}
                 ></input>
             </div>
-            <div>
+            <div className='signup-div-container'>
                 <div className='signup-div'>
                     <label className='signup-label' htmlFor='url-input'>Image URL</label>
                     <input

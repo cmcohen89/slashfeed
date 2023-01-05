@@ -4,6 +4,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { getFollowedPosts, getPosts } from '../../store/all_posts';
 import { logout } from '../../store/session';
 import SignUpForm from '../auth/SignUpForm';
+import Chat from '../Chat/Chat';
 import LoginModal from '../LoginModal';
 import CreatePostForm from '../PostForm/CreatePostForm';
 import './Navigation.css';
@@ -21,6 +22,7 @@ const Navigation = () => {
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showSignupModal, setShowSignupModal] = useState(false);
     const [showCreateModal, setShowCreateModal] = useState(false);
+    const [showChatModal, setShowChatModal] = useState(false);
 
     return (
         <div className="navigation-wrapper">
@@ -38,6 +40,13 @@ const Navigation = () => {
             <div
                 className={`overlay ${showSignupModal ? "show" : ""}`}
                 onClick={() => setShowSignupModal(!setShowSignupModal)}
+            />
+            <div className={`modal container ${showChatModal ? "create-show" : ""}`}>
+                <Chat setShowChatModal={setShowChatModal} />
+            </div>
+            <div
+                className={`overlay ${showChatModal ? "show" : ""}`}
+                onClick={() => setShowChatModal(!setShowChatModal)}
             />
             <div className="navigation-container">
                 <NavLink to='/' className='nav-logo-link'><img className='nav-logo' src='https://i.imgur.com/s9sq5Yk.png' alt='website logo' /></NavLink>
@@ -61,7 +70,7 @@ const Navigation = () => {
                             }}>My Feed</li>
                         </>
                     }
-                    {user && <NavLink className='nav-signup-link' to='/chat'>Messages</NavLink>}
+                    {user && <li className='nav-signup-link' onClick={() => setShowChatModal(true)}>Messages</li>}
                     {user && <NavLink className='nav-signup-link' to={`/profile/${user.id}`}>Profile</NavLink>
                     }
                     {!user ?

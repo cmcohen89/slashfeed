@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getUsers } from "../../store/all_users";
-import { postThread } from "../../store/chats";
+import { getChats, postThread } from "../../store/chats";
 import { getFollows, postFollow } from "../../store/follows";
 import { getUserLikedPosts, getUserPosts } from "../../store/user_posts";
+import Chat from "../Chat/Chat";
 import UpdateProfileImage from "../UpdateImage/UpdateProfileImage";
 import ViewFollows from "../ViewFollows/ViewFollows";
 import './ProfilePage.css'
@@ -13,7 +14,6 @@ import ProfilePost from "./ProfilePost";
 const ProfilePage = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
-    const history = useHistory();
     const currUser = useSelector(state => state.session.user);
     const user = useSelector(state => state.allUsers[id]);
     const userFollowers = useSelector(state => state.follows.followers);
@@ -25,6 +25,7 @@ const ProfilePage = () => {
     const [flag, setFlag] = useState(false);
     const [postType, setPostType] = useState('user posts');
     const [showUpdateProfilePic, setShowUpdateProfilePic] = useState(false);
+    const [showChatModal, setShowChatModal] = useState(false);
 
     useEffect(() => {
         dispatch(getUsers());
@@ -37,6 +38,13 @@ const ProfilePage = () => {
 
     return (
         <div className="profile-page">
+            <div className={`modal container ${showChatModal ? "create-show" : ""}`}>
+                <Chat setShowChatModal={setShowChatModal} targetUserId={id} showChatModal={showChatModal} />
+            </div>
+            <div
+                className={`overlay ${showChatModal ? "show" : ""}`}
+                onClick={() => setShowChatModal(!setShowChatModal)}
+            />
             <div className={`modal container ${viewFollows ? "follows-show" : ""}`}>
                 <ViewFollows
                     id={id}
@@ -101,7 +109,8 @@ const ProfilePage = () => {
                                 className="message-button"
                                 onClick={async () => {
                                     await dispatch(postThread(user.id));
-                                    history.push('/chat');
+                                    await dispatch(getChats());
+                                    setShowChatModal(true);
                                 }}
                             >
                                 Message
@@ -125,16 +134,18 @@ const ProfilePage = () => {
                     {postType === 'user posts' ?
                         (Object.values(userPosts).length > 0 ?
                             Object.values(userPosts).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map(post => (
-                                <>
+                                <div key={post.id}>
                                     <ProfilePost post={post} user={user} setPostType={setPostType} />
-                                </>
+                                </div>
                             ))
                             :
                             <h1 className="profile-title">No posts from this user yet...</h1>)
                         :
                         Object.values(likedPosts).length > 0 ?
                             Object.values(likedPosts).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map(post => (
-                                <ProfilePost post={post} user={user} setPostType={setPostType} />
+                                <div key={post.id}>
+                                    <ProfilePost post={post} user={user} setPostType={setPostType} />
+                                </div>
                             ))
                             :
                             <h1 className="profile-title">This user hasn't liked any posts yet!</h1>

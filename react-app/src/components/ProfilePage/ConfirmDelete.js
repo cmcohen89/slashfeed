@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { deletePost } from "../../store/all_posts";
-import { getUserPosts } from "../../store/user_posts";
+import { getUserLikedPosts, getUserPosts } from "../../store/user_posts";
 
 const ConfirmDelete = ({ postId, showConfirmDelete, user }) => {
     const dispatch = useDispatch();
@@ -14,6 +14,7 @@ const ConfirmDelete = ({ postId, showConfirmDelete, user }) => {
                     onClick={async () => {
                         await dispatch(deletePost(postId));
                         dispatch(getUserPosts(user.id));
+                        dispatch(getUserLikedPosts(user.id));
                         showConfirmDelete(false);
                     }}
                 >

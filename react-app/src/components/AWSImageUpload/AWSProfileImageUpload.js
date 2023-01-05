@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { getUsers } from "../../store/all_users";
 import './AWSImageUpload.css'
 

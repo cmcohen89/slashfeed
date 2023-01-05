@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { getFollowedPosts, likePost, unlikePost } from "../../store/all_posts";
 import { getUsers } from "../../store/all_users";
+import { getChats } from "../../store/chats";
 import LoginModal from "../LoginModal";
 import FeaturedPost from "./FeaturedPost";
 import OnePost from "./OnePost";
@@ -21,6 +22,7 @@ const MyPosts = () => {
     useEffect(() => {
         dispatch(getFollowedPosts());
         dispatch(getUsers());
+        if (user) dispatch(getChats());
     }, [dispatch])
 
 

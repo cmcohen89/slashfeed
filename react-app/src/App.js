@@ -11,7 +11,6 @@ import SignupPage from './components/auth/SignupPage';
 import CreatePostPage from './components/PostForm/CreatePostPage';
 import ProfileRedirect from './components/ProfilePage/ProfileRedirect';
 import Footer from './components/Footer/Footer';
-import Chat from './components/Chat/Chat';
 
 function App() {
     const [loaded, setLoaded] = useState(false);
@@ -52,9 +51,6 @@ function App() {
                 </Route>
                 <Route path='/profile' exact={true}>
                     <ProfileRedirect />
-                </Route>
-                <Route path='/chat'>
-                    <Chat />
                 </Route>
                 <Route>
                     <h1>404 Not Found</h1>

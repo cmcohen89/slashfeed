@@ -13,7 +13,6 @@ const CreatePostForm = ({ setShowCreateModal }) => {
     const [errors, setErrors] = useState([]);
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
-    const [imageLoaded, setImageLoaded] = useState(false);
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -30,7 +29,7 @@ const CreatePostForm = ({ setShowCreateModal }) => {
                 setErrors(data.errors)
             } else {
                 history.push(`/posts/${data.id}`);
-                setShowCreateModal(false);
+                if (setShowCreateModal) setShowCreateModal(false);
                 setTitle('');
                 setBody('');
                 setPreviewImgUrl('');
@@ -114,8 +113,8 @@ const CreatePostForm = ({ setShowCreateModal }) => {
                     </label>
                     <span className='aws-submit2' onClick={handleUpload}>Generate URL</span>
                 </div>
-                <div className='aws-loading2'>
-                    {(imageLoading) && <p className='aws-loading-text'>Loading...</p>}
+                <div className='aws-loading-create'>
+                    {(imageLoading) && <p className='aws-loading-text-create'>Loading...</p>}
                 </div>
                 <div className='login-div'>
                     <label className='login-label' htmlFor='body-input'>Body</label>

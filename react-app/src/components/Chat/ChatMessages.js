@@ -34,13 +34,14 @@ const ChatMessages = ({ msg, selectedChat, setSelectedChat }) => {
                     {new Date(msg.createdAt).toLocaleString()}
                 </span>}
                 {
-                    msg.messageOwner.id == currUser.id && hover &&
+                    msg.messageOwner.id === currUser.id && hover &&
                     <span
                         className='delete-message-button'
                         onClick={async () => {
                             await dispatch(deleteMessage(msg.id));
                             dispatch(getChats());
                             const newChat = await dispatch(getOneChat(selectedChat.id));
+                            newChat.Chat.recipient = Object.values(newChat.Chat.chatUsers).filter(user => user.id !== currUser.id)[0]
                             setSelectedChat(newChat.Chat)
                         }}>
                         <i className="fa-solid fa-xmark"></i>

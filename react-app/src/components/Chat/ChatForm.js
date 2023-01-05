@@ -8,7 +8,7 @@ const ChatForm = ({ threadId, setSelectedChat }) => {
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
     const [body, setBody] = useState('');
-
+    const currUser = useSelector(state => state.session.user);
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -24,6 +24,7 @@ const ChatForm = ({ threadId, setSelectedChat }) => {
             } else {
                 dispatch(getChats());
                 const newChat = await dispatch(getOneChat(threadId))
+                newChat.Chat.recipient = Object.values(newChat.Chat.chatUsers).filter(user => user.id !== currUser.id)[0]
                 setSelectedChat(newChat.Chat)
                 setBody('');
             }
@@ -44,8 +45,9 @@ const ChatForm = ({ threadId, setSelectedChat }) => {
                 value={body}
                 placeholder="Type your message here!"
                 type='text'
+                maxLength="999"
             />
-            <button className='send-message-button' type='submit'><i className="fa-solid fa-message"></i></button>
+            <button className='send-message-button' type='submit'><i className="fa-solid fa-message message-icon"></i></button>
         </form>
     )
 }
