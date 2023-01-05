@@ -19,7 +19,7 @@ const CreatePostForm = ({ setShowCreateModal }) => {
         setErrors([]);
         let errors = [];
         if (title.length < 3 || title.length > 100) errors.push("Let's keep titles between 3 and 100 characters.")
-        if (body.length < 20) errors.push("Tell us more about this post! (20 characters minimum)")
+        if (body.length < 20) errors.push("Tell us more about this post! \n (20 characters minimum)")
         if (body.length > 4999) errors.push("Easy tiger, let's keep it under 5000 characters!")
         if (errors.length > 0) {
             setErrors(errors);
