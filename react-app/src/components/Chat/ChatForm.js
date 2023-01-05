@@ -22,6 +22,7 @@ const ChatForm = ({ threadId, socket }) => {
     return (
         <form className="message-form" onSubmit={handleSubmit}>
             <input
+                id="emoji-input"
                 className='message-input'
                 required
                 onChange={e => setBody(e.target.value)}

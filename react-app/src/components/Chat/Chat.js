@@ -97,7 +97,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
                 <div className="chat-right-content">
                     {selectedChat ? messages.map(msg => (
                         <div key={msg.id}>
-                            <ChatMessages msg={msg} selectedChat={selectedChat} setSelectedChat={setSelectedChat} />
+                            <ChatMessages msg={msg} selectedChat={selectedChat} setSelectedChat={setSelectedChat} setMessages={setMessages} />
                         </div>
                     ))
                         :

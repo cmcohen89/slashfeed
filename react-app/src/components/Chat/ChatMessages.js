@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteMessage, getChats } from "../../store/chats";
 import { getOneChat } from "../../store/one_chat";
 
-const ChatMessages = ({ msg, selectedChat, setSelectedChat }) => {
+const ChatMessages = ({ msg, selectedChat, setSelectedChat, setMessages }) => {
     const currUser = useSelector(state => state.session.user);
     const [hover, setHover] = useState(false);
     const dispatch = useDispatch();
@@ -42,6 +42,7 @@ const ChatMessages = ({ msg, selectedChat, setSelectedChat }) => {
                             const newChat = await dispatch(getOneChat(selectedChat.id));
                             newChat.Chat.recipient = Object.values(newChat.Chat.chatUsers).filter(user => user.id !== currUser.id)[0]
                             setSelectedChat(newChat.Chat)
+                            setMessages(newChat.Chat.chatMessages)
                         }}>
                         <i className="fa-solid fa-xmark"></i>
                     </span>
