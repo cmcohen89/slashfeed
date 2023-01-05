@@ -23,7 +23,7 @@ const MyPosts = () => {
         dispatch(getFollowedPosts());
         dispatch(getUsers());
         if (user) dispatch(getChats());
-    }, [dispatch])
+    }, [dispatch, user])
 
 
     topPosts.sort((a, b) => b.likes - a.likes)

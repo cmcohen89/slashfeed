@@ -73,7 +73,7 @@ const Navigation = () => {
                     }
                     {user && <li className='nav-signup-link' onClick={() => {
                         setShowChatModal(true);
-                        getChats();
+                        dispatch(getChats());
                     }}
                     >
                         Messages
