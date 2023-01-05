@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { getChats } from "../../store/chats";
 import ConfirmThreadDelete from "./ConfirmThreadDelete";
 
 const OneChat = ({ chat, selectedChat, setSelectedChat, calcTimeElapsed, setShowChatModal }) => {
@@ -9,7 +10,10 @@ const OneChat = ({ chat, selectedChat, setSelectedChat, calcTimeElapsed, setShow
     return (
         <div
             className='chat-recipient'
-            onClick={() => setSelectedChat(chat)}
+            onClick={() => {
+                setSelectedChat(chat);
+                getChats();
+            }}
             onMouseOver={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >

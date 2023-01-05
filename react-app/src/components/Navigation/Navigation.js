@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import { getFollowedPosts, getPosts } from '../../store/all_posts';
+import { getChats } from '../../store/chats';
 import { logout } from '../../store/session';
 import SignUpForm from '../auth/SignUpForm';
 import Chat from '../Chat/Chat';
@@ -70,7 +71,13 @@ const Navigation = () => {
                             }}>My Feed</li>
                         </>
                     }
-                    {user && <li className='nav-signup-link' onClick={() => setShowChatModal(true)}>Messages</li>}
+                    {user && <li className='nav-signup-link' onClick={() => {
+                        setShowChatModal(true);
+                        getChats();
+                    }}
+                    >
+                        Messages
+                    </li>}
                     {user && <NavLink className='nav-signup-link' to={`/profile/${user.id}`}>Profile</NavLink>
                     }
                     {!user ?
