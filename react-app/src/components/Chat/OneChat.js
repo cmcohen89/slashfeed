@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getChats } from "../../store/chats";
 import ConfirmThreadDelete from "./ConfirmThreadDelete";
 
-const OneChat = ({ chat, selectedChat, setSelectedChat, calcTimeElapsed, setShowChatModal }) => {
+const OneChat = ({ chat, selectedChat, setSelectedChat, calcTimeElapsed, setShowChatModal, setMessages }) => {
+    const dispatch = useDispatch();
     const [hover, setHover] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
 
@@ -11,8 +13,9 @@ const OneChat = ({ chat, selectedChat, setSelectedChat, calcTimeElapsed, setShow
         <div
             className='chat-recipient'
             onClick={() => {
+                dispatch(getChats());
                 setSelectedChat(chat);
-                getChats();
+                setMessages(chat.chatMessages)
             }}
             onMouseOver={() => setHover(true)}
             onMouseLeave={() => setHover(false)}

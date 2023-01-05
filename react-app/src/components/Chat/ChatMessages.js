@@ -18,10 +18,9 @@ const ChatMessages = ({ msg, selectedChat, setSelectedChat }) => {
         scrollToBottom();
     }, []);
 
-
     return (
         <>
-            <div className={
+            {currUser && <div className={
                 msg.messageOwner.id === currUser.id ?
                     `curr-user-msg` : `target-user-msg`}
                 onMouseOver={() => setHover(true)}
@@ -55,7 +54,7 @@ const ChatMessages = ({ msg, selectedChat, setSelectedChat }) => {
                     {msg.message}
                 </p>
                 <div ref={messagesEndRef} />
-            </div>
+            </div>}
         </>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Navigation from './components/Navigation/Navigation';
 import { authenticate } from './store/session';
@@ -53,7 +53,10 @@ function App() {
                     <ProfileRedirect />
                 </Route>
                 <Route>
-                    <h1>404 Not Found</h1>
+                    <div className="follow-more-users">
+                        <h1>404: Page Not Found</h1>
+                        <NavLink to='/' className='view-all'><h1>Return Home</h1></NavLink>
+                    </div>
                 </Route>
             </Switch>
             <Footer />

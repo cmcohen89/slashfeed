@@ -6,6 +6,8 @@ import ChatForm from "./ChatForm";
 import ChatMessages from "./ChatMessages";
 import { NavLink } from "react-router-dom";
 import OneChat from "./OneChat";
+import { io } from 'socket.io-client';
+let socket;
 
 const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
     const dispatch = useDispatch();
@@ -13,6 +15,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
     let chats = useSelector(state => Object.values(state.chats));
 
     const [selectedChat, setSelectedChat] = useState(null);
+    const [messages, setMessages] = useState([]);
 
     const calcTimeElapsed = (dateObj) => {
         let totalMs = new Date() - dateObj;
@@ -29,6 +32,20 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
         const targetChat = chats.find(chat => chat.recipient.id === +targetUserId);
         setSelectedChat(targetChat);
     }, [dispatch, deleteMessage, targetUserId, showChatModal]);
+
+    useEffect(() => {
+        // open socket connection
+        // create websocket
+        socket = io();
+
+        socket.on("chat", (chat) => {
+            setMessages(messages => [...messages, chat])
+        })
+        // when component unmounts, disconnect
+        return (() => {
+            socket.disconnect()
+        })
+    }, [])
 
     if (currUser) {
         for (let chat of chats) {
@@ -54,6 +71,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
                             chat={chat}
                             selectedChat={selectedChat}
                             setSelectedChat={setSelectedChat}
+                            setMessages={setMessages}
                             calcTimeElapsed={calcTimeElapsed}
                             setShowChatModal={setShowChatModal}
                         />
@@ -77,7 +95,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
                     <div className="chat-right-placeholder" />
                 }
                 <div className="chat-right-content">
-                    {selectedChat ? selectedChat.chatMessages.map(msg => (
+                    {selectedChat ? messages.map(msg => (
                         <div key={msg.id}>
                             <ChatMessages msg={msg} selectedChat={selectedChat} setSelectedChat={setSelectedChat} />
                         </div>
@@ -92,7 +110,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
                 </div>
                 <div>
                     {selectedChat ?
-                        <ChatForm threadId={selectedChat.id} setSelectedChat={setSelectedChat} />
+                        <ChatForm threadId={selectedChat.id} setSelectedChat={setSelectedChat} socket={socket} />
                         :
                         <form className="message-form">
                             <input

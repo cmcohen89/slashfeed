@@ -63,3 +63,8 @@ body {
 .modal.follows-show {
     bottom: 30vh;
 }
+
+.not-found {
+    margin-top: 200px;
+    text-align: center;
+}
