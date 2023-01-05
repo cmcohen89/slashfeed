@@ -18,8 +18,8 @@ const ChatForm = ({ threadId, setMessages }) => {
         })
 
         socket.emit("join", {
-            user: currUser.username,
-            room: `chat ${threadId}`
+            user: currUser.id,
+            room: threadId
         })
 
         // socket.on("connection", socket => {
@@ -30,15 +30,13 @@ const ChatForm = ({ threadId, setMessages }) => {
         return (() => {
             socket.disconnect()
         })
-    }, [])
-
-
+    }, [currUser.id, setMessages, threadId])
 
     const handleSubmit = async e => {
         e.preventDefault();
         if (body.trim() === '') return setBody('');
         const newMsg = await dispatch(postMessage(body, threadId));
-        newMsg.room = `chat ${threadId}`
+        newMsg.room = threadId;
         socket.emit("chat", newMsg);
         dispatch(getChats());
         setBody('');

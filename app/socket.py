@@ -15,13 +15,6 @@ else:
 socketio = SocketIO(cors_allowed_origins=origins)
 
 
-# handle chat messages
-@socketio.on("chat")
-def handle_chat(data):
-    if data['room']:
-        room = data['room']
-        emit("chat", data, broadcast=True, to=room)
-
 @socketio.on('join')
 def on_join(data):
     username = data['user']
@@ -36,3 +29,10 @@ def on_leave(data):
     room = data['room']
     leave_room(room)
     send(username + ' has left the room.', to=room)
+
+# handle chat messages
+@socketio.on("chat")
+def handle_chat(data):
+    if data['room']:
+        room = data['room']
+        emit("chat", data, broadcast=True, to=room)
