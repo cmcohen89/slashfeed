@@ -15,8 +15,8 @@ const ChatMessages = ({ msg, selectedChat, setSelectedChat }) => {
     }
 
     useEffect(() => {
-        scrollToBottom()
-    }, [])
+        scrollToBottom();
+    }, []);
 
 
     return (
@@ -27,6 +27,12 @@ const ChatMessages = ({ msg, selectedChat, setSelectedChat }) => {
                 onMouseOver={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
             >
+                {hover && <span className={
+                    msg.messageOwner.id === currUser.id ?
+                        `curr-user-timestamp` : `target-user-timestamp`}
+                >
+                    {new Date(msg.createdAt).toLocaleString()}
+                </span>}
                 {
                     msg.messageOwner.id == currUser.id && hover &&
                     <span

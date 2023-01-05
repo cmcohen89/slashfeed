@@ -7,7 +7,7 @@
     height: 950px;
     border-radius: 10px;
     border: 2px solid #21BFE1;
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.593);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.593);
 }
 
 .chat-left {
@@ -73,8 +73,8 @@
 }
 
 .chat-right-content {
-    margin-top: 30px;
-    height: 840px;
+    padding-top: 30px;
+    height: 860px;
     overflow: scroll;
     border-bottom: 1px solid #d6d6d7;
 }
@@ -151,7 +151,7 @@
     position: relative;
     text-align: right;
     background-color: #21bee1a2;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     margin-right: 10px;
     margin-left: 350px;
     border-radius: 10px;
@@ -165,12 +165,29 @@
 }
 
 .target-user-msg {
+    position: relative;
     text-align: left;
     margin-right: 350px;
     margin-left: 20px;
     background-color: #7f5ae57b;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     border-radius: 10px;
     padding: 10px;
     word-break: break-word;
+}
+
+.curr-user-timestamp {
+    color: gray;
+    position: absolute;
+    right: 10px;
+    top: -20px;
+    width: 200px;
+}
+
+.target-user-timestamp {
+    color: gray;
+    position: absolute;
+    left: 5px;
+    top: -20px;
+    width: 200px;
 }

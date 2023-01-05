@@ -9,7 +9,6 @@ def seed_chats():
     jamie = User.query.get(2)
     jordan = User.query.get(3)
 
-
     demo.user_chats.append(thread1)
     demo.user_chats.append(thread2)
     jamie.user_chats.append(thread1)
