@@ -6,8 +6,6 @@ import ChatForm from "./ChatForm";
 import ChatMessages from "./ChatMessages";
 import { NavLink } from "react-router-dom";
 import OneChat from "./OneChat";
-import { io } from 'socket.io-client';
-let socket;
 
 const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
     const dispatch = useDispatch();
@@ -28,24 +26,10 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
     }
 
     useEffect(() => {
-        dispatch(getChats());
+        if (currUser) dispatch(getChats());
         const targetChat = chats.find(chat => chat.recipient.id === +targetUserId);
         setSelectedChat(targetChat);
     }, [dispatch, deleteMessage, targetUserId, showChatModal]);
-
-    useEffect(() => {
-        // open socket connection
-        // create websocket
-        socket = io();
-
-        socket.on("chat", (chat) => {
-            setMessages(messages => [...messages, chat])
-        })
-        // when component unmounts, disconnect
-        return (() => {
-            socket.disconnect()
-        })
-    }, [])
 
     if (currUser) {
         for (let chat of chats) {
@@ -110,7 +94,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
                 </div>
                 <div>
                     {selectedChat ?
-                        <ChatForm threadId={selectedChat.id} setSelectedChat={setSelectedChat} socket={socket} />
+                        <ChatForm threadId={selectedChat.id} setSelectedChat={setSelectedChat} setMessages={setMessages} />
                         :
                         <form className="message-form">
                             <input
@@ -120,7 +104,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
                                 type='text'
                                 disabled
                             />
-                            <button className='send-message-button-disabled' type='submit'><i className="fa-solid fa-message"></i></button>
+                            <button disabled className='send-message-button-disabled' type='submit'><i className="fa-solid fa-message"></i></button>
                         </form>
                     }
                 </div>

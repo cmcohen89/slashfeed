@@ -27,6 +27,8 @@ const LoginForm = ({ setShowLoginModal }) => {
         data ? setErrors(data) : setShowLoginModal(false);
         if (!data) {
             setErrors([]);
+            setEmail('');
+            setPassword('');
             history.push('/my-feed')
         };
     }

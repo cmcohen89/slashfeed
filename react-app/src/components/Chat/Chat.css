@@ -160,6 +160,7 @@
     margin-left: 10px;
     cursor: default;
     transition: box-shadow .2s ease;
+    pointer-events: none;
 }
 
 .send-message-button:hover {

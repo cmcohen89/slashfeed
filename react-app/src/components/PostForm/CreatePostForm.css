@@ -49,12 +49,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-weight: 600;
     font-size: 18px;
     height: 50px;
     width: 400px;
-
     text-transform: uppercase;
     background-color: #21BFE1;
     color: white;

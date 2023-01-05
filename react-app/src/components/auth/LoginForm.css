@@ -99,4 +99,5 @@
     text-align: center;
     width: 350px;
     height: 40px;
+    white-space: pre-wrap;
 }
