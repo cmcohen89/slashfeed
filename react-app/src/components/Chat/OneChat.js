@@ -9,6 +9,11 @@ const OneChat = ({ chat, selectedChat, setSelectedChat, calcTimeElapsed, setShow
     const [hover, setHover] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
 
+    if (!chat) {
+        setSelectedChat(null);
+        setMessages([]);
+    }
+
     return (
         <>
             {chat && chat.recipient &&
