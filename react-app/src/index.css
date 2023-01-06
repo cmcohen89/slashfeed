@@ -60,6 +60,10 @@ body {
     bottom: 40vh;
 }
 
+.modal.chat-show {
+    bottom: 14vh;
+}
+
 .modal.follows-show {
     bottom: 30vh;
 }

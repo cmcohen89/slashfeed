@@ -171,7 +171,7 @@ const SignUpForm = ({ setShowSignupModal }) => {
                         name='url-input'
                         onChange={e => setProfileImgUrl(e.target.value)}
                         value={profile_img_url}
-                        placeholder="Enter image URL or upload a pic below"
+                        placeholder="Enter image URL or upload pic below"
                         type='text'
                     />
                 </div>
@@ -184,7 +184,7 @@ const SignUpForm = ({ setShowSignupModal }) => {
                             onChange={updateImage}
                         />
                     </label>
-                    <span className='aws-submit2' onClick={handleUpload}>Generate URL</span>
+                    <span className={`aws-submit2 ${!image && 'upload-disabled'}`} onClick={handleUpload}>Upload</span>
                 </div>
                 <div className='aws-loading3'>
                     {(imageLoading) && <p className='aws-loading-text'>Loading...</p>}

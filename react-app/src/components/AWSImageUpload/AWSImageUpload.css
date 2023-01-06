@@ -7,18 +7,22 @@
 
 .aws-input {
     margin-top: 20px;
+    height: 40px;
+}
+
+.aws-input-update {
+    margin-top: 10px;
+    height: 40px;
 }
 
 .aws-submit {
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-weight: 600;
     font-size: 16px;
     height: 40px;
     width: 160px;
-
     text-transform: uppercase;
     background-color: #21BFE1;
     color: white;
@@ -30,30 +34,64 @@
 }
 
 .aws-submit:hover {
-    box-shadow: 0 0 15px #21bee171;
+    box-shadow: 0 0 10px #21bee171;
+}
+
+.aws-submit-update {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+    height: 40px;
+    width: 160px;
+    text-transform: uppercase;
+    background-color: #7f5ae5;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    transition: box-shadow .2s ease;
+    border: none;
+    margin-top: 10px;
+}
+
+.aws-submit-update:hover {
+    box-shadow: 0 0 10px #7f5ae5;
 }
 
 .aws-loading {
     text-align: center;
-
     padding-top: 40px;
 }
 
-/* .aws-label {
+.aws-loading-update {
+    text-align: center;
+    padding-top: 20px;
+}
+
+/* .aws-label-signup {
     text-align: center;
     border: 1px solid #ccc;
-    display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
-    height: 33px;
-    width: 120px;
-} */
+    margin-top: 10px;
+    margin-left: 195px;
+    background-color: #7f5ae5;
+    font-weight: 600;
+    font-size: 14px;
+    height: 30px;
+    width: 140px;
+    color: white;
+    transition: box-shadow .2s ease;
+    text-transform: uppercase;
+    border: none;
+}
 
-/* .aws-label:hover {
-    background-color: #d6d6d798;
-} */
+.aws-label-signup:hover {
+    box-shadow: 0 0 10px #7f5ae5;
+}
 
-/* input[type="file"] {
+input[type="file"] {
     display: none;
 } */
 
@@ -61,12 +99,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-weight: 600;
     font-size: 14px;
     height: 30px;
     width: 140px;
-
     text-transform: uppercase;
     background-color: #7f5ae5;
     color: white;
@@ -78,7 +114,7 @@
 }
 
 .aws-submit2:hover {
-    box-shadow: 0 0 15px #7f5ae5;
+    box-shadow: 0 0 10px #7f5ae5;
 }
 
 .aws-div {
@@ -88,9 +124,7 @@
     margin-top: -15px;
     margin-bottom: 30px;
 }
-.aws-input {
-    height: 40px;
-}
+
 
 .aws-loading2 {
     text-align: center;
@@ -113,4 +147,9 @@
     display: flex;
     justify-content: center;
     margin-top: -60px;
+}
+
+.upload-disabled {
+    background-color: rgba(128, 128, 128, 0.375);
+    pointer-events: none;
 }

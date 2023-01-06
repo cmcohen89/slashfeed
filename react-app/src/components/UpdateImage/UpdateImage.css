@@ -29,3 +29,9 @@
 .img-label-choice-selected {
     color: #21BFE1;
 }
+
+.aws-loading-update-img {
+    position: absolute;
+    right: 44px;
+    bottom: 100px;
+}
