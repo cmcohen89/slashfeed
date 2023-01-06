@@ -18,7 +18,6 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
     const calcTimeElapsed = (dateObj) => {
         let totalMs = new Date() - dateObj;
         let totalSeconds = totalMs / 1000;
-        if (totalSeconds < 5) return 'now';
         if (totalSeconds < 60) return Math.floor(totalSeconds) + 's';
         if (totalSeconds / 60 < 60) return Math.floor(totalSeconds / 60) + 'm';
         if (totalSeconds / 3600 < 24) return Math.floor(totalSeconds / 3600) + 'h';
@@ -30,9 +29,11 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
         const targetChat = chats.find(chat => chat.recipient.id === +targetUserId);
         setSelectedChat(targetChat);
         if (targetChat) setMessages(targetChat.chatMessages)
-        setInterval(() => {
-            dispatch(getChats());
-        }, 1000);
+        if (currUser) {
+            setInterval(() => {
+                dispatch(getChats());
+            }, 1000);
+        }
     }, [dispatch, targetUserId, showChatModal, currUser]);
 
     if (currUser) {
