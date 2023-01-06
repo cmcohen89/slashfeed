@@ -9,11 +9,6 @@ const OneChat = ({ chat, selectedChat, setSelectedChat, calcTimeElapsed, setShow
     const [hover, setHover] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
 
-    if (!chat) {
-        setSelectedChat(null);
-        setMessages([]);
-    }
-
     return (
         <>
             {chat && chat.recipient &&
@@ -38,6 +33,7 @@ const OneChat = ({ chat, selectedChat, setSelectedChat, calcTimeElapsed, setShow
                         <img className="recipient-pic" src={chat.recipient.profileImgUrl} alt="" />
                     </NavLink>
                     <div>
+                        {!chat.recipient ? setMessages([]) && setSelectedChat(null) : ''}
                         <h2 className={`recipient-name ${selectedChat && selectedChat.recipient.id === chat.recipient.id && 'selected-recipient-name'}`}>{chat.recipient.firstName}</h2>
                         {chat.chatMessages.length ?
                             <p className="chat-preview">
