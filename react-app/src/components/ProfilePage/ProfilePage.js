@@ -39,7 +39,7 @@ const ProfilePage = () => {
     return (
         <div className="profile-page">
             <div className={`modal container ${showChatModal ? "chat-show" : ""}`}>
-                <Chat setShowChatModal={setShowChatModal} targetUserId={id} showChatModal={showChatModal} />
+                <Chat setShowChatModal={setShowChatModal} targetUserId={id} showChatModal2={showChatModal} />
             </div>
             <div
                 className={`overlay ${showChatModal ? "show" : ""}`}

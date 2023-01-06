@@ -1,23 +1,62 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteMessage, getChats } from "../../store/chats";
+import { getChats } from "../../store/chats";
 import './Chat.css'
 import ChatForm from "./ChatForm";
+import { postMessage } from "../../store/chats";
 import ChatMessages from "./ChatMessages";
 import { NavLink } from "react-router-dom";
 import OneChat from "./OneChat";
+import { io } from 'socket.io-client';
+let socket;
 
-const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
+const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }) => {
     const dispatch = useDispatch();
     const currUser = useSelector(state => state.session.user);
     let chats = useSelector(state => Object.values(state.chats));
-
+    const [body, setBody] = useState('');
     const [selectedChat, setSelectedChat] = useState(null);
     const [messages, setMessages] = useState([]);
+
+    useEffect(() => {
+        if (currUser) {
+            socket = io();
+
+            socket.on("chat", (chat) => {
+                setMessages(messages => [...messages, chat])
+            })
+
+            if (selectedChat) {
+                socket.emit("join", {
+                    user: currUser.id,
+                    room: selectedChat.id
+                })
+            }
+
+            socket.on("notify", () => {
+                dispatch(getChats());
+            })
+
+            return (() => {
+                socket.disconnect()
+            })
+        }
+    }, [setMessages, selectedChat])
+
+    useEffect(() => {
+        if ((showChatModal1 || showChatModal2) && !selectedChat) {
+            const interval = setInterval(() => {
+                dispatch(getChats());
+            }, 3000);
+            return () => clearInterval(interval);
+        }
+    }, [showChatModal1, showChatModal2, selectedChat, setSelectedChat])
 
     const calcTimeElapsed = (dateObj) => {
         let totalMs = new Date() - dateObj;
         let totalSeconds = totalMs / 1000;
+        if (!selectedChat && totalSeconds < 60) return 'just now'
+        if (totalSeconds < 5) return 'just now';
         if (totalSeconds < 60) return Math.floor(totalSeconds) + 's';
         if (totalSeconds / 60 < 60) return Math.floor(totalSeconds / 60) + 'm';
         if (totalSeconds / 3600 < 24) return Math.floor(totalSeconds / 3600) + 'h';
@@ -28,14 +67,8 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
         if (currUser) dispatch(getChats());
         const targetChat = chats.find(chat => chat.recipient.id === +targetUserId);
         setSelectedChat(targetChat);
-        if (targetChat) setMessages(targetChat.chatMessages)
-        if (currUser) {
-            const interval = setInterval(() => {
-                dispatch(getChats());
-            }, 1000);
-            return () => clearInterval(interval);
-        }
-    }, [dispatch, targetUserId, showChatModal, currUser]);
+        if (targetChat) setMessages(targetChat.chatMessages);
+    }, [dispatch, targetUserId, showChatModal1, showChatModal2, currUser]);
 
     if (currUser) {
         for (let chat of chats) {
@@ -52,13 +85,22 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
         chats = activeChats.concat(emptyChats);
     };
 
+    const handleSubmit = async e => {
+        e.preventDefault();
+        if (body.trim() === '') return setBody('');
+        const newMsg = await dispatch(postMessage(body, selectedChat.id));
+        newMsg.room = selectedChat.id;
+        await socket.emit("chat", newMsg);
+        await socket.emit("notify", selectedChat.recipient)
+        dispatch(getChats());
+        setBody('');
+    }
+
     return (
         <div className="chat-page">
             <div className="chat-left">
                 {chats.length ? chats.map(chat => (
                     <div key={chat.id}>
-                        {!chat ? setSelectedChat(null) : ""}
-                        {!chat ? setMessages([]) : ""}
                         <OneChat
                             chat={chat}
                             selectedChat={selectedChat}
@@ -101,20 +143,18 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
                     }
                 </div>
                 <div>
-                    {selectedChat ?
-                        <ChatForm threadId={selectedChat.id} setSelectedChat={setSelectedChat} setMessages={setMessages} />
-                        :
-                        <form className="message-form">
-                            <input
-                                className='message-input-disabled'
-                                required
-                                placeholder="Choose someone to message!"
-                                type='text'
-                                disabled
-                            />
-                            <button disabled className='send-message-button-disabled' type='submit'><i className="fa-solid fa-message"></i></button>
-                        </form>
-                    }
+                    <form className="message-form" onSubmit={handleSubmit}>
+                        <input
+                            className='message-input'
+                            required
+                            onChange={e => setBody(e.target.value)}
+                            value={body}
+                            placeholder="Type your message here!"
+                            type='text'
+                            maxLength="999"
+                        />
+                        <button className={`send-message-button ${body.trim() === '' && 'send-message-button-disabled'}`} type='submit'><i className="fa-solid fa-message message-icon"></i></button>
+                    </form>
                 </div>
             </div>
         </div>

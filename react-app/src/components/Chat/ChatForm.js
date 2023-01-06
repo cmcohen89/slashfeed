@@ -5,7 +5,7 @@ import { postMessage } from "../../store/chats";
 import { io } from 'socket.io-client';
 let socket;
 
-const ChatForm = ({ threadId, setMessages }) => {
+const ChatForm = ({ thread, setMessages }) => {
     const dispatch = useDispatch();
     const [body, setBody] = useState('');
     const currUser = useSelector(state => state.session.user)
@@ -20,21 +20,26 @@ const ChatForm = ({ threadId, setMessages }) => {
 
             socket.emit("join", {
                 user: currUser.id,
-                room: threadId
+                room: thread.id
+            })
+
+            socket.on("notify", () => {
+                dispatch(getChats());
             })
 
             return (() => {
                 socket.disconnect()
             })
         }
-    }, [setMessages, threadId])
+    }, [setMessages, thread.id])
 
     const handleSubmit = async e => {
         e.preventDefault();
         if (body.trim() === '') return setBody('');
-        const newMsg = await dispatch(postMessage(body, threadId));
-        newMsg.room = threadId;
+        const newMsg = await dispatch(postMessage(body, thread.id));
+        newMsg.room = thread.id;
         socket.emit("chat", newMsg);
+        socket.emit("notify", thread.recipient)
         dispatch(getChats());
         setBody('');
     }

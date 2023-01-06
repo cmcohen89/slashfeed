@@ -21,7 +21,7 @@ const PostIndex = () => {
         dispatch(getPosts());
         dispatch(getUsers());
         if (user) dispatch(getChats());
-    }, [dispatch, user])
+    }, [dispatch])
 
     topPosts.sort((a, b) => b.likes - a.likes)
     allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))

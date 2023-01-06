@@ -40,7 +40,7 @@ const MyPosts = () => {
     }
 
     if (!allPosts || !allPosts.length) return null;
-    if (!user) return history.push('/')
+    if (!user) history.push('/')
 
     return (
         <div className="all-posts">
