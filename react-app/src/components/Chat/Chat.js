@@ -57,6 +57,8 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
             <div className="chat-left">
                 {chats.length ? chats.map(chat => (
                     <div key={chat.id}>
+                        {!chat ? setSelectedChat(null) : ""}
+                        {!chat ? setMessages([]) : ""}
                         <OneChat
                             chat={chat}
                             selectedChat={selectedChat}
