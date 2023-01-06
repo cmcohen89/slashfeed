@@ -30,6 +30,9 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
         const targetChat = chats.find(chat => chat.recipient.id === +targetUserId);
         setSelectedChat(targetChat);
         if (targetChat) setMessages(targetChat.chatMessages)
+        setInterval(() => {
+            dispatch(getChats());
+        }, 1000);
     }, [dispatch, targetUserId, showChatModal, currUser]);
 
     if (currUser) {
