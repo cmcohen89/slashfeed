@@ -16,7 +16,6 @@ const MyPosts = () => {
     const allPosts = useSelector(state => Object.values(state.allPosts))
     const topPosts = useSelector(state => Object.values(state.allPosts))
     const user = useSelector(state => state.session.user)
-    if (!user) history.push('/');
     const [showLoginModal, setShowLoginModal] = useState(false);
     const myPostsFlag = true;
 
@@ -41,6 +40,7 @@ const MyPosts = () => {
     }
 
     if (!allPosts || !allPosts.length) return null;
+    if (!user) return history.push('/')
 
     return (
         <div className="all-posts">
