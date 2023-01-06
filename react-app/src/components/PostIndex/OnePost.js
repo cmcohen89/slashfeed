@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getPosts, likePost, unlikePost } from "../../store/all_posts";
+import { getFollowedPosts, getPosts, likePost, unlikePost } from "../../store/all_posts";
 
-const OnePost = ({ post, setShowLoginModal }) => {
+const OnePost = ({ post, setShowLoginModal, myPostsFlag }) => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
 
@@ -43,7 +43,7 @@ const OnePost = ({ post, setShowLoginModal }) => {
                                 await dispatch(unlikePost(post.id)) :
                                 await dispatch(likePost(post.id)))
                             : setShowLoginModal(true)
-                        dispatch(getPosts());
+                        !myPostsFlag ? dispatch(getPosts()) : dispatch(getFollowedPosts());
                     }}
                     className={`one-post-footer ${user && post.usersWhoLiked[user.id] && "one-post-liked"}`}
                 >

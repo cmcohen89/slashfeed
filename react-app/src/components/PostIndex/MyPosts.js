@@ -18,6 +18,7 @@ const MyPosts = () => {
     const user = useSelector(state => state.session.user)
     if (!user) history.push('/');
     const [showLoginModal, setShowLoginModal] = useState(false);
+    const myPostsFlag = true;
 
     useEffect(() => {
         dispatch(getFollowedPosts());
@@ -125,7 +126,7 @@ const MyPosts = () => {
             <div className='lower-index-grid'>
                 {allPosts.map(post => (
                     <div key={post.id}>
-                        <OnePost post={post} setShowLoginModal={setShowLoginModal} />
+                        <OnePost post={post} setShowLoginModal={setShowLoginModal} myPostsFlag={myPostsFlag} />
                     </div>
                 ))}
             </div>
