@@ -111,7 +111,7 @@ const CreatePostForm = ({ setShowCreateModal }) => {
                             onChange={updateImage}
                         />
                     </label>
-                    <span className='aws-submit2' onClick={handleUpload}>Generate URL</span>
+                    <span className={`aws-submit2 ${!image && 'upload-disabled'}`} onClick={handleUpload}>Upload</span>
                 </div>
                 <div className='aws-loading-create'>
                     {(imageLoading) && <p className='aws-loading-text-create'>Loading...</p>}

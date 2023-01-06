@@ -42,7 +42,7 @@ const CommentForm = ({ postId }) => {
                     disabled={user ? false : true}
                 />
                 <div className='comment-form-button-wrapper'>
-                    <button className={`comment-form-button ${(!user || !body.length) && 'comment-form-button-disabled'}`} type='submit'>Leave comment</button>
+                    <button className={`comment-form-button ${(!user) && 'comment-form-button-disabled'}`} type='submit'>Leave comment</button>
                 </div>
             </form>
         </div>

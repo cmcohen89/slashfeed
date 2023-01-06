@@ -29,6 +29,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
         if (currUser) dispatch(getChats());
         const targetChat = chats.find(chat => chat.recipient.id === +targetUserId);
         setSelectedChat(targetChat);
+        if (targetChat) setMessages(targetChat.chatMessages)
     }, [dispatch, targetUserId, showChatModal, currUser]);
 
     if (currUser) {

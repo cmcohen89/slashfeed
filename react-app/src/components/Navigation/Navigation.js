@@ -42,7 +42,7 @@ const Navigation = () => {
                 className={`overlay ${showSignupModal ? "show" : ""}`}
                 onClick={() => setShowSignupModal(!setShowSignupModal)}
             />
-            <div className={`modal container ${showChatModal ? "create-show" : ""}`}>
+            <div className={`modal container ${showChatModal ? "chat-show" : ""}`}>
                 <Chat setShowChatModal={setShowChatModal} />
             </div>
             <div

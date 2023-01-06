@@ -11,26 +11,23 @@ const ChatForm = ({ threadId, setMessages }) => {
     const currUser = useSelector(state => state.session.user)
 
     useEffect(() => {
-        socket = io();
+        if (currUser) {
+            socket = io();
 
-        socket.on("chat", (chat) => {
-            setMessages(messages => [...messages, chat])
-        })
+            socket.on("chat", (chat) => {
+                setMessages(messages => [...messages, chat])
+            })
 
-        socket.emit("join", {
-            user: currUser.id,
-            room: threadId
-        })
+            socket.emit("join", {
+                user: currUser.id,
+                room: threadId
+            })
 
-        // socket.on("connection", socket => {
-        //     socket.join(`chat ${threadId}`)
-        //         socket.to(`chat ${threadId}`).emit("chat", newMsg);
-        // });
-
-        return (() => {
-            socket.disconnect()
-        })
-    }, [currUser.id, setMessages, threadId])
+            return (() => {
+                socket.disconnect()
+            })
+        }
+    }, [setMessages, threadId])
 
     const handleSubmit = async e => {
         e.preventDefault();

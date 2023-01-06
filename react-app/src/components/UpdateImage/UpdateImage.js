@@ -82,9 +82,9 @@ const UpdateImage = ({ setShowUpdateImage, imgId, user }) => {
                         onChange={updateImage}
                     />
                 </label>
-                <span className='aws-submit2' onClick={handleUpload}>Generate URL</span>
+                <span className={`aws-submit2 ${!image && 'upload-disabled'}`} onClick={handleUpload}>Upload</span>
             </div>
-            <div className='aws-loading4'>
+            <div className='aws-loading-update-img'>
                 {(imageLoading) && <p className='aws-loading-text'>Loading...</p>}
             </div>
             <br />

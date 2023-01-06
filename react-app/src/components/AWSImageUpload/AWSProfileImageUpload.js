@@ -45,14 +45,16 @@ const AWSProfileImageUpload = ({ setShowUpdateProfilePic }) => {
         <form className='aws-form'>
             <div className="aws-input-div">
                 <input
-                    className="aws-input"
+                    className="aws-input-update"
                     type="file"
                     accept="image/*"
                     onChange={updateImage}
                 />
             </div>
             <div className='aws-loading-div'>
-                {!imageLoading ? <span className='aws-submit' onClick={handleSubmit}>Update Image</span> : <p className="aws-loading">Loading...</p>}
+                {!imageLoading ?
+                    <span className={`aws-submit-update ${!image && 'upload-disabled'}`} onClick={handleSubmit}>Update Image</span>
+                    : <p className="aws-loading-update">Loading...</p>}
             </div>
         </form>
     )
