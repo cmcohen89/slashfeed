@@ -30,9 +30,10 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal }) => {
         setSelectedChat(targetChat);
         if (targetChat) setMessages(targetChat.chatMessages)
         if (currUser) {
-            setInterval(() => {
+            const interval = setInterval(() => {
                 dispatch(getChats());
             }, 1000);
+            return () => clearInterval(interval);
         }
     }, [dispatch, targetUserId, showChatModal, currUser]);
 
