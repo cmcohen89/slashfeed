@@ -85,6 +85,9 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
         await socket.emit("notify", selectedChat.recipient)
         dispatch(getChats());
         setBody('');
+        const msgObj = {};
+        msgObj.chatMessages = messages;
+        messageReader(msgObj);
     }
 
     let totalUnreadMsgs = 0;
