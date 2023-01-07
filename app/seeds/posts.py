@@ -277,7 +277,7 @@ def seed_posts():
     post35 = Post(
         title="Building a computer--I'd be insane to get anything other than a solid state drive, right?",
         body="I don't know why I'm even asking, but just in case someone knows something I don't I guess. SSD are the wave of the future, isn't that right?",
-        user_id=3,
+        user_id=35,
         preview_img_id=35,
         created_at=datetime.datetime(2022, 12, 13, hour=15, minute=27, second=2)
     )
@@ -285,7 +285,7 @@ def seed_posts():
     post36 = Post(
         title="Finally went to Disneyland after 20 years away! It's amazing how much has changed...",
         body="...and yet how little! Nostalgia has never hit me so hard. I'm so glad I found the time to go back and I can't wait to come again!",
-        user_id=4,
+        user_id=36,
         preview_img_id=36,
         created_at=datetime.datetime(2022, 12, 19, hour=17, minute=22, second=42)
     )

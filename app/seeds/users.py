@@ -291,10 +291,29 @@ def seed_users():
         profile_img_url='https://static.wixstatic.com/media/dce20a_8e56287472ff4c369d7c2fd803dec5a0.jpeg/v1/crop/x_157,y_0,w_529,h_682/fill/w_528,h_648,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/hObUAhUm6isL6NRiEHyga3kock5OC5cvx6rENT2T.jpeg'
     )
 
+    prap = User(
+        first_name='Prapassorn',
+        last_name='Tinnabavorn',
+        username='prappatherappa98',
+        password='password',
+        email='prap@aa.io',
+        profile_img_url='https://ca.slack-edge.com/T03GU501J-U03QTHQF11D-ea2368382226-512'
+    )
+
+    arko = User(
+        first_name='Arko',
+        last_name='Chakrabarty',
+        username='arkthelad00',
+        password='password',
+        email='arko@aa.io',
+        profile_img_url='https://i.imgur.com/ur7uTrh.png'
+    )
+
     users = [
         demo, jamie, jordan, nick, maria, shaina, brennen, andrew, sara, alex, katharine,
         marty, leslie, matt, gray, mike, jacob, tyler, chris, huishi, kevin, kat, ricardo,
-        brian, dave, douglas, efrain, joonil, linus, michael, preston, trevor, riley, hannah
+        brian, dave, douglas, efrain, joonil, linus, michael, preston, trevor, riley, hannah,
+        prap, arko
     ]
 
     [db.session.add(user) for user in users]
