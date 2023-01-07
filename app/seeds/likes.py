@@ -35,6 +35,8 @@ def seed_likes():
     trevor = User.query.get(32)
     riley = User.query.get(33)
     hannah = User.query.get(34)
+    prap = User.query.get(35)
+    arko = User.query.get(36)
 
     post1 = Post.query.get(1)
     post2 = Post.query.get(2)
@@ -109,6 +111,8 @@ def seed_likes():
     trevor.user_likes.extend([post7, post3, post10, post4, post15, post16, post18, post11, post1, post9])
     riley.user_likes.extend([post7, post3, post10, post4, post15, post16, post18, post11, post1, post9])
     hannah.user_likes.extend([post7, post3, post10, post4, post15, post16, post18, post11, post1, post9])
+    prap.user_likes.extend([post7, post3, post18, post11, post1, post9])
+    arko.user_likes.extend([post7, post3, post10, post4, post15, post16])
 
     db.session.commit()
 
