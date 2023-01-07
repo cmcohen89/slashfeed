@@ -86,6 +86,33 @@ def add_message(id):
     return {"errors": validation_errors_to_error_messages(form.errors)}, 403
 
 
+# READ MESSAGES
+@chat_routes.route('/read', methods=["PUT"])
+def read_messages():
+    """
+    Change the "read" status of a list of message IDs to True
+    """
+    print('''
+
+
+
+
+
+
+
+
+
+
+    ''', request.json['unreadMsgs'][0])
+    # messages = request.json("unreadMsgs")
+    for msgId in request.json['unreadMsgIds']:
+        db_msg = Message.query.get(msgId)
+        setattr(db_msg, "read", True)
+
+    db.session.commit()
+    return {"message": "all messages read"}
+
+
 # DELETE A THREAD BY ITS ID
 @chat_routes.route('/<int:id>', methods=["DELETE"])
 @login_required

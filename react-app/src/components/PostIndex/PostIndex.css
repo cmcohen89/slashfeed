@@ -130,7 +130,7 @@
 }
 
 .one-post {
-    width: 630px;
+    width: 680px;
     height: 722px;
     border: 1px solid #d7d7d7;
     transition: all 0.2s ease-out;
@@ -172,7 +172,7 @@
 .more_text {
     font-weight: 600;
     margin: 0 15px;
-    font-size: 22px;
+    font-size: 20px;
     color: #757c83;
     width: 400px;
     text-align: center;
@@ -188,7 +188,7 @@
     display: grid;
     grid-template-columns: auto auto;
     justify-content: center;
-    column-gap: 80px;
+    column-gap: 20px;
     row-gap: 80px;
     padding-bottom: 100px;
 }
@@ -240,7 +240,7 @@
 
 .one-post-body {
     color: #3A4148;
-    font-size: 18px;
+    font-size: 20px;
     white-space: pre-wrap;
 }
 

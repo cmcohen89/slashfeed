@@ -4,8 +4,8 @@ export const loadChats = chats => {
     return {
         type: LOAD_CHATS,
         chats
-    }
-}
+    };
+};
 
 export const getChats = () => async dispatch => {
     const response = await fetch('/api/chats');
@@ -22,13 +22,13 @@ export const postThread = (targetUserId) => async dispatch => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ targetUserId: targetUserId })
-    })
+    });
 
     if (response.ok) {
         const successMsg = await response.json();
         return successMsg;
-    }
-}
+    };
+};
 
 export const postMessage = (body, threadId) => async dispatch => {
     const response = await fetch(`/api/chats/${threadId}`, {
@@ -47,32 +47,45 @@ export const postMessage = (body, threadId) => async dispatch => {
         }
     } else {
         return ['An error occurred. Please try again.']
-    }
-}
+    };
+};
+
+export const readMessages = (unreadMsgs) => async dispatch => {
+    const response = await fetch(`/api/chats/read`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ unreadMsgs: unreadMsgs })
+    });
+
+    if (response.ok) {
+        const successMsg = await response.json();
+        return successMsg
+    };
+};
 
 export const deleteThread = (threadId) => async dispatch => {
     const response = await fetch(`/api/chats/${threadId}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
-    })
+    });
 
     if (response.ok) {
         const successMsg = await response.json()
         return successMsg;
-    }
-}
+    };
+};
 
 export const deleteMessage = (msgId) => async dispatch => {
     const response = await fetch(`/api/chats/message/${msgId}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
-    })
+    });
 
     if (response.ok) {
         const successMsg = await response.json()
         return successMsg;
-    }
-}
+    };
+};
 
 const initialState = {};
 

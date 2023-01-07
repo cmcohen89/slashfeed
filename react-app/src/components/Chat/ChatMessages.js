@@ -22,7 +22,7 @@ const ChatMessages = ({ msg, selectedChat, setSelectedChat, setMessages }) => {
         <>
             {currUser && <div className={
                 msg.messageOwner.id === currUser.id ?
-                    `curr-user-msg` : `target-user-msg`}
+                    `curr-user-msg` : `target-user-msg ${!msg.read && 'target-user-msg-unread'}`}
                 onMouseOver={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
             >

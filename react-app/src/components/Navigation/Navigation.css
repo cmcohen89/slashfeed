@@ -71,6 +71,22 @@
     margin-right: 30px;
     font-size: 18px;
     letter-spacing: -0.5px;
+    position: relative;
+}
+
+.unread-messages-bubble {
+    position: absolute;
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 1px;
+    padding-right: 0.725px;
+    top: -5px;
+    right: -15px;
 }
 
 .nav-login-link:hover,
