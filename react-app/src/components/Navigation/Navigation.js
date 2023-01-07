@@ -16,6 +16,7 @@ const Navigation = () => {
     const history = useHistory();
     const windowHeight = window.innerHeight;
 
+    const chats = useSelector(state => Object.values(state.chats))
     const allPosts = useSelector(state => Object.values(state.allPosts))
     const numArr = [];
     for (let post of allPosts) numArr.push(post.id)
@@ -24,6 +25,9 @@ const Navigation = () => {
     const [showSignupModal, setShowSignupModal] = useState(false);
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [showChatModal, setShowChatModal] = useState(false);
+
+    let totalUnreadMsgs = 0;
+    if (user) for (let chat of chats) for (let msg of chat.chatMessages) if (!msg.read && msg.messageOwner.id !== user.id) totalUnreadMsgs += 1;
 
     return (
         <div className="navigation-wrapper">
@@ -77,6 +81,7 @@ const Navigation = () => {
                     }}
                     >
                         Messages
+                        {totalUnreadMsgs > 0 && <span className='unread-messages-bubble'>{totalUnreadMsgs}</span>}
                     </li>}
                     {user && <NavLink className='nav-signup-link' to={`/profile/${user.id}`}>Profile</NavLink>
                     }

@@ -66,15 +66,3 @@ def notify(data):
     if data['username']:
         targetUser = [user for user in socketUsers if user['username'] == data['username']][0]
         emit("notify", data, broadcast=True, to=targetUser['sid'])
-        print('''
-
-
-
-
-
-
-
-
-
-
-        ''', 'notified', targetUser)

@@ -7,6 +7,7 @@ class Message(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     message = db.Column(db.String(2000), nullable=False)
+    read = db.Column(db.Boolean, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     message_thread_id = db.Column(db.Integer, db.ForeignKey('message_threads.id'), nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
@@ -18,6 +19,7 @@ class Message(db.Model):
         return {
             "id": self.id,
             "message": self.message,
+            "read": self.read,
             "messageOwner": self.message_owner.to_dict(),
             "createdAt": self.created_at,
         }
@@ -42,6 +44,7 @@ class MessageThread(db.Model):
             "createdAt": self.created_at,
             "updatedAt": self.updated_at,
             "chatMessages": [msg.to_dict() for msg in self.chat_messages],
+            "unreadMessages": len([msg.to_dict() for msg in self.chat_messages if msg.read is False]),
             "chatUsers": [user.to_dict() for user in self.chat_users]
         }
 

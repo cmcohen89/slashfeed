@@ -37,13 +37,23 @@
     margin: 20px auto;
     cursor: pointer;
     position: relative;
+    transition: all .5s ease;
+    width: 95%;
+    border-radius: 30px;
+}
+
+.chat-recipient-unread {
+    background-color: #21bee13f;
+    border-radius: 30px;
+    box-shadow: 0 0 15px #21bee196;
 }
 
 .chat-recipient:hover .recipient-name {
-    color: #21BFE1
+    color: #21BFE1;
 }
 
 .recipient-pic {
+    margin-top: 5px;
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -65,6 +75,7 @@
 
 .selected-recipient-name {
     color: #21BFE1;
+    transition: all .2s ease;
 }
 
 .chat-preview {
@@ -200,6 +211,12 @@
     box-shadow: 0 0 10px #21bee1a5;
 }
 
+.message-input-max,
+.message-input-max:focus {
+    border: 1px solid red;
+    box-shadow: 0 0 10px red;
+}
+
 .delete-message-button {
     font-size: 15px;
     color: rgba(0, 0, 0, 0.508);
@@ -246,6 +263,7 @@
 }
 
 .target-user-msg {
+    box-sizing: content-box;
     position: relative;
     text-align: left;
     margin-right: 350px;
@@ -255,6 +273,7 @@
     border-radius: 10px;
     padding: 10px;
     word-break: break-word;
+    transition: all .2s ease;
 }
 
 .curr-user-timestamp {

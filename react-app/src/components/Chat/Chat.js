@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getChats } from "../../store/chats";
+import { getChats, readMessages } from "../../store/chats";
 import './Chat.css'
-import ChatForm from "./ChatForm";
 import { postMessage } from "../../store/chats";
 import ChatMessages from "./ChatMessages";
 import { NavLink } from "react-router-dom";
@@ -52,17 +51,6 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
         }
     }, [showChatModal1, showChatModal2, selectedChat, setSelectedChat])
 
-    const calcTimeElapsed = (dateObj) => {
-        let totalMs = new Date() - dateObj;
-        let totalSeconds = totalMs / 1000;
-        if (!selectedChat && totalSeconds < 60) return 'just now'
-        if (totalSeconds < 5) return 'just now';
-        if (totalSeconds < 60) return Math.floor(totalSeconds) + 's';
-        if (totalSeconds / 60 < 60) return Math.floor(totalSeconds / 60) + 'm';
-        if (totalSeconds / 3600 < 24) return Math.floor(totalSeconds / 3600) + 'h';
-        else return Math.floor(totalSeconds / 86400) + 'd';
-    }
-
     useEffect(() => {
         if (currUser) dispatch(getChats());
         const targetChat = chats.find(chat => chat.recipient.id === +targetUserId);
@@ -70,20 +58,23 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
         if (targetChat) setMessages(targetChat.chatMessages);
     }, [dispatch, targetUserId, showChatModal1, showChatModal2, currUser]);
 
-    if (currUser) {
-        for (let chat of chats) {
-            chat.recipient = Object.values(chat.chatUsers).filter(user => user.id !== currUser.id)[0];
-            chat.chatMessages.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-        };
+    const messageReader = (chat) => {
+        const unreadMsgs = [];
+        for (let msg of chat.chatMessages) if (!msg.read) unreadMsgs.push(msg.id);
+        if (unreadMsgs.length) {
+            dispatch(readMessages(unreadMsgs));
+            dispatch(getChats());
+        }
     }
 
-    if (chats.length) {
-        const emptyChats = [];
-        const activeChats = [];
-        for (let chat of chats) chat.chatMessages.length === 0 ? emptyChats.push(chat) : activeChats.push(chat);
-        activeChats.sort((a, b) => new Date(b.chatMessages[b.chatMessages.length - 1].createdAt) - new Date(a.chatMessages[a.chatMessages.length - 1].createdAt));
-        chats = activeChats.concat(emptyChats);
-    };
+    const calcTimeElapsed = (dateObj) => {
+        let totalMs = new Date() - dateObj;
+        let totalSeconds = totalMs / 1000;
+        if (totalSeconds < 60) return 'just now';
+        if (totalSeconds / 60 < 60) return Math.floor(totalSeconds / 60) + 'm';
+        if (totalSeconds / 3600 < 24) return Math.floor(totalSeconds / 3600) + 'h';
+        else return Math.floor(totalSeconds / 86400) + 'd';
+    }
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -95,6 +86,23 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
         dispatch(getChats());
         setBody('');
     }
+
+    let totalUnreadMsgs = 0;
+    if (currUser) {
+        for (let chat of chats) {
+            chat.recipient = Object.values(chat.chatUsers).filter(user => user.id !== currUser.id)[0];
+            chat.chatMessages.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+            for (let msg of chat.chatMessages) if (!msg.read && msg.messageOwner.id !== currUser.id) totalUnreadMsgs += 1;
+        };
+    }
+
+    if (chats.length) {
+        const emptyChats = [];
+        const activeChats = [];
+        for (let chat of chats) chat.chatMessages.length === 0 ? emptyChats.push(chat) : activeChats.push(chat);
+        activeChats.sort((a, b) => new Date(b.chatMessages[b.chatMessages.length - 1].createdAt) - new Date(a.chatMessages[a.chatMessages.length - 1].createdAt));
+        chats = activeChats.concat(emptyChats);
+    };
 
     return (
         <div className="chat-page">
@@ -108,6 +116,9 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
                             setMessages={setMessages}
                             calcTimeElapsed={calcTimeElapsed}
                             setShowChatModal={setShowChatModal}
+                            messageReader={messageReader}
+                            messages={messages}
+                            currUser={currUser}
                         />
                     </div>
                 ))
@@ -146,7 +157,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
                     {selectedChat ?
                         <form className="message-form" onSubmit={handleSubmit}>
                             <input
-                                className='message-input'
+                                className={`message-input ${body.length === 999 && 'message-input-max'}`}
                                 required
                                 onChange={e => setBody(e.target.value)}
                                 value={body}
