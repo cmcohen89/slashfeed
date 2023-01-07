@@ -85,7 +85,7 @@
     /* -webkit-text-stroke: 1px black; */
     transition: color .2s ease;
     letter-spacing: 0.5px;
-    font-size: 44px;
+    font-size: 40px;
     margin-right: 180px;
 }
 
@@ -104,7 +104,7 @@
 
 .side-featured-user {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
     /* text-shadow: 1px 1px 1px black; */
     /* -webkit-text-stroke: 0.75px black; */
     display: flex;
@@ -116,13 +116,14 @@
     font-family: "Fjalla One", sans-serif;
     font-weight: 700;
     margin-top: 3px;
-    font-size: 30px;
+    font-size: 24px;
     letter-spacing: 0.5px;
+    word-spacing: 1px;
     text-transform: capitalize;
     /* text-shadow: 3px 3px 3px black; */
     /* -webkit-text-stroke: 0.75px black; */
     transition: color .2s ease;
-    margin-right: 110px;
+    margin-right: 90px;
 }
 
 .side-featured-title:hover {
@@ -137,7 +138,7 @@
 }
 
 .one-post:hover {
-    box-shadow: 0 0 3px #000000;
+    box-shadow: 0 0 2px #000000;
 }
 
 .one-post-img-container {
@@ -222,7 +223,7 @@
 .one-post-title {
     padding-top: 15px;
     padding-bottom: 12px;
-    font-size: 28px;
+    font-size: 24px;
     color: #3A4148;
     transition: color .2s ease;
     font-family: "Fjalla One", sans-serif;
@@ -240,7 +241,7 @@
 
 .one-post-body {
     color: #3A4148;
-    font-size: 20px;
+    font-size: 18px;
     white-space: pre-wrap;
 }
 
@@ -264,13 +265,16 @@
     text-transform: uppercase;
     color: #3A4148;
     transition: color .2s ease;
-    font-family: "Fjalla One", sans-serif;
-    letter-spacing: 0.5px;
-    font-size: 22px;
+    font-family: "Rubik", sans-serif;
+    font-size: 17px;
+    letter-spacing: -0.5px;
+    font-weight: 600;
+    color: #21BFE1;
+    transform: scale(1, 1.1);
 }
 
 .read-more:hover {
-    color: #21BFE1;
+    color: #69e2fd;
 }
 
 .one-post-footer {
@@ -341,7 +345,7 @@
 
 .featured-profile-link {
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
     transition: color .2s ease;
 }
 
