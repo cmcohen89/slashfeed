@@ -105,7 +105,7 @@ def read_messages():
 
     ''', request.json['unreadMsgs'][0])
     # messages = request.json("unreadMsgs")
-    for msgId in request.json['unreadMsgIds']:
+    for msgId in request.json['unreadMsgs']:
         db_msg = Message.query.get(msgId)
         setattr(db_msg, "read", True)
 
