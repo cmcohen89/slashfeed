@@ -143,18 +143,31 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
                     }
                 </div>
                 <div>
-                    <form className="message-form" onSubmit={handleSubmit}>
-                        <input
-                            className='message-input'
-                            required
-                            onChange={e => setBody(e.target.value)}
-                            value={body}
-                            placeholder="Type your message here!"
-                            type='text'
-                            maxLength="999"
-                        />
-                        <button className={`send-message-button ${body.trim() === '' && 'send-message-button-disabled'}`} type='submit'><i className="fa-solid fa-message message-icon"></i></button>
-                    </form>
+                    {selectedChat ?
+                        <form className="message-form" onSubmit={handleSubmit}>
+                            <input
+                                className='message-input'
+                                required
+                                onChange={e => setBody(e.target.value)}
+                                value={body}
+                                placeholder="Type your message here!"
+                                type='text'
+                                maxLength="999"
+                            />
+                            <button className={`send-message-button ${(body.trim() === '') && 'send-message-button-disabled'}`} type='submit'><i className="fa-solid fa-message message-icon"></i></button>
+                        </form>
+                        :
+                        <form className="message-form">
+                            <input
+                                className='message-input-disabled'
+                                required
+                                type='text'
+                                maxLength="999"
+                                disabled
+                            />
+                            <button className='send-message-button-disabled' type='submit'><i className="fa-solid fa-message message-icon"></i></button>
+                        </form>
+                    }
                 </div>
             </div>
         </div>
