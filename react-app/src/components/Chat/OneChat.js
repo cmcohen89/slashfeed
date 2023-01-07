@@ -14,7 +14,7 @@ const OneChat = ({ currUser, messageReader, chat, selectedChat, setSelectedChat,
             {chat && chat.recipient && currUser &&
                 <div
                     className={`chat-recipient
-                    ${!chat.chatMessages[chat.chatMessages.length - 1].read &&
+                    ${chat.chatMessages.length && !chat.chatMessages[chat.chatMessages.length - 1].read &&
                         chat.chatMessages[chat.chatMessages.length - 1].messageOwner.id !== currUser.id &&
                         'chat-recipient-unread'} ${selectedChat && selectedChat.recipient.id === chat.recipient.id &&
                         'selected-recipient'}`}
