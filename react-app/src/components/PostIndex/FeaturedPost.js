@@ -15,10 +15,12 @@ const FeaturedPost = ({ post }) => {
                 </h5>
                 <h1 className='featured-title'>{post.title}</h1>
             </span>
-            <img
-                className='featured-img'
-                src={post.postImages[post.previewImgId].url} alt=""
-            />
+            <div className="img-gradient">
+                <img
+                    className='featured-img'
+                    src={post.postImages[post.previewImgId].url} alt=""
+                />
+            </div>
         </>
     )
 }
