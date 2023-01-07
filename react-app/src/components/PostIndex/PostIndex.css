@@ -73,20 +73,19 @@
     font-weight: 700;
     display: flex;
     align-items: center;
-    padding-bottom: 2.5px;
-    /* font-family: "Fjalla One", sans-serif; */
 }
 
 .featured-title {
-    font-family: "Fjalla One", sans-serif;
-    font-weight: 700;
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
     text-transform: capitalize;
     /* text-shadow: 3px 3px 3px black; */
     /* -webkit-text-stroke: 1px black; */
     transition: color .2s ease;
-    letter-spacing: 0.5px;
-    font-size: 40px;
-    margin-right: 180px;
+    line-height: 50px;
+    font-size: 44px;
+    margin-right: 210px;
+    letter-spacing: -0.5px;
 }
 
 .featured-title:hover {
@@ -96,7 +95,7 @@
 .side-featured-user-and-title {
     position: absolute;
     color: white;
-    bottom: 10px;
+    bottom: 15px;
     margin: 0 20px;
     z-index: 5;
     margin-bottom: 5px;
@@ -113,17 +112,17 @@
 }
 
 .side-featured-title {
-    font-family: "Fjalla One", sans-serif;
-    font-weight: 700;
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
     margin-top: 3px;
-    font-size: 24px;
-    letter-spacing: 0.5px;
-    word-spacing: 1px;
+    font-size: 27px;
     text-transform: capitalize;
     /* text-shadow: 3px 3px 3px black; */
     /* -webkit-text-stroke: 0.75px black; */
     transition: color .2s ease;
-    margin-right: 90px;
+    margin-right: 70px;
+    letter-spacing: -0.5px;
+    line-height: 30px;
 }
 
 .side-featured-title:hover {
@@ -138,7 +137,7 @@
 }
 
 .one-post:hover {
-    box-shadow: 0 0 2px #000000;
+    box-shadow: 0 0 1px #000000;
 }
 
 .one-post-img-container {
@@ -163,7 +162,7 @@
 }
 
 .more {
-    padding: 25px 10px 10px 10px;
+    padding: 11px 0px 5px 0px;
     display: flex;
     align-items: center;
     margin-top: 25px;
@@ -171,12 +170,14 @@
 }
 
 .more_text {
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: -0.3px;
     margin: 0 15px;
-    font-size: 20px;
+    font-size: 21px;
     color: #757c83;
-    width: 400px;
+    width: 280px;
     text-align: center;
+    font-family: 'Oswald', sans-serif;
 }
 
 .line {
@@ -223,12 +224,14 @@
 .one-post-title {
     padding-top: 15px;
     padding-bottom: 12px;
-    font-size: 24px;
+    font-size: 28px;
+    line-height: 30px;
     color: #3A4148;
     transition: color .2s ease;
-    font-family: "Fjalla One", sans-serif;
-    letter-spacing: 0.5px;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: -0.4px;
     text-transform: capitalize;
+    font-weight: 500;
 }
 
 .one-post-title-link {
@@ -300,9 +303,9 @@
 
 .featured-likes {
     position: absolute;
-    font-size: 40px;
-    bottom: 30px;
-    right: 30px;
+    font-size: 26px;
+    bottom: 25px;
+    right: 25px;
     cursor: pointer;
     z-index: 5;
     font-weight: bold;
@@ -314,7 +317,7 @@
 .side-featured-likes {
     position: absolute;
     font-size: 24px;
-    bottom: 15px;
+    bottom: 18px;
     right: 15px;
     cursor: pointer;
     z-index: 5;
