@@ -48,6 +48,11 @@ const SignUpForm = ({ setShowSignupModal }) => {
     const onSignUp = async (e) => {
         e.preventDefault();
         let errors = [];
+        if (first_name.trim() === '') errors.push('Please enter a first name!');
+        if (last_name.trim() === '') errors.push('Please enter a last name!');
+        if (username.trim() === '') errors.push('Please enter a username!');
+        if (profile_img_url.trim() === '') errors.push('Please enter an image URL!')
+        if (password.trim() === '') errors.push('Please enter a real password!')
         if (/\d/.test(first_name) || /\d/.test(last_name)) errors.push("Your name has numbers in it? Doubt it.");
         if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) errors.push("The thing about email addresses is they need to be valid.");
         if (username.length < 5) errors.push("Let's make that username a bit longer. 5 characters should do.");
@@ -67,6 +72,7 @@ const SignUpForm = ({ setShowSignupModal }) => {
                 setProfileImgUrl('');
                 setPassword('');
                 setRepeatPassword('');
+                setImage(null);
                 history.push('/profile')
             }
         }

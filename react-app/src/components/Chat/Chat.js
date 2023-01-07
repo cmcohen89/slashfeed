@@ -43,10 +43,10 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
     }, [setMessages, selectedChat])
 
     useEffect(() => {
-        if ((showChatModal1 || showChatModal2) && !selectedChat) {
+        if ((showChatModal1 || showChatModal2) && !selectedChat && chats.length) {
             const interval = setInterval(() => {
                 dispatch(getChats());
-            }, 3000);
+            }, 5000);
             return () => clearInterval(interval);
         }
     }, [showChatModal1, showChatModal2, selectedChat, setSelectedChat])
