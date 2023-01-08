@@ -1,10 +1,120 @@
+.create-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    width: 600px;
+    height: 700px;
+    margin: 0 auto;
+}
+
 .create-post-page {
     height: 99vh;
     width: 99vw;
-    background: url('https://i.imgur.com/zz9WM8f.jpg') no-repeat center center fixed;
+    background: url('https://i.imgur.com/86QHjlV.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     opacity: 1;
+}
+
+.create-post-page-form {
+    padding-top: 21vh;
+    padding-right: 24vw;
+}
+
+.create-post-page-title {
+    font-family: "Oswald", sans-serif;
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #21BFE1;
+}
+
+.create-page-div-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-page-div {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.create-page-input {
+    text-align: left;
+    height: 40px;
+    width: 400px;
+    border-radius: 10px;
+    border: 1px solid #d6d6d7;
+    transition: all .2s ease-out;
+    padding: 0 12.5px;
+    font-size: 16px;
+}
+
+.create-page-input:focus {
+    outline: none !important;
+    border: 1px solid #21BFE1;
+    box-shadow: 0 0 10px #21bee1a5;
+}
+
+.create-page-textarea {
+    padding-top: 10px;
+    padding-left: 12.5px;
+    font-size: 16px;
+    height: 200px;
+    width: 400px;
+    border-radius: 10px;
+    border: 1px solid #d6d6d7;
+    transition: all .2s ease-out;
+    resize: none;
+}
+
+.create-page-textarea:focus {
+    outline: none !important;
+    border: 1px solid #21BFE1;
+    box-shadow: 0 0 10px #21bee1a5;
+}
+
+
+.create-page-button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+    height: 40px;
+    width: 200px;
+    text-transform: uppercase;
+    background-color: #21BFE1;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    transition: box-shadow .2s ease-out;
+}
+
+.create-page-button:hover {
+    box-shadow: 0 0 15px #21BFE1;
+}
+
+.aws-div-create-page {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: -15px;
+}
+
+.aws-loading-create {
+    text-align: center;
+    height: 20px;
+    padding-bottom: 30px;
+    position: relative;
+    top: 30px;
+    right: 222px;
 }

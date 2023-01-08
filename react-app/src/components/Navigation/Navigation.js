@@ -100,9 +100,9 @@ const Navigation = () => {
                 </div>
                 <span
                     className='nav-create'
-                    onClick={() => user ? (windowHeight > 950 ? setShowCreateModal(true) : history.push('/create-post')) : setShowLoginModal(true)}
+                    onClick={() => user ? history.push('/new-post') : setShowLoginModal(true)}
                 >
-                    Create Post
+                    New Post
                 </span>
             </div>
         </div>

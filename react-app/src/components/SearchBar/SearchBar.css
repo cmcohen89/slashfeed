@@ -5,7 +5,7 @@
 .search-icon {
     position: absolute;
     bottom: 8px;
-    left: 20px;
+    left: 25px;
     font-size: 18px;
     color: rgba(0, 0, 0, 0.456);
 }
@@ -19,7 +19,7 @@
     transition: all .2s ease-out;
     padding: 0 35px;
     font-size: 16px;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .search-input:focus {

@@ -106,7 +106,7 @@
     align-items: center;
     font-weight: 600;
     font-size: 20px;
-    height: 34px;
+    height: 38px;
     width: 150px;
     text-transform: uppercase;
     background-color: #21BFE1;
@@ -114,13 +114,13 @@
     padding: 10px;
     cursor: pointer;
     transition: box-shadow .25s ease;
-    font-family: "Fjalla One", sans-serif;
+    font-family: "Oswald", sans-serif;
     letter-spacing: 0.5px;
     margin-right: 1px;
 }
 
 .nav-create:hover {
-    box-shadow: 0 0 20px #21BFE1;
+    box-shadow: 0 0 15px #21BFE1;
 }
 
 .envelope {
