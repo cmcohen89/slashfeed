@@ -60,7 +60,7 @@ const Navigation = () => {
                 <ul className='nav-links'>
                     {!user ?
                         <li className='nav-signup-link'
-                            onClick={() => windowHeight > 900 ? setShowSignupModal(true) : history.push('/signup')}
+                            onClick={() => history.push('/')}
                         >
                             Sign Up
                         </li>
@@ -87,7 +87,7 @@ const Navigation = () => {
                     {user && <NavLink className='nav-signup-link' to={`/profile/${user.id}`}>Profile</NavLink>
                     }
                     {!user ?
-                        <li className='nav-login-link-last' onClick={() => setShowLoginModal(true)}>Log In</li>
+                        <li className='nav-login-link-last' onClick={() => history.push('/')}>Log In</li>
                         :
                         <li className='nav-login-link-last' onClick={async () => {
                             await dispatch(logout());

@@ -50,10 +50,6 @@ function App() {
                     <Navigation />
                     <ProfilePage />
                 </Route>
-                <Route path='/signup'>
-                    <Navigation />
-                    <SignupPage />
-                </Route>
                 <Route path='/create-post'>
                     <Navigation />
                     <CreatePostPage />

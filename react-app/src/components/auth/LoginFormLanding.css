@@ -15,6 +15,14 @@
     right: 53px;
 }
 
+.login-div-landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    z-index: 5;
+}
+
 .landing-login-input {
     text-align: left;
     height: 40px;
