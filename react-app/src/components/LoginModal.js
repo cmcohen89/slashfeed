@@ -4,7 +4,7 @@ const LoginModal = ({ showLoginModal, setShowLoginModal }) => {
     return (
         <>
             <div className={`modal container ${showLoginModal ? "login-show" : ""}`}>
-                <LoginForm setShowLoginModal={setShowLoginModal} />
+                <LoginForm showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal} />
             </div>
             <div
                 className={`overlay ${showLoginModal ? "show" : ""}`}

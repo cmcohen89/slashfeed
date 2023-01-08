@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { postSinglePost } from '../../store/one_post';
 import './CreatePostForm.css';
 
-const CreatePostForm = ({ setShowCreateModal }) => {
+const CreatePostForm = ({ setShowCreateModal, showCreateModal }) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
@@ -36,6 +36,12 @@ const CreatePostForm = ({ setShowCreateModal }) => {
             }
         }
     }
+
+    useEffect(() => {
+        setTitle('');
+        setBody('');
+        setPreviewImgUrl('');
+    }, [showCreateModal])
 
     const updateImage = (e) => {
         const file = e.target.files[0];

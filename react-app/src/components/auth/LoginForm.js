@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginForm.css';
 
-const LoginForm = ({ setShowLoginModal }) => {
+const LoginForm = ({ setShowLoginModal, showLoginModal }) => {
     const [errors, setErrors] = useState([]);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -43,9 +43,11 @@ const LoginForm = ({ setShowLoginModal }) => {
         setPassword(e.target.value);
     };
 
-    // if (user) {
-    //     return <Redirect to='/' />;
-    // }
+    useEffect(() => {
+        setErrors([]);
+        setEmail('');
+        setPassword('');
+    }, [showLoginModal])
 
     return (
         <form className='login-form' onSubmit={onLogin}>
