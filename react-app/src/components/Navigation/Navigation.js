@@ -57,9 +57,6 @@ const Navigation = () => {
             <div className="navigation-container">
                 <NavLink to='/home' className='nav-logo-link'><img className='nav-logo' src='https://i.imgur.com/s9sq5Yk.png' alt='website logo' /></NavLink>
                 {/* <li className='slogan'>Get your news from your friends</li> */}
-                <div className='search-bar-container'>
-                    <SearchBar />
-                </div>
                 <ul className='nav-links'>
                     {!user ?
                         <li className='nav-signup-link'
@@ -92,9 +89,15 @@ const Navigation = () => {
                     {!user ?
                         <li className='nav-login-link-last' onClick={() => setShowLoginModal(true)}>Log In</li>
                         :
-                        <li className='nav-login-link-last' onClick={async () => await dispatch(logout())}>Log Out</li>
+                        <li className='nav-login-link-last' onClick={async () => {
+                            await dispatch(logout());
+                            history.push('/')
+                        }}>Log Out</li>
                     }
                 </ul>
+                <div className='search-bar-container'>
+                    <SearchBar />
+                </div>
                 <span
                     className='nav-create'
                     onClick={() => user ? (windowHeight > 950 ? setShowCreateModal(true) : history.push('/create-post')) : setShowLoginModal(true)}

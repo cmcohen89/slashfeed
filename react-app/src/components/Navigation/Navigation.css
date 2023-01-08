@@ -33,10 +33,11 @@
     font-weight: 600;
     font-size: 18px;
     display: flex;
-    justify-content: right;
+    justify-content: left;
     width: 600px;
     list-style: none;
     text-transform: uppercase;
+    margin-left: 40px;
 }
 
 .nav-login-link {
@@ -93,6 +94,10 @@
 .nav-signup-link:hover,
 .nav-login-link-last:hover {
     color: #21BFE1;
+}
+
+.search-bar-container {
+    padding-right: 65px;
 }
 
 .nav-create {

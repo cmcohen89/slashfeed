@@ -33,6 +33,9 @@ const SearchBar = () => {
     return (
         <div className="search-bar">
             <form onSubmit={handleSubmit}>
+                <span className="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
                 <input
                     className='search-input'
                     required

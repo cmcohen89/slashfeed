@@ -32,4 +32,9 @@ class SignUpForm(FlaskForm):
             Length(min=0, max=1500, message="The image URL must be less than 1500 characters."),
             URL(message="Please enter a valid URL for your image.")
         ])
-    password = StringField('password', validators=[DataRequired(), Length(min=6, max=20, message="Safe passwords are more than 6 characters. Annoying passwords are more than 20.")])
+    password = StringField('password',
+        validators=[
+            DataRequired(),
+            Length(min=6, message="Safe passwords are more than 6 characters."),
+            Length(max=20, message="What is this, a bank? Keep your password to 20 characters.")
+        ])

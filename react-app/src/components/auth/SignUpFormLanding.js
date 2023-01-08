@@ -111,9 +111,9 @@ const SignUpFormLanding = ({ setForm }) => {
     return (
         <form className='signup-form-landing' onSubmit={onSignUp}>
             <div className='signup-logo'>
-                <img src="https://i.imgur.com/Ay8PoEb.png" />
+                <img src="https://i.imgur.com/i9QyYGZ.png" />
             </div>
-            <div className='signup-errors'>
+            <div className='signup-errors-landing'>
                 {/* {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
                 ))} */}
@@ -121,11 +121,10 @@ const SignUpFormLanding = ({ setForm }) => {
             </div>
             <div className='signup-div-landing'>
                 <div className='login-div'>
-                    <label className='login-label'>First Name</label>
                     <input
-                        placeholder='Nicknames are fine, too'
+                        placeholder='First name'
                         required
-                        className='login-input'
+                        className='landing-login-input'
                         type='text'
                         name='firstname'
                         onChange={updateFirstName}
@@ -133,11 +132,10 @@ const SignUpFormLanding = ({ setForm }) => {
                     ></input>
                 </div>
                 <div className='login-div'>
-                    <label className='login-label'>Last Name</label>
                     <input
-                        placeholder="Let's make it official"
+                        placeholder="Last name"
                         required
-                        className='login-input'
+                        className='landing-login-input'
                         type='text'
                         name='lastname'
                         onChange={updateLastName}
@@ -147,11 +145,10 @@ const SignUpFormLanding = ({ setForm }) => {
             </div>
             <div className='signup-div-landing'>
                 <div className='login-div'>
-                    <label className='login-label'>Username</label>
                     <input
-                        placeholder='This is how other users will see you'
+                        placeholder='Username'
                         required
-                        className='login-input'
+                        className='landing-login-input'
                         type='text'
                         name='username'
                         onChange={updateUsername}
@@ -159,11 +156,10 @@ const SignUpFormLanding = ({ setForm }) => {
                     ></input>
                 </div>
                 <div className='login-div'>
-                    <label className='login-label'>Email</label>
                     <input
-                        placeholder='We promise not to send you junk mail'
+                        placeholder='Email'
                         required
-                        className='login-input'
+                        className='landing-login-input'
                         type='text'
                         name='email'
                         onChange={updateEmail}
@@ -173,14 +169,13 @@ const SignUpFormLanding = ({ setForm }) => {
             </div>
             <div className='login-div-container'>
                 <div className='login-div'>
-                    <label className='login-label' htmlFor='url-input'>Profile Picture</label>
                     <input
-                        className='login-input'
+                        className='landing-login-input'
                         required
                         name='url-input'
                         onChange={e => setProfileImgUrl(e.target.value)}
                         value={profile_img_url}
-                        placeholder="Enter image URL or upload pic below"
+                        placeholder="Profile Picture URL"
                         type='text'
                     />
                 </div>
@@ -200,13 +195,11 @@ const SignUpFormLanding = ({ setForm }) => {
                 </div>
             </div>
             <div className='signup-div-landing'>
-
                 <div className='login-div'>
-                    <label className='login-label'>Password</label>
                     <input
-                        placeholder='Keep it secret, keep it safe'
+                        placeholder='Password'
                         required
-                        className='login-input'
+                        className='landing-login-input'
                         type='password'
                         name='password'
                         onChange={updatePassword}
@@ -214,11 +207,10 @@ const SignUpFormLanding = ({ setForm }) => {
                     ></input>
                 </div>
                 <div className='login-div'>
-                    <label className='login-label'>Repeat Password</label>
                     <input
-                        placeholder='Is it secret? Is it safe?'
+                        placeholder='Repeat password'
                         required
-                        className='login-input'
+                        className='landing-login-input'
                         type='password'
                         name='repeat_password'
                         onChange={updateRepeatPassword}

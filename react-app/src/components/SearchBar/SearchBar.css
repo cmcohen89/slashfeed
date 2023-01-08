@@ -2,6 +2,14 @@
     position: relative;
 }
 
+.search-icon {
+    position: absolute;
+    bottom: 8px;
+    left: 20px;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.456);
+}
+
 .search-input {
     text-align: left;
     height: 40px;
@@ -9,7 +17,7 @@
     border-radius: 10px;
     border: 1px solid #d6d6d7;
     transition: all .2s ease-out;
-    padding: 0 15px;
+    padding: 0 35px;
     font-size: 16px;
     margin-left: 10px;
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import { likePost, unlikePost } from "../../store/all_posts";
 import { getSinglePost } from "../../store/one_post";
 import Comments from "../Comments/Comments";
@@ -9,6 +9,7 @@ import './SinglePost.css';
 
 const SinglePost = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const user = useSelector(state => state.session.user)
     const { id } = useParams();
     const singlePost = useSelector(state => state.onePost[id]);
@@ -19,6 +20,7 @@ const SinglePost = () => {
     }, [dispatch, id])
 
     if (!singlePost) return null;
+    if (!user) history.push('/')
 
     return (
         <div className="single-post-page-container">

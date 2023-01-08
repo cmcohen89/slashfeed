@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { getPosts, likePost, unlikePost } from "../../store/all_posts";
 import { getUsers } from "../../store/all_users";
 import { getChats } from "../../store/chats";
@@ -11,6 +11,7 @@ import './PostIndex.css';
 import SideFeaturedPost from "./SideFeaturedPost";
 
 const PostIndex = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const allPosts = useSelector(state => Object.values(state.allPosts))
     const topPosts = useSelector(state => Object.values(state.allPosts))
@@ -27,6 +28,8 @@ const PostIndex = () => {
     allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
     if (!allPosts || allPosts.length < 3) return null;
+
+    if (!user) history.push('/')
 
     return (
         <div className="all-posts">
