@@ -9,6 +9,7 @@ import followsReducer from './follows';
 import chatsReducer from './chats';
 import oneChatReducer from './one_chat';
 import userPostsReducer from './user_posts';
+import searchReducer from './search';
 
 const rootReducer = combineReducers({
     session,
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
     allUsers: allUsersReducer,
     follows: followsReducer,
     chats: chatsReducer,
-    oneChat: oneChatReducer
+    oneChat: oneChatReducer,
+    searchResults: searchReducer
 });
 
 

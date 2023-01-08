@@ -90,13 +90,13 @@
 .chat-right-header {
     display: flex;
     align-items: center;
-    padding: 10px 0;
+    padding: 9.5px 0;
     border-bottom: 1px solid #d6d6d7;
 }
 
 .chat-right-recipient-pic {
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 20px;
@@ -107,9 +107,9 @@
 }
 
 .chat-right-content {
-    padding-top: 30px;
-    height: 795px;
-    overflow: scroll;
+    margin-top: 30px;
+    height: 755px;
+    overflow-y: scroll;
     border-bottom: 1px solid #d6d6d7;
 }
 

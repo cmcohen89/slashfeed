@@ -10,7 +10,7 @@ def search(query):
     Query for searching all products
     """
 
-    # formatted_query = " ".join(query.split('+'))
-    # queried_products = Product.query.filter(or_(Product.title.ilike(f"%{formatted_query}%"), Product.detailed_description.ilike(f"%{formatted_query}%"))).all()
+    formatted_query = " ".join(query.split('+'))
+    queried_users = User.query.filter(or_(User.first_name.ilike(f"%{formatted_query}%"), User.last_name.ilike(f"%{formatted_query}%"), User.username.ilike(f"%{formatted_query}%"))).all()
 
-    # return {"query": [product.to_dict() for product in queried_products]}
+    return {"Users": [user.to_dict() for user in queried_users]}

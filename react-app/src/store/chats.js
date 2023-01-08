@@ -25,8 +25,9 @@ export const postThread = (targetUserId) => async dispatch => {
     });
 
     if (response.ok) {
-        const successMsg = await response.json();
-        return successMsg;
+        console.log('here111')
+        const newThread = await response.json();
+        return newThread;
     };
 };
 

@@ -7,6 +7,7 @@ import ChatMessages from "./ChatMessages";
 import { NavLink } from "react-router-dom";
 import OneChat from "./OneChat";
 import { io } from 'socket.io-client';
+import SearchBarChat from "../SearchBar/SearchBarChat";
 let socket;
 
 const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }) => {
@@ -110,6 +111,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
     return (
         <div className="chat-page">
             <div className="chat-left">
+                <SearchBarChat setSelectedChat={setSelectedChat} setMessages={setMessages} />
                 {chats.length ? chats.map(chat => (
                     <div key={chat.id}>
                         <OneChat
