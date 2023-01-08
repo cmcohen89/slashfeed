@@ -36,7 +36,6 @@ const SearchBar = () => {
                     placeholder="Search for a user"
                     type='text'
                     autoComplete="off"
-                    onBlur={e => setQuery('')}
                 />
             </form>
             {results && query &&
