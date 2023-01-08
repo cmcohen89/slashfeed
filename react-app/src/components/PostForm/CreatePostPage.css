@@ -1,0 +1,10 @@
+.create-post-page {
+    height: 99vh;
+    width: 99vw;
+    background: url('https://i.imgur.com/zz9WM8f.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    opacity: 1;
+}

@@ -55,7 +55,7 @@ const LoginFormLanding = ({ setForm }) => {
                     <div key={ind}>{error}</div>
                 ))}
             </div>
-            <div className='login-div'>
+            <div className='login-div-landing'>
                 <label className='login-label' htmlFor='email'>Email</label>
                 <input
                     required
@@ -67,7 +67,7 @@ const LoginFormLanding = ({ setForm }) => {
                     onChange={updateEmail}
                 />
             </div>
-            <div className='login-div'>
+            <div className='login-div-landing'>
                 <label className='login-label' htmlFor='password'>Password</label>
                 <input
                     required
