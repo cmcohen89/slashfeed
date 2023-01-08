@@ -55,7 +55,7 @@ const Navigation = () => {
                 onClick={() => setShowChatModal(!setShowChatModal)}
             />
             <div className="navigation-container">
-                <NavLink to='/' className='nav-logo-link'><img className='nav-logo' src='https://i.imgur.com/s9sq5Yk.png' alt='website logo' /></NavLink>
+                <NavLink to='/home' className='nav-logo-link'><img className='nav-logo' src='https://i.imgur.com/s9sq5Yk.png' alt='website logo' /></NavLink>
                 {/* <li className='slogan'>Get your news from your friends</li> */}
                 <div className='search-bar-container'>
                     <SearchBar />
@@ -70,7 +70,7 @@ const Navigation = () => {
                         :
                         <>
                             <li className='nav-login-link' onClick={() => {
-                                history.push('/')
+                                history.push('/home')
                                 dispatch(getPosts())
                             }}>All Posts</li>
                             <li className='nav-login-link' onClick={() => {

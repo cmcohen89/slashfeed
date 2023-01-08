@@ -1,0 +1,46 @@
+.signup-form-landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 200px 100px 20px 100px;
+    /* border: 3px solid rgba(0, 0, 0, 0.491); */
+    border-radius: 10px;
+    position: relative;
+    margin-top: 8vh;
+    margin-right: -3vw;
+}
+
+.signup-logo {
+    position: absolute;
+    top: -250px;
+    right: 120px;
+}
+
+.signup-div-landing {
+    display: flex;
+    gap: 20px;
+}
+
+.signup-button-landing {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+    height: 34px;
+    width: 250px;
+    text-transform: uppercase;
+    background-color: #7f5ae5;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    transition: box-shadow .2s ease-out;
+}
+
+.signup-button-landing:hover {
+    box-shadow: 0 0 15px #7f5ae5;
+}

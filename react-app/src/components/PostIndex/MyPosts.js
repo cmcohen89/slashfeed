@@ -34,13 +34,13 @@ const MyPosts = () => {
         return (
             <div className="follow-more-users">
                 <h1>Follow more users to see your feed!</h1>
-                <NavLink to='/' className='view-all'><h1>View All Posts</h1></NavLink>
+                <NavLink to='/home' className='view-all'><h1>View All Posts</h1></NavLink>
             </div>
         )
     }
 
     if (!allPosts || !allPosts.length) return null;
-    if (!user) history.push('/')
+    if (!user) history.push('/home')
 
     return (
         <div className="all-posts">

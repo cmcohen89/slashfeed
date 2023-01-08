@@ -1,0 +1,42 @@
+.landing-page {
+    height: 99vh;
+    width: 99vw;
+    background: url('https://i.imgur.com/ATHbyUn.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    opacity: 1;
+}
+
+.landing-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    margin-right: 14vw;
+}
+
+.landing-page-forms-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landing-page-forms {
+    position: relative;
+}
+
+.landing-lower-text {
+    font-size: 18px;
+}
+
+.sign-up-landing-link {
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color .2s ease;
+}
+
+.sign-up-landing-link:hover {
+    color: #21BFE1;
+}
