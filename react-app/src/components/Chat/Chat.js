@@ -110,8 +110,8 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
 
     return (
         <div className="chat-page">
+            <SearchBarChat selectedChat={selectedChat} showChatModal1={showChatModal1} showChatModal2={showChatModal2} setSelectedChat={setSelectedChat} setMessages={setMessages} />
             <div className="chat-left">
-                <SearchBarChat selectedChat={selectedChat} showChatModal1={showChatModal1} showChatModal2={showChatModal2} setSelectedChat={setSelectedChat} setMessages={setMessages} />
                 {chats.length ? chats.map(chat => (
                     <div key={chat.id}>
                         <OneChat

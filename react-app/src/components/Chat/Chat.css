@@ -10,6 +10,7 @@
 }
 
 .chat-left {
+    padding-top: 70px;
     padding-right: 0px;
     overflow: auto;
     border-right: 1px solid #d6d6d7;
@@ -21,6 +22,7 @@
 }
 
 .chat-left::-webkit-scrollbar-track {
+    margin-top: 80px;
     background-color: transparent;
 }
 
