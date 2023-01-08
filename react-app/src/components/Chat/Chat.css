@@ -44,10 +44,21 @@
     border-radius: 30px;
 }
 
-.chat-recipient-unread {
+/* .chat-recipient-unread {
     background-color: #21bee13f;
     border-radius: 30px;
     box-shadow: 0 0 15px #21bee196;
+} */
+
+.new-chat-icon {
+    font-size: 14px;
+    margin-left: 10px;
+    background-color: #21BFE1;
+    color: rgb(255, 255, 255);
+    padding: 2px 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgb(104, 104, 104);
+    transition: all .5s ease;
 }
 
 .chat-recipient:hover .recipient-name {
@@ -67,12 +78,20 @@
 }
 
 .recipient-pic:hover {
-    box-shadow: 0 0 10px #21bee171;
+    box-shadow: 0 0 10px #21BFE1;
 }
 
 .recipient-name {
     color: #333333d4;
     transition: color .2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.selected-recipient {
+    background-color: #21bee11f;
+    border-radius: 30px;
+    box-shadow: 0 0 15px #21bee150;
 }
 
 .selected-recipient-name {
@@ -182,7 +201,7 @@
 }
 
 .send-message-button:hover {
-    box-shadow: 0 0 15px #21bee171;
+    box-shadow: 0 0 15px #21BFE1;
 }
 
 .message-input {

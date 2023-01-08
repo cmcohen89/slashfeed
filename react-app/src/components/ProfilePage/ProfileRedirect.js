@@ -6,7 +6,7 @@ const ProfileRedirect = () => {
     if (user) {
         return <Redirect to={`/profile/${user.id}`} />;
     } else {
-        return <Redirect to='/' />
+        return <Redirect to='/home' />
     }
 }
 

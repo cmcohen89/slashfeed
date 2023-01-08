@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
-import './SignupForm.css'
+import './SignUpFormLanding.css'
 
-const SignUpForm = ({ setShowSignupModal, showSignupModal }) => {
+const SignUpFormLanding = ({ setForm }) => {
     const [errors, setErrors] = useState([]);
     const [first_name, setFirstName] = useState('');
     const [last_name, setLastName] = useState("");
@@ -66,7 +66,6 @@ const SignUpForm = ({ setShowSignupModal, showSignupModal }) => {
             if (data) {
                 setErrors(data);
             } else {
-                setShowSignupModal(false);
                 setFirstName('');
                 setLastName('');
                 setUsername('');
@@ -75,21 +74,10 @@ const SignUpForm = ({ setShowSignupModal, showSignupModal }) => {
                 setPassword('');
                 setRepeatPassword('');
                 setImage(null);
-                history.push('/profile')
+                history.push('/home')
             }
         }
     };
-
-    useEffect(() => {
-        setFirstName('');
-        setLastName('');
-        setUsername('');
-        setEmail('');
-        setProfileImgUrl('');
-        setPassword('');
-        setRepeatPassword('');
-        setImage(null);
-    }, [showSignupModal])
 
     const updateFirstName = (e) => {
         setFirstName(e.target.value);
@@ -121,65 +109,71 @@ const SignUpForm = ({ setShowSignupModal, showSignupModal }) => {
     };
 
     return (
-        <form className='login-form' onSubmit={onSignUp}>
-            <h1 className='login-title'>Sign up</h1>
+        <form className='signup-form-landing' onSubmit={onSignUp}>
+            <div className='signup-logo'>
+                <img src="https://i.imgur.com/Ay8PoEb.png" />
+            </div>
             <div className='signup-errors'>
                 {/* {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
                 ))} */}
                 {errors[0]}
             </div>
-            <div className='signup-div'>
-                <label className='signup-label'>First Name</label>
-                <input
-                    placeholder='Nicknames are fine, too'
-                    required
-                    className='login-input'
-                    type='text'
-                    name='firstname'
-                    onChange={updateFirstName}
-                    value={first_name}
-                ></input>
+            <div className='signup-div-landing'>
+                <div className='login-div'>
+                    <label className='login-label'>First Name</label>
+                    <input
+                        placeholder='Nicknames are fine, too'
+                        required
+                        className='login-input'
+                        type='text'
+                        name='firstname'
+                        onChange={updateFirstName}
+                        value={first_name}
+                    ></input>
+                </div>
+                <div className='login-div'>
+                    <label className='login-label'>Last Name</label>
+                    <input
+                        placeholder="Let's make it official"
+                        required
+                        className='login-input'
+                        type='text'
+                        name='lastname'
+                        onChange={updateLastName}
+                        value={last_name}
+                    ></input>
+                </div>
             </div>
-            <div className='signup-div'>
-                <label className='signup-label'>Last Name</label>
-                <input
-                    placeholder="Let's make it official"
-                    required
-                    className='login-input'
-                    type='text'
-                    name='lastname'
-                    onChange={updateLastName}
-                    value={last_name}
-                ></input>
+            <div className='signup-div-landing'>
+                <div className='login-div'>
+                    <label className='login-label'>Username</label>
+                    <input
+                        placeholder='This is how other users will see you'
+                        required
+                        className='login-input'
+                        type='text'
+                        name='username'
+                        onChange={updateUsername}
+                        value={username}
+                    ></input>
+                </div>
+                <div className='login-div'>
+                    <label className='login-label'>Email</label>
+                    <input
+                        placeholder='We promise not to send you junk mail'
+                        required
+                        className='login-input'
+                        type='text'
+                        name='email'
+                        onChange={updateEmail}
+                        value={email}
+                    ></input>
+                </div>
             </div>
-            <div className='signup-div'>
-                <label className='signup-label'>User Name</label>
-                <input
-                    placeholder='This is how other users will see you'
-                    required
-                    className='login-input'
-                    type='text'
-                    name='username'
-                    onChange={updateUsername}
-                    value={username}
-                ></input>
-            </div>
-            <div className='signup-div'>
-                <label className='signup-label'>Email</label>
-                <input
-                    placeholder='We promise not to send you junk mail'
-                    required
-                    className='login-input'
-                    type='text'
-                    name='email'
-                    onChange={updateEmail}
-                    value={email}
-                ></input>
-            </div>
-            <div className='signup-div-container'>
-                <div className='signup-div'>
-                    <label className='signup-label' htmlFor='url-input'>Image URL</label>
+            <div className='login-div-container'>
+                <div className='login-div'>
+                    <label className='login-label' htmlFor='url-input'>Profile Picture</label>
                     <input
                         className='login-input'
                         required
@@ -205,33 +199,45 @@ const SignUpForm = ({ setShowSignupModal, showSignupModal }) => {
                     {(imageLoading) && <p className='aws-loading-text'>Loading...</p>}
                 </div>
             </div>
-            <div className='signup-div'>
-                <label className='signup-label'>Password</label>
-                <input
-                    placeholder='Keep it secret, keep it safe'
-                    required
-                    className='login-input'
-                    type='password'
-                    name='password'
-                    onChange={updatePassword}
-                    value={password}
-                ></input>
+            <div className='signup-div-landing'>
+
+                <div className='login-div'>
+                    <label className='login-label'>Password</label>
+                    <input
+                        placeholder='Keep it secret, keep it safe'
+                        required
+                        className='login-input'
+                        type='password'
+                        name='password'
+                        onChange={updatePassword}
+                        value={password}
+                    ></input>
+                </div>
+                <div className='login-div'>
+                    <label className='login-label'>Repeat Password</label>
+                    <input
+                        placeholder='Is it secret? Is it safe?'
+                        required
+                        className='login-input'
+                        type='password'
+                        name='repeat_password'
+                        onChange={updateRepeatPassword}
+                        value={repeatPassword}
+                    ></input>
+                </div>
             </div>
-            <div className='signup-div'>
-                <label className='signup-label'>Repeat Password</label>
-                <input
-                    placeholder='Is it secret? Is it safe?'
-                    required
-                    className='login-input'
-                    type='password'
-                    name='repeat_password'
-                    onChange={updateRepeatPassword}
-                    value={repeatPassword}
-                ></input>
-            </div>
-            <button className='signup-button' type='submit'>Sign Up</button>
+            <button className='signup-button-landing' type='submit'>Sign Up</button>
+            <p className='landing-lower-text'>
+                Already have an account?&nbsp;&nbsp;
+                <span
+                    className='sign-up-landing-link'
+                    onClick={() => setForm('login')}
+                >
+                    Login
+                </span>
+            </p>
         </form>
     );
 };
 
-export default SignUpForm;
+export default SignUpFormLanding;

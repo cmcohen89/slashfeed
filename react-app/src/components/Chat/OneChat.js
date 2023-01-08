@@ -14,10 +14,7 @@ const OneChat = ({ currUser, messageReader, chat, selectedChat, setSelectedChat,
             {chat && chat.recipient && currUser &&
                 <div
                     className={`chat-recipient
-                    ${chat.chatMessages.length && !chat.chatMessages[chat.chatMessages.length - 1].read &&
-                        chat.chatMessages[chat.chatMessages.length - 1].messageOwner.id !== currUser.id &&
-                        'chat-recipient-unread'} ${selectedChat && selectedChat.recipient.id === chat.recipient.id &&
-                        'selected-recipient'}`}
+                    ${selectedChat && selectedChat.recipient.id === chat.recipient.id && 'selected-recipient'}`}
                     onClick={async () => {
                         await dispatch(getChats());
                         if (!showDelete) await setSelectedChat(chat);
@@ -44,6 +41,12 @@ const OneChat = ({ currUser, messageReader, chat, selectedChat, setSelectedChat,
                             'selected-recipient-name'}`}
                         >
                             {chat.recipient.firstName}
+                            {
+                                chat.chatMessages.length &&
+                                    !chat.chatMessages[chat.chatMessages.length - 1].read &&
+                                    chat.chatMessages[chat.chatMessages.length - 1].messageOwner.id !== currUser.id ?
+                                    <span className="new-chat-icon">New</span> : ""
+                            }
                         </h2>
                         {chat.chatMessages.length ?
                             <p className="chat-preview">
