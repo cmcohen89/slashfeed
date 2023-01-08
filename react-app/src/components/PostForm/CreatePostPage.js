@@ -4,7 +4,9 @@ import './CreatePostPage.css';
 const CreatePostPage = () => {
     return (
         <div className="create-post-page">
-            {/* <CreatePostForm /> */}
+            <div className="create-post-page-form">
+                <CreatePostForm />
+            </div>
         </div>
     )
 }

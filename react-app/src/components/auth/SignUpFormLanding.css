@@ -58,3 +58,10 @@
 .first-name-error {
     border: 1px solid red;
 }
+
+.aws-loading-signup {
+    text-align: center;
+    height: 20px;
+    padding-bottom: 30px;
+    position: relative;
+}

@@ -132,7 +132,7 @@
     height: 780px;
     overflow-y: scroll;
     border-bottom: 1px solid #d6d6d7;
-    background-color: #f6f6f7;
+    background-color: #f6f6f745;
 }
 
 .placeholder-icon {
@@ -284,7 +284,7 @@
     padding-right: 18px;
     word-break: break-word;
     border: 1px solid #21bee1a2;
-    box-shadow: 2px 2px 5px black;
+    box-shadow: 1px 1px 4px black;
     font-size: 17px;
 }
 
@@ -306,7 +306,7 @@
     transition: all .2s ease;
     background: linear-gradient(to left top, #7f5ae57b 80%, white 100%);
     border: 1px solid #7f5ae57b;
-    box-shadow: 2px 2px 5px black;
+    box-shadow: 1px 1px 4px black;
     font-size: 17px;
 }
 

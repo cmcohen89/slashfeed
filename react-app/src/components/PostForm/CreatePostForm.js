@@ -78,63 +78,72 @@ const CreatePostForm = ({ setShowCreateModal, showCreateModal }) => {
     return (
         <div>
             <form className='create-form' onSubmit={handleSubmit}>
-                <h1 className='login-title'>Create New Post</h1>
+                <h1 className='create-post-page-title'>New Post</h1>
                 <div className='login-errors'>
                     {errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
                     ))}
                 </div>
-                <div className='login-div'>
-                    <label className='login-label' htmlFor='title-input'>Title</label>
-                    <input
-                        className='create-input'
-                        required
-                        name='title-input'
-                        onChange={e => setTitle(e.target.value)}
-                        value={title}
-                        placeholder="Give your post a short title"
-                        type='text'
-                    />
+                <div className='create-page-div-container'>
+                    <div className='create-page-div'>
+                        <div>
+                            <div className='login-div'>
+                                {/* <label className='login-label' htmlFor='url-input'>Image URL</label> */}
+                                <input
+                                    className='create-page-input'
+                                    required
+                                    name='url-input'
+                                    onChange={e => setPreviewImgUrl(e.target.value)}
+                                    value={preview_img_url}
+                                    placeholder="Enter the image URL or upload a pic below"
+                                    type='text'
+                                />
+                            </div>
+                            <div className='aws-div-create-page'>
+                                <label className='aws-label'>
+                                    <input
+                                        className="aws-input"
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={updateImage}
+                                    />
+                                </label>
+                                <span className={`aws-submit2 ${!image && 'upload-disabled'}`} onClick={handleUpload}>Upload</span>
+                            </div>
+                            <div className='aws-loading-create'>
+                                {(imageLoading) && <p className='aws-loading-text-create'>Loading...</p>}
+                            </div>
+
+                        </div>
+                        <div className='login-div'>
+                            {/* <label className='login-label' htmlFor='title-input'>Title</label> */}
+                            <input
+                                className='create-page-input'
+                                required
+                                name='title-input'
+                                onChange={e => setTitle(e.target.value)}
+                                value={title}
+                                placeholder="Give your post a short title"
+                                type='text'
+                            />
+                        </div>
+                        <div className='login-div'>
+                            {/* <label className='login-label' htmlFor='body-input'>Body</label> */}
+                            <textarea
+                                className='create-page-textarea'
+                                required
+                                name='body-input'
+                                onChange={e => setBody(e.target.value)}
+                                value={body}
+                                placeholder="Tell everyone all about it!"
+                                type='text'
+                            />
+                        </div>
+                    </div>
+
+
                 </div>
-                <div className='login-div'>
-                    <label className='login-label' htmlFor='url-input'>Image URL</label>
-                    <input
-                        className='create-input'
-                        required
-                        name='url-input'
-                        onChange={e => setPreviewImgUrl(e.target.value)}
-                        value={preview_img_url}
-                        placeholder="Enter the image URL or upload a pic below"
-                        type='text'
-                    />
-                </div>
-                <div className='aws-div'>
-                    <label className='aws-label'>
-                        <input
-                            className="aws-input"
-                            type="file"
-                            accept="image/*"
-                            onChange={updateImage}
-                        />
-                    </label>
-                    <span className={`aws-submit2 ${!image && 'upload-disabled'}`} onClick={handleUpload}>Upload</span>
-                </div>
-                <div className='aws-loading-create'>
-                    {(imageLoading) && <p className='aws-loading-text-create'>Loading...</p>}
-                </div>
-                <div className='login-div'>
-                    <label className='login-label' htmlFor='body-input'>Body</label>
-                    <textarea
-                        className='create-textarea'
-                        required
-                        name='body-input'
-                        onChange={e => setBody(e.target.value)}
-                        value={body}
-                        placeholder="Tell everyone all about it!"
-                        type='text'
-                    />
-                </div>
-                <button className='create-button' type='submit'>Create Post</button>
+                <button className='create-page-button' type='submit'>Create Post</button>
             </form>
         </div>
     )

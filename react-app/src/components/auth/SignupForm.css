@@ -79,13 +79,6 @@
     right: 30px;
 }
 
-.aws-loading-create {
-    text-align: center;
-    height: 20px;
-    padding-bottom: 30px;
-    position: relative;
-}
-
 .aws-loading-text-create {
     position: absolute;
     top: -30px;

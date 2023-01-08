@@ -170,12 +170,12 @@ const SignUpFormLanding = ({ setForm }) => {
             <div className='login-div-container'>
                 <div className='login-div'>
                     <input
-                        className='landing-login-input'
+                        className='landing-login-input-url'
                         required
                         name='url-input'
                         onChange={e => setProfileImgUrl(e.target.value)}
                         value={profile_img_url}
-                        placeholder="Profile Picture URL"
+                        placeholder="Enter profile image URL or upload below"
                         type='text'
                     />
                 </div>
@@ -190,7 +190,7 @@ const SignUpFormLanding = ({ setForm }) => {
                     </label>
                     <span className={`aws-submit2 ${!image && 'upload-disabled'}`} onClick={handleUpload}>Upload</span>
                 </div>
-                <div className='aws-loading3'>
+                <div className='aws-loading-signup'>
                     {(imageLoading) && <p className='aws-loading-text'>Loading...</p>}
                 </div>
             </div>

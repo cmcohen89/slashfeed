@@ -50,7 +50,7 @@ function App() {
                     <Navigation />
                     <ProfilePage />
                 </Route>
-                <Route path='/create-post'>
+                <Route path='/new-post'>
                     <Navigation />
                     <CreatePostPage />
                 </Route>

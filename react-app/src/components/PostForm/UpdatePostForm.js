@@ -13,6 +13,7 @@ const UpdatePostForm = ({ post, updatePost, setUpdatePost, user }) => {
     useEffect(() => {
         setTitle(post.title)
         setBody(post.body)
+        setErrors([])
     }, [updatePost, post.title, post.body])
 
     const handleSubmit = async e => {
@@ -28,13 +29,14 @@ const UpdatePostForm = ({ post, updatePost, setUpdatePost, user }) => {
                 await dispatch(getUserPosts(user.id));
                 await dispatch(getUserLikedPosts(user.id));
                 setUpdatePost(false);
+                setErrors([]);
             }
         }
     }
 
     return (
-        <div className='create-form'>
-            <h2 className='login-title'>Update Post</h2>
+        <div className='update-post-form'>
+            <h2 className='update-post-title'>Update Post</h2>
             <form onSubmit={handleSubmit}>
                 <div className='update-errors'>
                     {errors.map((error, ind) => (
