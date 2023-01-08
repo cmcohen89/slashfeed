@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { getUsers } from "../../store/all_users";
 import { getChats, postThread } from "../../store/chats";
 import { getFollows, postFollow } from "../../store/follows";
@@ -14,6 +14,7 @@ import ProfilePost from "./ProfilePost";
 const ProfilePage = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
+    const history = useHistory();
     const currUser = useSelector(state => state.session.user);
     const user = useSelector(state => state.allUsers[id]);
     const userFollowers = useSelector(state => state.follows.followers);
@@ -34,6 +35,7 @@ const ProfilePage = () => {
         dispatch(getUserLikedPosts(id));
     }, [dispatch, id]);
 
+    if (!currUser) history.push('/')
     if (!user || !userFollowers || !userFollows || !userPosts || !likedPosts) return null;
 
     return (

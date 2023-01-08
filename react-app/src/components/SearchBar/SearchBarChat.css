@@ -8,6 +8,14 @@
     width: 396px;
 }
 
+.search-icon-chat {
+    position: absolute;
+    bottom: 28px;
+    left: 25px;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.456);
+}
+
 .search-input-chat {
     text-align: left;
     height: 40px;
@@ -16,8 +24,9 @@
     border-radius: 10px;
     border: 1px solid #d6d6d7;
     transition: all .2s ease-out;
-    padding: 0 15px;
+    padding: 0 33px;
     font-size: 16px;
+    padding-top: 1px;
     /* margin-left: 20px; */
 }
 

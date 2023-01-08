@@ -6,19 +6,20 @@
     /* border: 3px solid rgba(0, 0, 0, 0.491); */
     border-radius: 10px;
     position: relative;
-    margin-top: 8vh;
+    margin-top: 14vh;
     margin-right: -3vw;
 }
 
 .signup-logo {
     position: absolute;
-    top: -250px;
-    right: 120px;
+    top: -80px;
+    right: 122px;
 }
 
 .signup-div-landing {
     display: flex;
     gap: 20px;
+    z-index: 5;
 }
 
 .signup-button-landing {
@@ -29,8 +30,8 @@
     align-items: center;
     font-weight: 600;
     font-size: 18px;
-    height: 34px;
-    width: 250px;
+    height: 40px;
+    width: 220px;
     text-transform: uppercase;
     background-color: #7f5ae5;
     color: white;
@@ -43,4 +44,17 @@
 
 .signup-button-landing:hover {
     box-shadow: 0 0 15px #7f5ae5;
+}
+
+.signup-errors-landing {
+    color: rgb(255, 0, 0);
+    padding-top: 40px;
+    margin-bottom: 50px;
+    text-align: center;
+    width: 500px;
+    height: 40px;
+}
+
+.first-name-error {
+    border: 1px solid red;
 }

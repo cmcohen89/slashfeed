@@ -43,6 +43,9 @@ const SearchBarChat = ({ selectedChat, setSelectedChat, setMessages, showChatMod
     return (
         <div className="search-bar-chat">
             <form onSubmit={handleSubmit}>
+                <span className="search-icon-chat">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
                 <input
                     className='search-input-chat'
                     required

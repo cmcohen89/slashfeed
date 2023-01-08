@@ -32,11 +32,59 @@
 }
 
 .sign-up-landing-link {
-    text-decoration: underline;
+    color: #21BFE1;
     cursor: pointer;
     transition: color .2s ease;
 }
 
-.sign-up-landing-link:hover {
+.landing-user {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40vh;
+    margin-right: 5vw;
+}
+
+.landing-user-logo {
+    position: absolute;
+    transform: scale(.9);
+    right: -3.5vw;
+    bottom: 50px;
+}
+
+.landing-user-pic {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.landing-user-continue {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 18px;
+    background-color: #21BFE1;
+    width: 280px;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: box-shadow .2s ease;
+}
+
+.landing-user-continue:hover {
+    box-shadow: 0 0 15px #21BFE1;
+}
+
+.landing-user-switch {
+    margin-top: 20px;
+    font-size: 17px;
+}
+
+.landing-switch {
     color: #21BFE1;
+    font-weight: 500;
+    cursor: pointer;
 }

@@ -48,7 +48,7 @@ const LoginFormLanding = ({ setForm }) => {
     return (
         <form className='login-form-landing' onSubmit={onLogin}>
             <div className='login-logo'>
-                <img src="https://i.imgur.com/Ay8PoEb.png" />
+                <img src="https://i.imgur.com/i9QyYGZ.png" />
             </div>
             <div className='login-errors'>
                 {errors.map((error, ind) => (

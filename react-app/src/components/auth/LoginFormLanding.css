@@ -11,6 +11,23 @@
 
 .login-logo {
     position: absolute;
-    top: -250px;
-    right: 60px;
+    top: -80px;
+    right: 53px;
+}
+
+.landing-login-input {
+    text-align: left;
+    height: 40px;
+    width: 250px;
+    border-radius: 10px;
+    border: 1px solid #d6d6d7;
+    transition: all .2s ease-out;
+    padding: 0 10px;
+    font-size: 16px;
+}
+
+.landing-login-input:focus {
+    outline: none !important;
+    border: 1px solid #21BFE1;
+    box-shadow: 0 0 10px #21bee1a5;
 }
