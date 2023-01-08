@@ -49,7 +49,7 @@ def create_thread():
     for chat in [chat.to_dict() for chat in targetUser.user_chats]:
         for user in chat["chatUsers"]:
             if user["id"] == currUser.to_dict()["id"]:
-                return {"message": "Thread already exists"}
+                return {"chat": chat}
 
     new_thread = MessageThread()
     currUser.user_chats.append(new_thread)

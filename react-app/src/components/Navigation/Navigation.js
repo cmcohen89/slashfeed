@@ -33,7 +33,7 @@ const Navigation = () => {
     return (
         <div className="navigation-wrapper">
             <div className={`modal container ${showCreateModal ? "create-show" : ""}`}>
-                <CreatePostForm setShowCreateModal={setShowCreateModal} />
+                <CreatePostForm setShowCreateModal={setShowCreateModal} showCreateModal={showCreateModal} />
             </div>
             <div
                 className={`overlay ${showCreateModal ? "show" : ""}`}
@@ -41,7 +41,7 @@ const Navigation = () => {
             />
             <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal} />
             <div className={`modal container ${showSignupModal ? "signup-show" : ""}`}>
-                <SignUpForm setShowSignupModal={setShowSignupModal} />
+                <SignUpForm setShowSignupModal={setShowSignupModal} showSignupModal={showSignupModal} />
             </div>
             <div
                 className={`overlay ${showSignupModal ? "show" : ""}`}

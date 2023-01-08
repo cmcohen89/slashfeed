@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import './SignupForm.css'
 
-const SignUpForm = ({ setShowSignupModal }) => {
+const SignUpForm = ({ setShowSignupModal, showSignupModal }) => {
     const [errors, setErrors] = useState([]);
     const [first_name, setFirstName] = useState('');
     const [last_name, setLastName] = useState("");
@@ -35,6 +35,7 @@ const SignUpForm = ({ setShowSignupModal }) => {
             const url = await res.json();
             setImageLoading(false);
             setProfileImgUrl(url.url)
+            await setImage(null)
             // history.push("/images");
         }
         else {
@@ -56,6 +57,7 @@ const SignUpForm = ({ setShowSignupModal }) => {
         if (/\d/.test(first_name) || /\d/.test(last_name)) errors.push("Your name has numbers in it? Doubt it.");
         if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) errors.push("The thing about email addresses is they need to be valid.");
         if (username.length < 5) errors.push("Let's make that username a bit longer. 5 characters should do.");
+        // if (password.length < 6 || password.length > 20) errors.push("Safe passwords are more than 6 characters. Annoying passwords are more than 20.")
         if (password !== repeatPassword) errors.push("Remember that part about how the passwords are supposed to match?");
         if (errors.length > 0) {
             setErrors(errors);
@@ -77,6 +79,17 @@ const SignUpForm = ({ setShowSignupModal }) => {
             }
         }
     };
+
+    useEffect(() => {
+        setFirstName('');
+        setLastName('');
+        setUsername('');
+        setEmail('');
+        setProfileImgUrl('');
+        setPassword('');
+        setRepeatPassword('');
+        setImage(null);
+    }, [showSignupModal])
 
     const updateFirstName = (e) => {
         setFirstName(e.target.value);

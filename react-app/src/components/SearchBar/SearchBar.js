@@ -20,6 +20,12 @@ const SearchBar = () => {
         setQuery('');
     }
 
+    const handleDeselect = (e) => {
+        setTimeout(() => {
+            setQuery('');
+        }, 100)
+    }
+
     useEffect(() => {
         handleChange();
     }, [query])
@@ -36,6 +42,7 @@ const SearchBar = () => {
                     placeholder="Search for a user"
                     type='text'
                     autoComplete="off"
+                    onBlur={handleDeselect}
                 />
             </form>
             {results && query &&

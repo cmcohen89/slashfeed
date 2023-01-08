@@ -11,6 +11,12 @@ def search(query):
     """
 
     formatted_query = " ".join(query.split('+'))
-    queried_users = User.query.filter(or_(User.first_name.ilike(f"%{formatted_query}%"), User.last_name.ilike(f"%{formatted_query}%"), User.username.ilike(f"%{formatted_query}%"))).all()
+
+    queried_users = User.query.filter(or_(
+    User.first_name.ilike(f"%{formatted_query}%"),
+    (User.first_name + ' ' + User.last_name).ilike(f"%{formatted_query}%"),
+    User.last_name.ilike(f"%{formatted_query}%"),
+    User.username.ilike(f"%{formatted_query}%")
+    )).all()
 
     return {"Users": [user.to_dict() for user in queried_users]}

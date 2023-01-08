@@ -111,7 +111,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
     return (
         <div className="chat-page">
             <div className="chat-left">
-                <SearchBarChat setSelectedChat={setSelectedChat} setMessages={setMessages} />
+                <SearchBarChat selectedChat={selectedChat} showChatModal1={showChatModal1} showChatModal2={showChatModal2} setSelectedChat={setSelectedChat} setMessages={setMessages} />
                 {chats.length ? chats.map(chat => (
                     <div key={chat.id}>
                         <OneChat
@@ -142,7 +142,12 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
                         <h2 className='recipient-name'>{selectedChat.recipient.firstName}</h2>
                     </div>
                     :
-                    <div className="chat-right-placeholder" />
+                    <div className='chat-right-header'>
+                        <span className="chat-right-header-placeholder">
+                            <span className="chat-right-recipient-pic" />
+                        </span>
+                        <h2 className='recipient-name'></h2>
+                    </div>
                 }
                 <div className="chat-right-content">
                     {selectedChat ? messages.map(msg => (
@@ -158,7 +163,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
                         </div>
                     }
                 </div>
-                <div>
+                <div className="message-form-container">
                     {selectedChat ?
                         <form className="message-form" onSubmit={handleSubmit}>
                             <input

@@ -107,15 +107,20 @@
 }
 
 .chat-right-content {
-    margin-top: 30px;
-    height: 755px;
+    padding-top: 30px;
+    height: 780px;
     overflow-y: scroll;
     border-bottom: 1px solid #d6d6d7;
+    background-color: #f6f6f7;
 }
 
 .placeholder-icon {
     font-size: 80px;
     margin-bottom: 5px;
+}
+
+.chat-right-header-placeholder {
+    height: 61px;
 }
 
 .chat-right-content-placeholder {
@@ -248,7 +253,8 @@
 .curr-user-msg {
     position: relative;
     text-align: right;
-    background-color: #21bee1a2;
+    /* background-color: #21bee1a2; */
+    background: linear-gradient(to left top, #21bee1a2 80%, white 100%);
     margin-bottom: 25px;
     margin-right: 10px;
     margin-left: 350px;
@@ -256,6 +262,9 @@
     padding: 10px;
     padding-right: 18px;
     word-break: break-word;
+    border: 1px solid #21bee1a2;
+    box-shadow: 2px 2px 5px black;
+    font-size: 17px;
 }
 
 .curr-user-msg-content {
@@ -274,6 +283,10 @@
     padding: 10px;
     word-break: break-word;
     transition: all .2s ease;
+    background: linear-gradient(to left top, #7f5ae57b 80%, white 100%);
+    border: 1px solid #7f5ae57b;
+    box-shadow: 2px 2px 5px black;
+    font-size: 17px;
 }
 
 .curr-user-timestamp {
