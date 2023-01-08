@@ -57,7 +57,7 @@ def create_thread():
     db.session.add(new_thread)
     db.session.commit()
 
-    return {"message": "Thread successfully created", "status_code": 200}
+    return {"chat": new_thread.to_dict()}
 
 
 # ADD A MESSAGE TO A THREAD BY ITS ID
@@ -92,19 +92,7 @@ def read_messages():
     """
     Change the "read" status of a list of message IDs to True
     """
-    print('''
 
-
-
-
-
-
-
-
-
-
-    ''', request.json['unreadMsgs'][0])
-    # messages = request.json("unreadMsgs")
     for msgId in request.json['unreadMsgs']:
         db_msg = Message.query.get(msgId)
         setattr(db_msg, "read", True)
@@ -139,36 +127,3 @@ def delete_message(id):
     db.session.delete(message)
     db.session.commit()
     return {"message": "Successfully deleted", "status_code": 200}
-
-# # ADD A LIKE TO A POST BY POST ID
-# @likes_routes.route("/<int:id>", methods=["POST"])
-# @login_required
-# def add_like(id):
-#     """
-#     A logged-in user can add a like to any post by its ID.
-#     """
-
-#     user = User.query.get(current_user.get_id())
-#     post = Post.query.get(id)
-#     user.user_likes.append(post)
-
-#     db.session.commit()
-
-#     return {"message": "successfully liked post"}
-
-
-# # REMOVE A LIKE FROM A POST BY POST ID
-# @likes_routes.route("/<int:id>", methods=["DELETE"])
-# @login_required
-# def remove_like(id):
-#     """
-#     A logged-in user can remove a like from any post by its ID.
-#     """
-
-#     user = User.query.get(current_user.get_id())
-#     post = Post.query.get(id)
-#     user.user_likes.remove(post)
-
-#     db.session.commit()
-
-#     return {"message": "successfully unliked post"}

@@ -20,7 +20,7 @@ const OneChat = ({ currUser, messageReader, chat, selectedChat, setSelectedChat,
                         'selected-recipient'}`}
                     onClick={async () => {
                         await dispatch(getChats());
-                        await setSelectedChat(chat);
+                        if (!showDelete) await setSelectedChat(chat);
                         await setMessages(chat.chatMessages);
                         messageReader(chat);
                     }}

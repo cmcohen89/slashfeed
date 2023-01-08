@@ -8,6 +8,7 @@ import SignUpForm from '../auth/SignUpForm';
 import Chat from '../Chat/Chat';
 import LoginModal from '../LoginModal';
 import CreatePostForm from '../PostForm/CreatePostForm';
+import SearchBar from '../SearchBar/SearchBar';
 import './Navigation.css';
 
 const Navigation = () => {
@@ -55,7 +56,10 @@ const Navigation = () => {
             />
             <div className="navigation-container">
                 <NavLink to='/' className='nav-logo-link'><img className='nav-logo' src='https://i.imgur.com/s9sq5Yk.png' alt='website logo' /></NavLink>
-                <li className='slogan'>Get your news from your friends</li>
+                {/* <li className='slogan'>Get your news from your friends</li> */}
+                <div className='search-bar-container'>
+                    <SearchBar />
+                </div>
                 <ul className='nav-links'>
                     {!user ?
                         <li className='nav-signup-link'
