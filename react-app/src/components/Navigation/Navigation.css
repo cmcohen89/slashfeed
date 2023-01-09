@@ -106,8 +106,8 @@
     align-items: center;
     font-weight: 600;
     font-size: 20px;
-    height: 38px;
-    width: 150px;
+    height: 36px;
+    width: 130px;
     text-transform: uppercase;
     background-color: #21BFE1;
     color: white;
@@ -115,7 +115,7 @@
     cursor: pointer;
     transition: box-shadow .25s ease;
     font-family: "Oswald", sans-serif;
-    letter-spacing: 0.5px;
+    letter-spacing: 0px;
     margin-right: 1px;
 }
 

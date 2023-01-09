@@ -18,8 +18,11 @@ const SignUpFormLanding = ({ setForm }) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const handleUpload = async (e) => {
-        e.preventDefault();
+    useEffect(() => {
+        if (image) handleUpload();
+    }, [image])
+
+    const handleUpload = async () => {
         const formData = new FormData();
         formData.append("image", image);
 
@@ -167,29 +170,26 @@ const SignUpFormLanding = ({ setForm }) => {
                     ></input>
                 </div>
             </div>
-            <div className='login-div-container'>
+            <div className='aws-input-and-upload'>
                 <div className='login-div'>
                     <input
                         className='landing-login-input-url'
                         required
                         name='url-input'
                         onChange={e => setProfileImgUrl(e.target.value)}
-                        value={profile_img_url}
-                        placeholder="Enter profile image URL or upload below"
+                        value={profile_img_url.slice(0, 52) + (profile_img_url && '...')}
+                        placeholder="Enter profile image URL or upload image below"
                         type='text'
                     />
                 </div>
-                <div className='aws-div4'>
-                    <label className='aws-label'>
-                        <input
-                            className="aws-input"
-                            type="file"
-                            accept="image/*"
-                            onChange={updateImage}
-                        />
-                    </label>
-                    <span className={`aws-submit2 ${!image && 'upload-disabled'}`} onClick={handleUpload}>Upload</span>
-                </div>
+                <label className='aws-label-create'><i class="fa-solid fa-upload"></i>
+                    <input
+                        className="aws-input"
+                        type="file"
+                        accept="image/*"
+                        onChange={updateImage}
+                    />
+                </label>
                 <div className='aws-loading-signup'>
                     {(imageLoading) && <p className='aws-loading-text'>Loading...</p>}
                 </div>
