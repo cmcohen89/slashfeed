@@ -38,7 +38,7 @@ const OneComment = ({ comment }) => {
                             <i className="fa-solid fa-xmark"></i>
                         </span>
                         <div className={`modal container ${updateComment ? "update-comment-show" : ""}`}>
-                            <UpdateCommentForm comment={comment} setUpdateComment={setUpdateComment} />
+                            <UpdateCommentForm comment={comment} updateComment={updateComment} setUpdateComment={setUpdateComment} />
                         </div>
                         <div
                             className={`overlay ${updateComment ? "show" : ""}`}

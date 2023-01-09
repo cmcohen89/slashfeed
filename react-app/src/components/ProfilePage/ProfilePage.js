@@ -56,7 +56,7 @@ const ProfilePage = () => {
                 />
             </div>
             <div className={`modal container ${showUpdateProfilePic ? "update-comment-show" : ""}`}>
-                <UpdateProfileImage setShowUpdateProfilePic={setShowUpdateProfilePic} userId={user.id} />
+                <UpdateProfileImage showUpdateProfilePic={showUpdateProfilePic} setShowUpdateProfilePic={setShowUpdateProfilePic} userId={user.id} />
             </div>
             <div
                 className={`overlay ${showUpdateProfilePic ? "show" : ""}`}

@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { putComment } from '../../store/comments';
 import './CommentForm.css';
 
-const UpdateCommentForm = ({ comment, setUpdateComment }) => {
+const UpdateCommentForm = ({ comment, updateComment, setUpdateComment }) => {
     const dispatch = useDispatch();
     const [body, setBody] = useState(comment.body);
     const [errors, setErrors] = useState([]);
@@ -21,9 +21,14 @@ const UpdateCommentForm = ({ comment, setUpdateComment }) => {
         }
     }
 
+    useEffect(() => {
+        setBody(comment.body);
+        setErrors([]);
+    }, [updateComment])
+
     return (
         <form className='update-comment-form' onSubmit={handleSubmit}>
-            <h3 className='login-title'>Edit Comment</h3>
+            <h3 className='update-comment-title'>Edit Comment</h3>
             <div className='comment-errors'>
                 {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
@@ -41,7 +46,7 @@ const UpdateCommentForm = ({ comment, setUpdateComment }) => {
             />
             <br />
             <div className='comment-form-button-wrapper'>
-                <button className='comment-form-button' type='submit'>Edit comment</button>
+                <button className='comment-form-button' type='submit'>submit edit</button>
             </div>
         </form>
     )

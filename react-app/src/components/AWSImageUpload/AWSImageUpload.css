@@ -69,8 +69,6 @@
     padding-top: 20px;
 }
 
-
-
 .aws-label-signup:hover {
     box-shadow: 0 0 10px #7f5ae5;
 }
@@ -125,12 +123,6 @@ input[type="file"] {
     align-items: center;
     margin-top: 0px;
     margin-bottom: 30px;
-}
-
-.update-img-form-button-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: -60px;
 }
 
 .upload-disabled {
