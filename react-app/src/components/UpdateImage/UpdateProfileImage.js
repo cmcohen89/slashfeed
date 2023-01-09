@@ -13,14 +13,21 @@ const UpdateProfileImage = ({ ShowUpdateProfilePic, setShowUpdateProfilePic, use
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const data = await dispatch(putProfilePic(userId, preview_img_url))
-        if (data.errors) {
-            setErrors(data.errors)
+        setErrors([]);;
+        let errors = [];
+        if (preview_img_url.trim() === '') errors.push('Please enter an image URL!')
+        if (errors) {
+            setErrors(errors);
         } else {
-            setPreviewImgUrl('');
-            setShowUpdateProfilePic(false);
-            setErrors([]);
-            dispatch(getUsers());
+            const data = await dispatch(putProfilePic(userId, preview_img_url))
+            if (data.errors) {
+                setErrors(data.errors)
+            } else {
+                setPreviewImgUrl('');
+                setShowUpdateProfilePic(false);
+                setErrors([]);
+                dispatch(getUsers());
+            }
         }
     }
 

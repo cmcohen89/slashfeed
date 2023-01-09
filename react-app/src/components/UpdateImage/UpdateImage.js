@@ -13,14 +13,21 @@ const UpdateImage = ({ showUpdateImage, setShowUpdateImage, imgId, user }) => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const data = await dispatch(putImg(imgId, preview_img_url))
-        if (data.errors) {
-            setErrors(data.errors)
+        setErrors([]);
+        let errors = [];
+        if (preview_img_url.trim() === '') errors.push('Please enter an image URL!')
+        if (errors) {
+            setErrors(errors);
         } else {
-            setPreviewImgUrl('');
-            setShowUpdateImage(false);
-            setErrors([]);
-            dispatch(getUserPosts(user.id));
+            const data = await dispatch(putImg(imgId, preview_img_url))
+            if (data.errors) {
+                setErrors(data.errors)
+            } else {
+                setPreviewImgUrl('');
+                setShowUpdateImage(false);
+                setErrors([]);
+                dispatch(getUserPosts(user.id));
+            }
         }
     }
 
