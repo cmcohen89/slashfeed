@@ -1,4 +1,6 @@
 # [Slash/Feed](https://cmcohen-slashfeed.herokuapp.com/)
+# [![Slash/Feed](https://i.imgur.com/5ilQmpP.png)](https://cmcohen-slashfeed.herokuapp.com/)
+
 
 ## Table of contents
 * [Intro](#intro)
