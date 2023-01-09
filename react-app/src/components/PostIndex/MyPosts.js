@@ -18,6 +18,7 @@ const MyPosts = () => {
     const user = useSelector(state => state.session.user)
     const [showLoginModal, setShowLoginModal] = useState(false);
     const myPostsFlag = true;
+    const [loading, showLoading] = useState(true);
 
     useEffect(() => {
         dispatch(getFollowedPosts());
@@ -29,6 +30,19 @@ const MyPosts = () => {
     topPosts.sort((a, b) => b.likes - a.likes)
     allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
+    setTimeout(() => {
+        showLoading(false);
+    }, 750)
+
+    if (!allPosts || !allPosts.length) return null;
+    if (!user) history.push('/')
+
+    if (loading) return (
+        <div className="follow-more-users">
+            <h1 className="create-post-page-title">Loading your feed...</h1>
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
+    )
 
     if (allPosts.length < 3) {
         return (
@@ -38,9 +52,6 @@ const MyPosts = () => {
             </div>
         )
     }
-
-    if (!allPosts || !allPosts.length) return null;
-    if (!user) history.push('/')
 
     return (
         <div className="all-posts">

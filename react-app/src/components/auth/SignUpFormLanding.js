@@ -116,6 +116,9 @@ const SignUpFormLanding = ({ setForm }) => {
             <div className='signup-logo'>
                 <img src="https://i.imgur.com/i9QyYGZ.png" />
             </div>
+            <div className='landing-page-blurb2'>
+                <h2 className='blurb'>Feel-Good News From Your Friends</h2>
+            </div>
             <div className='signup-errors-landing'>
                 {/* {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>

@@ -81,9 +81,10 @@ const CreatePostForm = ({ setShowCreateModal, showCreateModal }) => {
             <form className='create-form' onSubmit={handleSubmit}>
                 <h1 className='create-post-page-title'>New Post</h1>
                 <div className='login-errors'>
-                    {errors.map((error, ind) => (
+                    {/* {errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
-                    ))}
+                    ))} */}
+                    {errors[0]}
                 </div>
                 <div className='create-page-div-container'>
                     <div className='create-page-div'>

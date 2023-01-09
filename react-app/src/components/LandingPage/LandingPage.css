@@ -96,9 +96,18 @@
 }
 
 @media only screen and (max-device-width: 570px) {
-    .landing-page-content {
+    /* .landing-page-content {
         margin-right: 5vw;
         padding-top: 32vw;
+    } */
+
+    .landing-page {
+        height: 102vh;
+        width: 100vw;
+    }
+
+    .landing-page-forms {
+        top: 300px;
     }
 }
 

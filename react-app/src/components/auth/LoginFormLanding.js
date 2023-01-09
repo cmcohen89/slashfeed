@@ -50,31 +50,34 @@ const LoginFormLanding = ({ setForm }) => {
             <div className='login-logo'>
                 <img src="https://i.imgur.com/i9QyYGZ.png" />
             </div>
+            <div className='landing-page-blurb'>
+                <h2 className='blurb'>Feel-Good News From Your Friends</h2>
+            </div>
             <div className='login-errors'>
                 {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
                 ))}
             </div>
             <div className='login-div-landing'>
-                <label className='login-label' htmlFor='email'>Email</label>
+                {/* <label className='login-label' htmlFor='email'>Email</label> */}
                 <input
                     required
                     className='login-input'
                     name='email'
                     type='text'
-                    placeholder='Enter your email'
+                    placeholder='Email address'
                     value={email}
                     onChange={updateEmail}
                 />
             </div>
             <div className='login-div-landing'>
-                <label className='login-label' htmlFor='password'>Password</label>
+                {/* <label className='login-label' htmlFor='password'>Password</label> */}
                 <input
                     required
                     className='login-input'
                     name='password'
                     type='password'
-                    placeholder='Enter your password'
+                    placeholder='Password'
                     value={password}
                     onChange={updatePassword}
                 />
