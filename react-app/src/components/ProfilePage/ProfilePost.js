@@ -20,7 +20,7 @@ const ProfilePost = ({ post, setPostType, user }) => {
         <div className='one-profile-post'>
             <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal} />
             <div className={`modal container ${showUpdateImage ? "update-comment-show" : ""}`}>
-                <UpdateImage setShowUpdateImage={setShowUpdateImage} imgId={post.previewImgId} user={user} />
+                <UpdateImage showUpdateImage={showUpdateImage} setShowUpdateImage={setShowUpdateImage} imgId={post.previewImgId} user={user} />
             </div>
             <div
                 className={`overlay ${showUpdateImage ? "show" : ""}`}

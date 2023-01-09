@@ -94,7 +94,7 @@ const CreatePostForm = ({ setShowCreateModal, showCreateModal }) => {
                                 required
                                 name='url-input'
                                 onChange={e => setPreviewImgUrl(e.target.value)}
-                                value={preview_img_url.slice(0, 38) + (preview_img_url && '..')}
+                                value={preview_img_url}
                                 placeholder="Image URL"
                                 type='text'
                             />

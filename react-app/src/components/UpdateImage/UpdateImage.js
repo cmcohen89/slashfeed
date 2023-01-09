@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { putImg } from "../../store/one_post";
 import { getUserPosts } from "../../store/user_posts";
 import './UpdateImage.css'
 
-const UpdateImage = ({ setShowUpdateImage, imgId, user }) => {
+const UpdateImage = ({ showUpdateImage, setShowUpdateImage, imgId, user }) => {
     const dispatch = useDispatch()
     const [preview_img_url, setPreviewImgUrl] = useState('');
     const [errors, setErrors] = useState([]);
@@ -24,8 +24,17 @@ const UpdateImage = ({ setShowUpdateImage, imgId, user }) => {
         }
     }
 
-    const handleUpload = async (e) => {
-        e.preventDefault();
+    useEffect(() => {
+        if (image) handleUpload();
+    }, [image])
+
+    useEffect(() => {
+        setErrors([]);
+        setImage(null);
+        setPreviewImgUrl('')
+    }, [showUpdateImage])
+
+    const handleUpload = async () => {
         const formData = new FormData();
         formData.append("image", image);
 
@@ -58,23 +67,23 @@ const UpdateImage = ({ setShowUpdateImage, imgId, user }) => {
 
     return (
         <form className='update-comment-form' onSubmit={handleSubmit}>
-            <h3 className='update-image-title'>Update Image URL</h3>
+            <h1 className='update-post-page-title'>Update Post Image</h1>
             <div className='comment-errors'>
                 {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
                 ))}
             </div>
-            <input
-                className='update-img-input'
-                required
-                name='url-input'
-                onChange={e => setPreviewImgUrl(e.target.value)}
-                value={preview_img_url}
-                placeholder="Enter new image URL"
-                type='text'
-            />
-            <div className='aws-div3'>
-                <label className='aws-label'>
+            <div className='aws-input-and-upload'>
+                <input
+                    className='update-img-input'
+                    required
+                    name='url-input'
+                    onChange={e => setPreviewImgUrl(e.target.value)}
+                    value={preview_img_url}
+                    placeholder="Enter new image URL"
+                    type='text'
+                />
+                <label className='aws-label-create'><i class="fa-solid fa-upload"></i>
                     <input
                         className="aws-input"
                         type="file"
@@ -82,10 +91,9 @@ const UpdateImage = ({ setShowUpdateImage, imgId, user }) => {
                         onChange={updateImage}
                     />
                 </label>
-                <span className={`aws-submit2 ${!image && 'upload-disabled'}`} onClick={handleUpload}>Upload</span>
-            </div>
-            <div className='aws-loading-update-img'>
-                {(imageLoading) && <p className='aws-loading-text'>Loading...</p>}
+                <div className='aws-loading-update-img'>
+                    {(imageLoading) && <p className='aws-loading-text'>Loading...</p>}
+                </div>
             </div>
             <br />
             <div className='update-img-form-button-wrapper'>
