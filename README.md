@@ -108,4 +108,4 @@ Currently implemented features include:
 
 ## Get Started
 
-To run the app locally, navigate to the root directory in the terminal and enter `flask run`. In a separate terminal, navigate to the `/react-app` directory and enter `npm start`. This should automatically launch a browser window navigated to the proper localhost address. By default, the app will be running on port 3000.
+To run the app locally, navigate to the root directory in the terminal and install the relevant dependencies by entering `pipenv install -r requirements.txt` into the terminal. Enter `pipenv shell` to intialize the virtual environemnt, then enter `flask db upgrade` and `flask seed all` to intialize the database. Enter `flask run` to start the backend server. In a separate terminal, navigate to the `/react-app` directory and install the relevant dependencies by entering `npm install`, and then enter `npm start`. This should automatically launch a browser window navigated to the proper localhost address. By default, the app will be running on port 3000.
