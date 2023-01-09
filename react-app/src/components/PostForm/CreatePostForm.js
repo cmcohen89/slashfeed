@@ -21,6 +21,7 @@ const CreatePostForm = ({ setShowCreateModal, showCreateModal }) => {
         if (title.trim().length < 3 || title.trim().length > 100) errors.push("Let's keep titles between 3 and 100 characters.")
         if (body.trim().length < 20) errors.push("Tell us more about this post! \n (20 characters minimum)")
         if (body.trim().length > 4999) errors.push("Easy tiger, let's keep it under 5000 characters!")
+        if (preview_img_url.trim().length === '') errors.push("Please enter an image URL!")
         if (errors.length > 0) {
             setErrors(errors);
         } else {

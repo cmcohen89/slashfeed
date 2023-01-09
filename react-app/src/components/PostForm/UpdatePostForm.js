@@ -20,7 +20,7 @@ const UpdatePostForm = ({ post, updatePost, setUpdatePost, user }) => {
         e.preventDefault();
         let errors = [];
         if (title.trim().length < 2 || title.length > 100) errors.push("Let's keep titles between 2 and 100 characters.");
-        if (body.trim().length < 20) errors.push("Tell us more about this post!");
+        if (body.trim().length < 20) errors.push("Tell us more about this post! \n (20 characters minimum)");
         if (body.trim().length > 4999) errors.push("Easy tiger, let's keep it under 5000 characters!");
         if (errors.length) {
             setErrors(errors);

@@ -78,7 +78,7 @@ const ProfilePage = () => {
                 </span>
                 <div className="profile-header-info">
                     <h1 className="profile-title">{user.username}</h1>
-                    <h2 className="profile-title">{user.firstName} {user.lastName}</h2>
+                    <h2 className="profile-title-name">{user.firstName} {user.lastName}</h2>
                     <div className="profile-stats">
                         <h3 className="profile-stat">{user.postCount} {user.postCount !== 1 ? 'Posts' : 'Post'}</h3>
                         <h3 className="profile-stat">
