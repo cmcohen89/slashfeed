@@ -34,8 +34,6 @@ const MyPosts = () => {
         showLoading(false);
     }, 750)
 
-    if (!allPosts || !allPosts.length) return null;
-    if (!user) history.push('/')
 
     if (loading) return (
         <div className="follow-more-users">
@@ -52,6 +50,9 @@ const MyPosts = () => {
             </div>
         )
     }
+
+    if (!allPosts || !allPosts.length) return null;
+    if (!user) history.push('/')
 
     return (
         <div className="all-posts">
