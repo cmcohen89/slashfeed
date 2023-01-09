@@ -8,7 +8,7 @@ const CreatePostForm = ({ setShowCreateModal, showCreateModal }) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
+    let [body, setBody] = useState('');
     const [preview_img_url, setPreviewImgUrl] = useState('');
     const [errors, setErrors] = useState([]);
     const [image, setImage] = useState(null);
@@ -24,6 +24,7 @@ const CreatePostForm = ({ setShowCreateModal, showCreateModal }) => {
         if (errors.length > 0) {
             setErrors(errors);
         } else {
+            body = body.replace(/\n+/g, '\n').trim()
             const data = await dispatch(postSinglePost({ title, body, preview_img_url }));
             if (data.errors) {
                 setErrors(data.errors)
