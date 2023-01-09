@@ -178,7 +178,7 @@ const SignUpFormLanding = ({ setForm }) => {
                         name='url-input'
                         onChange={e => setProfileImgUrl(e.target.value)}
                         value={profile_img_url}
-                        placeholder="Enter profile image URL or upload image below"
+                        placeholder="Enter profile image URL or upload image"
                         type='text'
                     />
                 </div>

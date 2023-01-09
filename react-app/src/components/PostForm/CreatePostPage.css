@@ -101,8 +101,8 @@
 
 .create-page-input-url:focus {
     outline: none !important;
-    border: 1px solid #21BFE1;
-    box-shadow: 0 0 10px #21bee1a5;
+    border: 1px solid #7f5ae5;
+    box-shadow: 0 0 10px #7f5ae5;
 }
 
 .create-page-textarea {

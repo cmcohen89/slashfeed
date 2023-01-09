@@ -33,7 +33,7 @@
     height: 40px;
     width: 220px;
     text-transform: uppercase;
-    background-color: #7f5ae5;
+    background-color: #21BFE1;
     color: white;
     padding: 10px;
     border: none;
@@ -43,7 +43,7 @@
 }
 
 .signup-button-landing:hover {
-    box-shadow: 0 0 15px #7f5ae5;
+    box-shadow: 0 0 15px #21BFE1;
 }
 
 .signup-errors-landing {
