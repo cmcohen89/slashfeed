@@ -21,13 +21,12 @@
 
 .create-post-page-form {
     padding-top: 21vh;
-    padding-right: 24vw;
+    padding-right: 22vw;
 }
 
 .create-post-page-title {
     font-family: "Oswald", sans-serif;
     font-size: 50px;
-    margin-bottom: 20px;
     color: #21BFE1;
 }
 
@@ -40,7 +39,7 @@
 .create-page-div {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
 }
 
 .create-page-input {
@@ -54,7 +53,53 @@
     font-size: 16px;
 }
 
+.create-page-input-url {
+    text-align: left;
+    height: 40px;
+    width: 400px;
+    border-radius: 10px;
+    border: 1px solid #d6d6d7;
+    transition: all .2s ease-out;
+    padding-left: 12.5px;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.aws-label-create {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding-bottom: 3px;
+    cursor: pointer;
+    margin-left: 0px;
+    margin-top: 4px;
+    background-color: #7f5ae5;
+    font-weight: 600;
+    font-size: 14px;
+    height: 32px;
+    width: 32px;
+    color: white;
+    transition: box-shadow .2s ease;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    right: 5px;
+}
+
+.aws-label-create:hover {
+    box-shadow: 0 0 5px #7f5ae5;
+}
+
 .create-page-input:focus {
+    outline: none !important;
+    border: 1px solid #21BFE1;
+    box-shadow: 0 0 10px #21bee1a5;
+}
+
+.create-page-input-url:focus {
     outline: none !important;
     border: 1px solid #21BFE1;
     box-shadow: 0 0 10px #21bee1a5;
@@ -70,6 +115,7 @@
     border: 1px solid #d6d6d7;
     transition: all .2s ease-out;
     resize: none;
+    margin-top: -20px;
 }
 
 .create-page-textarea:focus {
@@ -77,7 +123,6 @@
     border: 1px solid #21BFE1;
     box-shadow: 0 0 10px #21bee1a5;
 }
-
 
 .create-page-button {
     margin-top: 20px;
@@ -105,9 +150,11 @@
 
 .aws-div-create-page {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    margin-top: -15px;
+    margin: 0 auto;
+    width: 390px;
+    margin-top: -40px;
 }
 
 .aws-loading-create {
@@ -117,4 +164,15 @@
     position: relative;
     top: 30px;
     right: 222px;
+}
+
+.aws-loading-text-create {
+    position: absolute;
+    top: -20px;
+    left: 235px;
+}
+
+.aws-input-and-upload {
+    display: flex;
+    position: relative;
 }

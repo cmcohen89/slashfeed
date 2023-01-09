@@ -43,18 +43,18 @@ const CreatePostForm = ({ setShowCreateModal, showCreateModal }) => {
         setPreviewImgUrl('');
     }, [showCreateModal])
 
-    const updateImage = (e) => {
+    useEffect(() => {
+        if (image) handleUpload();
+    }, [image])
+
+    const updateImage = async (e) => {
         const file = e.target.files[0];
         setImage(file);
     }
 
-    const handleUpload = async (e) => {
-        e.preventDefault();
+    const handleUpload = async () => {
         const formData = new FormData();
         formData.append("image", image);
-
-        // aws uploads can be a bit slow—displaying
-        // some sort of loading message is a good idea
         setImageLoading(true);
 
         const res = await fetch(`/api/posts/img`, {
@@ -65,6 +65,7 @@ const CreatePostForm = ({ setShowCreateModal, showCreateModal }) => {
             const url = await res.json();
             setImageLoading(false);
             setPreviewImgUrl(url.url)
+            await setImage(null)
             // history.push("/images");
         }
         else {
@@ -86,34 +87,31 @@ const CreatePostForm = ({ setShowCreateModal, showCreateModal }) => {
                 </div>
                 <div className='create-page-div-container'>
                     <div className='create-page-div'>
-                        <div>
-                            <div className='login-div'>
-                                {/* <label className='login-label' htmlFor='url-input'>Image URL</label> */}
+                        <div className='aws-input-and-upload'>
+                            {/* <label className='login-label' htmlFor='url-input'>Image URL</label> */}
+                            <input
+                                className='create-page-input-url'
+                                required
+                                name='url-input'
+                                onChange={e => setPreviewImgUrl(e.target.value)}
+                                value={preview_img_url.slice(0, 38) + (preview_img_url && '..')}
+                                placeholder="Image URL"
+                                type='text'
+                            />
+                            <label className='aws-label-create'><i class="fa-solid fa-upload"></i>
                                 <input
-                                    className='create-page-input'
-                                    required
-                                    name='url-input'
-                                    onChange={e => setPreviewImgUrl(e.target.value)}
-                                    value={preview_img_url}
-                                    placeholder="Enter the image URL or upload a pic below"
-                                    type='text'
+                                    className="aws-input"
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={updateImage}
                                 />
-                            </div>
-                            <div className='aws-div-create-page'>
-                                <label className='aws-label'>
-                                    <input
-                                        className="aws-input"
-                                        type="file"
-                                        accept="image/*"
-                                        onChange={updateImage}
-                                    />
-                                </label>
-                                <span className={`aws-submit2 ${!image && 'upload-disabled'}`} onClick={handleUpload}>Upload</span>
-                            </div>
+                            </label>
                             <div className='aws-loading-create'>
                                 {(imageLoading) && <p className='aws-loading-text-create'>Loading...</p>}
                             </div>
-
+                        </div>
+                        <div className='aws-div-create-page'>
+                            {/* <span className={`aws-submit2`} onClick={handleUpload}>Upload</span> */}
                         </div>
                         <div className='login-div'>
                             {/* <label className='login-label' htmlFor='title-input'>Title</label> */}
@@ -140,8 +138,6 @@ const CreatePostForm = ({ setShowCreateModal, showCreateModal }) => {
                             />
                         </div>
                     </div>
-
-
                 </div>
                 <button className='create-page-button' type='submit'>Create Post</button>
             </form>
