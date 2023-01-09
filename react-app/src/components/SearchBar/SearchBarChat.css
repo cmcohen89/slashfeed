@@ -5,7 +5,8 @@
     z-index: 6;
     text-align: center;
     background-color: white;
-    width: 396px;
+    width: 398px;
+    border-top-left-radius: 10px;
 }
 
 .search-icon-chat {

@@ -151,24 +151,36 @@
 
 
 
-@media (max-width: 1500px) {
+@media (max-width: 1280px) {
     .slogan {
         display: none;
     }
 
     .navigation-container {
-        margin: 0 50px;
+        margin: 0 20px;
     }
 
     .nav-links {
-        justify-content: center;
+        justify-content: left;
+        margin-left: 20px;
     }
 
     .nav-login-link {
         margin-right: 20px;
+        font-size: 15px;
     }
+
+    .nav-signup-link {
+        font-size: 15px;
+        margin-right: 20px;
+    }
+
+    .nav-login-link-last {
+        font-size: 15px;
+    }
+
     .nav-logo {
-        margin-left: 30px;
+        margin-left: 0px;
     }
 
     .nav-logos {
@@ -183,11 +195,41 @@
         max-width: 150px;
         min-width: 150px;
     }
+
+    .search-input {
+        width: 430px;
+    }
+
+    .search-bar-container {
+        margin: 0;
+        padding-right: 50px;
+    }
+
+    .nav-create {
+        width: 150px;
+    }
 }
 
 @media only screen and (max-device-width: 570px) {
     .nav-links {
-        justify-content: right;
-        margin-right: 20px;
+        justify-content: left;
+        margin-right: 30px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .search-bar-container {
+        /* display: none; */
+        margin-right: 140px;
+        width: 100px;
+    }
+
+    .search-input {
+        width: 200px;
+    }
+
+    .nav-logo {
+        margin: 0;
+        padding: 0;
     }
 }

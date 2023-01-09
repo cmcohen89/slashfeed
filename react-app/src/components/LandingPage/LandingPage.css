@@ -46,11 +46,17 @@
     margin-right: 5vw;
 }
 
+.landing-user-logo-container {
+    position: relative;
+    /* transform: scale(.9);
+    right: -3.5vw;
+    bottom: 50px; */
+}
+
 .landing-user-logo {
     position: absolute;
-    transform: scale(.9);
-    right: -3.5vw;
-    bottom: 50px;
+    left: -270px;
+    bottom: -170px;
 }
 
 .landing-user-pic {
@@ -87,4 +93,55 @@
     color: #21BFE1;
     font-weight: 500;
     cursor: pointer;
+}
+
+@media only screen and (max-device-width: 570px) {
+    .landing-page-content {
+        margin-right: 5vw;
+        padding-top: 32vw;
+    }
+}
+
+@media (max-width: 1280px) {
+    .login-form-landing {
+        transform: scale(.8);
+        margin-top: 100px;
+    }
+
+    .signup-form-landing {
+        transform: scale(.8);
+    }
+
+    .landing-page-forms {
+        margin-right: -180px;
+        padding-top: 0px;
+        margin-top: 70px;
+    }
+
+    .landing-user-logo {
+        transform: scale(.8);
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .login-form-landing {
+        transform: scale(.8);
+        margin-top: 40px;
+    }
+
+    .signup-form-landing {
+        transform: scale(.8);
+        margin-top: 0px;
+    }
+
+    .landing-page-forms {
+        margin-right: -180px;
+        padding-top: 0px;
+    }
+
+    .landing-user-logo {
+        transform: scale(.8);
+        margin-left: 5px;
+    }
 }

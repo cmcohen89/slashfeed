@@ -88,7 +88,7 @@
 
 @media (max-width: 1920px) {
     .single-post-title {
-        padding-top: 60px;
+        padding-top: 110px;
     }
 
     .single-post-img {
@@ -124,14 +124,14 @@
     }
 }
 
-@media (min-width: 571px) and (max-width: 1024px) {
+@media (min-width: 571px) and (max-width: 1280px) {
     .nav-logos {
         margin-right: 0;
     }
 
     .single-post-page-container {
         background-color: transparent;
-        max-width: 1024px;
+        max-width: 1280px;
         border: none;
     }
 
@@ -141,6 +141,7 @@
 
     .single-post-title {
         text-align: center;
+        margin-top: 40px;
     }
 
     .single-post-content-container {
@@ -167,7 +168,7 @@
     }
 
     .single-post-title {
-        padding-top: 60px;
+        padding-top: 120px;
     }
 
     .single-post-img {
