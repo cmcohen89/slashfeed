@@ -15,7 +15,7 @@ const UpdateCommentForm = ({ comment, updateComment, setUpdateComment }) => {
         if (errors.length > 0) {
             setErrors(errors);
         } else {
-            await dispatch(putComment(body, comment.id));
+            await dispatch(putComment(body.replace(/\n+/g, '\n').trim(), comment.id));
             setUpdateComment(false);
             setErrors([]);
         }
