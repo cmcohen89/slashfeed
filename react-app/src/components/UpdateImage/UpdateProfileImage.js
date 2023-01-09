@@ -16,7 +16,7 @@ const UpdateProfileImage = ({ ShowUpdateProfilePic, setShowUpdateProfilePic, use
         setErrors([]);;
         let errors = [];
         if (preview_img_url.trim() === '') errors.push('Please enter an image URL!')
-        if (errors) {
+        if (errors.length) {
             setErrors(errors);
         } else {
             const data = await dispatch(putProfilePic(userId, preview_img_url))

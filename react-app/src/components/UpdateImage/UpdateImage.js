@@ -16,9 +16,10 @@ const UpdateImage = ({ showUpdateImage, setShowUpdateImage, imgId, user }) => {
         setErrors([]);
         let errors = [];
         if (preview_img_url.trim() === '') errors.push('Please enter an image URL!')
-        if (errors) {
+        if (errors.length) {
             setErrors(errors);
         } else {
+            console.log('hey')
             const data = await dispatch(putImg(imgId, preview_img_url))
             if (data.errors) {
                 setErrors(data.errors)
