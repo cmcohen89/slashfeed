@@ -35,6 +35,6 @@ class SignUpForm(FlaskForm):
     password = StringField('password',
         validators=[
             DataRequired(),
-            Length(min=6, message="Safe passwords are more than 6 characters."),
+            Length(min=6, message="Are you hoping to get hacked? Make your password at least 6 characters!"),
             Length(max=20, message="What is this, a bank? Keep your password to 20 characters.")
         ])

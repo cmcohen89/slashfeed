@@ -17,6 +17,7 @@ const PostIndex = () => {
     const topPosts = useSelector(state => Object.values(state.allPosts))
     const user = useSelector(state => state.session.user)
     const [showLoginModal, setShowLoginModal] = useState(false);
+    const [loading, showLoading] = useState(true);
 
     useEffect(() => {
         dispatch(getPosts());
@@ -24,12 +25,23 @@ const PostIndex = () => {
         if (user) dispatch(getChats());
     }, [dispatch])
 
+    setTimeout(() => {
+        showLoading(false);
+    }, 750)
+
     topPosts.sort((a, b) => b.likes - a.likes)
     allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
     if (!allPosts || allPosts.length < 3) return null;
 
     if (!user) history.push('/')
+
+    if (loading) return (
+        <div className="follow-more-users">
+            <h1 className="create-post-page-title">Loading all posts...</h1>
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
+    )
 
     return (
         <div className="all-posts">

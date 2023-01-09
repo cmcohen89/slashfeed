@@ -1,6 +1,7 @@
 .search-bar-chat {
     position: fixed;
     border-bottom: 1px solid #d6d6d7;
+    border-right: 1px solid #d6d6d7;
     padding-bottom: 20px;
     z-index: 6;
     text-align: center;
