@@ -18,9 +18,9 @@ const CreatePostForm = ({ setShowCreateModal, showCreateModal }) => {
         e.preventDefault();
         setErrors([]);
         let errors = [];
-        if (title.length < 3 || title.length > 100) errors.push("Let's keep titles between 3 and 100 characters.")
-        if (body.length < 20) errors.push("Tell us more about this post! \n (20 characters minimum)")
-        if (body.length > 4999) errors.push("Easy tiger, let's keep it under 5000 characters!")
+        if (title.trim().length < 3 || title.trim().length > 100) errors.push("Let's keep titles between 3 and 100 characters.")
+        if (body.trim().length < 20) errors.push("Tell us more about this post! \n (20 characters minimum)")
+        if (body.trim().length > 4999) errors.push("Easy tiger, let's keep it under 5000 characters!")
         if (errors.length > 0) {
             setErrors(errors);
         } else {
@@ -95,7 +95,7 @@ const CreatePostForm = ({ setShowCreateModal, showCreateModal }) => {
                                 required
                                 name='url-input'
                                 onChange={e => setPreviewImgUrl(e.target.value)}
-                                value={preview_img_url}
+                                value={preview_img_url.slice(0, 44)}
                                 placeholder="Image URL"
                                 type='text'
                             />

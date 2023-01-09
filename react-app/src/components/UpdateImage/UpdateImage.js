@@ -79,7 +79,7 @@ const UpdateImage = ({ showUpdateImage, setShowUpdateImage, imgId, user }) => {
                     required
                     name='url-input'
                     onChange={e => setPreviewImgUrl(e.target.value)}
-                    value={preview_img_url}
+                    value={preview_img_url.slice(0, 62)}
                     placeholder="Enter new image URL"
                     type='text'
                 />
