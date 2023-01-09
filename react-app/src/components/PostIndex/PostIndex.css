@@ -455,18 +455,22 @@
     }
 }
 
-@media (max-width: 1350px) {
+@media (max-width: 1500px) {
     .one-post {
-        width: 400px;
+        width: 650px;
         height: 750px;
     }
 
     .one-post-content {
         height: 298px;
     }
+
+    .img-gradient {
+        height: 100%;
+    }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
     .one-post-body {
         display:block;
     }
@@ -477,7 +481,7 @@
     }
 
     .one-post {
-        width: 420px;
+        width: 550px;
         margin-bottom: 30px;
         height: 732px
     }
@@ -490,6 +494,10 @@
         margin-bottom: 15px;
     }
 
+    .img-gradient {
+        height: 100%;
+    }
+
 }
 
 @media (max-width: 1000px) {
@@ -499,5 +507,11 @@
     .one-post-title,
     .read-more {
         font-family: "Rubik", sans-serif;
+    }
+}
+
+@media only screen and (max-device-width: 570px) {
+    .img-gradient {
+        height: 100%;
     }
 }

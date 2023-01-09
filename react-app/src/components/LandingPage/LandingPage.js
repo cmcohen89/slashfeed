@@ -18,8 +18,10 @@ const LandingPage = () => {
                 <div className='landing-page-forms-wrapper'>
                     {user ?
                         <div className='landing-user'>
-                            <div className='landing-user-logo'>
-                                <img src="https://i.imgur.com/i9QyYGZ.png" />
+                            <div className='landing-user-logo-container'>
+                                <div className='landing-user-logo'>
+                                    <img src="https://i.imgur.com/i9QyYGZ.png" />
+                                </div>
                             </div>
                             <div>
                                 <img className='landing-user-pic' src={user.profileImgUrl} />

@@ -6,7 +6,8 @@
     justify-content: space-between;
     height: 950px;
     border-radius: 10px;
-    border: 3px solid #21BFE1;
+    border: 2px solid #d6d6d7;
+    box-shadow: 0 0 10px black;
 }
 
 .chat-left {
@@ -362,11 +363,11 @@
 
 @media (max-width: 1280px) {
     .chat-page {
-        height: 450px;
+        height: 750px;
     }
 
     .chat-right-content {
-        height: 295px;
+        height: 585px;
     }
 
     .modal.chat-show {

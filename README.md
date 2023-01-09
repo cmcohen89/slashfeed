@@ -13,7 +13,7 @@
 
 ## Intro
 
-Welcome to Slash/Feed! This web application is a fullstack project of my creation wherein I've attempted to implement social media functionality on a site that has "news feed" styling. The idea behind this approach is that the news nowadays is generally quite dark and depressing, so I thought it'd be fun to get your "news" from the people you actually care about!
+Welcome to Slash/Feed! This web application is a fullstack project of my creation wherein I've attempted to implement social media functionality on a site that has "news feed" styling cloned from https://www.slashfilm.com. The idea behind this approach is that the news nowadays is generally quite dark and depressing, so I thought it'd be fun to get your "news" from the people you actually care about!
 
 ## Features
 
