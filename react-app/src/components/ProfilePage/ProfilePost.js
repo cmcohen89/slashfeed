@@ -33,7 +33,7 @@ const ProfilePost = ({ post, setPostType, user }) => {
                 className={`overlay ${confirmDelete ? "show" : ""}`}
                 onClick={() => showConfirmDelete(!showConfirmDelete)}
             />
-            <div className="one-post-img-container">
+            <div className="one-profile-post-img-container">
                 {currUser && currUser.id === post.postOwner.id && <span
                     className='update-image-button'
                     onClick={() => setShowUpdateImage(true)}
@@ -41,7 +41,7 @@ const ProfilePost = ({ post, setPostType, user }) => {
                     <i className="fa-solid fa-pen-to-square"></i>
                 </span>}
                 <NavLink to={`/posts/${post.id}`}>
-                    <img className='one-post-img' src={post.postImages[post.previewImgId].url} alt="" />
+                    <img className='one-profile-post-img' src={post.postImages[post.previewImgId].url} alt="" />
                 </NavLink>
             </div>
             <div className="one-profile-post-content">

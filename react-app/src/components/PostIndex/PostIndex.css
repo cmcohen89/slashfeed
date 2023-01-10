@@ -132,7 +132,7 @@
 
 .one-post {
     width: 680px;
-    height: 722px;
+    height: 900px;
     border: 1px solid #d7d7d7;
     transition: all 0.2s ease-out;
 }
@@ -142,13 +142,12 @@
 }
 
 .one-post-img-container {
-    height: 450px;
+    height: 650px;
     position: relative;
 }
 
 .one-post-img {
-    height: 450px;
-    width: 438px;
+    height: 650px;
     object-fit: cover;
     object-position: top;
     width: 100%;
@@ -158,7 +157,7 @@
 .one-post-content {
     position: relative;
     background-color: white;
-    height: 270px;
+    height: 248px;
     padding: 0 22px;
     word-break: break-word;
 }
@@ -271,7 +270,7 @@
     color: #3A4148;
     transition: color .2s ease;
     font-family: "Rubik", sans-serif;
-    font-size: 17px;
+    font-size: 19px;
     letter-spacing: -0.5px;
     font-weight: 600;
     color: #21BFE1;

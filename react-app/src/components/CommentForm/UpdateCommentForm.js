@@ -12,6 +12,7 @@ const UpdateCommentForm = ({ comment, updateComment, setUpdateComment }) => {
         e.preventDefault();
         let errors = [];
         if (body.length > 4999) errors.push("Easy tiger, let's keep it under 5000 characters!")
+        if (body.trim() === '') errors.push("You can't submit an empty comment!")
         if (errors.length > 0) {
             setErrors(errors);
         } else {

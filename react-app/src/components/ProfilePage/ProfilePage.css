@@ -77,8 +77,8 @@
 }
 
 .one-profile-post {
-    width: 438px;
-    height: 652px;
+    width: 428px;
+    height: 542px;
     border: 1px solid #d7d7d7;
     margin: 1.25em 1.25em;
     transition: all .2s ease;
@@ -87,9 +87,22 @@
 .one-profile-post-content {
     position: relative;
     background-color: white;
-    height: 200px;
+    height: 190px;
     padding: 0 22px;
     word-break: break-word;
+}
+
+.one-profile-post-img-container {
+    height: 350px;
+    position: relative;
+}
+
+.one-profile-post-img {
+    height: 350px;
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+    background-color: black;
 }
 
 .one-profile-post:hover {
