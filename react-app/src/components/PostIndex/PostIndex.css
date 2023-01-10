@@ -247,6 +247,7 @@
     color: #3A4148;
     font-size: 18px;
     white-space: pre-wrap;
+    margin-top: 5px;
 }
 
 .one-post-title-and-body::-webkit-scrollbar {
@@ -270,7 +271,7 @@
     color: #3A4148;
     transition: color .2s ease;
     font-family: "Rubik", sans-serif;
-    font-size: 19px;
+    font-size: 18px;
     letter-spacing: -0.5px;
     font-weight: 600;
     color: #21BFE1;
@@ -343,8 +344,12 @@
 
 .profile-link {
     text-decoration: none;
-    color: #808A8C;
+    color: #21BFE1;
     transition: all .2s ease;
+}
+
+.profile-link:hover {
+    color: #69e2fd;
 }
 
 .featured-profile-link {
@@ -357,7 +362,6 @@
     margin-top: 10px;
 }
 
-.profile-link:hover,
 .featured-profile-link:hover {
     color: #21BFE1;
 }
