@@ -271,13 +271,40 @@
     }
 
     .one-profile-post-content {
-        height: 283px;
+        height: 203px;
     }
 
     .one-profile-post {
         width: 438px;
-        height: 734px;
+        height: 556px;
         border: 1px solid #d7d7d7;
         margin: 1.25em 1.25em;
+    }
+}
+
+@media only screen and (max-device-width: 390px) {
+    .profile-header {
+        width: 990px;
+    }
+
+    .profile-grid {
+        grid-template-columns: auto auto;
+        row-gap: 60px;
+    }
+
+    .one-profile-post-content {
+        height: 203px;
+    }
+
+    .one-profile-post {
+        width: 408px;
+        height: 556px;
+        border: 1px solid #d7d7d7;
+        margin: 1.25em 1.25em;
+    }
+
+    .profile-grid {
+        width: 900px;
+        margin: 0 auto;
     }
 }

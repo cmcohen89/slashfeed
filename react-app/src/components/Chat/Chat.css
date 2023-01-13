@@ -375,6 +375,24 @@
     }
 }
 
+@media (max-height: 900px) {
+    .chat-page {
+        height: 550px;
+    }
+
+    .chat-right-content {
+        height: 385px;
+    }
+
+    .modal.chat-show {
+        bottom: 14vh;
+    }
+
+    .chat-right-content-placeholder {
+        padding-top: 90px;
+    }
+}
+
 @media only screen and (max-device-width: 570px){
     .chat-page {
         height: 950px;

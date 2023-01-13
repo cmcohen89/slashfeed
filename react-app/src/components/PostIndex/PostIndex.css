@@ -468,7 +468,7 @@
   }
 
 
-@media (max-width: 1500px) {
+/* @media (max-width: 1500px) {
     .featured-posts > :first-child {
         grid-column: span 3;
     }
@@ -495,9 +495,7 @@
         height: 1px;
         border-bottom: 1px solid #D7D7D6;
     }
-}
 
-@media (max-width: 1500px) {
     .one-post {
         width: 650px;
         height: 750px;
@@ -510,9 +508,23 @@
     .img-gradient {
         height: 100%;
     }
-}
+} */
 
 @media (max-width: 1280px) {
+    .featured-posts {
+        margin: 0 auto;
+        width: 1200px;
+    }
+
+    .featured-title {
+        font-size: 36px;
+        line-height: 40px;
+    }
+
+    .side-featured-title {
+        font-size: 24px;
+    }
+
     .one-post-body {
         display:block;
     }
@@ -528,18 +540,56 @@
         height: 732px
     }
 
+    .one-post-img-container {
+        height: 450px;
+    }
+
+    .one-post-title {
+        font-size: 26px;
+    }
+
+    .one-post-body {
+        font-size: 16px;
+    }
+
+    .one-post-img {
+        height: 450px;
+    }
+
     .one-post-content {
         height: 280px;
     }
 
     .one-post-user {
-        margin-bottom: 15px;
+        margin-bottom: 0px;
     }
 
     .img-gradient {
-        height: 100%;
+        height: 98.5%;
     }
 
+}
+
+@media (max-width: 1024px) {
+    .featured-posts {
+        margin: 0 auto;
+        width: 960px;
+    }
+
+    .one-post {
+        width: 450px;
+        margin-bottom: 30px;
+        height: 732px
+    }
+
+    .one-post-title {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .one-post-content {
+        height: 280px;
+    }
 }
 
 @media (max-width: 1000px) {
@@ -552,8 +602,28 @@
     }
 }
 
-@media only screen and (max-device-width: 570px) {
+/* @media only screen and (max-device-width: 375px) {
     .img-gradient {
         height: 100%;
+    }
+} */
+
+@media only screen and (max-device-width: 390px) {
+    .img-gradient {
+        height: 98.5%;
+    }
+
+    /* .lower-index-grid {
+        grid-template-columns: auto;
+        row-gap: 40px;
+    } */
+
+    .featured-posts {
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    .featured-user-and-title {
+        margin-right: 0px;
     }
 }
