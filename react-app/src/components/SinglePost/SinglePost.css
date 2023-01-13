@@ -163,6 +163,11 @@
 }
 
 @media only screen and (max-device-width: 570px) {
+    .single-post-page-container {
+        width: 1000px;
+        margin: 0 auto;
+    }
+
     .single-post-title {
         font-family: "Rubik", sans-serif;
     }

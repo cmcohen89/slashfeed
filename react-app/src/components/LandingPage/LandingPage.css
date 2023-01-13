@@ -109,13 +109,27 @@
     }
 }
 
-@media only screen and (max-device-width: 390px) {
+@media only screen and (max-device-width: 375px) {
     html {
         position: fixed;
     }
 
     .login-form-landing {
-        top: 500px;
+        top: 300px;
+    }
+
+    .signup-form-landing {
+        margin-top: 200px;
+    }
+}
+
+@media only screen and (min-device-width: 376px) and (max-device-width: 390px) {
+    html {
+        position: fixed;
+    }
+
+    .login-form-landing {
+        top: 400px;
     }
 
     .signup-form-landing {
