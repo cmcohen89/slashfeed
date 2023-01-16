@@ -7,7 +7,6 @@ import PostIndex from './components/PostIndex/PostIndex';
 import SinglePost from './components/SinglePost/SinglePost';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import MyPosts from './components/PostIndex/MyPosts';
-import SignupPage from './components/auth/SignupPage';
 import CreatePostPage from './components/PostForm/CreatePostPage';
 import ProfileRedirect from './components/ProfilePage/ProfileRedirect';
 import Footer from './components/Footer/Footer';

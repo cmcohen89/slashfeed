@@ -25,7 +25,7 @@ const UpdateCommentForm = ({ comment, updateComment, setUpdateComment }) => {
     useEffect(() => {
         setBody(comment.body);
         setErrors([]);
-    }, [updateComment])
+    }, [updateComment, comment.body])
 
     return (
         <form className='update-comment-form' onSubmit={handleSubmit}>

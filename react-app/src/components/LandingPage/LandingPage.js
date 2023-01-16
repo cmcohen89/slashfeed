@@ -20,11 +20,11 @@ const LandingPage = () => {
                         <div className='landing-user'>
                             <div className='landing-user-logo-container'>
                                 <div className='landing-user-logo'>
-                                    <img src="https://i.imgur.com/i9QyYGZ.png" />
+                                    <img src="https://i.imgur.com/i9QyYGZ.png" alt='logo' />
                                 </div>
                             </div>
                             <div>
-                                <img className='landing-user-pic' src={user.profileImgUrl} />
+                                <img className='landing-user-pic' src={user.profileImgUrl} alt='user profile pic' />
                             </div>
                             <span className='landing-user-continue' onClick={() => history.push('/home')}>
                                 Continue as {user.username}

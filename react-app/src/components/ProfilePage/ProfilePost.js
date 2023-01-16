@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { likePost, unlikePost } from "../../store/all_posts";
 import { getUserLikedPosts, getUserPosts } from "../../store/user_posts";
-import LoginModal from "../LoginModal";
 import UpdatePostForm from "../PostForm/UpdatePostForm";
 import UpdateImage from "../UpdateImage/UpdateImage";
 import ConfirmDelete from "./ConfirmDelete";
@@ -12,13 +11,11 @@ const ProfilePost = ({ post, setPostType, user }) => {
     const dispatch = useDispatch();
     const [updatePost, setUpdatePost] = useState(false);
     const currUser = useSelector(state => state.session.user)
-    const [showLoginModal, setShowLoginModal] = useState(false);
     const [showUpdateImage, setShowUpdateImage] = useState(false);
     const [confirmDelete, showConfirmDelete] = useState(false);
 
     return (
         <div className='one-profile-post'>
-            <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal} />
             <div className={`modal container ${showUpdateImage ? "update-comment-show" : ""}`}>
                 <UpdateImage showUpdateImage={showUpdateImage} setShowUpdateImage={setShowUpdateImage} imgId={post.previewImgId} user={user} />
             </div>
@@ -69,18 +66,14 @@ const ProfilePost = ({ post, setPostType, user }) => {
                 </div>
                 <h4
                     onClick={async () => {
-                        currUser ?
-                            (
-                                post.usersWhoLiked[currUser.id] ?
-                                    await dispatch(unlikePost(post.id))
-                                    && dispatch(getUserPosts(user.id))
-                                    && dispatch(getUserLikedPosts(user.id))
-                                    :
-                                    await dispatch(likePost(post.id))
-                                    && dispatch(getUserPosts(user.id))
-                                    && dispatch(getUserLikedPosts(user.id))
-                            )
-                            : setShowLoginModal(true)
+                        post.usersWhoLiked[currUser.id] ?
+                            await dispatch(unlikePost(post.id))
+                            && dispatch(getUserPosts(user.id))
+                            && dispatch(getUserLikedPosts(user.id))
+                            :
+                            await dispatch(likePost(post.id))
+                            && dispatch(getUserPosts(user.id))
+                            && dispatch(getUserLikedPosts(user.id))
                     }}
                     className={`profile-likes ${currUser && post.usersWhoLiked[currUser.id] && "one-post-liked"}`}
                 >

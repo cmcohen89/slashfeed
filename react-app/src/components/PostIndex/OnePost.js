@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getFollowedPosts, getPosts, likePost, unlikePost } from "../../store/all_posts";
 
-const OnePost = ({ post, setShowLoginModal, myPostsFlag }) => {
+const OnePost = ({ post, myPostsFlag }) => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
 
@@ -38,11 +38,9 @@ const OnePost = ({ post, setShowLoginModal, myPostsFlag }) => {
                 </div>
                 <h4
                     onClick={async () => {
-                        user ?
-                            (post.usersWhoLiked[user.id] ?
-                                await dispatch(unlikePost(post.id)) :
-                                await dispatch(likePost(post.id)))
-                            : setShowLoginModal(true)
+                        post.usersWhoLiked[user.id] ?
+                            await dispatch(unlikePost(post.id)) :
+                            await dispatch(likePost(post.id))
                         !myPostsFlag ? dispatch(getPosts()) : dispatch(getFollowedPosts());
                     }}
                     className={`one-post-footer ${user && post.usersWhoLiked[user.id] && "one-post-liked"}`}
@@ -53,7 +51,7 @@ const OnePost = ({ post, setShowLoginModal, myPostsFlag }) => {
                     </span>
                 </h4>
             </div>
-        </div>
+        </div >
     )
 }
 

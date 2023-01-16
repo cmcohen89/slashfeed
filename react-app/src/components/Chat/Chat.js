@@ -41,7 +41,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
                 socket.disconnect()
             })
         }
-    }, [setMessages, selectedChat])
+    }, [setMessages, selectedChat, currUser, dispatch])
 
     useEffect(() => {
         if ((showChatModal1 || showChatModal2) && !selectedChat && chats.length) {
@@ -50,7 +50,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
             }, 5000);
             return () => clearInterval(interval);
         }
-    }, [showChatModal1, showChatModal2, selectedChat, setSelectedChat])
+    }, [showChatModal1, showChatModal2, selectedChat, setSelectedChat, chats.length, dispatch])
 
     useEffect(() => {
         if (currUser) dispatch(getChats());
@@ -91,12 +91,12 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
         messageReader(msgObj);
     }
 
-    let totalUnreadMsgs = 0;
+    // let totalUnreadMsgs = 0;
     if (currUser) {
         for (let chat of chats) {
             chat.recipient = Object.values(chat.chatUsers).filter(user => user.id !== currUser.id)[0];
             chat.chatMessages.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-            for (let msg of chat.chatMessages) if (!msg.read && msg.messageOwner.id !== currUser.id) totalUnreadMsgs += 1;
+            // for (let msg of chat.chatMessages) if (!msg.read && msg.messageOwner.id !== currUser.id) totalUnreadMsgs += 1;
         };
     }
 
@@ -143,10 +143,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
                     </div>
                     :
                     <div className='chat-right-header'>
-                        <span className="chat-right-header-placeholder">
-                            <span className="chat-right-recipient-pic" />
-                        </span>
-                        <h2 className='recipient-name'></h2>
+                        <span className="chat-right-header-placeholder" />
                     </div>
                 }
                 <div className="chat-right-content">

@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginFormLanding.css';
+import './LoginForm.css';
+import './SignupForm.css';
+import './SignupPage.css';
 
 const LoginFormLanding = ({ setForm }) => {
     const [errors, setErrors] = useState([]);
@@ -48,7 +51,7 @@ const LoginFormLanding = ({ setForm }) => {
     return (
         <form className='login-form-landing' onSubmit={onLogin}>
             <div className='login-logo'>
-                <img src="https://i.imgur.com/i9QyYGZ.png" />
+                <img src="https://i.imgur.com/i9QyYGZ.png" alt='logo' />
             </div>
             <div className='landing-page-blurb'>
                 <h2 className='blurb'>Feel-Good News From Your Friends</h2>
