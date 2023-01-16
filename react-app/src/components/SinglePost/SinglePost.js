@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { likePost, unlikePost } from "../../store/all_posts";
 import { getSinglePost } from "../../store/one_post";
 import Comments from "../Comments/Comments";
-import LoginModal from "../LoginModal";
 import './SinglePost.css';
 
 const SinglePost = () => {
@@ -13,7 +12,6 @@ const SinglePost = () => {
     const user = useSelector(state => state.session.user)
     const { id } = useParams();
     const singlePost = useSelector(state => state.onePost[id]);
-    const [showLoginModal, setShowLoginModal] = useState(false);
 
     useEffect(() => {
         dispatch(getSinglePost(id));
@@ -29,7 +27,6 @@ const SinglePost = () => {
             </div>
             <div className="single-post-content-container">
                 <div className="single-post-page">
-                    <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal} />
                     <img
                         className="single-post-img"
                         src={singlePost.postImages[singlePost.previewImgId].url}
@@ -54,10 +51,9 @@ const SinglePost = () => {
                         </span>
                         <span
                             onClick={async () => {
-                                user ? (singlePost.usersWhoLiked[user.id] ?
+                                singlePost.usersWhoLiked[user.id] ?
                                     await dispatch(unlikePost(singlePost.id)) :
-                                    await dispatch(likePost(singlePost.id)))
-                                    : setShowLoginModal(true)
+                                    await dispatch(likePost(singlePost.id))
                                 dispatch(getSinglePost(id));
                             }}
                             className={`single-post-likes ${user && singlePost.usersWhoLiked[user.id] ? "one-post-liked" : ""}`}

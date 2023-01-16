@@ -4,10 +4,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { getFollowedPosts, getPosts } from '../../store/all_posts';
 import { getChats } from '../../store/chats';
 import { logout } from '../../store/session';
-import SignUpForm from '../auth/SignUpForm';
 import Chat from '../Chat/Chat';
-import LoginModal from '../LoginModal';
-import CreatePostForm from '../PostForm/CreatePostForm';
 import SearchBar from '../SearchBar/SearchBar';
 import './Navigation.css';
 
@@ -15,16 +12,12 @@ const Navigation = () => {
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const history = useHistory();
-    const windowHeight = window.innerHeight;
 
     const chats = useSelector(state => Object.values(state.chats))
     const allPosts = useSelector(state => Object.values(state.allPosts))
     const numArr = [];
     for (let post of allPosts) numArr.push(post.id)
 
-    const [showLoginModal, setShowLoginModal] = useState(false);
-    const [showSignupModal, setShowSignupModal] = useState(false);
-    const [showCreateModal, setShowCreateModal] = useState(false);
     const [showChatModal, setShowChatModal] = useState(false);
 
     let totalUnreadMsgs = 0;
@@ -32,21 +25,6 @@ const Navigation = () => {
 
     return (
         <div className="navigation-wrapper">
-            <div className={`modal container ${showCreateModal ? "create-show" : ""}`}>
-                <CreatePostForm setShowCreateModal={setShowCreateModal} showCreateModal={showCreateModal} />
-            </div>
-            <div
-                className={`overlay ${showCreateModal ? "show" : ""}`}
-                onClick={() => setShowCreateModal(!showCreateModal)}
-            />
-            <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal} />
-            <div className={`modal container ${showSignupModal ? "signup-show" : ""}`}>
-                <SignUpForm setShowSignupModal={setShowSignupModal} showSignupModal={showSignupModal} />
-            </div>
-            <div
-                className={`overlay ${showSignupModal ? "show" : ""}`}
-                onClick={() => setShowSignupModal(!setShowSignupModal)}
-            />
             <div className={`modal container ${showChatModal ? "chat-show" : ""}`}>
                 <Chat setShowChatModal={setShowChatModal} showChatModal1={showChatModal} />
             </div>
@@ -100,7 +78,7 @@ const Navigation = () => {
                 </div>
                 <span
                     className='nav-create'
-                    onClick={() => user ? history.push('/new-post') : setShowLoginModal(true)}
+                    onClick={() => history.push('/new-post')}
                 >
                     New Post
                 </span>

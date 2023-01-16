@@ -45,10 +45,6 @@ const CreatePostForm = ({ setShowCreateModal, showCreateModal }) => {
         setPreviewImgUrl('');
     }, [showCreateModal])
 
-    useEffect(() => {
-        if (image) handleUpload();
-    }, [image])
-
     const updateImage = async (e) => {
         const file = e.target.files[0];
         setImage(file);
@@ -77,6 +73,10 @@ const CreatePostForm = ({ setShowCreateModal, showCreateModal }) => {
             console.log("error");
         }
     }
+
+    useEffect(() => {
+        if (image) handleUpload();
+    }, [image])
 
     return (
         <div>

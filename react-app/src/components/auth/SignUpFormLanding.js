@@ -114,7 +114,7 @@ const SignUpFormLanding = ({ setForm }) => {
     return (
         <form className='signup-form-landing' onSubmit={onSignUp}>
             <div className='signup-logo'>
-                <img src="https://i.imgur.com/i9QyYGZ.png" />
+                <img src="https://i.imgur.com/i9QyYGZ.png" alt='logo' />
             </div>
             <div className='landing-page-blurb2'>
                 <h2 className='blurb'>Feel-Good News From Your Friends</h2>

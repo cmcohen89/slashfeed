@@ -38,7 +38,7 @@ const SearchBarChat = ({ selectedChat, setSelectedChat, setMessages, showChatMod
     useEffect(() => {
         setQuery('')
         setSelectedChat(null)
-    }, [showChatModal1, showChatModal2])
+    }, [showChatModal1, showChatModal2, setSelectedChat])
 
     return (
         <div className="search-bar-chat">
