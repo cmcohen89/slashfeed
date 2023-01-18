@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getChats, readMessages } from "../../store/chats";
+import { getChats, readMessages, postMessage } from "../../store/chats";
 import './Chat.css'
-import { postMessage } from "../../store/chats";
 import ChatMessages from "./ChatMessages";
 import { NavLink } from "react-router-dom";
 import OneChat from "./OneChat";
@@ -34,6 +33,11 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
             }
 
             socket.on("notify", () => {
+                dispatch(getChats());
+            })
+
+            socket.on("delete_thread", (data) => {
+                if (data.source.id === selectedChat.recipient.id) setSelectedChat(null);
                 dispatch(getChats());
             })
 
@@ -124,6 +128,7 @@ const Chat = ({ setShowChatModal, targetUserId, showChatModal1, showChatModal2 }
                             messageReader={messageReader}
                             messages={messages}
                             currUser={currUser}
+                            socket={socket}
                         />
                     </div>
                 ))

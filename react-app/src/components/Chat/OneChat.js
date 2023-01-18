@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { getChats } from "../../store/chats";
 import ConfirmThreadDelete from "./ConfirmThreadDelete";
 
-const OneChat = ({ currUser, messageReader, chat, selectedChat, setSelectedChat, calcTimeElapsed, setShowChatModal, setMessages }) => {
+const OneChat = ({ socket, currUser, messageReader, chat, selectedChat, setSelectedChat, calcTimeElapsed, setShowChatModal, setMessages }) => {
     const dispatch = useDispatch();
     const [hover, setHover] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
@@ -25,7 +25,7 @@ const OneChat = ({ currUser, messageReader, chat, selectedChat, setSelectedChat,
                     onMouseLeave={() => setHover(false)}
                 >
                     <div className={`modal container ${showDelete ? "signup-show" : ""}`}>
-                        <ConfirmThreadDelete setShowDelete={setShowDelete} chat={chat} setSelectedChat={setSelectedChat} />
+                        <ConfirmThreadDelete currUser={currUser} selectedChat={selectedChat} socket={socket} setShowDelete={setShowDelete} chat={chat} setSelectedChat={setSelectedChat} />
                     </div>
                     <div
                         className={`overlay ${showDelete ? "show" : ""}`}
