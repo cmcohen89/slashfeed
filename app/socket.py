@@ -66,3 +66,10 @@ def notify(data):
     if data['username']:
         targetUser = [user for user in socketUsers if user['username'] == data['username']][0]
         emit("notify", data, broadcast=True, to=targetUser['sid'])
+
+
+@socketio.on("delete_thread")
+def delete_thread(data):
+    if data['target']:
+        targetUser = [user for user in socketUsers if user['username'] == data['target']['username']][0]
+        emit("delete_thread", data, broadcast=True, to=targetUser['sid'])

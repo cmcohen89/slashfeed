@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { deleteThread, getChats } from "../../store/chats";
 
-const ConfirmThreadDelete = ({ chat, setShowDelete, setSelectedChat }) => {
+const ConfirmThreadDelete = ({ selectedChat, currUser, socket, chat, setShowDelete, setSelectedChat }) => {
     const dispatch = useDispatch();
 
     return (
@@ -12,6 +12,7 @@ const ConfirmThreadDelete = ({ chat, setShowDelete, setSelectedChat }) => {
                     className="confirm-delete-button-yes"
                     onClick={async () => {
                         await dispatch(deleteThread(chat.id));
+                        await socket.emit("delete_thread", { target: selectedChat.recipient, source: currUser })
                         setSelectedChat(null);
                         setShowDelete(false);
                         dispatch(getChats());
