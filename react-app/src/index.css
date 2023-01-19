@@ -1,74 +1,80 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Rubik", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
 }
 
 body {
-    background-color: #f5f7f9;
-    overflow-y: scroll;
+  background-color: #f5f7f9;
+  overflow-y: scroll;
 }
 
 .overlay {
-    background-color: rgba(0, 0, 0, 0.55);
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: fixed;
-    visibility: hidden;
-    opacity: 0;
-    z-index: 6;
-    transition: all .15s ease-out .15s;
+  background-color: rgba(0, 0, 0, 0.55);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 6;
+  transition: all 0.15s ease-out 0.15s;
 }
 
 .overlay.show {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -200vh;
-    background-color: #fff;
-    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
-    transition: bottom .3s ease-out;
-    z-index: 10;
-    border-radius: 10px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -200vh;
+  background-color: #fff;
+  box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
+  transition: bottom 0.3s ease-out;
+  z-index: 10;
+  border-radius: 10px;
 }
 
 .modal.create-show {
-    bottom: 16vh;
+  bottom: 16vh;
 }
 
 .modal.login-show {
-    bottom: 32vh;
+  bottom: 32vh;
 }
 
 .modal.signup-show {
-    bottom: 24vh;
+  bottom: 24vh;
 }
 
 .modal.update-post-show {
-    bottom: 25vh;
+  bottom: 25vh;
 }
 
 .modal.update-comment-show {
-    bottom: 40vh;
+  bottom: 40vh;
 }
 
 .modal.chat-show {
-    bottom: 14vh;
+  bottom: 15vh;
 }
 
 .modal.follows-show {
-    bottom: 30vh;
+  bottom: 30vh;
 }
 
 .not-found {
-    margin-top: 200px;
-    text-align: center;
+  margin-top: 200px;
+  text-align: center;
+}
+
+@media (min-width: 3000px) {
+  .modal.chat-show {
+    bottom: 30vh;
+  }
 }
